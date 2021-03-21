@@ -1,7 +1,7 @@
-# Oddworld-Stranger-s-Wrath-HD-Autosplitter
+# Oddworld Stranger's Wrath HD Autosplitter
 Oddworld: Stranger's Wrath HD Autosplitter v2.2
 
-First of all, this autosplitter works for both Any%, Any% No Ghost, All Bounties and Individual Levels.
+This autosplitter works for both Any%, Any% No Ghost, All Bounties and Individual Levels.
 Do keep in mind that this autosplitter has been made based on the current routes we use (on the 18.03.2021),
 so any major change in the routes might resulte in the autosplitter not working anymore.
 If it's the case or you're having issues with the autosplitter, you can contact me on discord (Fxyz#1329) and i'll figure a way to fix it.
