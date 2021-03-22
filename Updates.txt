@@ -1,0 +1,54 @@
+19.02.2021 v1.2
+	Changed the timing of two splits:
+		1. Tutorial splits now as you reach the end
+		2. McGee splits now as you talk to the guy inide the bounty store
+
+21.02.2021 v1.3
+	Added a load time remover
+
+22.02.2021 v1.4
+	Changed the timing of the final split:
+		Now splits as soon as you deal the final hit to Sekto's machine
+
+14.03.2021 v1.5
+	Changed the splitting methode for the "Buzzarton Skip" in Any% No Ghost:
+		Now works with the 0 boombat strat
+
+	2 changes made to the Auto reset function: 
+		1. Auto reset trigger changed to prevent auto resetting when manually loading a save
+		2. Now resets when you enter the main menu
+
+16.03.2021 v2.0
+	Added auto splitting, start and resetting for Individual Levels.
+	
+	Added possibility to chose between 2 splitting methodes for IL:
+		1. Single split: only one split at the end of the level
+		2. Multiple splits: adds some extra splits (when there are some, you can leave this checked even if the current level has only 1 split at the end)
+
+	There's also a level list in the settings to select which level you're running
+
+	Some splitting timings were changed to happen as soon as the cutscene at the end of a level is triggered.
+	This applies for both Full Game runs and Individual Levels runs
+	List of the segments affected by these changes:
+		- Gizzard Gulch Skip
+		- Buzzarton Skip
+		- Welcome to the Jungle
+		- Dusky Hollow
+		- Boat Skip
+		- River Skip
+		- Row Your Boat
+		- Last Legs
+			(some of these changes might be barely noticeable though)
+
+	When doing individual levels, the timer auto resets when you enter the loading menu
+
+18.03.2021 v2.1
+	Added GOG compatibilty
+	
+	Added a setting to select which platform you're running the game on (Steam / GOG). (IT HAS TO BE SET UP BEFORE LAUNCHING THE GAME)
+	
+	Removed the "Settings" root tab in the settings, because it was useless.
+
+20.03.2021 v2.2
+	removed the possibility to chose the refreshrate of the autosplitter due to problems with igt when more than 10
+
