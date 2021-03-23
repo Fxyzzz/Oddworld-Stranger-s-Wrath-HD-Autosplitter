@@ -49,6 +49,5 @@
 	
 	Removed the "Settings" root tab in the settings, because it was useless.
 
-20.03.2021 v2.2
-	removed the possibility to chose the refreshrate of the autosplitter due to problems with igt when more than 10
+
 
