@@ -11,7 +11,9 @@ state ("stranger", "2.2 Steam 18-03-2021 Fxyz")
 	int bounty : 0x1DE930, 0x10;		//Capture count (alive only)
 	int primeguy : 0x1DFA94, 0x90;		//Talking to the guy in the bounty store
 	int cutscene : 0x3403C0, 0x18;		//When black stripes appear on screen
-	double IGT : 0x1F4CB4, 0x18;
+	int IGT : 0x10F854, 0x18;
+	int IGT2 : 0x228330, 0x18;
+	long IGT3 : 0x34A040, 0x114;
 	int end : 0x3388C4, 0x68;
 	int quicksave : 0x008030, 0x4;		//When a quicksave / automatic save is done
 	int zone : 0x2373B8, 0x18;			//The ID of every chunks in the game
@@ -30,7 +32,9 @@ state ("stranger", "2.2 GOG 18-03-2021 Fxyz")
 	int bounty : 0x1DEA10, 0x10;
 	int primeguy : 0x1DFB74, 0x90;
 	int cutscene : 0x33F690, 0x18;		
-	double IGT : 0x1F389C, 0x18;
+	int IGT : 0x10F1E4, 0x18;
+	int IGT2 : 0x227560, 0x18;
+	long IGT3 : 0x0349330, 0x114;
 	int end : 0x337B84, 0x68;
 	int quicksave : 0x1DFB74, 0x88;
 	int zone : 0x1D00B8, 0x18;
@@ -58,7 +62,27 @@ init
 		}
 	}	
 	
-	refreshRate = 10;
+	if(settings["Refresh rate of the autosplitter"]){
+	
+		if(settings["100Rate"]){
+			refreshRate = 100;
+		}
+		
+		if(settings["50Rate"]){
+			refreshRate = 50;
+			
+		}
+		if(settings["40Rate"]){
+			refreshRate = 40;
+			
+		}
+		if(settings["10Rate"]){
+			refreshRate = 10;			
+		}
+		
+	} else {
+		refreshRate = 30;
+	}
 	
 }
 
@@ -71,6 +95,7 @@ startup
 	settings.SetToolTip("Platform", "SET THIS UP BEFORE LAUNCHING THE GAME");
 	settings.Add("Full Game Category", false, "Full Game Category");
 	settings.Add("Individual Levels", false, "Individual Levels");
+	settings.Add("Refresh rate of the autosplitter", true, "Refresh rate of the autosplitter");
 	
 	//End of 1st tabs
 	
@@ -116,6 +141,24 @@ startup
 	settings.Add("Gizzard Gulch", false, "Gizzard Gulch");
 	settings.Add("Buzzarton", false, "Buzzarton");
 	settings.Add("New Yolk City", false, "New Yolk City");
+	
+	settings.CurrentDefaultParent = "Refresh rate of the autosplitter";
+	settings.SetToolTip("Refresh rate of the autosplitter", "Sets the autosplitter to refresh 30 times per second. Leaving all options unckeched will set refresh rate to 30 by default anyway.");
+	
+	settings.Add("10Rate", false, "10 refreshes per second");
+	settings.SetToolTip("10Rate", "Sets the autosplitter to refresh 10 times per second. Perfect for potato computers. Inaccurate times may happen.");
+	
+	settings.Add("30Rate", true, "30 refreshes per second (DEFAULT)");
+	settings.SetToolTip("30Rate", "Sets the autosplitter to refresh 30 times per second. Leaving all options unckeched will set refresh rate to 30 by default anyway.");
+	
+	settings.Add("40Rate", false, "40 refreshes per second");
+	settings.SetToolTip("40Rate", "Sets the autosplitter to refresh 40 times per second. Should help getting a bit more accurate times.");
+	
+	settings.Add("50Rate", false, "50 refreshes per second");
+	settings.SetToolTip("50Rate", "Sets the autosplitter to refresh 50 times per second. Should help getting very accurate times.");
+	
+	settings.Add("100Rate", false, "100 refreshes per second");
+	settings.SetToolTip("100Rate", "Sets the autosplitter to refresh 100 times per second. R U crazy or wut m8?");
 }
  
 start
@@ -125,7 +168,7 @@ start
 	vars.rendu = 0;
 	vars.tuto = 0;
 	vars.end = 0;
-	vars.FrameRate = 10;
+	vars.FrameRate = 30;
 	vars.splitAlt = true;
 	
 	if(settings["Individual Levels"]){
@@ -270,7 +313,24 @@ reset
 
 split
 {	
-	refreshRate = 10;
+	if (settings["Refresh rate of the autosplitter"]){
+		if (settings["100Rate"]){
+			refreshRate = 100;
+		}
+		if (settings["50Rate"]){
+			refreshRate = 50;
+			
+		}
+		if (settings["40Rate"]){
+			refreshRate = 40;
+			
+		}
+		if (settings["10Rate"]){
+			refreshRate = 10;			
+		}
+	} else {
+		refreshRate = 30;
+	}
 	
 	vars.FrameRate = refreshRate;
 	
@@ -1347,9 +1407,9 @@ split
 isLoading
 
 {
-	if(current.IGT == old.IGT){	
+	if(current.IGT > 0 && current.IGT3 == 0){
 		return true;
-	} else if(current.IGT == 0){
+	} else if(current.IGT2 > 0 && current.IGT3 == 0){
 		return true;
 	} else {
 		return false;
