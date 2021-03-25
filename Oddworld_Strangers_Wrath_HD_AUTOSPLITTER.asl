@@ -16,7 +16,7 @@ state ("stranger", "2.2 Steam 18-03-2021 Fxyz")
 	long IGT3 : 0x34A040, 0x114;
 	int end : 0x3388C4, 0x68;
 	int quicksave : 0x008030, 0x4;		//When a quicksave / automatic save is done
-	int zone : 0x2373B8, 0x18;			//The ID of every chunks in the game
+	int zone : 0x2373B8, 0x18;		//The ID of every chunks in the game
 	int resettimer : 0x1E4AB4, 0x14;	//Set to 257 only in the main menu
 	int ilstart: 0x20C44C, 0x20;
 }
