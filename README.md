@@ -15,21 +15,24 @@ This autosplitter has a built in load time remover, for it to work right click o
 	if the game was already running, just close it and launch it again.
 
 
-Now There are three settings you can set.
+Now There are four settings you can set.
 
-0. Platform: Select the platform on which you're running the game
+1. Platform: Select the platform on which you're running the game
 
-1. Full Game Categories : In this one select the category you are running (SELECT ONLY ONE !!!) (Uncheck this tab if you're running Individual Levels !!!)
+2. Full Game Categories : In this one select the category you are running (SELECT ONLY ONE !!!) (Uncheck this tab if you're running Individual Levels !!!)
 
-2. Individual Levels: 2 tabs in here:
+3. Individual Levels: 2 tabs in here:
 
-	2.1. Splitting options: Select between 2 splitting methodes for IL (select only one !!!):
-		2.1.1. Single split: only one split at the end of the level
-		2.1.2. Multiple splits: adds some extra splits (when there are some, you can leave this checked even if the current level has only 1 split at the end)
+	3.1. Splitting options: Select between 2 splitting methodes for IL (select only one !!!):
+		3.1.1. Single split: only one split at the end of the level
+		3.1.2. Multiple splits: adds some extra splits (when there are some, you can leave this checked even if the current level has only 1 split at the end)
 	
-	2.2. Levels: Select which level you're running (select only one !!!)
+	3.2. Levels: Select which level you're running (select only one !!!)
 
 (uncheck the Individual levels tab if you're running a Full Game Category !!!)
+
+4. Refresh rate of the autosplitter : 	This is how many times per seconds the autosplitter checks for values update inside the memory of the game.
+					If you're having frame drops, select a lower value.
 
 
 
