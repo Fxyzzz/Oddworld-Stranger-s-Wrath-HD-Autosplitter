@@ -37,7 +37,7 @@ state ("stranger", "2.2 GOG 18-03-2021 Fxyz")
 	long IGT3 : 0x0349330, 0x114;
 	int end : 0x337B84, 0x68;
 	int quicksave : 0x1DFB74, 0x88;
-	int zone : 0x1D00B8, 0x18;
+	int zone : 0x18F7B4, 0x28;
 	int resettimer : 0x1E4C04, 0x14;
 	int ilstart: 0x020B7EC, 0x20;
 }
