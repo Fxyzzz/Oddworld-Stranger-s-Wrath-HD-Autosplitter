@@ -20,7 +20,7 @@ state ("stranger", "3.0 Steam 05-04-2021 Fxyz")
 	int moolah : 0x1DE930, 0x4;
 	int crystal : 0x1DE930, 0x8;
 	int barrel : 0x2FB8FC, 0x104;
-	int zone : 0x2373B8, 0x18;		//The ID of every chunks in the game
+	int zone : 0x1CFFC8, 0x18;			//The ID of every chunks in the game
 	int resettimer : 0x1E4AB4, 0x14;	//Set to 257 only in the main menu
 	int ilstart: 0x20C44C, 0x20;
 }
@@ -45,7 +45,7 @@ state ("stranger", "3.0 GOG 05-04-2021 Fxyz")
 	int moolah : 0x1DEA10, 0x4;
 	int crystal : 0x1DEA10, 0x8;
 	int barrel : 0x2FAA18, 0x104;
-	int zone : 0x18F7B4, 0x28;
+	int zone : 0x1D00B8, 0x18;
 	int resettimer : 0x1E4C04, 0x14;
 	int ilstart: 0x020B7EC, 0x20;
 }
@@ -58,13 +58,6 @@ init
 	vars.rendu = 0;
 	vars.tuto = 0;
 	vars.end = 0;
-	
-	vars.moolah = 0;
-	vars.moolahqs = 0;
-	vars.crystal = 0;
-	vars.crystalqs = 0;
-	vars.barrel = 0;
-	vars.barrelqs = 0;
 	
 	if(settings["Platform"]){
 		
@@ -186,13 +179,6 @@ start
 	vars.FrameRate = 30;
 	vars.splitAlt = true;
 	
-	vars.moolah = 0;
-	vars.moolahqs = 0;
-	vars.crystal = 0;
-	vars.crystalqs = 0;
-	vars.barrel = 0;
-	vars.barrelqs = 0;
-	
 	if(settings["Individual Levels"]){
 	
 		
@@ -306,30 +292,18 @@ reset
 			vars.rendu = 0;
 			vars.tuto = 0;
 			vars.end = 0;
-			vars.moolah = 0;
-			vars.moolahqs = 0;
-			vars.crystal = 0;
-			vars.crystalqs = 0;
-			vars.barrel = 0;
-			vars.barrelqs = 0;
 			return true;
 		}
 	}
 		
 	else if(settings["Individual Levels"]){
 		
-		if(current.resetload > old.resetload){
+		if(current.resetload > old.resetload && current.primeguy == 0){
 			vars.split = 0;
 			vars.capture = 0;
 			vars.rendu = 0;
 			vars.tuto = 0;
 			vars.end = 0;
-			vars.moolah = 0;
-			vars.moolahqs = 0;
-			vars.crystal = 0;
-			vars.crystalqs = 0;
-			vars.barrel = 0;
-			vars.barrelqs = 0;
 			return true;
 		}
 		
@@ -341,12 +315,6 @@ reset
 		vars.rendu = 0;
 		vars.tuto = 0;
 		vars.end = 0;
-		vars.moolah = 0;
-			vars.moolahqs = 0;
-			vars.crystal = 0;
-			vars.crystalqs = 0;
-			vars.barrel = 0;
-			vars.barrelqs = 0;
 		return true;
 	}
 }
@@ -378,12 +346,12 @@ split
 	//Full Game Category
 	
 	if(settings["Full Game Category"]){
-	
-	
+
+
 		//Any%
-
+		
 		if(settings["Any%"]){
-
+		
 			if(current.zone == 11 && current.cutscene > old.cutscene && vars.split == 0){
 				vars.tuto++;
 			}
@@ -392,49 +360,49 @@ split
 				return true;
 			//Tutorial
 			}
-
+		
 			if(current.zone == 39 && current.cutscene > old.cutscene && vars.split == 1){
 				vars.split++;
 				return true;
 			//Gizzard Gulch Skip	
 			}
-
+		
 			if(current.zone == 78 && vars.split == 2){
 				vars.split++;
 				return true;
 			//Buzzarton Skip
 			}
-
+		
 			if(current.zone == 16 && current.cutscene > old.cutscene && vars.split == 3){
 				vars.split++;
 				return true;
 			//Welcome to the Jungle
 			}
-
+		
 			if(current.zone == 69 && current.cutscene > old.cutscene && vars.split == 4){
 				vars.split++;
 				return true;
 			//River Skip
 			}
-
+		
 			if(current.river < old.river && current.godvalue == current.river && vars.split == 5){
 				vars.split++;
 				return true;
 			//Ambush
 			}
-
+		
 			if(current.zone == 2 &&  current.cutscene > old.cutscene && vars.split == 6){
 				vars.split++;
 				return true;
 			//Dusky Hollow
 			}
-
+		
 			if(current.godvalue == current.nerfshop && current.godvalue > old.godvalue && vars.split == 7){
 				vars.split++;
 				return true;
 			//RNG
 			}
-
+		
 			if(current.zone == 33 && current.cutscene > old.cutscene && vars.split == 8){
 				vars.split++;
 				return true;
@@ -445,7 +413,7 @@ split
 				return true;
 			//Row Your Boat
 			}
-
+		
 			if(current.zone == 1 && current.cutscene > old.cutscene && vars.split == 10){
 				vars.tuto++;
 			}
@@ -454,51 +422,51 @@ split
 				return true;
 			//Last Legs
 			}
-
+		
 			if(current.godvalue == current.nerfshop && vars.split == 11){
 				vars.split++;
 				return true;
 			//Some More Boat
 			}
-
+		
 			if(current.godvalue > old.godvalue && vars.split == 12){
 				vars.split++;
 				return true;
 			//Gloktigi Clip
 			}
-
+		
 			if(current.godvalue < old.godvalue && vars.split == 13){
 				vars.split++;
 				return true;
 			//Sekto's Lair
 			}
-
+		
 			if(current.godvalue < old.godvalue && vars.split == 14){
 				vars.split++;
 				return true;
 			//Timer Rush
 			}
-
+		
 			if(current.godvalue > old.godvalue && vars.split == 15){
 				vars.split++;
 				return true;
 			//Gloktigi Twins
 			}
-
+		
 			if(current.end == 2 && current.quicksave > old.quicksave && vars.split == 16){
 				vars.split++;
 				return true;
 			//Sekto
 			}
 		}
-
-
-
-
+		
+		
+		
+		
 		//Any% No Ghost
-
+		
 		if(settings["Any% No Ghost"]){
-
+		
 			if(current.zone == 11 && current.cutscene > old.cutscene && vars.split == 0){
 				vars.tuto++;
 			}
@@ -507,25 +475,25 @@ split
 				return true;
 			//Tutorial
 			}
-
+		
 			if(current.zone == 39 && current.cutscene > old.cutscene && vars.split == 1){
 				vars.split++;
 				return true;
 			//Gizzard Gulch Skip	
 			}
-
+		
 			if(current.zone == 78 && vars.split == 2){
 				vars.split++;
 				return true;
 			//Buzzarton Skip
 			}
-
+		
 			if(current.zone == 16 && current.cutscene > old.cutscene && vars.split == 3){
 				vars.split++;
 				return true;
 			//Welcome to the Jungle
 			}
-
+		
 			if(current.bounty > old.bounty && vars.split == 4 && vars.capture == 0){
 				vars.capture++;
 			}
@@ -537,43 +505,43 @@ split
 				return true;
 			//Xplosives McGee
 			}
-
+		
 			if(current.zone == 69 && current.cutscene > old.cutscene && vars.split == 5){
 				vars.split++;
 				return true;
 			//River Skip
 			}
-
+		
 			if(current.river < old.river && current.godvalue == current.river && vars.split == 6){
 				vars.split++;
 				return true;
 			//Ambush
 			}
-
+		
 			if(current.zone == 2 &&  current.cutscene > old.cutscene && vars.split == 7){
 				vars.split++;
 				return true;
 			//Dusky Hollow
 			}
-
+		
 			if(current.godvalue == current.nerfshop && current.godvalue > old.godvalue && vars.split == 8){
 				vars.split++;
 				return true;
 			//RNG
 			}
-
+		
 			if(current.zone == 33 && current.cutscene > old.cutscene && vars.split == 9){
 				vars.split++;
 				return true;
 			//Boat Skip
 			}
-
+		
 			if(current.zone == 5 && current.cutscene > old.cutscene && vars.split == 10){
 				vars.split++;
 				return true;
 			//Row Your Boat
 			}
-
+		
 			if(current.zone == 1 && current.cutscene > old.cutscene && vars.split == 11){
 				vars.tuto++;
 			}
@@ -582,51 +550,51 @@ split
 				return true;
 			//Last Legs
 			}
-
+		
 			if(current.godvalue == current.nerfshop && vars.split == 12) {
 				vars.split++;
 				return true;
 			//Some More Boat
 			}
-
+		
 			if(current.godvalue > old.godvalue && vars.split == 13){
 				vars.split++;
 				return true;
 			//Gloktigi Clip
 			}
-
+		
 			if(current.godvalue < old.godvalue && vars.split == 14){
 				vars.split++;
 				return true;
 			//Sekto's Lair
 			}
-
+		
 			if(current.godvalue < old.godvalue && vars.split == 15){
 				vars.split++;
 				return true;
 			//Timer Rush
 			}
-
+		
 			if(current.godvalue > old.godvalue && vars.split == 16){
 				vars.split++;
 				return true;
 			//Gloktigi Twins
 			}
-
+		
 			if(current.end == 2 && current.quicksave > old.quicksave && vars.split == 17){
 				vars.split++;
 				return true;
 			//Sekto
 			}
 		}
-
-
-
-
+		
+		
+		
+		
 		//All Bounties
-
+		
 		if(settings["All Bounties"]){
-
+		
 			if(current.zone == 11 && current.cutscene > old.cutscene && vars.split == 0){
 				vars.tuto++;
 			}
@@ -635,7 +603,7 @@ split
 				return true;
 			//Tutorial
 			}
-
+		
 			if(current.bounty > old.bounty && vars.split == 1 && vars.capture == 0){
 				vars.capture++;
 			}
@@ -647,7 +615,7 @@ split
 				return true;
 			//Filthy Hands Floyd
 			}
-
+		
 			if(current.bounty > old.bounty && vars.split == 2 && vars.capture == 1){
 				vars.capture++;
 			}
@@ -659,7 +627,7 @@ split
 				return true;
 			//Looten Duke
 			}
-
+		
 			if(current.bounty > old.bounty && vars.split == 3 && vars.capture == 2){
 				vars.capture++;
 			}
@@ -671,16 +639,16 @@ split
 				return true;
 			//Boilz Booty
 			}
-
-			if(current.bounty > old.bounty && vars.split == 4 && vars.capture == 3){
+		
+			if(current.zone == 60 && current.bounty > old.bounty && vars.split == 4 && vars.capture == 3){
 				vars.capture++;
 			}
-			if(current.godvalue == current.river && vars.split == 4 && vars.capture == 4){
+			if(current.cutscene > old.cutscene && vars.split == 4 && vars.capture == 4){
 				vars.split++;
 				return true;
 			//Jo Momma
 			}
-
+		
 			if(current.primeguy > old.primeguy && vars.split == 5 && vars.rendu == 3 && vars.capture == 4){
 				vars.rendu++;
 			}
@@ -689,7 +657,7 @@ split
 				return true;
 			//Eugene Ius
 			}
-
+		
 			if(current.bounty > old.bounty && vars.split == 6 && vars.capture == 4){
 				vars.capture++;
 			}
@@ -701,7 +669,7 @@ split
 				return true;
 			//Meagly McGraw
 			}
-
+		
 			if(current.bounty > old.bounty && vars.split == 7 && vars.capture == 5){
 				vars.capture++;
 			}
@@ -713,13 +681,13 @@ split
 				return true;
 			//Packrat Palooka
 			}
-
+		
 			if(current.zone == 16 && current.cutscene > old.cutscene && vars.split == 8){
 				vars.split++;
 				return true;
 			//Welcome to the jungle
 			}
-
+		
 			if(current.bounty > old.bounty && vars.split == 9 && vars.capture == 6){
 				vars.capture++;
 			}
@@ -731,7 +699,7 @@ split
 				return true;
 			//Xplosives McGee
 			}
-
+		
 			if(current.primeguy > old.primeguy && vars.split == 10 && vars.rendu == 7 && vars.capture == 7){
 				vars.rendu++;
 			}
@@ -740,7 +708,7 @@ split
 				return true;
 			//Giant Sleg
 			}
-
+		
 			if(current.bounty > old.bounty && vars.split == 11 && vars.capture == 7){
 				vars.capture++;
 			}
@@ -749,7 +717,7 @@ split
 				return true;
 			//Fatty McBoomboom
 			}
-
+		
 			if(current.bounty > old.bounty && vars.split == 12 && vars.capture == 8){
 				vars.capture++;
 			}
@@ -758,7 +726,7 @@ split
 				return true;
 			//Elboze Freely
 			}
-
+		
 			if(current.bounty > old.bounty && vars.split == 13 && vars.capture == 9){
 				vars.capture++;
 			}
@@ -770,43 +738,43 @@ split
 				return true;
 			//Lefty Lugnutz
 			}
-
+		
 			if(current.zone == 9 && current.cutscene > old.cutscene && vars.split == 14){
 				vars.split++;
 				return true;
 			//Mongo River
 			}
-
+		
 			if(current.river < old.river && current.godvalue == current.river && vars.split == 15){
 				vars.split++;
 				return true;
 			//Ambush
 			}
-
+		
 			if(current.zone == 2 &&  current.cutscene > old.cutscene && vars.split == 16){
 				vars.split++;
 				return true;
 			//Dusky Hollow
 			}
-
+		
 			if(current.godvalue == current.nerfshop && current.godvalue > old.godvalue && vars.split == 17){
 				vars.split++;
 				return true;
 			//RNG
 			}
-
+		
 			if(current.zone == 33 && current.cutscene > old.cutscene && vars.split == 18){
 				vars.split++;
 				return true;
 			//Boat Skip
 			}
-
+		
 			if(current.zone == 5 && current.cutscene > old.cutscene && vars.split == 19){
 				vars.split++;
 				return true;
 			//Row Your Boat
 			}
-
+		
 			if(current.zone == 1 && current.cutscene > old.cutscene && vars.split == 20){
 				vars.tuto++;
 			}
@@ -815,37 +783,37 @@ split
 				return true;
 			//Last Legs
 			}
-
+		
 			if (current.godvalue == current.nerfshop && vars.split == 21){
 				vars.split++;
 				return true;
 			//Some More Boat
 			}
-
+		
 			if(current.godvalue > old.godvalue && vars.split == 22){
 				vars.split++;
 				return true;
 			//Gloktigi Clip
 			}
-
+		
 			if(current.godvalue < old.godvalue && vars.split == 23){
 				vars.split++;
 				return true;
 			//Sekto's Lair
 			}
-
+		
 			if(current.godvalue < old.godvalue && vars.split == 24){
 				vars.split++;
 				return true;
 			//Timer Rush
 			}
-
+		
 			if(current.godvalue > old.godvalue && vars.split == 25){
 				vars.split++;
 				return true;
 			//Gloktigi Twins
 			}
-
+		
 			if(current.end == 2 && current.quicksave > old.quicksave && vars.split == 26){
 				vars.split++;
 				return true;
@@ -860,61 +828,6 @@ split
 		
 		if(settings["100%"]){
 		
-			//Barrels
-			
-			if(current.barrel > old.barrel){
-				vars.barrel++;
-				vars.barrelqs++;
-			}
-			
-			if(current.quickload > old.quickload && current.quicksave == 0){
-				vars.barrel = vars.barrel - vars.barrelqs;
-				vars.barrelqs = 0;
-			}
-			
-			if(current.quicksave > old.quicksave){
-				vars.barrelqs = 0;
-			}
-			
-			
-			
-			//Moolah Chests
-			
-			if(current.moolah > old.moolah){
-				vars.moolah++;
-				vars.moolahqs++;
-			}
-			
-			if(current.quickload > old.quickload && current.quicksave == 0){
-				vars.moolah = vars.moolah - vars.moolahqs;
-				vars.moolahqs = 0;
-			}
-			
-			if(current.quicksave > old.quicksave){
-				vars.moolahqs = 0;
-			}
-			
-			
-			
-			//Orange Crystals
-			
-			if(current.crystal > old.crystal){
-				vars.crystal++;
-				vars.crystalqs++;
-			}
-			
-			if(current.quickload > old.quickload && current.quicksave == 0){
-				vars.crystal = vars.crystal - vars.crystalqs;
-				vars.crystalqs = 0;
-			}
-			
-			if(current.quicksave > old.quicksave){
-				vars.crystalqs = 0;
-			}			
-				
-			
-			//splits
-		
 		
 			if(current.zone == 11 && current.cutscene > old.cutscene && vars.split == 0){
 				vars.tuto++;
@@ -961,10 +874,10 @@ split
 			//Boilz Booty
 			}
 		
-			if(current.bounty > old.bounty && vars.split == 4 && vars.capture == 3){
+			if(current.zone == 60 && current.bounty > old.bounty && vars.split == 4 && vars.capture == 3){
 				vars.capture++;
 			}
-			if(current.godvalue == current.river && vars.split == 4 && vars.capture == 4){
+			if(current.cutscene > old.cutscene && vars.split == 4 && vars.capture == 4){
 				vars.split++;
 				return true;
 			//Jo Momma
@@ -1320,10 +1233,10 @@ split
 				
 				if(settings["Buzzarton"]){
 				
-					if(current.bounty > old.bounty && vars.split == 0 && vars.capture == 0){
+					if(current.zone == 60 && current.bounty > old.bounty && vars.split == 0 && vars.capture == 0){
 						vars.capture++;
 					}
-					if(current.godvalue == current.river && vars.split == 0 && vars.capture == 1){
+					if(current.cutscene > old.cutscene && vars.split == 0 && vars.capture == 1){
 						vars.split++;
 					//Jo Momma
 					}
@@ -1616,10 +1529,10 @@ split
 				
 				if(settings["Buzzarton"]){
 				
-					if(current.bounty > old.bounty && vars.split == 0 && vars.capture == 0){
+					if(current.zone == 60 && current.bounty > old.bounty && vars.split == 0 && vars.capture == 0){
 						vars.capture++;
 					}
-					if(current.godvalue == current.river && vars.split == 0 && vars.capture == 1){
+					if(current.cutscene > old.cutscene && vars.split == 0 && vars.capture == 1){
 						vars.split++;
 						return true;
 					//Jo Momma
