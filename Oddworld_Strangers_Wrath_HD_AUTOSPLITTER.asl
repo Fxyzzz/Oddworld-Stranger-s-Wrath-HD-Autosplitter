@@ -946,7 +946,7 @@ split
 			if(current.zone == 56 && current.cutscene > old.cutscene){
 				vars.tuto++;
 			}
-			if(current.zone == 56 && vars.split == 10 && vars.tuto == 4){
+			if(vars.split == 10 && vars.tuto == 4){
 				vars.split++;
 				return true;
 			//Giant Sleg
