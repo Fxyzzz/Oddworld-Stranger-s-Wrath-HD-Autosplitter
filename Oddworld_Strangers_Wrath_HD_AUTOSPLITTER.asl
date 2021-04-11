@@ -934,22 +934,22 @@ split
 			//Xplosives McGee
 			}
 		
-			if(current.primeguy > old.primeguy && vars.split == 10 && vars.rendu == 7 && vars.capture == 7){
-				vars.rendu++;
-			}
-			if(current.godvalue > old.godvalue && current.nerfshop == current.river && vars.split == 10 && vars.rendu == 8){
-				vars.split++;
-				return true;
-			//Giant Sleg
-			}
-		
-			if(current.bounty > old.bounty && vars.split == 11 && vars.capture == 7){
+			if(current.bounty > old.bounty && vars.split == 10 && vars.capture == 7){
 				vars.capture++;
 			}
-			if(current.river < old.river && vars.split == 11 && vars.capture == 8){
+			if(current.river < old.river && vars.split == 10 && vars.capture == 8){
 				vars.split++;
 				return true;
 			//Fatty McBoomboom
+			}
+			
+			if(current.zone == 56 && current.cutscene > old.cutscene){
+				vars.tuto++;
+			}
+			if(current.zone == 56 && vars.split == 10 && vars.tuto == 4){
+				vars.split++;
+				return true;
+			//Giant Sleg
 			}
 		
 			if(current.bounty > old.bounty && vars.split == 12 && vars.capture == 8){
