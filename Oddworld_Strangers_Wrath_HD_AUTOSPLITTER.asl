@@ -284,9 +284,21 @@ start
 
 reset
 {
-
-	if(settings["Tutorial"]){
-		if(current.resettimer == 257){
+	if(settings["Individual Levels"]){
+	
+		if(settings["Tutorial"]){
+		
+			if(current.resettimer == 257){
+				vars.split = 0;
+				vars.capture = 0;
+				vars.rendu = 0;
+				vars.tuto = 0;
+				vars.end = 0;
+				return true;
+			}
+		}
+		
+		else if(current.resetload > old.resetload && current.primeguy == 0){
 			vars.split = 0;
 			vars.capture = 0;
 			vars.rendu = 0;
@@ -294,19 +306,6 @@ reset
 			vars.end = 0;
 			return true;
 		}
-	}
-		
-	else if(settings["Individual Levels"]){
-		
-		if(current.resetload > old.resetload && current.primeguy == 0){
-			vars.split = 0;
-			vars.capture = 0;
-			vars.rendu = 0;
-			vars.tuto = 0;
-			vars.end = 0;
-			return true;
-		}
-		
 	}
 	
 	else if(current.resettimer == 257){
