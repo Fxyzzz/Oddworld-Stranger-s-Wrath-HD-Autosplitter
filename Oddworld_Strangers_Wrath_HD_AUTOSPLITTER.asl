@@ -699,10 +699,10 @@ split
 			//Xplosives McGee
 			}
 		
-			if(current.primeguy > old.primeguy && vars.split == 10 && vars.rendu == 7 && vars.capture == 7){
-				vars.rendu++;
+			if(current.zone == 56 && current.cutscene > old.cutscene){
+				vars.tuto++;
 			}
-			if(current.godvalue > old.godvalue && current.nerfshop == current.river && vars.split == 10 && vars.rendu == 8){
+			if(vars.split == 10 && vars.tuto == 4){
 				vars.split++;
 				return true;
 			//Giant Sleg
@@ -1297,10 +1297,10 @@ split
 					//Xplosives McGee
 					}
 	
-					if(current.primeguy > old.primeguy && vars.split == 1 && vars.rendu == 1 && vars.capture == 1){
-						vars.rendu++;
+					if(current.zone == 56 && current.cutscene > old.cutscene){
+						vars.tuto++;
 					}
-					if(current.godvalue > old.godvalue && current.nerfshop == current.river && vars.split == 1 && vars.rendu == 2){
+					if(vars.split == 1 && vars.tuto == 2){
 						vars.split++;
 					//Giant Sleg
 					}
@@ -1599,10 +1599,10 @@ split
 					//Xplosives McGee
 					}
 	
-					if(current.primeguy > old.primeguy && vars.split == 1 && vars.rendu == 1 && vars.capture == 1){
-						vars.rendu++;
+					if(current.zone == 56 && current.cutscene > old.cutscene){
+						vars.tuto++;
 					}
-					if(current.godvalue > old.godvalue && current.nerfshop == current.river && vars.split == 1 && vars.rendu == 2){
+					if(vars.split == 1 && vars.tuto == 2){
 						vars.split++;
 						return true;
 					//Giant Sleg
