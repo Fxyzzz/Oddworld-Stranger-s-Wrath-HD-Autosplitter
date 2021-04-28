@@ -1286,13 +1286,13 @@ split
 					//Welcome to the jungle
 					}
 	
-					if(current.bounty > old.bounty && vars.split == 0 && vars.capture == 0){
+					if(current.bounty > old.bounty && vars.split == 1 && vars.capture == 0){
 						vars.capture++;
 					}
-					if(current.primeguy > old.primeguy && vars.split == 0 && vars.rendu == 0 && vars.capture == 1){
+					if(current.primeguy > old.primeguy && vars.split == 1 && vars.rendu == 0 && vars.capture == 1){
 						vars.rendu++;
 					}
-					if(vars.split == 0 && vars.capture == 1 && vars.rendu == 1){
+					if(vars.split == 1 && vars.capture == 1 && vars.rendu == 1){
 						vars.split++;
 					//Xplosives McGee
 					}
@@ -1300,39 +1300,39 @@ split
 					if(current.zone == 56 && current.cutscene > old.cutscene){
 						vars.tuto++;
 					}
-					if(vars.split == 1 && vars.tuto == 2){
+					if(vars.split == 2 && vars.tuto == 2){
 						vars.split++;
 					//Giant Sleg
 					}
 	
-					if(current.bounty > old.bounty && vars.split == 2 && vars.capture == 1){
+					if(current.bounty > old.bounty && vars.split == 3 && vars.capture == 1){
 						vars.capture++;
 					}
-					if(current.river < old.river && vars.split == 2 && vars.capture == 2){
+					if(current.river < old.river && vars.split == 3 && vars.capture == 2){
 						vars.split++;
 					//Fatty McBoomboom
 					}
 	
-					if(current.bounty > old.bounty && vars.split == 3 && vars.capture == 2){
+					if(current.bounty > old.bounty && vars.split == 4 && vars.capture == 2){
 						vars.capture++;
 					}
-					if(current.godvalue < old.godvalue && vars.split == 3 && vars.capture == 3){
+					if(current.godvalue < old.godvalue && vars.split == 4 && vars.capture == 3){
 						vars.split++;
 					//Elboze Freely
 					}
 	
-					if(current.bounty > old.bounty && vars.split == 4 && vars.capture == 3){
+					if(current.bounty > old.bounty && vars.split == 5 && vars.capture == 3){
 						vars.capture++;
 					}
-					if(current.primeguy > old.primeguy && vars.split == 4 && vars.rendu == 2 && vars.capture == 4){
+					if(current.primeguy > old.primeguy && vars.split == 5 && vars.rendu == 2 && vars.capture == 4){
 						vars.rendu++;
 					}
-					if(vars.split == 4 && vars.capture == 4 && vars.rendu == 3){
+					if(vars.split == 5 && vars.capture == 4 && vars.rendu == 3){
 						vars.split++;
 					//Lefty Lugnutz
 					}
 				
-					if(current.zone == 9 && current.cutscene > old.cutscene && vars.split == 5){
+					if(current.zone == 9 && current.cutscene > old.cutscene && vars.split == 6){
 						vars.split++;
 						return true;
 					//Mongo River
@@ -1587,13 +1587,13 @@ split
 					//Welcome to the jungle
 					}
 	
-					if(current.bounty > old.bounty && vars.split == 0 && vars.capture == 0){
+					if(current.bounty > old.bounty && vars.split == 1 && vars.capture == 0){
 						vars.capture++;
 					}
-					if(current.primeguy > old.primeguy && vars.split == 0 && vars.rendu == 0 && vars.capture == 1){
+					if(current.primeguy > old.primeguy && vars.split == 1 && vars.rendu == 0 && vars.capture == 1){
 						vars.rendu++;
 					}
-					if(vars.split == 0 && vars.capture == 1 && vars.rendu == 1){
+					if(vars.split == 1 && vars.capture == 1 && vars.rendu == 1){
 						vars.split++;
 						return true;
 					//Xplosives McGee
@@ -1602,43 +1602,43 @@ split
 					if(current.zone == 56 && current.cutscene > old.cutscene){
 						vars.tuto++;
 					}
-					if(vars.split == 1 && vars.tuto == 2){
+					if(vars.split == 2 && vars.tuto == 2){
 						vars.split++;
 						return true;
 					//Giant Sleg
 					}
 	
-					if(current.bounty > old.bounty && vars.split == 2 && vars.capture == 1){
+					if(current.bounty > old.bounty && vars.split == 3 && vars.capture == 1){
 						vars.capture++;
 					}
-					if(current.river < old.river && vars.split == 2 && vars.capture == 2){
+					if(current.river < old.river && vars.split == 3 && vars.capture == 2){
 						vars.split++;
 						return true;
 					//Fatty McBoomboom
 					}
 	
-					if(current.bounty > old.bounty && vars.split == 3 && vars.capture == 2){
+					if(current.bounty > old.bounty && vars.split == 4 && vars.capture == 2){
 						vars.capture++;
 					}
-					if(current.godvalue < old.godvalue && vars.split == 3 && vars.capture == 3){
+					if(current.godvalue < old.godvalue && vars.split == 4 && vars.capture == 3){
 						vars.split++;
 						return true;
 					//Elboze Freely
 					}
 	
-					if(current.bounty > old.bounty && vars.split == 4 && vars.capture == 3){
+					if(current.bounty > old.bounty && vars.split == 5 && vars.capture == 3){
 						vars.capture++;
 					}
-					if(current.primeguy > old.primeguy && vars.split == 4 && vars.rendu == 2 && vars.capture == 4){
+					if(current.primeguy > old.primeguy && vars.split == 5 && vars.rendu == 2 && vars.capture == 4){
 						vars.rendu++;
 					}
-					if(vars.split == 4 && vars.capture == 4 && vars.rendu == 3){
+					if(vars.split == 5 && vars.capture == 4 && vars.rendu == 3){
 						vars.split++;
 						return true;
 					//Lefty Lugnutz
 					}
 				
-					if(current.zone == 9 && current.cutscene > old.cutscene && vars.split == 5){
+					if(current.zone == 9 && current.cutscene > old.cutscene && vars.split == 6){
 						vars.split++;
 						return true;
 					//Mongo River
