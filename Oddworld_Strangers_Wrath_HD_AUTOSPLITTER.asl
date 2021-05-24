@@ -185,16 +185,16 @@ startup
 	settings.SetToolTip("100Rate", "Sets the autosplitter to refresh 100 times per second. Leaving all options unckeched will set refresh rate to 100 by default anyway.");
 	
 	settings.Add("150Rate", false, "150 refreshes per second");
-	settings.SetToolTip("50Rate", "Sets the autosplitter to refresh 150 times per second.");
+	settings.SetToolTip("150Rate", "Sets the autosplitter to refresh 150 times per second.");
 	
 	settings.Add("200Rate", false, "200 refreshes per second");
-	settings.SetToolTip("50Rate", "Sets the autosplitter to refresh 200 times per second.");
+	settings.SetToolTip("200Rate", "Sets the autosplitter to refresh 200 times per second.");
 	
 	settings.Add("250Rate", false, "250 refreshes per second");
-	settings.SetToolTip("50Rate", "Sets the autosplitter to refresh 250 times per second.");
+	settings.SetToolTip("250Rate", "Sets the autosplitter to refresh 250 times per second.");
 	
 	settings.Add("500Rate", false, "500 refreshes per second");
-	settings.SetToolTip("50Rate", "Sets the autosplitter to refresh 500 times per second. If you are playing on NASA computer");
+	settings.SetToolTip("500Rate", "Sets the autosplitter to refresh 500 times per second. If you are playing on NASA computer");
 }
  
 start
