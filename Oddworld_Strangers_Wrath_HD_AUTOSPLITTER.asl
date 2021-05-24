@@ -72,8 +72,20 @@ init
 	
 	if(settings["Refresh rate of the autosplitter"]){
 	
-		if(settings["100Rate"]){
-			refreshRate = 100;
+		if(settings["500Rate"]){
+			refreshRate = 500;
+		}
+	
+		if(settings["250Rate"]){
+			refreshRate = 250;
+		}
+	
+		if(settings["200Rate"]){
+			refreshRate = 200;
+		}	
+	
+		if(settings["150Rate"]){
+			refreshRate = 150;
 		}
 		
 		if(settings["50Rate"]){
@@ -82,14 +94,18 @@ init
 		}
 		if(settings["40Rate"]){
 			refreshRate = 40;
-			
 		}
+		
+		if(settings["30Rate"]){
+			refreshRate = 30;
+		}
+		
 		if(settings["10Rate"]){
 			refreshRate = 10;			
 		}
 		
 	} else {
-		refreshRate = 30;
+		refreshRate = 100;
 	}
 }
 
@@ -151,13 +167,13 @@ startup
 	settings.Add("New Yolk City", false, "New Yolk City");
 	
 	settings.CurrentDefaultParent = "Refresh rate of the autosplitter";
-	settings.SetToolTip("Refresh rate of the autosplitter", "Sets the autosplitter to refresh 30 times per second. Leaving all options unckeched will set refresh rate to 30 by default anyway.");
+	settings.SetToolTip("Refresh rate of the autosplitter", "Sets the autosplitter to refresh 100 times per second. Leaving all options unckeched will set refresh rate to 100 by default anyway.");
 	
 	settings.Add("10Rate", false, "10 refreshes per second");
 	settings.SetToolTip("10Rate", "Sets the autosplitter to refresh 10 times per second. Perfect for potato computers. Inaccurate times may happen.");
 	
-	settings.Add("30Rate", true, "30 refreshes per second (DEFAULT)");
-	settings.SetToolTip("30Rate", "Sets the autosplitter to refresh 30 times per second. Leaving all options unckeched will set refresh rate to 30 by default anyway.");
+	settings.Add("30Rate", false, "30 refreshes per second");
+	settings.SetToolTip("30Rate", "Sets the autosplitter to refresh 30 times per second. Splits might sometimes not happen with low refresh rates");
 	
 	settings.Add("40Rate", false, "40 refreshes per second");
 	settings.SetToolTip("40Rate", "Sets the autosplitter to refresh 40 times per second. Should help getting a bit more accurate times.");
@@ -165,8 +181,20 @@ startup
 	settings.Add("50Rate", false, "50 refreshes per second");
 	settings.SetToolTip("50Rate", "Sets the autosplitter to refresh 50 times per second. Should help getting very accurate times.");
 	
-	settings.Add("100Rate", false, "100 refreshes per second");
-	settings.SetToolTip("100Rate", "Sets the autosplitter to refresh 100 times per second. R U crazy or wut m8?");
+	settings.Add("100Rate", true, "100 refreshes per second (DEFAULT)");
+	settings.SetToolTip("100Rate", "Sets the autosplitter to refresh 100 times per second. Leaving all options unckeched will set refresh rate to 100 by default anyway.");
+	
+	settings.Add("150Rate", false, "150 refreshes per second");
+	settings.SetToolTip("50Rate", "Sets the autosplitter to refresh 150 times per second.");
+	
+	settings.Add("200Rate", false, "200 refreshes per second");
+	settings.SetToolTip("50Rate", "Sets the autosplitter to refresh 200 times per second.");
+	
+	settings.Add("250Rate", false, "250 refreshes per second");
+	settings.SetToolTip("50Rate", "Sets the autosplitter to refresh 250 times per second.");
+	
+	settings.Add("500Rate", false, "500 refreshes per second");
+	settings.SetToolTip("50Rate", "Sets the autosplitter to refresh 500 times per second. If you are playing on NASA computer");
 }
  
 start
@@ -176,7 +204,7 @@ start
 	vars.rendu = 0;
 	vars.tuto = 0;
 	vars.end = 0;
-	vars.FrameRate = 30;
+	vars.FrameRate = 100;
 	vars.splitAlt = true;
 	
 	if(settings["Individual Levels"]){
@@ -319,25 +347,45 @@ reset
 }
 
 split
-{	
-	if (settings["Refresh rate of the autosplitter"]){
-		if (settings["100Rate"]){
-			refreshRate = 100;
+{
+	if(settings["Refresh rate of the autosplitter"]){
+	
+		if(settings["500Rate"]){
+			refreshRate = 500;
 		}
-		if (settings["50Rate"]){
+	
+		if(settings["250Rate"]){
+			refreshRate = 250;
+		}
+	
+		if(settings["200Rate"]){
+			refreshRate = 200;
+		}	
+	
+		if(settings["150Rate"]){
+			refreshRate = 150;
+		}
+		
+		if(settings["50Rate"]){
 			refreshRate = 50;
 			
 		}
-		if (settings["40Rate"]){
+		if(settings["40Rate"]){
 			refreshRate = 40;
-			
 		}
-		if (settings["10Rate"]){
+		
+		if(settings["30Rate"]){
+			refreshRate = 30;
+		}
+		
+		if(settings["10Rate"]){
 			refreshRate = 10;			
 		}
+		
 	} else {
-		refreshRate = 30;
+		refreshRate = 100;
 	}
+
 	
 	vars.FrameRate = refreshRate;
 	
