@@ -500,7 +500,7 @@ split
 			//Gloktigi Twins
 			}
 		
-			if(current.end == 2 && current.end > old.end && vars.split == 16){
+			if(current.end == 2 && current.quicksave > old.quicksave && vars.split == 16){
 				vars.split++;
 				return true;
 			//Sekto
@@ -628,7 +628,7 @@ split
 			//Gloktigi Twins
 			}
 		
-			if(current.end == 2 && current.end > old.end && vars.split == 17){
+			if(current.end == 2 && current.quicksave > old.quicksave && vars.split == 17){
 				vars.split++;
 				return true;
 			//Sekto
@@ -861,7 +861,7 @@ split
 			//Gloktigi Twins
 			}
 		
-			if(current.end == 2 && current.end > old.end && vars.split == 26){
+			if(current.end == 2 && current.quicksave > old.quicksave && vars.split == 26){
 				vars.split++;
 				return true;
 			//Sekto
@@ -1095,7 +1095,7 @@ split
 			//Gloktigi Twins
 			}
 		
-			if(current.end == 2 && current.end > old.end && vars.split == 26){
+			if(current.end == 2 && current.quicksave > old.quicksave && vars.split == 26){
 				vars.split++;
 				return true;
 			//Sekto
@@ -1235,7 +1235,7 @@ split
 					vars.end++;
 				}
 			
-				if(current.end == 2 && current.end > old.end && vars.end == 1 && vars.split == 1){
+				if(current.end == 2 && current.quicksave > old.quicksave && current.end > old.end && vars.end == 1 && vars.split == 1){
 					vars.split++;
 					return true;
 				//Sekto
@@ -1529,7 +1529,7 @@ split
 				//Gloktigi Twins
 				}
 			
-				if(current.end == 2 && current.end > old.end && vars.split == 1){
+				if(current.end == 2 && current.quicksave > old.quicksave && vars.split == 1){
 					vars.split++;
 					return true;
 				//Sekto
