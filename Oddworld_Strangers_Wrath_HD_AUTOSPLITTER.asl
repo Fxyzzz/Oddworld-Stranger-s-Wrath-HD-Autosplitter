@@ -420,7 +420,7 @@ split
 			//Buzzarton Skip
 			}
 		
-			if(current.zone == 16 && current.cutscene > old.cutscene && vars.split == 3){
+			if(current.cutscene > old.cutscene && vars.split == 3){
 				vars.split++;
 				return true;
 			//Welcome to the Jungle
@@ -535,7 +535,7 @@ split
 			//Buzzarton Skip
 			}
 		
-			if(current.cutscene > old.cutscene && vars.split == 3){
+			if(current.zone == 16 && current.cutscene > old.cutscene && vars.split == 3){
 				vars.split++;
 				return true;
 			//Welcome to the Jungle
@@ -729,7 +729,7 @@ split
 			//Packrat Palooka
 			}
 		
-			if(current.zone == 16 && current.cutscene > old.cutscene && vars.split == 8){
+			if(current.cutscene > old.cutscene && vars.split == 8){
 				vars.split++;
 				return true;
 			//Welcome to the jungle
@@ -963,7 +963,7 @@ split
 			//Packrat Palooka
 			}
 		
-			if(current.zone == 16 && current.cutscene > old.cutscene && vars.split == 8){
+			if(current.cutscene > old.cutscene && vars.split == 8){
 				vars.split++;
 				return true;
 			//Welcome to the jungle
@@ -1329,7 +1329,7 @@ split
 				
 				if(settings["New Yolk City"]){
 				
-					if(current.zone == 16 && current.cutscene > old.cutscene && vars.split == 0){
+					if(current.cutscene > old.cutscene && vars.split == 0){
 						vars.split++;
 					//Welcome to the jungle
 					}
@@ -1629,7 +1629,7 @@ split
 				
 				if(settings["New Yolk City"]){
 				
-					if(current.zone == 16 && current.cutscene > old.cutscene && vars.split == 0){
+					if(current.cutscene > old.cutscene && vars.split == 0){
 						vars.split++;
 						return true;
 					//Welcome to the jungle
