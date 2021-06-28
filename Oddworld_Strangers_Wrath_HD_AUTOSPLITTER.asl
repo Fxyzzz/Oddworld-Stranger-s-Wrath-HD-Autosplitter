@@ -1173,7 +1173,12 @@ split
 		
 			if(settings["Grubb Village + Wolvark Docks"]){
 		
-				if(current.zone == 33 &&  current.godvalue < current.nerfshop && vars.split == 0){
+				if(current.godvalue == current.nerfshop && current.godvalue > old.godvalue && vars.split == 0){
+					vars.split++;
+				//RNG
+				}
+		
+				if(current.zone == 33 && current.cutscene > old.cutscene && vars.split == 1){
 					vars.split++;
 					return true;
 				//Grubb Village + Wolvark Docks
