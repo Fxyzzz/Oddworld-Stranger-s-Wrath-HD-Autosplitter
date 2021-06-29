@@ -1,6 +1,6 @@
 // 19-02-2021 by Fxyz#1329
 
-state ("stranger", "3.0 Steam 05-04-2021 Fxyz")
+state ("stranger", "4.0 Steam 29-06-2021 Fxyz")
 
 {
 	int diffmenu : 0x1DEAFC, 0x4;
@@ -15,7 +15,7 @@ state ("stranger", "3.0 Steam 05-04-2021 Fxyz")
 	int IGT2 : 0x228330, 0x18;
 	long IGT3 : 0x34A040, 0x114;
 	int end : 0x3388C4, 0x68;
-	int quicksave : 0x341274, 0x138;		//When a quicksave / automatic save is done
+	//int quicksave : 0x341274, 0x138;		//When a quicksave / automatic save is done
 	short quickload : 0x192D18, 0x18;
 	int moolah : 0x1DE930, 0x4;
 	int crystal : 0x1DE930, 0x8;
@@ -25,7 +25,7 @@ state ("stranger", "3.0 Steam 05-04-2021 Fxyz")
 	int ilstart: 0x20C44C, 0x20;
 }
 
-state ("stranger", "3.0 GOG 05-04-2021 Fxyz")
+state ("stranger", "4.0 GOG 29-06-2021 Fxyz")
 
 {
 	int diffmenu : 0x1E120C, 0x64;
@@ -40,7 +40,7 @@ state ("stranger", "3.0 GOG 05-04-2021 Fxyz")
 	int IGT2 : 0x227560, 0x18;
 	long IGT3 : 0x0349330, 0x114;
 	int end : 0x337B84, 0x68;
-	int quicksave : 0x1DFB74, 0x88;
+	//int quicksave : 0x1DFB74, 0x88;
 	short quickload : 0x6462BC, 0x718;
 	int moolah : 0x1DEA10, 0x4;
 	int crystal : 0x1DEA10, 0x8;
@@ -62,11 +62,11 @@ init
 	if(settings["Platform"]){
 		
 		if(settings["Steam"]){
-			version = "3.0 Steam 05-04-2021 Fxyz";
+			version = "4.0 Steam 29-06-2021 Fxyz";
 		}
 		
 		if(settings["GOG"]){
-			version = "3.0 GOG 05-04-2021 Fxyz";
+			version = "4.0 GOG 29-06-2021 Fxyz";
 		}
 	}	
 	
@@ -414,7 +414,7 @@ split
 			//Gizzard Gulch Skip	
 			}
 		
-			if(current.zone == 78 && vars.split == 2){
+			if(current.zone == 77 && current.cutscene > old.cutscene && vars.split == 2){
 				vars.split++;
 				return true;
 			//Buzzarton Skip
@@ -438,13 +438,16 @@ split
 			//Ambush
 			}
 		
-			if(current.zone == 2 &&  current.cutscene > old.cutscene && vars.split == 6){
+			if(current.zone == 2 && current.cutscene > old.cutscene && vars.split == 6){
 				vars.split++;
 				return true;
 			//Dusky Hollow
 			}
-		
-			if(current.godvalue == current.nerfshop && current.godvalue > old.godvalue && vars.split == 7){
+			
+			if(current.zone == 6 && current.cutscene > old.cutscene && vars.split == 7){
+				vars.tuto++;
+			}
+			if(vars.tuto == 4 && vars.split == 7){
 				vars.split++;
 				return true;
 			//RNG
@@ -464,43 +467,46 @@ split
 			if(current.zone == 1 && current.cutscene > old.cutscene && vars.split == 10){
 				vars.tuto++;
 			}
-			if(vars.split == 10 && vars.tuto == 4){
+			if(vars.split == 10 && vars.tuto == 6){
 				vars.split++;
 				return true;
 			//Last Legs
 			}
 		
-			if(current.godvalue == current.nerfshop && vars.split == 11){
+			if(current.zone == 8 && current.cutscene > old.cutscene && vars.split == 11){
 				vars.split++;
 				return true;
 			//Some More Boat
 			}
-		
-			if(current.godvalue > old.godvalue && vars.split == 12){
+			
+			if(current.zone == 10 && current.cutscene > old.cutscene && vars.split == 12){
+				vars.tuto++;
+			}
+			if(vars.tuto == 8 && vars.split == 12){
 				vars.split++;
 				return true;
 			//Gloktigi Clip
 			}
 		
-			if(current.godvalue < old.godvalue && vars.split == 13){
+			if(current.zone == 8 && current.cutscene > old.cutscene && vars.split == 13){
 				vars.split++;
 				return true;
 			//Sekto's Lair
 			}
 		
-			if(current.godvalue < old.godvalue && vars.split == 14){
+			if(current.zone == 12 && current.cutscene > old.cutscene && vars.split == 14){
 				vars.split++;
 				return true;
 			//Timer Rush
 			}
 		
-			if(current.godvalue > old.godvalue && vars.split == 15){
+			if(current.cutscene > old.cutscene && vars.split == 15){
 				vars.split++;
 				return true;
 			//Gloktigi Twins
 			}
 		
-			if(current.end == 2 && current.quicksave > old.quicksave && vars.split == 16){
+			if(current.end == 2 && current.cutscene == 0 && vars.split == 16){
 				vars.split++;
 				return true;
 			//Sekto
@@ -529,7 +535,7 @@ split
 			//Gizzard Gulch Skip	
 			}
 		
-			if(current.zone == 78 && vars.split == 2){
+			if(current.zone == 77 && current.cutscene > old.cutscene && vars.split == 2){
 				vars.split++;
 				return true;
 			//Buzzarton Skip
@@ -571,7 +577,10 @@ split
 			//Dusky Hollow
 			}
 		
-			if(current.godvalue == current.nerfshop && current.godvalue > old.godvalue && vars.split == 8){
+			if(current.zone == 6 && current.cutscene > old.cutscene && vars.split == 8){
+				vars.tuto++;
+			}
+			if(vars.tuto == 4 && vars.split == 8){
 				vars.split++;
 				return true;
 			//RNG
@@ -592,7 +601,7 @@ split
 			if(current.zone == 1 && current.cutscene > old.cutscene && vars.split == 11){
 				vars.tuto++;
 			}
-			if(vars.split == 11 && vars.tuto == 4){
+			if(vars.split == 11 && vars.tuto == 6){
 				vars.split++;
 				return true;
 			//Last Legs
@@ -604,31 +613,34 @@ split
 			//Some More Boat
 			}
 		
-			if(current.godvalue > old.godvalue && vars.split == 13){
+			if(current.zone == 10 && current.cutscene > old.cutscene && vars.split == 13){
+				vars.tuto++;
+			}
+			if(vars.tuto == 10 && vars.split == 13){
 				vars.split++;
 				return true;
 			//Gloktigi Clip
 			}
 		
-			if(current.godvalue < old.godvalue && vars.split == 14){
+			if(current.zone == 8 && current.cutscene > old.cutscene && vars.split == 14){
 				vars.split++;
 				return true;
 			//Sekto's Lair
 			}
 		
-			if(current.godvalue < old.godvalue && vars.split == 15){
+			if(current.zone == 12 && current.cutscene > old.cutscene && vars.split == 15){
 				vars.split++;
 				return true;
 			//Timer Rush
 			}
 		
-			if(current.godvalue > old.godvalue && vars.split == 16){
+			if(current.cutscene > old.cutscene && vars.split == 16){
 				vars.split++;
 				return true;
 			//Gloktigi Twins
 			}
 		
-			if(current.end == 2 && current.quicksave > old.quicksave && vars.split == 17){
+			if(current.end == 2 && current.cutscene == 0 && vars.split == 17){
 				vars.split++;
 				return true;
 			//Sekto
@@ -804,7 +816,10 @@ split
 			//Dusky Hollow
 			}
 		
-			if(current.godvalue == current.nerfshop && current.godvalue > old.godvalue && vars.split == 17){
+			if(current.zone == 6 && current.cutscene > old.cutscene && vars.split == 17){
+				vars.tuto++;
+			}
+			if(vars.tuto == 6 && vars.split == 17){
 				vars.split++;
 				return true;
 			//RNG
@@ -825,7 +840,7 @@ split
 			if(current.zone == 1 && current.cutscene > old.cutscene && vars.split == 20){
 				vars.tuto++;
 			}
-			if(vars.split == 20 && vars.tuto == 4){
+			if(vars.split == 20 && vars.tuto == 8){
 				vars.split++;
 				return true;
 			//Last Legs
@@ -837,31 +852,34 @@ split
 			//Some More Boat
 			}
 		
-			if(current.godvalue > old.godvalue && vars.split == 22){
+			if(current.zone == 10 && current.cutscene > old.cutscene && vars.split == 22){
+				vars.tuto++;
+			}
+			if(vars.tuto == 10 && vars.split == 22){
 				vars.split++;
 				return true;
 			//Gloktigi Clip
 			}
 		
-			if(current.godvalue < old.godvalue && vars.split == 23){
+			if(current.zone == 8 && current.cutscene > old.cutscene && vars.split == 23){
 				vars.split++;
 				return true;
 			//Sekto's Lair
 			}
 		
-			if(current.godvalue < old.godvalue && vars.split == 24){
+			if(current.zone == 12 && current.cutscene > old.cutscene && vars.split == 24){
 				vars.split++;
 				return true;
 			//Timer Rush
 			}
 		
-			if(current.godvalue > old.godvalue && vars.split == 25){
+			if(current.cutscene > old.cutscene && vars.split == 25){
 				vars.split++;
 				return true;
 			//Gloktigi Twins
 			}
 		
-			if(current.end == 2 && current.quicksave > old.quicksave && vars.split == 26){
+			if(current.end == 2 && current.cutscene == 0 && vars.split == 26){
 				vars.split++;
 				return true;
 			//Sekto
@@ -1059,7 +1077,7 @@ split
 			if(current.zone == 1 && current.cutscene > old.cutscene && vars.split == 20){
 				vars.tuto++;
 			}
-			if(vars.split == 20 && vars.tuto == 4){
+			if(vars.split == 20 && vars.tuto == 6){
 				vars.split++;
 				return true;
 			//Last Legs
@@ -1071,31 +1089,34 @@ split
 			//Some More Boat
 			}
 		
-			if(current.godvalue > old.godvalue && vars.split == 22){
+			if(current.zone == 10 && current.cutscene > old.cutscene && vars.split == 22){
+				vars.tuto++;
+			}
+			if(vars.tuto == 10 && vars.split == 22){
 				vars.split++;
 				return true;
 			//Gloktigi Clip
 			}
 		
-			if(current.godvalue < old.godvalue && vars.split == 23){
+			if(current.zone == 8 && current.cutscene > old.cutscene && vars.split == 23){
 				vars.split++;
 				return true;
 			//Sekto's Lair
 			}
 		
-			if(current.godvalue < old.godvalue && vars.split == 24){
+			if(current.zone == 12 && current.cutscene > old.cutscene && vars.split == 24){
 				vars.split++;
 				return true;
 			//Timer Rush
 			}
 		
-			if(current.godvalue > old.godvalue && vars.split == 25){
+			if(current.cutscene > old.cutscene && vars.split == 25){
 				vars.split++;
 				return true;
 			//Gloktigi Twins
 			}
 		
-			if(current.end == 2 && current.quicksave > old.quicksave && vars.split == 26){
+			if(current.end == 2 && current.cutscene == 0 && vars.split == 26){
 				vars.split++;
 				return true;
 			//Sekto
@@ -1173,12 +1194,7 @@ split
 		
 			if(settings["Grubb Village + Wolvark Docks"]){
 		
-				if(current.godvalue == current.nerfshop && current.godvalue > old.godvalue && vars.split == 0){
-					vars.split++;
-				//RNG
-				}
-		
-				if(current.zone == 33 && current.cutscene > old.cutscene && vars.split == 1){
+				if(current.zone == 33 &&  current.cutscene > old.cutscene && vars.split == 0){
 					vars.split++;
 					return true;
 				//Grubb Village + Wolvark Docks
@@ -1217,7 +1233,7 @@ split
 		
 			if(settings["Inner Dam"]){
 		
-				if(current.godvalue < old.godvalue && vars.split == 0){
+				if(current.zone == 8 && current.cutscene > old.cutscene && vars.split == 0){
 					vars.split++;
 					return true;
 				//Inner Dam
@@ -1235,12 +1251,11 @@ split
 		
 			if(settings["Sekto"]){
 			
-				if(current.godvalue > old.godvalue && vars.split == 0){
+				if(current.cutscene > old.cutscene && vars.split == 0){
 					vars.split++;
-					vars.end++;
 				}
 			
-				if(current.end == 2 && current.quicksave > old.quicksave && current.end > old.end && vars.end == 1 && vars.split == 1){
+				if(current.end == 2 && current.cutscene == 0 && vars.split == 1){
 					vars.split++;
 					return true;
 				//Sekto
@@ -1324,7 +1339,7 @@ split
 					//Packrat Palooka
 					}
 					
-					if(current.zone == 78 && vars.capture == 3 && vars.split == 4){
+					if(current.zone == 77 && current.cutscene > old.cutscene && vars.split == 4){
 						vars.split++;
 						return true;
 					//End
@@ -1459,7 +1474,10 @@ split
 		
 			if(settings["Grubb Village + Wolvark Docks"]){
 			
-				if(current.godvalue == current.nerfshop && current.godvalue > old.godvalue && vars.split == 0){
+				if(current.zone == 6 && current.cutscene > old.cutscene && vars.split == 0){
+					vars.tuto++;
+				}
+				if(vars.tuto == 2 && vars.split == 0){
 					vars.split++;
 					return true;
 				//RNG
@@ -1510,7 +1528,7 @@ split
 		
 			if(settings["Inner Dam"]){
 		
-				if(current.godvalue < old.godvalue && vars.split == 0){
+				if(current.zone == 8 && current.cutscene > old.cutscene && vars.split == 0){
 					vars.split++;
 					return true;
 				//Inner Dam
@@ -1528,13 +1546,13 @@ split
 		
 			if(settings["Sekto"]){
 			
-				if(current.godvalue > old.godvalue && vars.split == 0){
+				if(current.cutscene > old.cutscene && vars.split == 0){
 					vars.split++;
 					return true;
 				//Gloktigi Twins
 				}
 			
-				if(current.end == 2 && current.quicksave > old.quicksave && vars.split == 1){
+				if(current.end == 2 && current.cutscene == 0 && vars.split == 1){
 					vars.split++;
 					return true;
 				//Sekto
@@ -1624,7 +1642,7 @@ split
 					//Packrat Palooka
 					}
 					
-					if(current.zone == 78 && vars.capture == 3 && vars.split == 4){
+					if(current.zone == 77 && current.cutscene > old.cutscene && vars.split == 4){
 						vars.split++;
 						return true;
 					//End
