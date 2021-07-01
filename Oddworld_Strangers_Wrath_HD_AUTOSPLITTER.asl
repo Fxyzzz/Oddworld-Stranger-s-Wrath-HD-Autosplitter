@@ -442,7 +442,11 @@ split
 			//Buzzarton Skip
 			}
 		
-			if(current.cutscene > old.cutscene && vars.split == 3){
+			if(current.zone == 16 && current.cutscene > old.cutscene && vars.split == 3){
+				vars.split++;
+				return true;
+			}
+			else if(current.zone == 4 && current.cutscene > old.cutscene && vars.split == 3){
 				vars.split++;
 				return true;
 			//Welcome to the Jungle
@@ -563,7 +567,11 @@ split
 			//Buzzarton Skip
 			}
 		
-			if(current.cutscene > old.cutscene && vars.split == 3){
+			if(current.zone == 16 && current.cutscene > old.cutscene && vars.split == 3){
+				vars.split++;
+				return true;
+			}
+			else if(current.zone == 4 && current.cutscene > old.cutscene && vars.split == 3){
 				vars.split++;
 				return true;
 			//Welcome to the Jungle
@@ -763,7 +771,11 @@ split
 			//Packrat Palooka
 			}
 		
-			if(current.cutscene > old.cutscene && vars.split == 8){
+			if(current.zone == 16 && current.cutscene > old.cutscene && vars.split == 8){
+				vars.split++;
+				return true;
+			}
+			else if(current.zone == 4 && current.cutscene > old.cutscene && vars.split == 8){
 				vars.split++;
 				return true;
 			//Welcome to the jungle
@@ -1003,7 +1015,11 @@ split
 			//Packrat Palooka
 			}
 		
-			if(current.cutscene > old.cutscene && vars.split == 8){
+			if(current.zone == 16 && current.cutscene > old.cutscene && vars.split == 8){
+				vars.split++;
+				return true;
+			}
+			else if(current.zone == 4 && current.cutscene > old.cutscene && vars.split == 8){
 				vars.split++;
 				return true;
 			//Welcome to the jungle
