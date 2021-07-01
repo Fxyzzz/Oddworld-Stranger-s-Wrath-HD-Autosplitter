@@ -1387,7 +1387,7 @@ split
 				
 				if(settings["New Yolk City"]){
 				
-					if(current.zone == 16 && current.cutscene > old.cutscene && vars.split == 3){
+					if(current.zone == 16 && current.cutscene > old.cutscene && vars.split == 0){
 						vars.split++;
 					}
 					else if(current.zone == 4 && current.cutscene > old.cutscene && vars.split == 0){
@@ -1693,7 +1693,7 @@ split
 				
 				if(settings["New Yolk City"]){
 				
-					if(current.zone == 16 && current.cutscene > old.cutscene && vars.split == 3){
+					if(current.zone == 16 && current.cutscene > old.cutscene && vars.split == 0){
 						vars.split++;
 						return true;
 					}
