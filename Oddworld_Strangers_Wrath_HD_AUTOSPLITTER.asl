@@ -345,7 +345,7 @@ reset
 					vars.rendu = 0;
 					vars.tuto = 0;
 					vars.end = 0;
-				return false;
+					return false;
 				}
 				
 				else if(settings["New Yolk City"] && current.zone == 3){
@@ -354,7 +354,7 @@ reset
 					vars.rendu = 0;
 					vars.tuto = 0;
 					vars.end = 0;
-				return false;
+					return false;
 				}
 			}
 		else return true;
