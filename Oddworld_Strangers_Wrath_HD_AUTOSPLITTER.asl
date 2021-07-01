@@ -12,7 +12,7 @@ state ("stranger", "4.0 Steam 29-06-2021 Fxyz")
 	int primeguy : 0x1DFA94, 0x90;		//Talking to the guy in the bounty store
 	int cutscene : 0x3403C0, 0x18;		//When black stripes appear on screen
 	int IGT : 0x10F854, 0x18;
-	int IGT2 : 0x228330, 0x18;
+	//int IGT2 : 0x228330, 0x18;		//Useless
 	long IGT3 : 0x34A040, 0x114;
 	int end : 0x3388C4, 0x68;
 	//int quicksave : 0x341274, 0x138;		//When a quicksave / automatic save is done
@@ -22,7 +22,7 @@ state ("stranger", "4.0 Steam 29-06-2021 Fxyz")
 	int barrel : 0x2FB8FC, 0x104;
 	int zone : 0x1CFFC8, 0x18;			//The ID of every chunks in the game
 	int resettimer : 0x1E4AB4, 0x14;	//Set to 257 only in the main menu
-	int ilstart: 0x20C44C, 0x20;
+	int ilstart : 0x20C44C, 0x20;
 }
 
 state ("stranger", "4.0 GOG 29-06-2021 Fxyz")
@@ -37,7 +37,7 @@ state ("stranger", "4.0 GOG 29-06-2021 Fxyz")
 	int primeguy : 0x1DFB74, 0x90;
 	int cutscene : 0x33F690, 0x18;		
 	int IGT : 0x10F1E4, 0x18;
-	int IGT2 : 0x227560, 0x18;
+	//int IGT2 : 0x227560, 0x18;		//Useless
 	long IGT3 : 0x0349330, 0x114;
 	int end : 0x337B84, 0x68;
 	//int quicksave : 0x1DFB74, 0x88;
@@ -47,7 +47,7 @@ state ("stranger", "4.0 GOG 29-06-2021 Fxyz")
 	int barrel : 0x2FAA18, 0x104;
 	int zone : 0x1D00B8, 0x18;
 	int resettimer : 0x1E4C04, 0x14;
-	int ilstart: 0x020B7EC, 0x20;
+	int ilstart : 0x020B7EC, 0x20;
 }
 
 
@@ -1725,8 +1725,6 @@ isLoading
 
 {
 	if(current.IGT > 0 && current.IGT3 == 0){
-		return true;
-	} else if(current.IGT2 > 0 && current.IGT3 == 0){
 		return true;
 	} else {
 		return false;
