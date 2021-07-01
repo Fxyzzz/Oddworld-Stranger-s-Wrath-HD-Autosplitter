@@ -1433,10 +1433,10 @@ split
 					if(current.bounty > old.bounty && vars.split == 5 && vars.capture == 3){
 						vars.capture++;
 					}
-					if(current.primeguy > old.primeguy && vars.split == 5 && vars.rendu == 2 && vars.capture == 4){
+					if(current.primeguy > old.primeguy && vars.split == 5 && vars.rendu == 1 && vars.capture == 4){
 						vars.rendu++;
 					}
-					if(vars.split == 5 && vars.capture == 4 && vars.rendu == 3){
+					if(vars.split == 5 && vars.capture == 4 && vars.rendu == 2){
 						vars.split++;
 					//Lefty Lugnutz
 					}
@@ -1745,10 +1745,10 @@ split
 					if(current.bounty > old.bounty && vars.split == 5 && vars.capture == 3){
 						vars.capture++;
 					}
-					if(current.primeguy > old.primeguy && vars.split == 5 && vars.rendu == 2 && vars.capture == 4){
+					if(current.primeguy > old.primeguy && vars.split == 5 && vars.rendu == 1 && vars.capture == 4){
 						vars.rendu++;
 					}
-					if(vars.split == 5 && vars.capture == 4 && vars.rendu == 3){
+					if(vars.split == 5 && vars.capture == 4 && vars.rendu == 2){
 						vars.split++;
 						return true;
 					//Lefty Lugnutz
