@@ -327,12 +327,34 @@ reset
 		}
 		
 		else if(current.resetload > old.resetload && current.primeguy == 0){
-			vars.split = 0;
-			vars.capture = 0;
-			vars.rendu = 0;
-			vars.tuto = 0;
-			vars.end = 0;
-			return true;
+		
+			if(settings["Gizzard Gulch"] && current.zone == 4){
+				vars.split = 0;
+				vars.capture = 0;
+				vars.rendu = 0;
+				vars.tuto = 0;
+				vars.end = 0;
+				return false;
+			}
+			
+			else if(settings["Buzzarton"] && current.zone == 10){
+				vars.split = 0;
+				vars.capture = 0;
+				vars.rendu = 0;
+				vars.tuto = 0;
+				vars.end = 0;
+				return false;
+			}
+			
+			else if(settings["New Yolk City"] && current.zone == 3){
+				vars.split = 0;
+				vars.capture = 0;
+				vars.rendu = 0;
+				vars.tuto = 0;
+				vars.end = 0;
+				return false;
+			}
+		else return true;
 		}
 	}
 	
