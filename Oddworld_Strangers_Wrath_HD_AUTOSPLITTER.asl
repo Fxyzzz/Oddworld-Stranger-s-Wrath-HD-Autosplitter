@@ -328,7 +328,7 @@ reset
 		
 		else if(current.resetload > old.resetload && current.primeguy == 0){
 		
-			if(settings["Individual Regions"]{
+			if(settings["Individual Regions"]){
 			
 				if(settings["Gizzard Gulch"] && current.zone == 4){
 					vars.split = 0;
