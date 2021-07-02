@@ -781,7 +781,7 @@ split
 			if(current.zone == 56 && current.cutscene > old.cutscene && vars.split == 10){
 				vars.tuto++;
 			}
-			if(vars.split == 10 && vars.tuto == 4){
+			if(current.zone == 56 && vars.split == 10 && vars.tuto == 4){
 				vars.split++;
 				return true;
 			//Giant Sleg
@@ -790,7 +790,7 @@ split
 			if(current.bounty > old.bounty && vars.split == 10 && vars.capture == 7 && current.zone == 28){
 				vars.capture++;
 			}
-			if(current.cutscene > old.cutscene && vars.split == 10 && vars.capture == 8){
+			if(current.zone == 28 && current.cutscene > old.cutscene && vars.split == 10 && vars.capture == 8){
 				vars.split++;
 				return true;
 			//Fatty McBoomboom
@@ -800,7 +800,7 @@ split
 			if(current.zone == 56 && current.cutscene > old.cutscene && vars.split == 11){
 				vars.tuto++;
 			}
-			if(vars.split == 11 && vars.tuto == 4){
+			if(current.zone == 56 && vars.split == 11 && vars.tuto == 4){
 				vars.split++;
 				return true;
 			//Giant Sleg
@@ -809,7 +809,7 @@ split
 			if(current.bounty > old.bounty && vars.split == 11 && vars.capture == 7 && current.zone == 28){
 				vars.capture++;
 			}
-			if(current.cutscene > old.cutscene && vars.split == 11 && vars.capture == 8){
+			if(current.zone == 28 && current.cutscene > old.cutscene && vars.split == 11 && vars.capture == 8){
 				vars.split++;
 				return true;
 			//Fatty McBoomboom
@@ -1029,10 +1029,11 @@ split
 			//Xplosives McGee
 			}
 		
+		
 			if(current.zone == 56 && current.cutscene > old.cutscene && vars.split == 10){
 				vars.tuto++;
 			}
-			if(vars.split == 10 && vars.tuto == 4){
+			if(current.zone == 56 && vars.split == 10 && vars.tuto == 4){
 				vars.split++;
 				return true;
 			//Giant Sleg
@@ -1041,7 +1042,7 @@ split
 			if(current.bounty > old.bounty && vars.split == 10 && vars.capture == 7 && current.zone == 28){
 				vars.capture++;
 			}
-			if(current.cutscene > old.cutscene && vars.split == 10 && vars.capture == 8){
+			if(current.zone == 28 && current.cutscene > old.cutscene && vars.split == 10 && vars.capture == 8){
 				vars.split++;
 				return true;
 			//Fatty McBoomboom
@@ -1051,7 +1052,7 @@ split
 			if(current.zone == 56 && current.cutscene > old.cutscene && vars.split == 11){
 				vars.tuto++;
 			}
-			if(vars.split == 11 && vars.tuto == 4){
+			if(current.zone == 56 && vars.split == 11 && vars.tuto == 4){
 				vars.split++;
 				return true;
 			//Giant Sleg
@@ -1060,7 +1061,7 @@ split
 			if(current.bounty > old.bounty && vars.split == 11 && vars.capture == 7 && current.zone == 28){
 				vars.capture++;
 			}
-			if(current.cutscene > old.cutscene && vars.split == 11 && vars.capture == 8){
+			if(current.zone == 28 && current.cutscene > old.cutscene && vars.split == 11 && vars.capture == 8){
 				vars.split++;
 				return true;
 			//Fatty McBoomboom
