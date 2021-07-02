@@ -793,7 +793,8 @@ split
 			//Xplosives McGee
 			}
 		
-			if(current.zone == 56 && current.cutscene > old.cutscene){
+		
+			if(current.zone == 56 && current.cutscene > old.cutscene && vars.split == 10){
 				vars.tuto++;
 			}
 			if(vars.split == 10 && vars.tuto == 4){
@@ -802,19 +803,42 @@ split
 			//Giant Sleg
 			}
 		
-			if(current.bounty > old.bounty && vars.split == 11 && vars.capture == 7){
+			if(current.bounty > old.bounty && vars.split == 10 && vars.capture == 7 && current.zone == 28){
 				vars.capture++;
 			}
-			if(current.river < old.river && vars.split == 11 && vars.capture == 8){
+			if(current.cutscene > old.cutscene && vars.split == 10 && vars.capture == 8){
+				vars.split++;
+				return true;
+			//Fatty McBoomboom
+			}
+			
+			
+			if(current.zone == 56 && current.cutscene > old.cutscene && vars.split == 11){
+				vars.tuto++;
+			}
+			if(vars.split == 11 && vars.tuto == 4){
+				vars.split++;
+				return true;
+			//Giant Sleg
+			}
+		
+			if(current.bounty > old.bounty && vars.split == 11 && vars.capture == 7 && current.zone == 28){
+				vars.capture++;
+			}
+			if(current.cutscene > old.cutscene && vars.split == 11 && vars.capture == 8){
 				vars.split++;
 				return true;
 			//Fatty McBoomboom
 			}
 		
-			if(current.bounty > old.bounty && vars.split == 12 && vars.capture == 8){
+		
+			if(current.bounty > old.bounty && vars.split == 12 && vars.capture == 8 && current.zone == 66){
+				vars.capture++;	
+			}
+			else if(current.bounty > old.bounty && vars.split == 12 && vars.capture == 8 && current.zone == 54){
 				vars.capture++;
 			}
-			if(current.godvalue < old.godvalue && vars.split == 12 && vars.capture == 9){
+			if(current.cutscene > old.cutscene && vars.split == 12 && vars.capture == 9){
 				vars.split++;
 				return true;
 			//Elboze Freely
@@ -1037,16 +1061,7 @@ split
 			//Xplosives McGee
 			}
 		
-			if(current.bounty > old.bounty && vars.split == 10 && vars.capture == 7){
-				vars.capture++;
-			}
-			if(current.river < old.river && vars.split == 10 && vars.capture == 8){
-				vars.split++;
-				return true;
-			//Fatty McBoomboom
-			}
-			
-			if(current.zone == 56 && current.cutscene > old.cutscene){
+			if(current.zone == 56 && current.cutscene > old.cutscene && vars.split == 10){
 				vars.tuto++;
 			}
 			if(vars.split == 10 && vars.tuto == 4){
@@ -1055,10 +1070,42 @@ split
 			//Giant Sleg
 			}
 		
-			if(current.bounty > old.bounty && vars.split == 12 && vars.capture == 8){
+			if(current.bounty > old.bounty && vars.split == 10 && vars.capture == 7 && current.zone == 28){
 				vars.capture++;
 			}
-			if(current.godvalue < old.godvalue && vars.split == 12 && vars.capture == 9){
+			if(current.cutscene > old.cutscene && vars.split == 10 && vars.capture == 8){
+				vars.split++;
+				return true;
+			//Fatty McBoomboom
+			}
+			
+			
+			if(current.zone == 56 && current.cutscene > old.cutscene && vars.split == 11){
+				vars.tuto++;
+			}
+			if(vars.split == 11 && vars.tuto == 4){
+				vars.split++;
+				return true;
+			//Giant Sleg
+			}
+		
+			if(current.bounty > old.bounty && vars.split == 11 && vars.capture == 7 && current.zone == 28){
+				vars.capture++;
+			}
+			if(current.cutscene > old.cutscene && vars.split == 11 && vars.capture == 8){
+				vars.split++;
+				return true;
+			//Fatty McBoomboom
+			}
+		
+		
+			if(current.bounty > old.bounty && vars.split == 12 && vars.capture == 8 && current.zone == 66){
+				vars.capture++;	
+			}
+			else if(current.bounty > old.bounty && vars.split == 12 && vars.capture == 8 && current.zone == 54){
+				vars.capture++;
+			}
+			if(current.cutscene > old.cutscene && vars.split == 12 && vars.capture == 9){
 				vars.split++;
 				return true;
 			//Elboze Freely
@@ -1406,26 +1453,48 @@ split
 					//Xplosives McGee
 					}
 	
-					if(current.zone == 56 && current.cutscene > old.cutscene){
+	
+					if(current.zone == 56 && current.cutscene > old.cutscene && vars.split == 2){
 						vars.tuto++;
 					}
-					if(vars.split == 2 && vars.tuto == 2){
+					if(vars.split == 10 && vars.tuto == 2){
 						vars.split++;
 					//Giant Sleg
 					}
-	
-					if(current.bounty > old.bounty && vars.split == 3 && vars.capture == 1){
+				
+					if(current.bounty > old.bounty && vars.split == 2 && vars.capture == 1 && current.zone == 28){
 						vars.capture++;
 					}
-					if(current.river < old.river && vars.split == 3 && vars.capture == 2){
+					if(current.cutscene > old.cutscene && vars.split == 2 && vars.capture == 2){
 						vars.split++;
 					//Fatty McBoomboom
 					}
-	
-					if(current.bounty > old.bounty && vars.split == 4 && vars.capture == 2){
+					
+					
+					if(current.zone == 56 && current.cutscene > old.cutscene && vars.split == 3){
+						vars.tuto++;
+					}
+					if(vars.split == 3 && vars.tuto == 2){
+						vars.split++;
+					//Giant Sleg
+					}
+				
+					if(current.bounty > old.bounty && vars.split == 3 && vars.capture == 1 && current.zone == 28){
 						vars.capture++;
 					}
-					if(current.godvalue < old.godvalue && vars.split == 4 && vars.capture == 3){
+					if(current.cutscene > old.cutscene && vars.split == 3 && vars.capture == 2){
+						vars.split++;
+					//Fatty McBoomboom
+					}
+				
+				
+					if(current.bounty > old.bounty && vars.split == 4 && vars.capture == 2 && current.zone == 66){
+						vars.capture++;	
+					}
+					else if(current.bounty > old.bounty && vars.split == 4 && vars.capture == 2 && current.zone == 54){
+						vars.capture++;
+					}
+					if(current.cutscene > old.cutscene && vars.split == 4 && vars.capture == 3){
 						vars.split++;
 					//Elboze Freely
 					}
@@ -1715,28 +1784,52 @@ split
 					//Xplosives McGee
 					}
 	
-					if(current.zone == 56 && current.cutscene > old.cutscene){
+	
+					if(current.zone == 56 && current.cutscene > old.cutscene && vars.split == 2){
 						vars.tuto++;
 					}
-					if(vars.split == 2 && vars.tuto == 2){
+					if(vars.split == 10 && vars.tuto == 2){
 						vars.split++;
 						return true;
 					//Giant Sleg
 					}
-	
-					if(current.bounty > old.bounty && vars.split == 3 && vars.capture == 1){
+				
+					if(current.bounty > old.bounty && vars.split == 2 && vars.capture == 1 && current.zone == 28){
 						vars.capture++;
 					}
-					if(current.river < old.river && vars.split == 3 && vars.capture == 2){
+					if(current.cutscene > old.cutscene && vars.split == 2 && vars.capture == 2){
 						vars.split++;
 						return true;
 					//Fatty McBoomboom
 					}
-	
-					if(current.bounty > old.bounty && vars.split == 4 && vars.capture == 2){
+					
+					
+					if(current.zone == 56 && current.cutscene > old.cutscene && vars.split == 3){
+						vars.tuto++;
+					}
+					if(vars.split == 3 && vars.tuto == 2){
+						vars.split++;
+						return true;
+					//Giant Sleg
+					}
+				
+					if(current.bounty > old.bounty && vars.split == 3 && vars.capture == 1 && current.zone == 28){
 						vars.capture++;
 					}
-					if(current.godvalue < old.godvalue && vars.split == 4 && vars.capture == 3){
+					if(current.cutscene > old.cutscene && vars.split == 3 && vars.capture == 2){
+						vars.split++;
+						return true;
+					//Fatty McBoomboom
+					}
+				
+				
+					if(current.bounty > old.bounty && vars.split == 4 && vars.capture == 2 && current.zone == 66){
+						vars.capture++;	
+					}
+					else if(current.bounty > old.bounty && vars.split == 4 && vars.capture == 2 && current.zone == 54){
+						vars.capture++;
+					}
+					if(current.cutscene > old.cutscene && vars.split == 4 && vars.capture == 3){
 						vars.split++;
 						return true;
 					//Elboze Freely
