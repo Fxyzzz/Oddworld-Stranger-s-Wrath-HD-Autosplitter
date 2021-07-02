@@ -1,6 +1,6 @@
 // 19-02-2021 by Fxyz#1329
 
-state ("stranger", "4.0 Steam 29-06-2021 Fxyz")
+state ("stranger", "4.1 Steam 02-07-2021 Fxyz")
 
 {
 	int diffmenu : 0x1DEAFC, 0x4;
@@ -25,7 +25,7 @@ state ("stranger", "4.0 Steam 29-06-2021 Fxyz")
 	int ilstart : 0x20C44C, 0x20;
 }
 
-state ("stranger", "4.0 GOG 29-06-2021 Fxyz")
+state ("stranger", "4.1 GOG 02-07-2021 Fxyz")
 
 {
 	int diffmenu : 0x1E120C, 0x64;
@@ -62,11 +62,11 @@ init
 	if(settings["Platform"]){
 		
 		if(settings["Steam"]){
-			version = "4.0 Steam 29-06-2021 Fxyz";
+			version = "4.1 Steam 02-07-2021 Fxyz";
 		}
 		
 		if(settings["GOG"]){
-			version = "4.0 GOG 29-06-2021 Fxyz";
+			version = "4.1 GOG 02-07-2021 Fxyz";
 		}
 	}	
 	
@@ -582,8 +582,6 @@ split
 			}
 			if(current.primeguy > old.primeguy && vars.split == 4 && vars.rendu == 0 && vars.capture == 1){
 				vars.rendu++;
-			}
-			if(vars.split == 4 && vars.capture == 1 && vars.rendu == 1){
 				vars.split++;
 				return true;
 			//Xplosives McGee
@@ -698,8 +696,6 @@ split
 			}
 			if(current.primeguy > old.primeguy && vars.split == 1 && vars.rendu == 0 && vars.capture == 1){
 				vars.rendu++;
-			}
-			if(vars.split == 1 && vars.capture == 1 && vars.rendu == 1){
 				vars.split++;
 				return true;
 			//Filthy Hands Floyd
@@ -710,8 +706,6 @@ split
 			}
 			if(current.primeguy > old.primeguy && vars.split == 2 && vars.rendu == 1 && vars.capture == 2){
 				vars.rendu++;
-			}
-			if(vars.split == 2 && vars.capture == 2 && vars.rendu == 2){
 				vars.split++;
 				return true;
 			//Looten Duke
@@ -722,8 +716,6 @@ split
 			}
 			if(current.primeguy > old.primeguy && vars.split == 3 && vars.rendu == 2 && vars.capture == 3){
 				vars.rendu++;
-			}
-			if(vars.split == 3 && vars.capture == 3 && vars.rendu == 3){
 				vars.split++;
 				return true;
 			//Boilz Booty
@@ -740,8 +732,6 @@ split
 		
 			if(current.primeguy > old.primeguy && vars.split == 5 && vars.rendu == 3 && vars.capture == 4){
 				vars.rendu++;
-			}
-			if(vars.split == 5 && vars.capture == 4 && vars.rendu == 4){
 				vars.split++;
 				return true;
 			//Eugene Ius
@@ -752,8 +742,6 @@ split
 			}
 			if(current.primeguy > old.primeguy && vars.split == 6 && vars.rendu == 4 && vars.capture == 5){
 				vars.rendu++;
-			}
-			if(vars.split == 6 && vars.capture == 5 && vars.rendu == 5){
 				vars.split++;
 				return true;
 			//Meagly McGraw
@@ -764,8 +752,6 @@ split
 			}
 			if(current.primeguy > old.primeguy && vars.split == 7 && vars.rendu == 5 && vars.capture == 6){
 				vars.rendu++;
-			}
-			if(vars.split == 7 && vars.capture == 6 && vars.rendu == 6){
 				vars.split++;
 				return true;
 			//Packrat Palooka
@@ -786,8 +772,6 @@ split
 			}
 			if(current.primeguy > old.primeguy && vars.split == 9 && vars.rendu == 6 && vars.capture == 7){
 				vars.rendu++;
-			}
-			if(vars.split == 9 && vars.capture == 7 && vars.rendu == 7){
 				vars.split++;
 				return true;
 			//Xplosives McGee
@@ -849,8 +833,6 @@ split
 			}
 			if(current.primeguy > old.primeguy && vars.split == 13 && vars.rendu == 7 && vars.capture == 10){
 				vars.rendu++;
-			}
-			if(vars.split == 13 && vars.capture == 10 && vars.rendu == 8){
 				vars.split++;
 				return true;
 			//Lefty Lugnutz
@@ -966,8 +948,6 @@ split
 			}
 			if(current.primeguy > old.primeguy && vars.split == 1 && vars.rendu == 0 && vars.capture == 1){
 				vars.rendu++;
-			}
-			if(vars.split == 1 && vars.capture == 1 && vars.rendu == 1){
 				vars.split++;
 				return true;
 			//Filthy Hands Floyd
@@ -978,8 +958,6 @@ split
 			}
 			if(current.primeguy > old.primeguy && vars.split == 2 && vars.rendu == 1 && vars.capture == 2){
 				vars.rendu++;
-			}
-			if(vars.split == 2 && vars.capture == 2 && vars.rendu == 2){
 				vars.split++;
 				return true;
 			//Looten Duke
@@ -990,8 +968,6 @@ split
 			}
 			if(current.primeguy > old.primeguy && vars.split == 3 && vars.rendu == 2 && vars.capture == 3){
 				vars.rendu++;
-			}
-			if(vars.split == 3 && vars.capture == 3 && vars.rendu == 3){
 				vars.split++;
 				return true;
 			//Boilz Booty
@@ -1008,8 +984,6 @@ split
 		
 			if(current.primeguy > old.primeguy && vars.split == 5 && vars.rendu == 3 && vars.capture == 4){
 				vars.rendu++;
-			}
-			if(vars.split == 5 && vars.capture == 4 && vars.rendu == 4){
 				vars.split++;
 				return true;
 			//Eugene Ius
@@ -1020,8 +994,6 @@ split
 			}
 			if(current.primeguy > old.primeguy && vars.split == 6 && vars.rendu == 4 && vars.capture == 5){
 				vars.rendu++;
-			}
-			if(vars.split == 6 && vars.capture == 5 && vars.rendu == 5){
 				vars.split++;
 				return true;
 			//Meagly McGraw
@@ -1032,8 +1004,6 @@ split
 			}
 			if(current.primeguy > old.primeguy && vars.split == 7 && vars.rendu == 5 && vars.capture == 6){
 				vars.rendu++;
-			}
-			if(vars.split == 7 && vars.capture == 6 && vars.rendu == 6){
 				vars.split++;
 				return true;
 			//Packrat Palooka
@@ -1054,8 +1024,6 @@ split
 			}
 			if(current.primeguy > old.primeguy && vars.split == 9 && vars.rendu == 6 && vars.capture == 7){
 				vars.rendu++;
-			}
-			if(vars.split == 9 && vars.capture == 7 && vars.rendu == 7){
 				vars.split++;
 				return true;
 			//Xplosives McGee
@@ -1116,8 +1084,6 @@ split
 			}
 			if(current.primeguy > old.primeguy && vars.split == 13 && vars.rendu == 7 && vars.capture == 10){
 				vars.rendu++;
-			}
-			if(vars.split == 13 && vars.capture == 10 && vars.rendu == 8){
 				vars.split++;
 				return true;
 			//Lefty Lugnutz
@@ -1242,8 +1208,6 @@ split
 					}
 					if(current.primeguy > old.primeguy && vars.rendu == 0 && vars.capture == 1){
 						vars.rendu++;
-					}
-					if(vars.capture == 1 && vars.rendu == 1 && vars.split == 0){
 						vars.split++;
 						return true;
 					//Other Bounties
@@ -1254,8 +1218,6 @@ split
 			
 					if(current.primeguy > old.primeguy && vars.rendu == 0){
 						vars.rendu++;
-					}
-					if(vars.rendu == 1 && vars.split == 0){
 						vars.split++;
 						return true;
 					//Eugene Ius
@@ -1356,8 +1318,6 @@ split
 					}
 					if(current.primeguy > old.primeguy && vars.split == 0 && vars.rendu == 0 && vars.capture == 1){
 						vars.rendu++;
-					}
-					if(vars.split == 0 && vars.capture == 1 && vars.rendu == 1){
 						vars.split++;
 					//Filthy Hands Floyd
 					}
@@ -1367,8 +1327,6 @@ split
 					}
 					if(current.primeguy > old.primeguy && vars.split == 1 && vars.rendu == 1 && vars.capture == 2){
 						vars.rendu++;
-					}
-					if(vars.split == 1 && vars.capture == 2 && vars.rendu == 2){
 						vars.split++;
 					//Looten Duke
 					}
@@ -1392,8 +1350,6 @@ split
 	
 					if(current.primeguy > old.primeguy && vars.split == 1 && vars.rendu == 0 && vars.capture == 1){
 						vars.rendu++;
-					}
-					if(vars.split == 1 && vars.capture == 1 && vars.rendu == 1){
 						vars.split++;
 					//Eugene Ius
 					}
@@ -1403,8 +1359,6 @@ split
 					}
 					if(current.primeguy > old.primeguy && vars.split == 2 && vars.rendu == 1 && vars.capture == 2){
 						vars.rendu++;
-					}
-					if(vars.split == 2 && vars.capture == 2 && vars.rendu == 2){
 						vars.split++;
 					//Meagly McGraw
 					}
@@ -1412,11 +1366,8 @@ split
 					if(current.bounty > old.bounty && vars.split == 3 && vars.capture == 2){
 						vars.capture++;
 					}
-					
 					if(current.primeguy > old.primeguy && vars.split == 3 && vars.rendu == 2 && vars.capture == 3){
 						vars.rendu++;
-					}
-					if(vars.split == 3 && vars.capture == 3 && vars.rendu == 3){
 						vars.split++;
 					//Packrat Palooka
 					}
@@ -1444,8 +1395,6 @@ split
 					}
 					if(current.primeguy > old.primeguy && vars.split == 1 && vars.rendu == 0 && vars.capture == 1){
 						vars.rendu++;
-					}
-					if(vars.split == 1 && vars.capture == 1 && vars.rendu == 1){
 						vars.split++;
 					//Xplosives McGee
 					}
@@ -1501,8 +1450,6 @@ split
 					}
 					if(current.primeguy > old.primeguy && vars.split == 5 && vars.rendu == 1 && vars.capture == 4){
 						vars.rendu++;
-					}
-					if(vars.split == 5 && vars.capture == 4 && vars.rendu == 2){
 						vars.split++;
 					//Lefty Lugnutz
 					}
@@ -1543,8 +1490,6 @@ split
 					}
 					if(current.primeguy > old.primeguy && vars.rendu == 0 && vars.capture == 1){
 						vars.rendu++;
-					}
-					if(vars.capture == 1 && vars.rendu == 1 && vars.split == 0){
 						vars.split++;
 						return true;
 					//Other Bounties
@@ -1555,8 +1500,6 @@ split
 			
 					if(current.primeguy > old.primeguy && vars.rendu == 0){
 						vars.rendu++;
-					}
-					if(vars.rendu == 1 && vars.split == 0){
 						vars.split++;
 						return true;
 					//Eugene Ius
@@ -1675,8 +1618,6 @@ split
 					}
 					if(current.primeguy > old.primeguy && vars.split == 0 && vars.rendu == 0 && vars.capture == 1){
 						vars.rendu++;
-					}
-					if(vars.split == 0 && vars.capture == 1 && vars.rendu == 1){
 						vars.split++;
 						return true;
 					//Filthy Hands Floyd
@@ -1687,8 +1628,6 @@ split
 					}
 					if(current.primeguy > old.primeguy && vars.split == 1 && vars.rendu == 1 && vars.capture == 2){
 						vars.rendu++;
-					}
-					if(vars.split == 1 && vars.capture == 2 && vars.rendu == 2){
 						vars.split++;
 						return true;
 					//Looten Duke
@@ -1714,8 +1653,6 @@ split
 	
 					if(current.primeguy > old.primeguy && vars.split == 1 && vars.rendu == 0 && vars.capture == 1){
 						vars.rendu++;
-					}
-					if(vars.split == 1 && vars.capture == 1 && vars.rendu == 1){
 						vars.split++;
 						return true;
 					//Eugene Ius
@@ -1726,8 +1663,6 @@ split
 					}
 					if(current.primeguy > old.primeguy && vars.split == 2 && vars.rendu == 1 && vars.capture == 2){
 						vars.rendu++;
-					}
-					if(vars.split == 2 && vars.capture == 2 && vars.rendu == 2){
 						vars.split++;
 						return true;
 					//Meagly McGraw
@@ -1739,8 +1674,6 @@ split
 					
 					if(current.primeguy > old.primeguy && vars.split == 3 && vars.rendu == 2 && vars.capture == 3){
 						vars.rendu++;
-					}
-					if(vars.split == 3 && vars.capture == 3 && vars.rendu == 3){
 						vars.split++;
 						return true;
 					//Packrat Palooka
@@ -1771,8 +1704,6 @@ split
 					}
 					if(current.primeguy > old.primeguy && vars.split == 1 && vars.rendu == 0 && vars.capture == 1){
 						vars.rendu++;
-					}
-					if(vars.split == 1 && vars.capture == 1 && vars.rendu == 1){
 						vars.split++;
 						return true;
 					//Xplosives McGee
@@ -1834,8 +1765,6 @@ split
 					}
 					if(current.primeguy > old.primeguy && vars.split == 5 && vars.rendu == 1 && vars.capture == 4){
 						vars.rendu++;
-					}
-					if(vars.split == 5 && vars.capture == 4 && vars.rendu == 2){
 						vars.split++;
 						return true;
 					//Lefty Lugnutz
