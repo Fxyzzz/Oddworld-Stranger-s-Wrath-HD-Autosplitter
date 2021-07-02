@@ -1373,10 +1373,7 @@ split
 					//Looten Duke
 					}
 	
-					if(current.bounty > old.bounty && vars.split == 2 && vars.capture == 2){
-						vars.capture++;
-					}
-					if(current.zone == 39 && current.cutscene > old.cutscene && vars.split == 2 && vars.capture == 3){
+					if(current.zone == 39 && current.cutscene > old.cutscene && vars.split == 2){
 						vars.split++;
 						return true;
 					//Boilz Booty
@@ -1697,10 +1694,7 @@ split
 					//Looten Duke
 					}
 	
-					if(current.bounty > old.bounty && vars.split == 2 && vars.capture == 2){
-						vars.capture++;
-					}
-					if(current.zone == 39 && current.cutscene > old.cutscene && vars.split == 2 && vars.capture == 3){
+					if(current.zone == 39 && current.cutscene > old.cutscene && vars.split == 2){
 						vars.split++;
 						return true;
 					//Boilz Booty
