@@ -1316,24 +1316,6 @@ split
 			
 				if(settings["Gizzard Gulch"]){
 				
-					if(current.bounty > old.bounty && vars.split == 0 && vars.capture == 0){
-						vars.capture++;
-					}
-					if(current.primeguy > old.primeguy && vars.split == 0 && vars.rendu == 0 && vars.capture == 1){
-						vars.rendu++;
-						vars.split++;
-					//Filthy Hands Floyd
-					}
-	
-					if(current.bounty > old.bounty && vars.split == 1 && vars.capture == 1){
-						vars.capture++;
-					}
-					if(current.primeguy > old.primeguy && vars.split == 1 && vars.rendu == 1 && vars.capture == 2){
-						vars.rendu++;
-						vars.split++;
-					//Looten Duke
-					}
-	
 					if(current.zone == 39 && current.cutscene > old.cutscene && vars.split == 2){
 						vars.split++;
 						return true;
@@ -1342,120 +1324,15 @@ split
 				}
 				
 				if(settings["Buzzarton"]){
-				
-					if(current.zone == 60 && current.bounty > old.bounty && vars.split == 0 && vars.capture == 0){
-						vars.capture++;
-					}
-					if(current.cutscene > old.cutscene && vars.split == 0 && vars.capture == 1){
-						vars.split++;
-					//Jo Momma
-					}
-	
-					if(current.primeguy > old.primeguy && vars.split == 1 && vars.rendu == 0 && vars.capture == 1){
-						vars.rendu++;
-						vars.split++;
-					//Eugene Ius
-					}
-	
-					if(current.bounty > old.bounty && vars.split == 2 && vars.capture == 1){
-						vars.capture++;
-					}
-					if(current.primeguy > old.primeguy && vars.split == 2 && vars.rendu == 1 && vars.capture == 2){
-						vars.rendu++;
-						vars.split++;
-					//Meagly McGraw
-					}
-	
-					if(current.bounty > old.bounty && vars.split == 3 && vars.capture == 2){
-						vars.capture++;
-					}
-					if(current.primeguy > old.primeguy && vars.split == 3 && vars.rendu == 2 && vars.capture == 3){
-						vars.rendu++;
-						vars.split++;
-					//Packrat Palooka
-					}
 					
 					if(current.zone == 77 && current.cutscene > old.cutscene && vars.split == 4){
 						vars.split++;
 						return true;
 					//End
 					}
-					
 				}
 				
 				if(settings["New Yolk City"]){
-				
-					if(current.zone == 16 && current.cutscene > old.cutscene && vars.split == 0){
-						vars.split++;
-					}
-					else if(current.zone == 4 && current.cutscene > old.cutscene && vars.split == 0){
-						vars.split++;
-					//Welcome to the jungle
-					}
-	
-					if(current.bounty > old.bounty && vars.split == 1 && vars.capture == 0){
-						vars.capture++;
-					}
-					if(current.primeguy > old.primeguy && vars.split == 1 && vars.rendu == 0 && vars.capture == 1){
-						vars.rendu++;
-						vars.split++;
-					//Xplosives McGee
-					}
-	
-	
-					if(current.zone == 56 && current.cutscene > old.cutscene && vars.split == 2){
-						vars.tuto++;
-					}
-					if(vars.split == 10 && vars.tuto == 2){
-						vars.split++;
-					//Giant Sleg
-					}
-				
-					if(current.bounty > old.bounty && vars.split == 2 && vars.capture == 1 && current.zone == 28){
-						vars.capture++;
-					}
-					if(current.cutscene > old.cutscene && vars.split == 2 && vars.capture == 2){
-						vars.split++;
-					//Fatty McBoomboom
-					}
-					
-					
-					if(current.zone == 56 && current.cutscene > old.cutscene && vars.split == 3){
-						vars.tuto++;
-					}
-					if(vars.split == 3 && vars.tuto == 2){
-						vars.split++;
-					//Giant Sleg
-					}
-				
-					if(current.bounty > old.bounty && vars.split == 3 && vars.capture == 1 && current.zone == 28){
-						vars.capture++;
-					}
-					if(current.cutscene > old.cutscene && vars.split == 3 && vars.capture == 2){
-						vars.split++;
-					//Fatty McBoomboom
-					}
-				
-				
-					if(current.bounty > old.bounty && vars.split == 4 && vars.capture == 2 && current.zone == 66){
-						vars.capture++;	
-					}
-					else if(current.bounty > old.bounty && vars.split == 4 && vars.capture == 2 && current.zone == 54){
-						vars.capture++;
-					}
-					if(current.cutscene > old.cutscene && vars.split == 4 && vars.capture == 3){
-						vars.split++;
-					//Elboze Freely
-					}
-	
-					if(current.bounty > old.bounty && vars.split == 5 && vars.capture == 3){
-						vars.capture++;
-					}
-					if(current.primeguy > old.primeguy && vars.split == 5 && vars.rendu == 1 && vars.capture == 4){
-						vars.rendu++;
-						vars.split++;
-					//Lefty Lugnutz
-					}
 				
 					if(current.zone == 9 && current.cutscene > old.cutscene && vars.split == 6){
 						vars.split++;
