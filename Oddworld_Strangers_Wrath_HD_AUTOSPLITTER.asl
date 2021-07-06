@@ -1316,7 +1316,7 @@ split
 			
 				if(settings["Gizzard Gulch"]){
 				
-					if(current.zone == 39 && current.cutscene > old.cutscene && vars.split == 2){
+					if(current.zone == 39 && current.cutscene > old.cutscene){
 						vars.split++;
 						return true;
 					//Boilz Booty
@@ -1325,7 +1325,7 @@ split
 				
 				if(settings["Buzzarton"]){
 					
-					if(current.zone == 77 && current.cutscene > old.cutscene && vars.split == 4){
+					if(current.zone == 77 && current.cutscene > old.cutscene){
 						vars.split++;
 						return true;
 					//End
@@ -1334,7 +1334,7 @@ split
 				
 				if(settings["New Yolk City"]){
 				
-					if(current.zone == 9 && current.cutscene > old.cutscene && vars.split == 6){
+					if(current.zone == 9 && current.cutscene > old.cutscene){
 						vars.split++;
 						return true;
 					//Mongo River
