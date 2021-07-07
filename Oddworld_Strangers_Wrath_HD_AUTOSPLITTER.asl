@@ -315,7 +315,7 @@ start
 	
 		if(settings["Shopping"]){
 		
-			if(current.nerfshop < old.nerfshop){
+			if(current.godvalue < old.godvalue){
 				return true;
 			}
 		}
@@ -1669,7 +1669,7 @@ split
 	
 		if(settings["Shopping"]){
 		
-			if(current.nerfshop > old.nerfshop){
+			if(current.godvalue < old.godvalue){
 				return true;
 			}
 		}
