@@ -121,6 +121,7 @@ startup
 	settings.Add("Full Game Category", false, "Full Game Category");
 	settings.Add("Individual Levels", false, "Individual Levels");
 	settings.Add("Refresh rate of the autosplitter", true, "Refresh rate of the autosplitter");
+	settings.Add("Extra", false, "Extra");
 	
 	//End of 1st tabs
 	
@@ -197,6 +198,9 @@ startup
 	
 	settings.Add("500Rate", false, "500 refreshes per second");
 	settings.SetToolTip("500Rate", "Sets the autosplitter to refresh 500 times per second. If you are playing on NASA computer");
+	
+	settings.CurrentDefaultParent = "Extra";
+	settings.Add("Shopping", false, "Shopping");
 }
  
 start
@@ -307,6 +311,16 @@ start
 		}
 	}
 	
+	if(settings["Extra"]){
+	
+		if(settings["Shopping"]){
+		
+			if(current.nerfshop < old.nerfshop){
+				return true;
+			}
+		}
+	}
+		
 	else if(old.diffmenu == 0 && current.diffmenu != old.diffmenu){
 		return true;
 	}
@@ -314,6 +328,22 @@ start
 
 reset
 {
+	if(settings["Extra"]){
+	
+		if(settings["Shopping"]){
+		
+			if(current.resetload > old.resetload && current.primeguy == 0){
+				vars.split = 0;
+				vars.capture = 0;
+				vars.rendu = 0;
+				vars.tuto = 0;
+				vars.end = 0;
+				return true;
+			}
+		}
+	}
+		
+		
 	if(settings["Individual Levels"]){
 	
 		if(settings["Tutorial"]){
@@ -1656,6 +1686,16 @@ split
 					//Mongo River
 					}		
 				}
+			}
+		}
+	}
+	
+	if(settings["Extra"]){
+	
+		if(settings["Shopping"]){
+		
+			if(current.nerfshop > old.nerfshop){
+				return true;
 			}
 		}
 	}
