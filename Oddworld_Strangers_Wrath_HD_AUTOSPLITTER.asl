@@ -328,22 +328,6 @@ start
 
 reset
 {
-	if(settings["Extra"]){
-	
-		if(settings["Shopping"]){
-		
-			if(current.resetload > old.resetload && current.nerfshop == 1){
-				vars.split = 0;
-				vars.capture = 0;
-				vars.rendu = 0;
-				vars.tuto = 0;
-				vars.end = 0;
-				return true;
-			}
-		}
-	}
-		
-		
 	if(settings["Individual Levels"]){
 	
 		if(settings["Tutorial"]){
