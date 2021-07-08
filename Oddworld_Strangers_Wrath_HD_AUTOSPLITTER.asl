@@ -355,7 +355,7 @@ reset
 			else if(settings["New Yolk City"] && current.zone == 3){
 				return false;
 			}
-		else 
+			else 
 			vars.split = 0;
 			vars.capture = 0;
 			vars.rendu = 0;
@@ -784,11 +784,12 @@ split
 			//Xplosives McGee
 			}
 		
+			//SLEG --> FATTY
 		
-			if(current.zone == 56 && current.cutscene > old.cutscene && vars.split == 10){
+			if(current.zone == 56 && current.cutscene > old.cutscene && vars.split == 10 && vars.capture == 7){
 				vars.tuto++;
 			}
-			if(current.zone == 56 && vars.split == 10 && vars.tuto == 4){
+			if(current.zone == 56 && vars.split == 10 && vars.tuto == 4 && vars.capture == 7){
 				vars.split++;
 				return true;
 			//Giant Sleg
@@ -803,17 +804,9 @@ split
 			//Fatty McBoomboom
 			}
 			
+			//FATTY --> SLEG
 			
-			if(current.zone == 56 && current.cutscene > old.cutscene && vars.split == 11){
-				vars.tuto++;
-			}
-			if(current.zone == 56 && vars.split == 11 && vars.tuto == 4){
-				vars.split++;
-				return true;
-			//Giant Sleg
-			}
-		
-			if(current.bounty > old.bounty && vars.split == 11 && vars.capture == 7 && current.zone == 28){
+			if(current.bounty > old.bounty && vars.split == 11 && vars.capture == 7 && current.zone == 28 && vars.capture == 8){
 				vars.capture++;
 			}
 			if(current.zone == 28 && current.cutscene > old.cutscene && vars.split == 11 && vars.capture == 8){
@@ -821,7 +814,15 @@ split
 				return true;
 			//Fatty McBoomboom
 			}
-		
+			
+			if(current.zone == 56 && current.cutscene > old.cutscene && vars.split == 11){
+				vars.tuto++;
+			}
+			if(current.zone == 56 && vars.split == 11 && vars.tuto == 4 && vars.capture == 8){
+				vars.split++;
+				return true;
+			//Giant Sleg
+			}
 		
 			if(current.bounty > old.bounty && vars.split == 12 && vars.capture == 8 && current.zone == 66){
 				vars.capture++;	
@@ -1037,10 +1038,12 @@ split
 			}
 		
 		
-			if(current.zone == 56 && current.cutscene > old.cutscene && vars.split == 10){
+			//SLEG --> FATTY
+		
+			if(current.zone == 56 && current.cutscene > old.cutscene && vars.split == 10 && vars.capture == 7){
 				vars.tuto++;
 			}
-			if(current.zone == 56 && vars.split == 10 && vars.tuto == 4){
+			if(current.zone == 56 && vars.split == 10 && vars.tuto == 4 && vars.capture == 7){
 				vars.split++;
 				return true;
 			//Giant Sleg
@@ -1055,23 +1058,24 @@ split
 			//Fatty McBoomboom
 			}
 			
+			//FATTY --> SLEG
 			
-			if(current.zone == 56 && current.cutscene > old.cutscene && vars.split == 11){
-				vars.tuto++;
-			}
-			if(current.zone == 56 && vars.split == 11 && vars.tuto == 4){
-				vars.split++;
-				return true;
-			//Giant Sleg
-			}
-		
-			if(current.bounty > old.bounty && vars.split == 11 && vars.capture == 7 && current.zone == 28){
+			if(current.bounty > old.bounty && vars.split == 11 && vars.capture == 7 && current.zone == 28 && vars.capture == 8){
 				vars.capture++;
 			}
 			if(current.zone == 28 && current.cutscene > old.cutscene && vars.split == 11 && vars.capture == 8){
 				vars.split++;
 				return true;
 			//Fatty McBoomboom
+			}
+			
+			if(current.zone == 56 && current.cutscene > old.cutscene && vars.split == 11){
+				vars.tuto++;
+			}
+			if(current.zone == 56 && vars.split == 11 && vars.tuto == 4 && vars.capture == 8){
+				vars.split++;
+				return true;
+			//Giant Sleg
 			}
 		
 		
