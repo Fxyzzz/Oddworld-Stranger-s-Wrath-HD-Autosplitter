@@ -1344,6 +1344,9 @@ split
 				if(settings["New Yolk City"]){
 				
 					if(current.zone == 9 && current.cutscene > old.cutscene){
+						vars.tuto++;
+					}
+					if(vars.tuto == 2){
 						vars.split++;
 						return true;
 					//Mongo River
