@@ -136,6 +136,14 @@ startup
 	settings.Add("All Bounties", false, "All Bounties");
 	settings.Add("100%", false, "100%");
 	
+	settings.CurrentDefaultParent = "All Bounties";
+	settings.Add("Sleg --> Fatty", true, "Sleg --> Fatty (default)");
+	settings.Add("Fatty --> Sleg", false, "Fatty --> Sleg");
+	
+	settings.CurrentDefaultParent = "100%";
+	settings.Add("Sleg into Fatty", true, "Sleg --> Fatty (default)");
+	settings.Add("Fatty into Sleg", false, "Fatty --> Sleg");
+	
 	settings.CurrentDefaultParent = "Individual Levels";
 	settings.Add("Splitting options", true, "Splitting options (SELECT ONLY ONE)");
 	settings.CurrentDefaultParent = "Splitting options";
@@ -784,46 +792,48 @@ split
 			//Xplosives McGee
 			}
 		
-			//SLEG --> FATTY
+			if(settings["Sleg --> Fatty"]){
 		
-			if(current.zone == 56 && current.cutscene > old.cutscene && vars.split == 10 && vars.capture == 7){
-				vars.tuto++;
-			}
-			if(current.zone == 56 && vars.split == 10 && vars.tuto == 4 && vars.capture == 7){
-				vars.split++;
-				return true;
-			//Giant Sleg
-			}
+				if(current.zone == 56 && current.cutscene > old.cutscene && vars.split == 10 && vars.capture == 7){
+					vars.tuto++;
+				}	
+				if(current.zone == 56 && vars.split == 10 && vars.tuto == 4 && vars.capture == 7){
+					vars.split++;
+					return true;
+				//Giant Sleg
+				}
 		
-			if(current.bounty > old.bounty && vars.split == 10 && vars.capture == 7 && current.zone == 28){
-				vars.capture++;
-			}
-			if(current.zone == 28 && current.cutscene > old.cutscene && vars.split == 10 && vars.capture == 8){
-				vars.split++;
-				return true;
-			//Fatty McBoomboom
+				if(current.bounty > old.bounty && vars.split == 10 && vars.capture == 7 && current.zone == 28){
+					vars.capture++;
+				}
+				if(current.zone == 28 && current.cutscene > old.cutscene && vars.split == 10 && vars.capture == 8){
+					vars.split++;
+					return true;
+				//Fatty McBoomboom
+				}
 			}
 			
-			//FATTY --> SLEG
+			if(settings["Fatty --> Sleg"]){
 			
-			if(current.bounty > old.bounty && vars.split == 11 && vars.capture == 7 && current.zone == 28){
-				vars.capture++;
-			}
-			if(current.zone == 28 && current.cutscene > old.cutscene && vars.split == 11 && vars.capture == 8){
-				vars.split++;
-				return true;
-			//Fatty McBoomboom
+				if(current.bounty > old.bounty && vars.split == 11 && vars.capture == 7 && current.zone == 28){
+					vars.capture++;
+				}
+				if(current.zone == 28 && current.cutscene > old.cutscene && vars.split == 11 && vars.capture == 8){
+					vars.split++;
+					return true;
+				//Fatty McBoomboom
+				}
+				
+				if(current.zone == 56 && current.cutscene > old.cutscene && vars.split == 11 && vars.capture == 8){
+					vars.tuto++;
+				}
+				if(current.zone == 56 && vars.split == 11 && vars.tuto == 4 && vars.capture == 8){
+					vars.split++;
+					return true;
+				//Giant Sleg
+				}
 			}
 			
-			if(current.zone == 56 && current.cutscene > old.cutscene && vars.split == 11 && vars.capture == 8){
-				vars.tuto++;
-			}
-			if(current.zone == 56 && vars.split == 11 && vars.tuto == 4 && vars.capture == 8){
-				vars.split++;
-				return true;
-			//Giant Sleg
-			}
-		
 			if(current.bounty > old.bounty && vars.split == 12 && vars.capture == 8 && current.zone == 66){
 				vars.capture++;	
 			}
@@ -1038,44 +1048,46 @@ split
 			}
 		
 		
-			//SLEG --> FATTY
+			if(settings["Sleg into Fatty"]){
 		
-			if(current.zone == 56 && current.cutscene > old.cutscene && vars.split == 10 && vars.capture == 7){
-				vars.tuto++;
-			}
-			if(current.zone == 56 && vars.split == 10 && vars.tuto == 4 && vars.capture == 7){
-				vars.split++;
-				return true;
-			//Giant Sleg
-			}
+				if(current.zone == 56 && current.cutscene > old.cutscene && vars.split == 10 && vars.capture == 7){
+					vars.tuto++;
+				}	
+				if(current.zone == 56 && vars.split == 10 && vars.tuto == 4 && vars.capture == 7){
+					vars.split++;
+					return true;
+				//Giant Sleg
+				}
 		
-			if(current.bounty > old.bounty && vars.split == 10 && vars.capture == 7 && current.zone == 28){
-				vars.capture++;
-			}
-			if(current.zone == 28 && current.cutscene > old.cutscene && vars.split == 10 && vars.capture == 8){
-				vars.split++;
-				return true;
-			//Fatty McBoomboom
-			}
-			
-			//FATTY --> SLEG
-			
-			if(current.bounty > old.bounty && vars.split == 11 && vars.capture == 7 && current.zone == 28){
-				vars.capture++;
-			}
-			if(current.zone == 28 && current.cutscene > old.cutscene && vars.split == 11 && vars.capture == 8){
-				vars.split++;
-				return true;
-			//Fatty McBoomboom
+				if(current.bounty > old.bounty && vars.split == 10 && vars.capture == 7 && current.zone == 28){
+					vars.capture++;
+				}
+				if(current.zone == 28 && current.cutscene > old.cutscene && vars.split == 10 && vars.capture == 8){
+					vars.split++;
+					return true;
+				//Fatty McBoomboom
+				}
 			}
 			
-			if(current.zone == 56 && current.cutscene > old.cutscene && vars.split == 11 && vars.capture == 8){
-				vars.tuto++;
-			}
-			if(current.zone == 56 && vars.split == 11 && vars.tuto == 4 && vars.capture == 8){
-				vars.split++;
-				return true;
-			//Giant Sleg
+			if(settings["Fatty into Sleg"]){
+			
+				if(current.bounty > old.bounty && vars.split == 11 && vars.capture == 7 && current.zone == 28){
+					vars.capture++;
+				}
+				if(current.zone == 28 && current.cutscene > old.cutscene && vars.split == 11 && vars.capture == 8){
+					vars.split++;
+					return true;
+				//Fatty McBoomboom
+				}
+				
+				if(current.zone == 56 && current.cutscene > old.cutscene && vars.split == 11 && vars.capture == 8){
+					vars.tuto++;
+				}
+				if(current.zone == 56 && vars.split == 11 && vars.tuto == 4 && vars.capture == 8){
+					vars.split++;
+					return true;
+				//Giant Sleg
+				}
 			}
 		
 		
