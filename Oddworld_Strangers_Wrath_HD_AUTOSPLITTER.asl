@@ -803,10 +803,10 @@ split
 				//Giant Sleg
 				}
 		
-				if(current.bounty > old.bounty && vars.split == 10 && vars.capture == 7 && current.zone == 28){
+				if(current.bounty > old.bounty && vars.split == 11 && vars.capture == 7 && current.zone == 28){
 					vars.capture++;
 				}
-				if(current.zone == 28 && current.cutscene > old.cutscene && vars.split == 10 && vars.capture == 8){
+				if(current.zone == 28 && current.cutscene > old.cutscene && vars.split == 11 && vars.capture == 8){
 					vars.split++;
 					return true;
 				//Fatty McBoomboom
@@ -815,10 +815,10 @@ split
 			
 			if(settings["Fatty --> Sleg"]){
 			
-				if(current.bounty > old.bounty && vars.split == 11 && vars.capture == 7 && current.zone == 28){
+				if(current.bounty > old.bounty && vars.split == 10 && vars.capture == 7 && current.zone == 28){
 					vars.capture++;
 				}
-				if(current.zone == 28 && current.cutscene > old.cutscene && vars.split == 11 && vars.capture == 8){
+				if(current.zone == 28 && current.cutscene > old.cutscene && vars.split == 10 && vars.capture == 8){
 					vars.split++;
 					return true;
 				//Fatty McBoomboom
@@ -1048,7 +1048,7 @@ split
 			}
 		
 		
-			if(settings["Sleg into Fatty"]){
+			if(settings["Sleg --> Fatty"]){
 		
 				if(current.zone == 56 && current.cutscene > old.cutscene && vars.split == 10 && vars.capture == 7){
 					vars.tuto++;
@@ -1059,22 +1059,22 @@ split
 				//Giant Sleg
 				}
 		
-				if(current.bounty > old.bounty && vars.split == 10 && vars.capture == 7 && current.zone == 28){
+				if(current.bounty > old.bounty && vars.split == 11 && vars.capture == 7 && current.zone == 28){
 					vars.capture++;
 				}
-				if(current.zone == 28 && current.cutscene > old.cutscene && vars.split == 10 && vars.capture == 8){
+				if(current.zone == 28 && current.cutscene > old.cutscene && vars.split == 11 && vars.capture == 8){
 					vars.split++;
 					return true;
 				//Fatty McBoomboom
 				}
 			}
 			
-			if(settings["Fatty into Sleg"]){
+			if(settings["Fatty --> Sleg"]){
 			
-				if(current.bounty > old.bounty && vars.split == 11 && vars.capture == 7 && current.zone == 28){
+				if(current.bounty > old.bounty && vars.split == 10 && vars.capture == 7 && current.zone == 28){
 					vars.capture++;
 				}
-				if(current.zone == 28 && current.cutscene > old.cutscene && vars.split == 11 && vars.capture == 8){
+				if(current.zone == 28 && current.cutscene > old.cutscene && vars.split == 10 && vars.capture == 8){
 					vars.split++;
 					return true;
 				//Fatty McBoomboom
