@@ -520,10 +520,7 @@ split
 			//Some More Boat
 			}
 			
-			if(current.zone == 10 && current.cutscene > old.cutscene && vars.split == 12){
-				vars.tuto++;
-			}
-			if(vars.tuto == 8 && vars.split == 12){
+			if(current.zone == 10 && current.godvalue > old.godvalue && vars.split == 12){
 				vars.split++;
 				return true;
 			//Gloktigi Clip
@@ -656,13 +653,10 @@ split
 			//Some More Boat
 			}
 		
-			if(current.zone == 10 && current.cutscene > old.cutscene && vars.split == 13){
-				vars.tuto++;
-			}
-			if(vars.tuto == 10 && vars.split == 13){
+			if(current.zone == 10 && current.godvalue > old.godvalue && vars.split == 13){
 				vars.split++;
 				return true;
-			//Gloktigi Clip
+			//Gloktigi Skip
 			}
 		
 			if(current.zone == 8 && current.cutscene > old.cutscene && vars.split == 14){
@@ -910,13 +904,10 @@ split
 			//Some More Boat
 			}
 		
-			if(current.zone == 10 && current.cutscene > old.cutscene && vars.split == 22){
-				vars.tuto++;
-			}
-			if(vars.tuto == 10 && vars.split == 22){
+			if(current.zone == 10 && current.godvalue > old.godvalue && vars.split == 22){
 				vars.split++;
 				return true;
-			//Gloktigi Clip
+			//Gloktigi Skip
 			}
 		
 			if(current.zone == 8 && current.cutscene > old.cutscene && vars.split == 23){
@@ -1164,13 +1155,10 @@ split
 			//Some More Boat
 			}
 		
-			if(current.zone == 10 && current.cutscene > old.cutscene && vars.split == 22){
-				vars.tuto++;
-			}
-			if(vars.tuto == 10 && vars.split == 22){
+			if(current.zone == 10 && current.godvalue > old.godvalue && vars.split == 22){
 				vars.split++;
 				return true;
-			//Gloktigi Clip
+			//Gloktigi Skip
 			}
 		
 			if(current.zone == 8 && current.cutscene > old.cutscene && vars.split == 23){
@@ -1467,7 +1455,7 @@ split
 			
 			if(settings["Dam Entrance"]){
 			
-				if (current.godvalue == current.nerfshop && vars.split == 0){
+				if(current.godvalue == current.nerfshop && vars.split == 0){
 					vars.split++;
 					return true;
 				//Boats Boats Boats
