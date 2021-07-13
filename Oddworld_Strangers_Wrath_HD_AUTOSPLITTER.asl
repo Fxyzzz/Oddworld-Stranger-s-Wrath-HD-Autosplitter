@@ -23,7 +23,7 @@ state ("stranger", "4.1 Steam 02-07-2021 Fxyz")
 	int zone : 0x1CFFC8, 0x18;			//The ID of every chunks in the game
 	int resettimer : 0x1E4AB4, 0x14;	//Set to 257 only in the main menu
 	int ilstart : 0x20C44C, 0x20;
-	int sekto : 0x0094D0, 0x68;
+	int sekto : 0x3388C4, 0x68;
 }
 
 state ("stranger", "4.1 GOG 02-07-2021 Fxyz")
@@ -49,7 +49,7 @@ state ("stranger", "4.1 GOG 02-07-2021 Fxyz")
 	int zone : 0x1D00B8, 0x18;
 	int resettimer : 0x1E4C04, 0x14;
 	int ilstart : 0x020B7EC, 0x20;
-	int sekto : 0x009100, 0x68;
+	int sekto : 0x337B84, 0x68;
 }
 
 
@@ -544,7 +544,7 @@ split
 			//Gloktigi Twins
 			}
 		
-			if(current.sekto == 0 && vars.split == 16){
+			if(current.sekto == 3 && old.sekto == 2 && vars.split == 16){
 				vars.split++;
 				return true;
 			//Sekto
@@ -677,7 +677,7 @@ split
 			//Gloktigi Twins
 			}
 		
-			if(current.sekto == 0  && vars.split == 17){
+			if(current.sekto == 3 && old.sekto == 2 && vars.split == 17){
 				vars.split++;
 				return true;
 			//Sekto
@@ -928,7 +928,7 @@ split
 			//Gloktigi Twins
 			}
 		
-			if(current.sekto == 0  && vars.split == 26){
+			if(current.sekto == 3 && old.sekto == 2 && vars.split == 26){
 				vars.split++;
 				return true;
 			//Sekto
@@ -1179,7 +1179,7 @@ split
 			//Gloktigi Twins
 			}
 		
-			if(current.sekto == 0  && vars.split == 26){
+			if(current.sekto == 3 && old.sekto == 2 && vars.split == 26){
 				vars.split++;
 				return true;
 			//Sekto
@@ -1313,8 +1313,8 @@ split
 				if(current.cutscene > old.cutscene && vars.split == 0){
 					vars.split++;
 				}
-			
-				if(current.sekto == 0  && vars.split == 1){
+				
+				if(current.sekto == 3 && old.sekto == 2 && vars.split == 1){
 					vars.split++;
 					return true;
 				//Sekto
@@ -1494,7 +1494,7 @@ split
 				//Gloktigi Twins
 				}
 			
-				if(current.sekto == 0 && vars.split == 1){
+				if(current.sekto == 3 && old.sekto == 2 && vars.split == 1){
 					vars.split++;
 					return true;
 				//Sekto
