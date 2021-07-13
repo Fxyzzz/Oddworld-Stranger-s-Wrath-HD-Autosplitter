@@ -544,7 +544,11 @@ split
 			//Gloktigi Twins
 			}
 		
-			if(current.sekto == 3 && old.sekto == 2 && vars.split == 16){
+			if(current.cutscene > old.cutscene && vars.split == 16){
+				vars.end++;
+			}
+				
+			if(vars.end == 2 && vars.split == 16){
 				vars.split++;
 				return true;
 			//Sekto
@@ -677,7 +681,11 @@ split
 			//Gloktigi Twins
 			}
 		
-			if(current.sekto == 3 && old.sekto == 2 && vars.split == 17){
+			if(current.cutscene > old.cutscene && vars.split == 17){
+				vars.end++;
+			}
+				
+			if(vars.end == 2 && vars.split == 17){
 				vars.split++;
 				return true;
 			//Sekto
@@ -928,7 +936,11 @@ split
 			//Gloktigi Twins
 			}
 		
-			if(current.sekto == 3 && old.sekto == 2 && vars.split == 26){
+			if(current.cutscene > old.cutscene && vars.split == 26){
+				vars.end++;
+			}
+				
+			if(vars.end == 2 && vars.split == 26){
 				vars.split++;
 				return true;
 			//Sekto
@@ -1179,7 +1191,11 @@ split
 			//Gloktigi Twins
 			}
 		
-			if(current.sekto == 3 && old.sekto == 2 && vars.split == 26){
+			if(current.cutscene > old.cutscene && vars.split == 26){
+				vars.end++;
+			}
+				
+			if(vars.end == 2 && vars.split == 26){
 				vars.split++;
 				return true;
 			//Sekto
@@ -1314,7 +1330,11 @@ split
 					vars.split++;
 				}
 				
-				if(current.sekto == 3 && old.sekto == 2 && vars.split == 1){
+				if(current.cutscene > old.cutscene && vars.split == 1){
+					vars.end++;
+				}
+				
+				if(vars.end == 2 && vars.split == 1){
 					vars.split++;
 					return true;
 				//Sekto
@@ -1493,8 +1513,12 @@ split
 					return true;
 				//Gloktigi Twins
 				}
-			
-				if(current.sekto == 3 && old.sekto == 2 && vars.split == 1){
+				
+				if(current.cutscene > old.cutscene && vars.split == 1){
+					vars.end++;
+				}
+				
+				if(vars.end == 2 && vars.split == 1){
 					vars.split++;
 					return true;
 				//Sekto
