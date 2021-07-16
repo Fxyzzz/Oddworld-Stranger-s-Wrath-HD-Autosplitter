@@ -942,7 +942,7 @@ split
 				vars.end++;
 			}
 				
-			if(vars.end == 2 && vars.split == 26){
+			if(vars.end == 2 && vars.split == 27){
 				vars.split++;
 				return true;
 			//Sekto
@@ -1197,7 +1197,7 @@ split
 				vars.end++;
 			}
 				
-			if(vars.end == 2 && vars.split == 26){
+			if(vars.end == 2 && vars.split == 27){
 				vars.split++;
 				return true;
 			//Sekto
