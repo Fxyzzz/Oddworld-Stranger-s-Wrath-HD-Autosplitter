@@ -24,6 +24,7 @@ state ("stranger", "4.1 Steam 02-07-2021 Fxyz")
 	int resettimer : 0x1E4AB4, 0x14;	//Set to 257 only in the main menu
 	int ilstart : 0x20C44C, 0x20;
 	int sekto : 0x3388C4, 0x68;
+	int health: 0x5D2F70, 0x170;
 }
 
 state ("stranger", "4.1 GOG 02-07-2021 Fxyz")
@@ -42,7 +43,7 @@ state ("stranger", "4.1 GOG 02-07-2021 Fxyz")
 	long IGT3 : 0x0349330, 0x114;
 	int end : 0x337B84, 0x68;
 	//int quicksave : 0x1DFB74, 0x88;
-	short quickload : 0x6462BC, 0x718;
+	short quickload : 0x192728, 0x18;
 	int moolah : 0x1DEA10, 0x4;
 	int crystal : 0x1DEA10, 0x8;
 	int barrel : 0x2FAA18, 0x104;
@@ -50,6 +51,7 @@ state ("stranger", "4.1 GOG 02-07-2021 Fxyz")
 	int resettimer : 0x1E4C04, 0x14;
 	int ilstart : 0x020B7EC, 0x20;
 	int sekto : 0x337B84, 0x68;
+	int health: 0x5CE390, 0x170;
 }
 
 
@@ -1711,7 +1713,9 @@ split
 isLoading
 
 {
-	if(current.IGT > 0 && current.IGT3 == 0){
+	if(current.IGT > 0 && current.IGT3 == 0 && current.health > 0){
+		return true;
+	} else if(current.IGT > 0 && current.IGT3 == 0 && current.quickload == 1){
 		return true;
 	} else {
 		return false;
