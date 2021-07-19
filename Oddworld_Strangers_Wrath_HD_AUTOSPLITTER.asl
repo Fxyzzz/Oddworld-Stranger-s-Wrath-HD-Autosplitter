@@ -15,7 +15,7 @@ state ("stranger", "4.1 Steam 02-07-2021 Fxyz")
 	//int IGT2 : 0x228330, 0x18;		//Useless
 	long IGT3 : 0x34A040, 0x114;
 	int end : 0x3388C4, 0x68;
-	//int quicksave : 0x341274, 0x138;		//When a quicksave / automatic save is done
+	int quicksave : 0x341274, 0x138;	//When a quicksave / automatic save is done
 	short quickload : 0x192D18, 0x18;
 	int moolah : 0x1DE930, 0x4;
 	int crystal : 0x1DE930, 0x8;
@@ -42,7 +42,7 @@ state ("stranger", "4.1 GOG 02-07-2021 Fxyz")
 	//int IGT2 : 0x227560, 0x18;		//Useless
 	long IGT3 : 0x0349330, 0x114;
 	int end : 0x337B84, 0x68;
-	//int quicksave : 0x1DFB74, 0x88;
+	int quicksave : 0x1DFB74, 0x88;
 	short quickload : 0x192728, 0x18;
 	int moolah : 0x1DEA10, 0x4;
 	int crystal : 0x1DEA10, 0x8;
@@ -546,11 +546,11 @@ split
 			//Gloktigi Twins
 			}
 		
-			if(current.cutscene > old.cutscene && vars.split == 16){
+			if(current.quicksave > old.quicksave && vars.split == 16 && vars.end == 0){
 				vars.end++;
 			}
-				
-			if(vars.end == 2 && vars.split == 16){
+			
+			if(vars.end == 1 && current.cutscene > old.cutscene && vars.split == 16){
 				vars.split++;
 				return true;
 			//Sekto
@@ -683,11 +683,11 @@ split
 			//Gloktigi Twins
 			}
 		
-			if(current.cutscene > old.cutscene && vars.split == 17){
+			if(current.quicksave > old.quicksave && vars.split == 17 && vars.end == 0){
 				vars.end++;
 			}
-				
-			if(vars.end == 2 && vars.split == 17){
+			
+			if(vars.end == 1 && current.cutscene > old.cutscene && vars.split == 17){
 				vars.split++;
 				return true;
 			//Sekto
@@ -938,11 +938,11 @@ split
 			//Gloktigi Twins
 			}
 		
-			if(current.cutscene > old.cutscene && vars.split == 26){
+			if(current.quicksave > old.quicksave && vars.split == 26 && vars.end == 0){
 				vars.end++;
 			}
-				
-			if(vars.end == 2 && vars.split == 26){
+			
+			if(vars.end == 1 && current.cutscene > old.cutscene && vars.split == 26){
 				vars.split++;
 				return true;
 			//Sekto
@@ -1193,11 +1193,11 @@ split
 			//Gloktigi Twins
 			}
 		
-			if(current.cutscene > old.cutscene && vars.split == 26){
+			if(current.quicksave > old.quicksave && vars.split == 26 && vars.end == 0){
 				vars.end++;
 			}
-				
-			if(vars.end == 2 && vars.split == 26){
+			
+			if(vars.end == 1 && current.cutscene > old.cutscene && vars.split == 26){
 				vars.split++;
 				return true;
 			//Sekto
@@ -1332,11 +1332,11 @@ split
 					vars.split++;
 				}
 				
-				if(current.cutscene > old.cutscene && vars.split == 1){
+				if(current.quicksave > old.quicksave && vars.split == 1 && vars.end == 0){
 					vars.end++;
 				}
 				
-				if(vars.end == 2 && vars.split == 1){
+				if(vars.end == 1 && current.cutscene > old.cutscene && vars.split == 1){
 					vars.split++;
 					return true;
 				//Sekto
@@ -1516,11 +1516,11 @@ split
 				//Gloktigi Twins
 				}
 				
-				if(current.cutscene > old.cutscene && vars.split == 1){
+				if(current.quicksave > old.quicksave && vars.split == 1 && vars.end == 0){
 					vars.end++;
 				}
 				
-				if(vars.end == 2 && vars.split == 1){
+				if(vars.end == 1 && current.cutscene > old.cutscene && vars.split == 1){
 					vars.split++;
 					return true;
 				//Sekto
