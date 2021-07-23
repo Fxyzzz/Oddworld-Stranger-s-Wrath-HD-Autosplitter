@@ -62,6 +62,7 @@ init
 	vars.rendu = 0;
 	vars.tuto = 0;
 	vars.end = 0;
+	vars.boat = 0;
 	
 	if(settings["Platform"]){
 		
@@ -220,6 +221,7 @@ start
 	vars.rendu = 0;
 	vars.tuto = 0;
 	vars.end = 0;
+	vars.boat = 0;
 	vars.FrameRate = 100;
 	vars.splitAlt = true;
 	
@@ -348,6 +350,7 @@ reset
 				vars.rendu = 0;
 				vars.tuto = 0;
 				vars.end = 0;
+				vars.boat = 0;
 				return true;
 			}
 		}
@@ -371,6 +374,7 @@ reset
 			vars.rendu = 0;
 			vars.tuto = 0;
 			vars.end = 0;
+			vars.boat = 0;
 			return true;
 		}
 	}
@@ -381,6 +385,7 @@ reset
 		vars.rendu = 0;
 		vars.tuto = 0;
 		vars.end = 0;
+		vars.boat = 0;
 		return true;
 	}
 }
@@ -501,7 +506,15 @@ split
 				return true;
 			//Boat Skip
 			}
-			if(current.zone == 5 && current.cutscene > old.cutscene && vars.split == 9){
+			
+			if(current.zone == 4 && current.cutscene > old.cutscene && vars.split == 9){
+				vars.boat++;
+			}
+			if(vars.boat == 2 && vars.split == 9){
+				vars.split++;
+				return true;
+			}	
+			else if(current.zone == 5 && current.cutscene > old.cutscene && vars.split == 9){
 				vars.split++;
 				return true;
 			//Row Your Boat
@@ -638,7 +651,14 @@ split
 			//Boat Skip
 			}
 		
-			if(current.zone == 5 && current.cutscene > old.cutscene && vars.split == 10){
+			if(current.zone == 4 && current.cutscene > old.cutscene && vars.split == 10){
+				vars.boat++;
+			}
+			if(vars.boat == 2 && vars.split == 10){
+				vars.split++;
+				return true;
+			}	
+			else if(current.zone == 5 && current.cutscene > old.cutscene && vars.split == 10){
 				vars.split++;
 				return true;
 			//Row Your Boat
@@ -893,7 +913,14 @@ split
 			//Boat Skip
 			}
 		
-			if(current.zone == 5 && current.cutscene > old.cutscene && vars.split == 19){
+			if(current.zone == 4 && current.cutscene > old.cutscene && vars.split == 19){
+				vars.boat++;
+			}
+			if(vars.boat == 2 && vars.split == 19){
+				vars.split++;
+				return true;
+			}	
+			else if(current.zone == 5 && current.cutscene > old.cutscene && vars.split == 19){
 				vars.split++;
 				return true;
 			//Row Your Boat
@@ -1148,7 +1175,14 @@ split
 			//Grubb Village fight
 			}
 		
-			if(current.zone == 5 && current.cutscene > old.cutscene && vars.split == 19){
+			if(current.zone == 4 && current.cutscene > old.cutscene && vars.split == 19){
+				vars.boat++;
+			}
+			if(vars.boat == 2 && vars.split == 19){
+				vars.split++;
+				return true;
+			}	
+			else if(current.zone == 5 && current.cutscene > old.cutscene && vars.split == 19){
 				vars.split++;
 				return true;
 			//Row Your Boat
@@ -1280,7 +1314,14 @@ split
 		
 			if(settings["Rowing"]){
 		
-				if(current.zone == 5 && current.cutscene > old.cutscene && vars.split == 0){
+				if(current.zone == 4 && current.cutscene > old.cutscene && vars.split == 0){
+					vars.boat++;
+				}
+				if(vars.boat == 2 && vars.split == 0){
+					vars.split++;
+					return true;
+				}	
+				else if(current.zone == 5 && current.cutscene > old.cutscene && vars.split == 0){
 					vars.split++;
 					return true;
 				//Rowing
@@ -1456,7 +1497,14 @@ split
 		
 			if(settings["Rowing"]){
 		
-				if(current.zone == 5 && current.cutscene > old.cutscene && vars.split == 0){
+				if(current.zone == 4 && current.cutscene > old.cutscene && vars.split == 0){
+					vars.boat++;
+				}
+				if(vars.boat == 2 && vars.split == 0){
+					vars.split++;
+					return true;
+				}	
+				else if(current.zone == 5 && current.cutscene > old.cutscene && vars.split == 0){
 					vars.split++;
 					return true;
 				//Rowing
