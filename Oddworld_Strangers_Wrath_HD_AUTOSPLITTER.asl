@@ -17,8 +17,8 @@ state ("stranger", "4.1 Steam 02-07-2021 Fxyz")
 	int end : 0x3388C4, 0x68;
 	int quicksave : 0x341274, 0x138;	//When a quicksave / automatic save is done
 	short quickload : 0x192D18, 0x18;
-	int moolah : 0x1DE930, 0x4;
-	int crystal : 0x1DE930, 0x8;
+	//int moolah : 0x1DE930, 0x4;
+	//int crystal : 0x1DE930, 0x8;
 	int barrel : 0x2FB8FC, 0x104;
 	int zone : 0x1CFFC8, 0x18;			//The ID of every chunks in the game
 	int resettimer : 0x1E4AB4, 0x14;	//Set to 257 only in the main menu
@@ -44,8 +44,8 @@ state ("stranger", "4.1 GOG 02-07-2021 Fxyz")
 	int end : 0x337B84, 0x68;
 	int quicksave : 0x1DFB74, 0x88;
 	short quickload : 0x192728, 0x18;
-	int moolah : 0x1DEA10, 0x4;
-	int crystal : 0x1DEA10, 0x8;
+	//int moolah : 0x1DEA10, 0x4;
+	//int crystal : 0x1DEA10, 0x8;
 	int barrel : 0x2FAA18, 0x104;
 	int zone : 0x1D00B8, 0x18;
 	int resettimer : 0x1E4C04, 0x14;
@@ -63,6 +63,8 @@ init
 	vars.tuto = 0;
 	vars.end = 0;
 	vars.boat = 0;
+	vars.barrel = 0;
+	vars.barrelqs = 0;
 	
 	if(settings["Platform"]){
 		
@@ -214,6 +216,8 @@ start
 	vars.tuto = 0;
 	vars.end = 0;
 	vars.boat = 0;
+	vars.barrel = 0;
+	vars.barrelqs = 0;
 	vars.FrameRate = 100;
 	vars.splitAlt = true;
 	
@@ -343,6 +347,8 @@ reset
 				vars.tuto = 0;
 				vars.end = 0;
 				vars.boat = 0;
+				vars.barrel = 0;
+				vars.barrelqs = 0;
 				return true;
 			}
 		}
@@ -367,6 +373,8 @@ reset
 			vars.tuto = 0;
 			vars.end = 0;
 			vars.boat = 0;
+			vars.barrel = 0;
+			vars.barrelqs = 0;
 			return true;
 		}
 	}
@@ -378,6 +386,8 @@ reset
 		vars.tuto = 0;
 		vars.end = 0;
 		vars.boat = 0;
+		vars.barrel = 0;
+		vars.barrelqs = 0;
 		return true;
 	}
 }
@@ -950,6 +960,17 @@ split
 		//100%
 		
 		if(settings["100%"]){
+		
+			//Barrel counter
+			if(current.barrel > old.barrel){
+				vars.barrel++;
+			}
+			if(current.quicksave > old.quicksave){
+				vars.barrelqs = vars.barrel;
+			}
+			if(current.quickload > old.quickload){
+				vars.barrel = vars.barrelqs;
+			}
 		
 		
 			if(current.zone == 11 && current.cutscene > old.cutscene && vars.split == 0){
