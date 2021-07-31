@@ -25,6 +25,7 @@ state ("stranger", "4.1 Steam 02-07-2021 Fxyz")
 	int ilstart : 0x20C44C, 0x20;
 	int sekto : 0x3388C4, 0x68;
 	int health: 0x5D2F70, 0x170;
+	int statusobject: 0x1EE794, 0x18;
 }
 
 state ("stranger", "4.1 GOG 02-07-2021 Fxyz")
@@ -52,6 +53,7 @@ state ("stranger", "4.1 GOG 02-07-2021 Fxyz")
 	int ilstart : 0x020B7EC, 0x20;
 	int sekto : 0x337B84, 0x68;
 	int health: 0x5CE390, 0x170;
+	int statusobject: 0x1EE8C4, 0x18;
 }
 
 
@@ -978,7 +980,7 @@ split
 		
 			//Barrels counter
 			
-			if(current.barrel > old.barrel){
+			if(current.barrel > old.barrel && current.statusobject != old.statusobject){
 				vars.barrel++;
 			}
 			if(current.quicksave > old.quicksave){
@@ -1007,7 +1009,7 @@ split
 			if(current.quickload > old.quickload){
 				vars.mchest = vars.mchestqs;
 			}
-		
+
 		
 			if(current.zone == 11 && current.cutscene > old.cutscene && vars.split == 0){
 				vars.tuto++;
