@@ -17,7 +17,7 @@ state ("stranger", "4.1 Steam 02-07-2021 Fxyz")
 	int end : 0x3388C4, 0x68;
 	int quicksave : 0x341274, 0x138;	//When a quicksave / automatic save is done
 	short quickload : 0x192D18, 0x18;
-	//int moolah : 0x1DE930, 0x4;
+	int mchest : 0x1DE930, 0x4;
 	//int crystal : 0x1DE930, 0x8;
 	int barrel : 0x2FB8FC, 0x104;
 	int zone : 0x1CFFC8, 0x18;			//The ID of every chunks in the game
@@ -44,7 +44,7 @@ state ("stranger", "4.1 GOG 02-07-2021 Fxyz")
 	int end : 0x337B84, 0x68;
 	int quicksave : 0x1DFB74, 0x88;
 	short quickload : 0x192728, 0x18;
-	//int moolah : 0x1DEA10, 0x4;
+	int mchest : 0x1DEA10, 0x4;
 	//int crystal : 0x1DEA10, 0x8;
 	int barrel : 0x2FAA18, 0x104;
 	int zone : 0x1D00B8, 0x18;
@@ -65,6 +65,9 @@ init
 	vars.boat = 0;
 	vars.barrel = 0;
 	vars.barrelqs = 0;
+	vars.mchest = 0;
+	vars.mchestmem = 0;
+	vars.mchestqs = 0;
 	
 	if(settings["Platform"]){
 		
@@ -218,6 +221,9 @@ start
 	vars.boat = 0;
 	vars.barrel = 0;
 	vars.barrelqs = 0;
+	vars.mchest = 0;
+	vars.mchestmem = 0;
+	vars.mchestqs = 0;
 	vars.FrameRate = 100;
 	vars.splitAlt = true;
 	
@@ -349,6 +355,9 @@ reset
 				vars.boat = 0;
 				vars.barrel = 0;
 				vars.barrelqs = 0;
+				vars.mchest = 0;
+				vars.mchestmem = 0;
+				vars.mchestqs = 0;
 				return true;
 			}
 		}
@@ -375,6 +384,9 @@ reset
 			vars.boat = 0;
 			vars.barrel = 0;
 			vars.barrelqs = 0;
+			vars.mchest = 0;
+			vars.mchestmem = 0;
+			vars.mchestqs = 0;
 			return true;
 		}
 	}
@@ -388,6 +400,9 @@ reset
 		vars.boat = 0;
 		vars.barrel = 0;
 		vars.barrelqs = 0;
+		vars.mchest = 0;
+		vars.mchestmem = 0;
+		vars.mchestqs = 0;
 		return true;
 	}
 }
@@ -961,7 +976,8 @@ split
 		
 		if(settings["100%"]){
 		
-			//Barrel counter
+			//Barrels counter
+			
 			if(current.barrel > old.barrel){
 				vars.barrel++;
 			}
@@ -970,6 +986,26 @@ split
 			}
 			if(current.quickload > old.quickload){
 				vars.barrel = vars.barrelqs;
+			}
+			
+			//Moolah Chests counter
+			
+			if(vars.split == 0){
+				vars.mchestmem = current.mchest;
+			}
+			if(current.mchest > old.mchest){
+				vars.mchest++;
+				vars.mchestmem++;
+			}
+			if(vars.mchestmem < current.mchest){
+				vars.mchest++;
+				vars.mchestmem++;
+			}
+			if(current.quicksave > old.quicksave){
+				vars.mchestqs = vars.mchest;
+			}
+			if(current.quickload > old.quickload){
+				vars.mchest = vars.mchestqs;
 			}
 		
 		
