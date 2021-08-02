@@ -232,6 +232,7 @@ start
 	vars.mchestqs = 0;
 	vars.mpots = 0;
 	vars.mpotsqs = 0;
+	vars.mpotsmem = 0;
 	vars.FrameRate = 100;
 	vars.splitAlt = true;
 	
@@ -368,6 +369,7 @@ reset
 				vars.mchestqs = 0;
 				vars.mpots = 0;
 				vars.mpotsqs = 0;
+				vars.mpotsmem = 0;
 				return true;
 			}
 		}
@@ -399,6 +401,7 @@ reset
 			vars.mchestqs = 0;
 			vars.mpots = 0;
 			vars.mpotsqs = 0;
+			vars.mpotsmem = 0;
 			return true;
 		}
 	}
@@ -417,6 +420,7 @@ reset
 		vars.mchestqs = 0;
 		vars.mpots = 0;
 		vars.mpotsqs = 0;
+		vars.mpotsmem = 0;
 		return true;
 	}
 }
@@ -1024,9 +1028,21 @@ split
 
 			//Moolah Pots counter
 			
+			if(vars.split == 0){
+				vars.mpotsmem = current.mpots;
+			}
 			if(current.mpots != old.mpots){
 				vars.mpots++;
+				vars.mpotsmem++;
 			}
+			if(vars.mpotsmem == 8){
+				vars.mpotsmem = 0;
+			}
+			if(vars.mpotsmem != current.mpots && vars.mpotsmem < 8){
+				vars.mpots++;
+				vars.mpotsmem++;
+			}
+			
 			if(current.quicksave > old.quicksave){
 				vars.mpotsqs = vars.mpots;
 			}
