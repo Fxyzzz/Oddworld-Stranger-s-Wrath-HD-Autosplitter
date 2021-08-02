@@ -26,6 +26,7 @@ state ("stranger", "4.1 Steam 02-07-2021 Fxyz")
 	int sekto : 0x3388C4, 0x68;
 	int health: 0x5D2F70, 0x170;
 	int statusobject: 0x1EE794, 0x18;
+	int mpots: 0x64CE68, 0x40, 0x8, 0x1C, 0x9C, 0x8;
 }
 
 state ("stranger", "4.1 GOG 02-07-2021 Fxyz")
@@ -54,6 +55,7 @@ state ("stranger", "4.1 GOG 02-07-2021 Fxyz")
 	int sekto : 0x337B84, 0x68;
 	int health: 0x5CE390, 0x170;
 	int statusobject: 0x1EE8C4, 0x18;
+	int mpots: 0x648288, 0x10, 0x34, 0x0, 0x9C, 0x8;
 }
 
 
@@ -70,6 +72,8 @@ init
 	vars.mchest = 0;
 	vars.mchestmem = 0;
 	vars.mchestqs = 0;
+	vars.mpots = 0;
+	vars.mpotsqs = 0;
 	
 	if(settings["Platform"]){
 		
@@ -226,6 +230,8 @@ start
 	vars.mchest = 0;
 	vars.mchestmem = 0;
 	vars.mchestqs = 0;
+	vars.mpots = 0;
+	vars.mpotsqs = 0;
 	vars.FrameRate = 100;
 	vars.splitAlt = true;
 	
@@ -360,6 +366,8 @@ reset
 				vars.mchest = 0;
 				vars.mchestmem = 0;
 				vars.mchestqs = 0;
+				vars.mpots = 0;
+				vars.mpotsqs = 0;
 				return true;
 			}
 		}
@@ -389,6 +397,8 @@ reset
 			vars.mchest = 0;
 			vars.mchestmem = 0;
 			vars.mchestqs = 0;
+			vars.mpots = 0;
+			vars.mpotsqs = 0;
 			return true;
 		}
 	}
@@ -405,6 +415,8 @@ reset
 		vars.mchest = 0;
 		vars.mchestmem = 0;
 		vars.mchestqs = 0;
+		vars.mpots = 0;
+		vars.mpotsqs = 0;
 		return true;
 	}
 }
@@ -1010,7 +1022,18 @@ split
 				vars.mchest = vars.mchestqs;
 			}
 
-		
+			//Moolah Pots counter
+			
+			if(current.mpots != old.mpots){
+				vars.mpots++;
+			}
+			if(current.quicksave > old.quicksave){
+				vars.mpotsqs = vars.mpots;
+			}
+			if(current.quickload > old.quickload){
+				vars.mpots = vars.mpotsqs;
+			}
+			
 			if(current.zone == 11 && current.cutscene > old.cutscene && vars.split == 0){
 				vars.tuto++;
 			}
