@@ -1311,6 +1311,30 @@ split
 		
 		//Misc
 		
+		if(settings["Misc"]){
+		
+			//20k
+		
+			if(settings["20k"]){
+				
+				if(current.moolah >= 5000 && vars.split == 0){
+					vars.split++;
+					return true;
+				}
+				if(current.moolah >= 10000 && vars.split == 1){
+					vars.split++;
+					return true;
+				}
+				if(current.moolah >= 15000 && vars.split == 2){
+					vars.split++;
+					return true;
+				}
+				if(current.moolah >= 20000 && vars.split == 3){
+					vars.split++;
+					return true;
+				}
+			}
+		}
 	}
 	
 	
