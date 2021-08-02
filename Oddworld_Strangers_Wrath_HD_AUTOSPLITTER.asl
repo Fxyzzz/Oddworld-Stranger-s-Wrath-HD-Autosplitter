@@ -27,6 +27,7 @@ state ("stranger", "4.1 Steam 02-07-2021 Fxyz")
 	int health: 0x5D2F70, 0x170;
 	int statusobject: 0x1EE794, 0x18;
 	int mpots: 0x64CE68, 0x40, 0x8, 0x1C, 0x9C, 0x8;
+	float moolah: 0x617AB8, 0xC;
 }
 
 state ("stranger", "4.1 GOG 02-07-2021 Fxyz")
@@ -56,6 +57,7 @@ state ("stranger", "4.1 GOG 02-07-2021 Fxyz")
 	int health: 0x5CE390, 0x170;
 	int statusobject: 0x1EE8C4, 0x18;
 	int mpots: 0x648288, 0x10, 0x34, 0x0, 0x9C, 0x8;
+	//float moolah:
 }
 
 
@@ -149,6 +151,10 @@ startup
 	settings.Add("Any% No Ghost", false, "Any% No Ghost");
 	settings.Add("All Bounties", false, "All Bounties");
 	settings.Add("100%", false, "100%");
+	settings.Add("Misc", false, "Misc");
+	
+	settings.CurrentDefaultParent = "Misc";
+	settings.Add("20k", false, "20k");
 	
 	settings.CurrentDefaultParent = "Individual Levels";
 	settings.Add("Splitting options", true, "Splitting options (SELECT ONLY ONE)");
@@ -1003,8 +1009,15 @@ split
 				vars.barrelqs = vars.barrel;
 			}
 			if(current.quickload > old.quickload){
-				vars.barrel = vars.barrelqs;
+				
+				if(vars.split == 3 && (current.zone == 39 || current.zone == -1 || current.zone == 5)){
+					vars.barrel = vars.barrel;
+				}
+				
+				else vars.barrel = vars.barrelqs;
 			}
+			
+			
 			
 			//Moolah Chests counter
 			
@@ -1023,8 +1036,19 @@ split
 				vars.mchestqs = vars.mchest;
 			}
 			if(current.quickload > old.quickload){
-				vars.mchest = vars.mchestqs;
+				
+				if(vars.split == 3 && (current.zone == 39 || current.zone == -1 || current.zone == 5)){
+					vars.mchest = vars.mchest;
+				}
+				
+				if(vars.split == 8 && (current.zone == 77 || current.zone == 78 || current.zone == -1 || current.zone == 11)){
+					vars.mchest = vars.mchest;
+				}
+				
+				else vars.mchest = vars.mchestmem;
 			}
+
+
 
 			//Moolah Pots counter
 			
@@ -1047,8 +1071,15 @@ split
 				vars.mpotsqs = vars.mpots;
 			}
 			if(current.quickload > old.quickload){
-				vars.mpots = vars.mpotsqs;
+			
+				if(vars.split == 8 && (current.zone == 77 || current.zone == 78 || current.zone == -1 || current.zone == 11)){
+					vars.mpots = vars.mpots;
+				}
+				
+				else vars.mpots = vars.mpotsqs;
 			}
+			
+			
 			
 			if(current.zone == 11 && current.cutscene > old.cutscene && vars.split == 0){
 				vars.tuto++;
@@ -1277,6 +1308,9 @@ split
 			//Sekto
 			}
 		}
+		
+		//Misc
+		
 	}
 	
 	
