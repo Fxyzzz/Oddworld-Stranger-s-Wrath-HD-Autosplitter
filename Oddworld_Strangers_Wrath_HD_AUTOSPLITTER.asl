@@ -1045,7 +1045,7 @@ split
 					vars.mchest = vars.mchest;
 				}
 				
-				else vars.mchest = vars.mchestmem;
+				else vars.mchest = vars.mchestqs;
 			}
 
 
