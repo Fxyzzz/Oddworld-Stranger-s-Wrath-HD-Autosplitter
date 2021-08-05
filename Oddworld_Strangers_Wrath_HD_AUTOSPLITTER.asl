@@ -1774,15 +1774,6 @@ split
 					}
 	
 	
-					if(current.zone == 56 && current.cutscene > old.cutscene && vars.split == 2){
-						vars.tuto++;
-					}
-					if(vars.split == 10 && vars.tuto == 2){
-						vars.split++;
-						return true;
-					//Giant Sleg
-					}
-				
 					if(current.bounty > old.bounty && vars.split == 2 && vars.capture == 1 && current.zone == 28){
 						vars.capture++;
 					}
@@ -1800,15 +1791,6 @@ split
 						vars.split++;
 						return true;
 					//Giant Sleg
-					}
-				
-					if(current.bounty > old.bounty && vars.split == 3 && vars.capture == 1 && current.zone == 28){
-						vars.capture++;
-					}
-					if(current.cutscene > old.cutscene && vars.split == 3 && vars.capture == 2){
-						vars.split++;
-						return true;
-					//Fatty McBoomboom
 					}
 				
 				
