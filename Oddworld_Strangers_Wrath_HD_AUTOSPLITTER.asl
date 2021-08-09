@@ -1008,13 +1008,11 @@ split
 			if(current.quicksave > old.quicksave){
 				vars.barrelqs = vars.barrel;
 			}
+			if(vars.split == 3 && current.cutscene > old.cutscene){
+				vars.barrelqs = vars.barrel;
+			}
 			if(current.quickload > old.quickload){
-				
-				if(vars.split == 3 && (current.zone == 39 || current.zone == -1 || current.zone == 5)){
-					vars.barrel = vars.barrel;
-				}
-				
-				else vars.barrel = vars.barrelqs;
+				vars.barrel = vars.barrelqs;
 			}
 			
 			
@@ -1035,17 +1033,11 @@ split
 			if(current.quicksave > old.quicksave){
 				vars.mchestqs = vars.mchest;
 			}
+			if(vars.split == 3 && current.cutscene > old.cutscene){
+				vars.mchestqs = vars.mchest;
+			}
 			if(current.quickload > old.quickload){
-				
-				if(vars.split == 3 && (current.zone == 39 || current.zone == -1 || current.zone == 5)){
-					vars.mchest = vars.mchest;
-				}
-				
-				if(vars.split == 8 && (current.zone == 77 || current.zone == 78 || current.zone == -1 || current.zone == 11)){
-					vars.mchest = vars.mchest;
-				}
-				
-				else vars.mchest = vars.mchestqs;
+				vars.mchest = vars.mchestqs;
 			}
 
 
@@ -1070,13 +1062,11 @@ split
 			if(current.quicksave > old.quicksave){
 				vars.mpotsqs = vars.mpots;
 			}
+			if(vars.split == 8 && current.cutscene > old.cutscene){
+				vars.mpotsqs = vars.mpots;
+			}
 			if(current.quickload > old.quickload){
-			
-				if(vars.split == 8 && (current.zone == 77 || current.zone == 78 || current.zone == -1 || current.zone == 11)){
-					vars.mpots = vars.mpots;
-				}
-				
-				else vars.mpots = vars.mpotsqs;
+				vars.mpots = vars.mpotsqs;
 			}
 			
 			
