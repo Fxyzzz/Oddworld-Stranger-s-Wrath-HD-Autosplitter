@@ -153,6 +153,11 @@ startup
 	settings.Add("100%", false, "100%");
 	settings.Add("Misc", false, "Misc");
 	
+	settings.CurrentDefaultParent = "100%";
+	settings.Add("Barrels Counter", true, "Barrels Counter");
+	settings.Add("Moolah Chests Counter", true, "Moolah Chests Counter");
+	settings.Add("Moolah Pots Counter", true, "Moolah Pots Counter");
+	
 	settings.CurrentDefaultParent = "Misc";
 	settings.Add("20k", false, "20k");
 	
@@ -222,7 +227,7 @@ startup
 	settings.CurrentDefaultParent = "Extra";
 	settings.Add("Shopping", false, "Shopping");
 }
- 
+
 start
 {
 	vars.split = 0;
@@ -1000,93 +1005,97 @@ split
 		
 		if(settings["100%"]){
 		
-			//Barrels counter
-			
-			if(current.barrel > old.barrel && current.statusobject != old.statusobject){
-				vars.barrel++;
-			}
-			if(current.quicksave > old.quicksave){
-				if(vars.barrelqs < vars.barrel){
-					vars.barrelqs++;
+			if(settings["Barrels Counter"]){
+		
+				//Barrels counter
+				
+				if(current.barrel > old.barrel && current.statusobject != old.statusobject){
+					vars.barrel++;
+				}
+				if(current.quicksave > old.quicksave){
+					if(vars.barrelqs < vars.barrel){
+						vars.barrelqs++;
+					}
+				}
+				if(vars.split == 3 && current.cutscene > old.cutscene){
+					if(vars.barrelqs < vars.barrel){
+						vars.barrelqs++;
+					}
+				}
+				if(current.quickload > old.quickload){
+					if(vars.barrel > vars.barrelqs){
+						vars.barrel--;
+					}
 				}
 			}
-			if(vars.split == 3 && current.cutscene > old.cutscene){
-				if(vars.barrelqs < vars.barrel){
-					vars.barrelqs++;
-				}
-			}
-			if(current.quickload > old.quickload){
-				if(vars.barrel > vars.barrelqs){
-					vars.barrel--;
-				}
-			}
 			
-			
-			
-			//Moolah Chests counter
-			
-			if(vars.split == 0){
-				vars.mchestmem = current.mchest;
-			}
-			if(current.mchest > old.mchest){
-				vars.mchest++;
-				vars.mchestmem++;
-			}
-			if(vars.mchestmem < current.mchest){
-				vars.mchest++;
-				vars.mchestmem++;
-			}
-			if(current.quicksave > old.quicksave){
-				if(vars.mchestqs < vars.mchest){
-					vars.mchestqs++;
+			if(settings["Moolah Chests Counter"]){	
+				
+				//Moolah Chests counter
+				
+				if(vars.split == 0){
+					vars.mchestmem = current.mchest;
 				}
-			}
-			if(vars.split == 3 && current.cutscene > old.cutscene){
-				if(vars.mchestqs < vars.mchest){
-					vars.mchestqs++;
+				if(current.mchest > old.mchest){
+					vars.mchest++;
+					vars.mchestmem++;
 				}
-			}
-			if(current.quickload > old.quickload){
-				if(vars.mchest > vars.mchestqs){
-					vars.mchest--;
+				if(vars.mchestmem < current.mchest){
+					vars.mchest++;
+					vars.mchestmem++;
+				}
+				if(current.quicksave > old.quicksave){
+					if(vars.mchestqs < vars.mchest){
+						vars.mchestqs++;
+					}
+				}
+				if(vars.split == 3 && current.cutscene > old.cutscene){
+					if(vars.mchestqs < vars.mchest){
+						vars.mchestqs++;
+					}
+				}
+				if(current.quickload > old.quickload){
+					if(vars.mchest > vars.mchestqs){
+						vars.mchest--;
+					}
 				}
 			}
 
+			if(settings["Moolah Pots Counter"]){
 
-
-			//Moolah Pots counter
-			
-			if(vars.split == 0){
-				vars.mpotsmem = current.mpots;
-			}
-			if(current.mpots != old.mpots){
-				vars.mpots++;
-				vars.mpotsmem++;
-			}
-			if(vars.mpotsmem == 8){
-				vars.mpotsmem = 0;
-			}
-			if(vars.mpotsmem != current.mpots && vars.mpotsmem < 8){
-				vars.mpots++;
-				vars.mpotsmem++;
-			}
-			
-			if(current.quicksave > old.quicksave){
-				if(vars.mpotsqs < vars.mpots){
-					vars.mpotsqs++;
+				//Moolah Pots counter
+				
+				if(vars.split == 0){
+					vars.mpotsmem = current.mpots;
+				}
+				if(current.mpots != old.mpots){
+					vars.mpots++;
+					vars.mpotsmem++;
+				}
+				if(vars.mpotsmem == 8){
+					vars.mpotsmem = 0;
+				}
+				if(vars.mpotsmem != current.mpots && vars.mpotsmem < 8){
+					vars.mpots++;
+					vars.mpotsmem++;
+				}
+				
+				if(current.quicksave > old.quicksave){
+					if(vars.mpotsqs < vars.mpots){
+						vars.mpotsqs++;
+					}
+				}
+				if(vars.split == 8 && current.cutscene > old.cutscene){
+					if(vars.mpotsqs < vars.mpots){
+						vars.mpotsqs++;
+					}
+				}
+				if(current.quickload > old.quickload){
+					if(vars.mpots > vars.mpotsqs){
+						vars.mpots--;
+					}
 				}
 			}
-			if(vars.split == 8 && current.cutscene > old.cutscene){
-				if(vars.mpotsqs < vars.mpots){
-					vars.mpotsqs++;
-				}
-			}
-			if(current.quickload > old.quickload){
-				if(vars.mpots > vars.mpotsqs){
-					vars.mpots--;
-				}
-			}
-			
 			
 			//Splits
 			
