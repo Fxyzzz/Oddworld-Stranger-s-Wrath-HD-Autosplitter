@@ -1013,17 +1013,17 @@ split
 					vars.barrel++;
 				}
 				if(current.quicksave > old.quicksave){
-					if(vars.barrelqs < vars.barrel){
+					while(vars.barrelqs < vars.barrel){
 						vars.barrelqs++;
 					}
 				}
 				if(vars.split == 3 && current.cutscene > old.cutscene){
-					if(vars.barrelqs < vars.barrel){
+					while(vars.barrelqs < vars.barrel){
 						vars.barrelqs++;
 					}
 				}
 				if(current.quickload > old.quickload){
-					if(vars.barrel > vars.barrelqs){
+					while(vars.barrel > vars.barrelqs){
 						vars.barrel--;
 					}
 				}
@@ -1045,17 +1045,17 @@ split
 					vars.mchestmem++;
 				}
 				if(current.quicksave > old.quicksave){
-					if(vars.mchestqs < vars.mchest){
+					while(vars.mchestqs < vars.mchest){
 						vars.mchestqs++;
 					}
 				}
 				if(vars.split == 3 && current.cutscene > old.cutscene){
-					if(vars.mchestqs < vars.mchest){
+					while(vars.mchestqs < vars.mchest){
 						vars.mchestqs++;
 					}
 				}
 				if(current.quickload > old.quickload){
-					if(vars.mchest > vars.mchestqs){
+					while(vars.mchest > vars.mchestqs){
 						vars.mchest--;
 					}
 				}
@@ -1081,17 +1081,17 @@ split
 				}
 				
 				if(current.quicksave > old.quicksave){
-					if(vars.mpotsqs < vars.mpots){
+					while(vars.mpotsqs < vars.mpots){
 						vars.mpotsqs++;
 					}
 				}
 				if(vars.split == 8 && current.cutscene > old.cutscene){
-					if(vars.mpotsqs < vars.mpots){
+					while(vars.mpotsqs < vars.mpots){
 						vars.mpotsqs++;
 					}
 				}
 				if(current.quickload > old.quickload){
-					if(vars.mpots > vars.mpotsqs){
+					while(vars.mpots > vars.mpotsqs){
 						vars.mpots--;
 					}
 				}
