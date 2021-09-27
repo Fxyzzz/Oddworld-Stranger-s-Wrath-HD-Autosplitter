@@ -72,10 +72,11 @@ init
 	vars.barrel = 0;
 	vars.barrelqs = 0;
 	vars.mchest = 0;
-	vars.mchestmem = 0;
 	vars.mchestqs = 0;
 	vars.mpots = 0;
 	vars.mpotsqs = 0;
+	vars.mchestmem = current.mchest;
+	vars.mpotsmem = current.mpots;
 	
 	if(settings["Platform"]){
 		
@@ -239,13 +240,13 @@ start
 	vars.barrel = 0;
 	vars.barrelqs = 0;
 	vars.mchest = 0;
-	vars.mchestmem = 0;
 	vars.mchestqs = 0;
 	vars.mpots = 0;
 	vars.mpotsqs = 0;
-	vars.mpotsmem = 0;
 	vars.FrameRate = 100;
 	vars.splitAlt = true;
+	vars.mchestmem = current.mchest;
+	vars.mpotsmem = current.mpots;
 	
 	if(settings["Individual Levels"]){
 	
@@ -376,11 +377,11 @@ reset
 				vars.barrel = 0;
 				vars.barrelqs = 0;
 				vars.mchest = 0;
-				vars.mchestmem = 0;
 				vars.mchestqs = 0;
 				vars.mpots = 0;
 				vars.mpotsqs = 0;
-				vars.mpotsmem = 0;
+				vars.mchestmem = current.mchest;
+				vars.mpotsmem = current.mpots;
 				return true;
 			}
 		}
@@ -408,11 +409,11 @@ reset
 			vars.barrel = 0;
 			vars.barrelqs = 0;
 			vars.mchest = 0;
-			vars.mchestmem = 0;
 			vars.mchestqs = 0;
 			vars.mpots = 0;
 			vars.mpotsqs = 0;
-			vars.mpotsmem = 0;
+			vars.mchestmem = current.mchest;
+			vars.mpotsmem = current.mpots;
 			return true;
 		}
 	}
@@ -427,11 +428,11 @@ reset
 		vars.barrel = 0;
 		vars.barrelqs = 0;
 		vars.mchest = 0;
-		vars.mchestmem = 0;
 		vars.mchestqs = 0;
 		vars.mpots = 0;
 		vars.mpotsqs = 0;
-		vars.mpotsmem = 0;
+		vars.mchestmem = current.mchest;
+		vars.mpotsmem = current.mpots;
 		return true;
 	}
 }
@@ -1012,6 +1013,7 @@ split
 				if(current.barrel > old.barrel && current.statusobject != old.statusobject){
 					vars.barrel++;
 				}
+
 				if(current.quicksave > old.quicksave){
 					while(vars.barrelqs < vars.barrel){
 						vars.barrelqs++;
@@ -1033,9 +1035,6 @@ split
 				
 				//Moolah Chests counter
 				
-				if(vars.split == 0){
-					vars.mchestmem = current.mchest;
-				}
 				if(current.mchest > old.mchest){
 					vars.mchest++;
 					vars.mchestmem++;
@@ -1065,9 +1064,6 @@ split
 
 				//Moolah Pots counter
 				
-				if(vars.split == 0){
-					vars.mpotsmem = current.mpots;
-				}
 				if(current.mpots != old.mpots){
 					vars.mpots++;
 					vars.mpotsmem++;
