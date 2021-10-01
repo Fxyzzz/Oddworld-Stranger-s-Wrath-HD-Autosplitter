@@ -1039,7 +1039,7 @@ split
 					vars.mchest++;
 					vars.mchestmem++;
 				}
-				if(vars.mchestmem < current.mchest){
+				while(vars.mchestmem < current.mchest){
 					vars.mchest++;
 					vars.mchestmem++;
 				}
@@ -1071,7 +1071,7 @@ split
 				if(vars.mpotsmem == 8){
 					vars.mpotsmem = 0;
 				}
-				if(vars.mpotsmem != current.mpots && vars.mpotsmem < 8){
+				while(vars.mpotsmem != current.mpots && vars.mpotsmem < 8){
 					vars.mpots++;
 					vars.mpotsmem++;
 				}
