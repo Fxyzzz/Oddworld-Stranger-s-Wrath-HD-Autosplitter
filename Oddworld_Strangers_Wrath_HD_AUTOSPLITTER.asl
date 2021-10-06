@@ -356,8 +356,11 @@ start
 		}
 	}
 		
-	else if(old.diffmenu == 0 && current.diffmenu != old.diffmenu){
-		return true;
+	if(settings["Full Game Category"]){
+
+		if(old.diffmenu == 0 && current.diffmenu != old.diffmenu){
+			return true;
+		}
 	}
 }
 
