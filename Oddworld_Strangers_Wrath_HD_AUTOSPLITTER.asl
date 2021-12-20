@@ -1518,20 +1518,20 @@ split
 			//Boss 1
 			}
 		
-			if(current.zone == 2 && old.zone == 4 && vars.zone == 2 && vars.split == 11){
+			if(current.zone == 2 && old.zone == 4 && vars.zone == 4 && vars.split == 11){
 				vars.zone++;
 			}
-			if(current.primeguy > old.primeguy && vars.split == 11 && vars.rendu == 8 && vars.zone == 3){
+			if(current.primeguy > old.primeguy && vars.split == 11 && vars.rendu == 8 && vars.zone == 5){
 				vars.rendu++;
 				vars.split++;
 				return true;
 			//Boss 2
 			}
 		
-			if(current.zone == 2 && old.zone == 4 && vars.zone == 3 && vars.split == 12){
+			if(current.zone == 2 && old.zone == 4 && vars.zone == 5 && vars.split == 12){
 				vars.zone++;
 			}
-			if(current.primeguy > old.primeguy && vars.split == 12 && vars.rendu == 9 && vars.zone == 4){
+			if(current.primeguy > old.primeguy && vars.split == 12 && vars.rendu == 9 && vars.zone == 6){
 				vars.rendu++;
 				vars.split++;
 				return true;
@@ -2303,20 +2303,20 @@ split
 			//Boss 1
 			}
 		
-			if(current.zone == 2 && old.zone == 4 && vars.zone == 2 && vars.split == 11){
+			if(current.zone == 2 && old.zone == 4 && vars.zone == 4 && vars.split == 11){
 				vars.zone++;
 			}
-			if(current.primeguy > old.primeguy && vars.split == 11 && vars.rendu == 8 && vars.zone == 3){
+			if(current.primeguy > old.primeguy && vars.split == 11 && vars.rendu == 8 && vars.zone == 5){
 				vars.rendu++;
 				vars.split++;
 				return true;
 			//Boss 2
 			}
 		
-			if(current.zone == 2 && old.zone == 4 && vars.zone == 3 && vars.split == 12){
+			if(current.zone == 2 && old.zone == 4 && vars.zone == 5 && vars.split == 12){
 				vars.zone++;
 			}
-			if(current.primeguy > old.primeguy && vars.split == 12 && vars.rendu == 9 && vars.zone == 4){
+			if(current.primeguy > old.primeguy && vars.split == 12 && vars.rendu == 9 && vars.zone == 6){
 				vars.rendu++;
 				vars.split++;
 				return true;
