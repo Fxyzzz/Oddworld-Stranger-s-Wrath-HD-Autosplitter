@@ -1445,16 +1445,17 @@ split
 			//Boilz Booty
 			}
 		
-			if(current.zone == 60 && current.bounty > old.bounty && vars.split == 4 && vars.capture == 3){
+			if(current.bounty > old.bounty && vars.split == 4 && vars.capture == 3){
 				vars.capture++;
 			}
-			if(current.cutscene > old.cutscene && vars.split == 4 && vars.capture == 4){
+			if(current.primeguy > old.primeguy && vars.split == 4 && vars.rendu == 3 && vars.capture == 4){
+				vars.rendu++;
 				vars.split++;
 				return true;
 			//Jo Momma
 			}
 		
-			if(current.primeguy > old.primeguy && vars.split == 5 && vars.rendu == 3 && vars.capture == 4){
+			if(current.primeguy > old.primeguy && vars.split == 5 && vars.rendu == 4 && vars.capture == 4){
 				vars.rendu++;
 				vars.split++;
 				return true;
@@ -1464,7 +1465,7 @@ split
 			if(current.bounty > old.bounty && vars.split == 6 && vars.capture == 4){
 				vars.capture++;
 			}
-			if(current.primeguy > old.primeguy && vars.split == 6 && vars.rendu == 4 && vars.capture == 5){
+			if(current.primeguy > old.primeguy && vars.split == 6 && vars.rendu == 5 && vars.capture == 5){
 				vars.rendu++;
 				vars.split++;
 				return true;
@@ -1474,7 +1475,7 @@ split
 			if(current.bounty > old.bounty && vars.split == 7 && vars.capture == 5){
 				vars.capture++;
 			}
-			if(current.primeguy > old.primeguy && vars.split == 7 && vars.rendu == 5 && vars.capture == 6){
+			if(current.primeguy > old.primeguy && vars.split == 7 && vars.rendu == 6 && vars.capture == 6){
 				vars.rendu++;
 				vars.split++;
 				return true;
@@ -1498,7 +1499,7 @@ split
 				vars.zone++;
 			}
 			
-			if(current.primeguy > old.primeguy && vars.split == 9 && vars.rendu == 6 && vars.zone == 2){
+			if(current.primeguy > old.primeguy && vars.split == 9 && vars.rendu == 7 && vars.zone == 2){
 				vars.rendu++;
 				vars.split++;
 				return true;
@@ -1511,7 +1512,7 @@ split
 			if(current.zone == 4 && old.zone == 2 && vars.zone == 3 && vars.split == 10){
 				vars.zone++;
 			}
-			if(current.primeguy > old.primeguy && vars.split == 10 && vars.rendu == 7 && vars.zone == 4){
+			if(current.primeguy > old.primeguy && vars.split == 10 && vars.rendu == 8 && vars.zone == 4){
 				vars.rendu++;
 				vars.split++;
 				return true;
@@ -1521,7 +1522,7 @@ split
 			if(current.zone == 2 && old.zone == 4 && vars.zone == 4 && vars.split == 11){
 				vars.zone++;
 			}
-			if(current.primeguy > old.primeguy && vars.split == 11 && vars.rendu == 8 && vars.zone == 5){
+			if(current.primeguy > old.primeguy && vars.split == 11 && vars.rendu == 9 && vars.zone == 5){
 				vars.rendu++;
 				vars.split++;
 				return true;
@@ -1531,7 +1532,7 @@ split
 			if(current.zone == 2 && old.zone == 4 && vars.zone == 5 && vars.split == 12){
 				vars.zone++;
 			}
-			if(current.primeguy > old.primeguy && vars.split == 12 && vars.rendu == 9 && vars.zone == 6){
+			if(current.primeguy > old.primeguy && vars.split == 12 && vars.rendu == 10 && vars.zone == 6){
 				vars.rendu++;
 				vars.split++;
 				return true;
@@ -2230,16 +2231,17 @@ split
 			//Boilz Booty
 			}
 		
-			if(current.zone == 60 && current.bounty > old.bounty && vars.split == 4 && vars.capture == 3){
+			if(current.bounty > old.bounty && vars.split == 4 && vars.capture == 3){
 				vars.capture++;
 			}
-			if(current.cutscene > old.cutscene && vars.split == 4 && vars.capture == 4){
+			if(current.primeguy > old.primeguy && vars.split == 4 && vars.rendu == 3 && vars.capture == 4){
+				vars.rendu++;
 				vars.split++;
 				return true;
 			//Jo Momma
 			}
 		
-			if(current.primeguy > old.primeguy && vars.split == 5 && vars.rendu == 3 && vars.capture == 4){
+			if(current.primeguy > old.primeguy && vars.split == 5 && vars.rendu == 4 && vars.capture == 4){
 				vars.rendu++;
 				vars.split++;
 				return true;
@@ -2249,7 +2251,7 @@ split
 			if(current.bounty > old.bounty && vars.split == 6 && vars.capture == 4){
 				vars.capture++;
 			}
-			if(current.primeguy > old.primeguy && vars.split == 6 && vars.rendu == 4 && vars.capture == 5){
+			if(current.primeguy > old.primeguy && vars.split == 6 && vars.rendu == 5 && vars.capture == 5){
 				vars.rendu++;
 				vars.split++;
 				return true;
@@ -2259,7 +2261,7 @@ split
 			if(current.bounty > old.bounty && vars.split == 7 && vars.capture == 5){
 				vars.capture++;
 			}
-			if(current.primeguy > old.primeguy && vars.split == 7 && vars.rendu == 5 && vars.capture == 6){
+			if(current.primeguy > old.primeguy && vars.split == 7 && vars.rendu == 6 && vars.capture == 6){
 				vars.rendu++;
 				vars.split++;
 				return true;
@@ -2283,7 +2285,7 @@ split
 				vars.zone++;
 			}
 			
-			if(current.primeguy > old.primeguy && vars.split == 9 && vars.rendu == 6 && vars.zone == 2){
+			if(current.primeguy > old.primeguy && vars.split == 9 && vars.rendu == 7 && vars.zone == 2){
 				vars.rendu++;
 				vars.split++;
 				return true;
@@ -2296,7 +2298,7 @@ split
 			if(current.zone == 4 && old.zone == 2 && vars.zone == 3 && vars.split == 10){
 				vars.zone++;
 			}
-			if(current.primeguy > old.primeguy && vars.split == 10 && vars.rendu == 7 && vars.zone == 4){
+			if(current.primeguy > old.primeguy && vars.split == 10 && vars.rendu == 8 && vars.zone == 4){
 				vars.rendu++;
 				vars.split++;
 				return true;
@@ -2306,7 +2308,7 @@ split
 			if(current.zone == 2 && old.zone == 4 && vars.zone == 4 && vars.split == 11){
 				vars.zone++;
 			}
-			if(current.primeguy > old.primeguy && vars.split == 11 && vars.rendu == 8 && vars.zone == 5){
+			if(current.primeguy > old.primeguy && vars.split == 11 && vars.rendu == 9 && vars.zone == 5){
 				vars.rendu++;
 				vars.split++;
 				return true;
@@ -2316,7 +2318,7 @@ split
 			if(current.zone == 2 && old.zone == 4 && vars.zone == 5 && vars.split == 12){
 				vars.zone++;
 			}
-			if(current.primeguy > old.primeguy && vars.split == 12 && vars.rendu == 9 && vars.zone == 6){
+			if(current.primeguy > old.primeguy && vars.split == 12 && vars.rendu == 10 && vars.zone == 6){
 				vars.rendu++;
 				vars.split++;
 				return true;
