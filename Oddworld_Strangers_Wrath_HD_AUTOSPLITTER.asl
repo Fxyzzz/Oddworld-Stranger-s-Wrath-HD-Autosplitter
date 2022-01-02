@@ -994,7 +994,7 @@ split
 			if(current.zone == 2 && current.bounty > old.bounty && vars.split == 6 && vars.capture == 3){
 				vars.capture++;
 			}
-			if(current.cutscene > old.cutscene && vars.split == 6 && vars.capture == 4){
+			if(current.primeguy > old.primeguy && vars.split == 6 && vars.capture == 4){
 				vars.split++;
 				return true;
 			//Meagly McGraw
