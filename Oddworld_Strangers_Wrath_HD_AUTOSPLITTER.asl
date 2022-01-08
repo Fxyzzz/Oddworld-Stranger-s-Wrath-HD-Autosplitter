@@ -1,6 +1,6 @@
 // 19-02-2021 by Fxyz#1329
 
-state ("stranger", "5.0 Steam 20-12-2021 Fxyz")
+state ("stranger", "6.0 Steam 06-01-2022 Fxyz")
 
 {
 	int diffmenu : 0x1DEAFC, 0x4;
@@ -12,9 +12,7 @@ state ("stranger", "5.0 Steam 20-12-2021 Fxyz")
 	int primeguy : 0x1DFA94, 0x90;		//Talking to the guy in the bounty store
 	int cutscene : 0x3403C0, 0x18;		//When black stripes appear on screen
 	int IGT : 0x10F854, 0x18;
-	//int IGT2 : 0x228330, 0x18;		//Useless
-	long IGT3 : 0x34A040, 0x114;
-	int end : 0x3388C4, 0x68;
+	long IGT3 : 0x34A040, 0x114;		//Always 0 except during cinematics
 	int quicksave : 0x341274, 0x138;	//When a quicksave / automatic save is done
 	short quickload : 0x192D18, 0x18;
 	int mchest : 0x1DE930, 0x4;
@@ -23,14 +21,13 @@ state ("stranger", "5.0 Steam 20-12-2021 Fxyz")
 	int zone : 0x1CFFC8, 0x18;			//The ID of every chunks in the game
 	int resettimer : 0x1E4AB4, 0x14;	//Set to 257 only in the main menu
 	int ilstart : 0x20C44C, 0x20;
-	int sekto : 0x3388C4, 0x68;
 	int health: 0x5D2F70, 0x170;
 	int statusobject: 0x1EE794, 0x18;
 	int mpots: 0x64CE68, 0x40, 0x8, 0x1C, 0x9C, 0x8;
 	float moolah: 0x617AB8, 0xC;
 }
 
-state ("stranger", "5.0 GOG 20-12-2021 Fxyz")
+state ("stranger", "6.0 GOG HD 06-01-2022 Fxyz")
 
 {
 	int diffmenu : 0x1E120C, 0x64;
@@ -42,9 +39,7 @@ state ("stranger", "5.0 GOG 20-12-2021 Fxyz")
 	int primeguy : 0x1DFB74, 0x90;
 	int cutscene : 0x33F690, 0x18;		
 	int IGT : 0x10F1E4, 0x18;
-	//int IGT2 : 0x227560, 0x18;		//Useless
 	long IGT3 : 0x0349330, 0x114;
-	int end : 0x337B84, 0x68;
 	int quicksave : 0x1DFB74, 0x88;
 	short quickload : 0x192728, 0x18;
 	int mchest : 0x1DEA10, 0x4;
@@ -53,13 +48,35 @@ state ("stranger", "5.0 GOG 20-12-2021 Fxyz")
 	int zone : 0x1D00B8, 0x18;
 	int resettimer : 0x1E4C04, 0x14;
 	int ilstart : 0x020B7EC, 0x20;
-	int sekto : 0x337B84, 0x68;
 	int health: 0x5CE390, 0x170;
 	int statusobject: 0x1EE8C4, 0x18;
 	int mpots: 0x648288, 0x10, 0x34, 0x0, 0x9C, 0x8;
 	float moolah: 0x6478B8, 0x844, 0xC;
 }
 
+state ("stranger", "6.0 GOG SD 06-01-2022 Fxyz")
+
+{
+	int diffmenu : 0x1EE15C, 0x10;
+	//int godvalue : 
+	//int nerfshop : 
+	//int river : 
+	//int bounty : 
+	//int primeguy : 
+	//int cutscene : 
+	int IGT : 0x33ABDC, 0x18;
+	long IGT3 : 0x20AD24, 0x48;
+	//int quicksave : 
+	short quickload : 0x0BC484, 0x78;
+	//int mchest : 
+	//int crystal : 
+	//int zone : 0x1EA958, 0x28;
+	int resettimer : 0x20060C, 0x18;
+	//int ilstart : 
+	int health: 0x411CFC, 0x240;
+	//int mpots: 
+	//float moolah: 
+}
 
 init
 {	
@@ -82,11 +99,16 @@ init
 	if(settings["Platform"]){
 		
 		if(settings["Steam"]){
-			version = "5.0 Steam 20-12-2021 Fxyz";
+			version = "6.0 Steam 06-01-2022 Fxyz";
 		}
 		
 		if(settings["GOG"]){
-			version = "5.0 GOG 20-12-2021 Fxyz";
+			if(settings["HD"]){
+				version = "6.0 GOG HD 06-01-2022 Fxyz";
+			}
+			if(settings["SD"]){
+				version = "6.0 GOG SD 06-01-2022 Fxyz";
+			}
 		}
 	}	
 	
@@ -146,6 +168,10 @@ startup
 	settings.CurrentDefaultParent = "Platform";
 	settings.Add("Steam", true, "Steam (Default)");
 	settings.Add("GOG", false, "GOG");
+	
+	settings.CurrentDefaultParent = "GOG";
+	settings.Add("HD", true, "HD (Default)");
+	settings.Add("SD", false, "SD");
 
 	settings.CurrentDefaultParent = "Full Game Category";
 	settings.Add("Category", true, "Category");
