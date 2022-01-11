@@ -171,7 +171,7 @@ startup
 	
 	settings.CurrentDefaultParent = "GOG";
 	settings.Add("HD", true, "HD (Default)");
-	settings.Add("SD", false, "SD (Only has Load time remover");
+	settings.Add("SD", false, "SD (Only has Load time remover)");
 
 	settings.CurrentDefaultParent = "Full Game Category";
 	settings.Add("Category", true, "Category");
