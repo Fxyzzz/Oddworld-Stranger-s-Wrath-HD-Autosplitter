@@ -14,7 +14,7 @@ state ("stranger", "6.0 Steam 06-01-2022 Fxyz")
 	int IGT : 0x10F854, 0x18;
 	long IGT3 : 0x34A040, 0x114;		//Always 0 except during cinematics
 	int quicksave : 0x341274, 0x138;	//When a quicksave / automatic save is done
-	short quickload : 0x192D18, 0x18;
+	int quickload : 0x24A6A8, 0x24;
 	int mchest : 0x1DE930, 0x4;
 	//int crystal : 0x1DE930, 0x8;
 	int barrel : 0x2FB8FC, 0x104;
@@ -41,7 +41,7 @@ state ("stranger", "6.0 GOG HD 06-01-2022 Fxyz")
 	int IGT : 0x10F1E4, 0x18;
 	long IGT3 : 0x0349330, 0x114;
 	int quicksave : 0x1DFB74, 0x88;
-	short quickload : 0x192728, 0x18;
+	int quickload : 0x249AA8, 0x24;
 	int mchest : 0x1DEA10, 0x4;
 	//int crystal : 0x1DEA10, 0x8;
 	int barrel : 0x2FAA18, 0x104;
@@ -1679,7 +1679,7 @@ split
 						vars.barrelqs++;
 					}
 				}
-				if(current.quickload > old.quickload){
+				if(current.quickload == 0){
 					while(vars.barrel > vars.barrelqs){
 						vars.barrel--;
 					}
@@ -1708,7 +1708,7 @@ split
 						vars.mchestqs++;
 					}
 				}
-				if(current.quickload > old.quickload){
+				if(current.quickload == 0){
 					while(vars.mchest > vars.mchestqs){
 						vars.mchest--;
 					}
@@ -1741,7 +1741,7 @@ split
 						vars.mpotsqs++;
 					}
 				}
-				if(current.quickload > old.quickload){
+				if(current.quickload == 0){
 					while(vars.mpots > vars.mpotsqs){
 						vars.mpots--;
 					}
