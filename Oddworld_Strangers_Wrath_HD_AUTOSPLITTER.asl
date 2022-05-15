@@ -200,6 +200,7 @@ startup
 	
 	settings.CurrentDefaultParent = "100%";
 	settings.Add("Counters", true, "Counters");
+	settings.SetToolTip("Counters", "Displays counters in your layout for some of the objectives of the run");
 	
 	settings.CurrentDefaultParent = "Full Game Category";
 	settings.Add("Restriction", true, "Restriction");
