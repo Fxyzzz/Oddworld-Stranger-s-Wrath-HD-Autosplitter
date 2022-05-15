@@ -206,7 +206,7 @@ startup
 	settings.Add("Restriction", true, "Restriction");
 	
 	settings.CurrentDefaultParent = "Restriction";
-	settings.SetToolTip("Restriction", "Chose the restriction you're running, CHECK ONLY ONE");
+	settings.SetToolTip("Restriction", "Choose the restriction you're running, CHECK ONLY ONE");
 	settings.Add("Unrestricted", false, "Unrestricted");
 	settings.Add("No Ghost", false, "No Ghost");
 	settings.Add("NMG", false, "NMG");
