@@ -191,7 +191,7 @@ startup
 	*/
 	settings.CurrentDefaultParent = "Full Game Category";
 	settings.Add("Category", true, "Category");
-	settings.SetToolTip("Category", "Chose the category you're running, CHECK ONLY ONE");
+	settings.SetToolTip("Category", "Choose the category you're running, CHECK ONLY ONE");
 	settings.CurrentDefaultParent = "Category";
 	settings.Add("Any%", false, "Any%");
 	settings.Add("All Bounties", false, "All Bounties");
