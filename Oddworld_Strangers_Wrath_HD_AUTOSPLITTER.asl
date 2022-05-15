@@ -1,6 +1,6 @@
 // 19-02-2021 by Fxyz#1329
 
-state ("stranger", "6.0 Steam 06-01-2022 Fxyz")
+state ("stranger", "Steam 1.5")
 
 {
 	int diffmenu : 0x1DEAFC, 0x4;
@@ -27,7 +27,7 @@ state ("stranger", "6.0 Steam 06-01-2022 Fxyz")
 	float moolah: 0x617AB8, 0xC;
 }
 
-state ("stranger", "6.0 GOG HD 06-01-2022 Fxyz")
+state ("stranger", "GOG 1.5")
 
 {
 	int diffmenu : 0x1E120C, 0x64;
@@ -54,7 +54,7 @@ state ("stranger", "6.0 GOG HD 06-01-2022 Fxyz")
 	float moolah: 0x6478B8, 0x844, 0xC;
 }
 
-state ("stranger", "6.0 GOG SD 06-01-2022 Fxyz")
+/*state ("stranger", "GOGSD")
 
 {
 	int diffmenu : 0x1EE15C, 0x10;
@@ -77,9 +77,10 @@ state ("stranger", "6.0 GOG SD 06-01-2022 Fxyz")
 	//int mpots: 
 	//float moolah: 
 }
-
+*/
 init
 {	
+
 	vars.split = 0;
 	vars.capture = 0;
 	vars.rendu = 0;
@@ -95,22 +96,37 @@ init
 	vars.mchestmem = current.mchest;
 	vars.mpotsmem = current.mpots;
 	vars.zone = 0;
+	vars.barrelsplit = 0;
+	vars.chestsplit = 0;
+	vars.potsplit = 0;
+	vars.idol = 0;
+	vars.idolqs = 0;
+	vars.idolsplit = 0;
 	
-	if(settings["Platform"]){
+	/*if(settings["Platform"]){
 		
 		if(settings["Steam"]){
-			version = "6.0 Steam 06-01-2022 Fxyz";
+			version = "Steam 1.5";
 		}
 		
 		if(settings["GOG"]){
 			if(settings["HD"]){
-				version = "6.0 GOG HD 06-01-2022 Fxyz";
+				version = "GOG 1.5";
 			}
 			if(settings["SD"]){
-				version = "6.0 GOG SD 06-01-2022 Fxyz";
+				version = "GOGSD";
 			}
 		}
 	}	
+	*/
+	
+	if(current.diffmenu == 1){
+		version = "Steam 1.5";
+	}
+	
+	if(current.diffmenu == 0){
+		version = "GOG 1.5";
+	}
 	
 	if(settings["Refresh rate of the autosplitter"]){
 	
@@ -156,8 +172,8 @@ startup
 {
 	//1st tabs
 	
-	settings.Add("Platform", true, "Platform");
-	settings.SetToolTip("Platform", "SET THIS UP BEFORE LAUNCHING THE GAME");
+	//settings.Add("Platform", true, "Platform");
+	//settings.SetToolTip("Platform", "SET THIS UP BEFORE LAUNCHING THE GAME");
 	settings.Add("Full Game Category", false, "Full Game Category");
 	settings.Add("Individual Levels", false, "Individual Levels");
 	settings.Add("Refresh rate of the autosplitter", true, "Refresh rate of the autosplitter");
@@ -165,14 +181,14 @@ startup
 	
 	//End of 1st tabs
 	
-	settings.CurrentDefaultParent = "Platform";
+	/*settings.CurrentDefaultParent = "Platform";
 	settings.Add("Steam", true, "Steam (Default)");
 	settings.Add("GOG", false, "GOG");
 	
 	settings.CurrentDefaultParent = "GOG";
 	settings.Add("HD", true, "HD (Default)");
 	settings.Add("SD", false, "SD (Only has Load time remover)");
-
+	*/
 	settings.CurrentDefaultParent = "Full Game Category";
 	settings.Add("Category", true, "Category");
 	settings.SetToolTip("Category", "Chose the category you're running, CHECK ONLY ONE");
@@ -183,9 +199,7 @@ startup
 	settings.Add("Misc", false, "Misc");
 	
 	settings.CurrentDefaultParent = "100%";
-	settings.Add("Barrels Counter", true, "Barrels Counter");
-	settings.Add("Moolah Chests Counter", true, "Moolah Chests Counter");
-	settings.Add("Moolah Pots Counter", true, "Moolah Pots Counter");
+	settings.Add("Counters", true, "Counters");
 	
 	settings.CurrentDefaultParent = "Full Game Category";
 	settings.Add("Restriction", true, "Restriction");
@@ -266,6 +280,33 @@ startup
 	
 	settings.CurrentDefaultParent = "Extra";
 	settings.Add("Shopping", false, "Shopping");
+	
+	
+	vars.SetTextComponent = (Action<string, string>)((id, text) =>
+	{
+        var textSettings = timer.Layout.Components.Where(x => x.GetType().Name == "TextComponent").Select(x => x.GetType().GetProperty("Settings").GetValue(x, null));
+        var textSetting = textSettings.FirstOrDefault(x => (x.GetType().GetProperty("Text1").GetValue(x, null) as string) == id);
+        if (textSetting == null){
+            var textComponentAssembly = Assembly.LoadFrom("Components\\LiveSplit.Text.dll");
+            var textComponent = Activator.CreateInstance(textComponentAssembly.GetType("LiveSplit.UI.Components.TextComponent"), timer);
+            timer.Layout.LayoutComponents.Add(new LiveSplit.UI.Components.LayoutComponent("LiveSplit.Text.dll", textComponent as LiveSplit.UI.Components.IComponent));
+            textSetting = textComponent.GetType().GetProperty("Settings", BindingFlags.Instance | BindingFlags.Public).GetValue(textComponent, null);
+            textSetting.GetType().GetProperty("Text1").SetValue(textSetting, id);
+        }
+        if (textSetting != null);
+            textSetting.GetType().GetProperty("Text2").SetValue(textSetting, text);
+	});
+}
+
+update
+{
+	if(settings["100%"] && settings["Counters"]){
+		vars.SetTextComponent("Barrels", (vars.barrel).ToString() + "/" + (vars.barrelsplit).ToString());
+		vars.SetTextComponent("Chests", (vars.mchest).ToString() + "/" + (vars.chestsplit).ToString());
+		vars.SetTextComponent("Pots", (vars.mpots).ToString() + "/" + (vars.potsplit).ToString());
+		vars.SetTextComponent("Idol", (vars.idol).ToString() + "/" + (vars.idolsplit).ToString());
+		return true;
+	}
 }
 
 start
@@ -287,6 +328,12 @@ start
 	vars.mchestmem = current.mchest;
 	vars.mpotsmem = current.mpots;
 	vars.zone = 0;
+	vars.barrelsplit = 0;
+	vars.chestsplit = 0;
+	vars.potsplit = 0;
+	vars.idol = 0;
+	vars.idolqs = 0;
+	vars.idolsplit = 0;
 	
 	if(settings["Individual Levels"]){
 	
@@ -426,6 +473,12 @@ reset
 				vars.mchestmem = current.mchest;
 				vars.mpotsmem = current.mpots;
 				vars.zone = 0;
+				vars.barrelsplit = 0;
+				vars.chestsplit = 0;
+				vars.potsplit = 0;
+				vars.idol = 0;
+				vars.idolqs = 0;
+				vars.idolsplit = 0;
 				return true;
 			}
 		}
@@ -459,6 +512,12 @@ reset
 			vars.mchestmem = current.mchest;
 			vars.mpotsmem = current.mpots;
 			vars.zone = 0;
+			vars.barrelsplit = 0;
+			vars.chestsplit = 0;
+			vars.potsplit = 0;
+			vars.idol = 0;
+			vars.idolqs = 0;
+			vars.idolsplit = 0;
 			return true;
 		}
 	}
@@ -479,6 +538,12 @@ reset
 		vars.mchestmem = current.mchest;
 		vars.mpotsmem = current.mpots;
 		vars.zone = 0;
+		vars.barrelsplit = 0;
+		vars.chestsplit = 0;
+		vars.potsplit = 0;
+		vars.idol = 0;
+		vars.idolqs = 0;
+		vars.idolsplit = 0;
 		return true;
 	}
 }
@@ -1661,7 +1726,7 @@ split
 		
 		if(settings["100%"]){
 		
-			if(settings["Barrels Counter"]){
+			if(settings["Counters"]){
 		
 				//Barrels counter
 				
@@ -1684,9 +1749,6 @@ split
 						vars.barrel--;
 					}
 				}
-			}
-			
-			if(settings["Moolah Chests Counter"]){	
 				
 				//Moolah Chests counter
 				
@@ -1713,11 +1775,8 @@ split
 						vars.mchest--;
 					}
 				}
-			}
-
-			if(settings["Moolah Pots Counter"]){
-
-				//Moolah Pots counter
+				
+				//Moolah Pots counter (+ Idol)
 				
 				if(current.mpots != old.mpots){
 					vars.mpots++;
@@ -1729,6 +1788,23 @@ split
 				while(vars.mpotsmem != current.mpots && vars.mpotsmem < 8){
 					vars.mpots++;
 					vars.mpotsmem++;
+				}
+				
+				if(vars.split == 5 && vars.mpots == 9){
+					vars.mpots--;
+					vars.idol++;
+				}
+				
+				if(vars.split == 5 && vars.idol == 1 && current.quicksave > old.quicksave && vars.idolqs == 0){
+					vars.idolqs++;
+				}
+				
+				if(vars.split == 5 && vars.idol == 1 && current.quickload == 0 && vars.idolqs == 0){
+					vars.idol = 0;
+				}
+				
+				if(vars.split == 5 && vars.idol == 1){
+					string idol = "Done";
 				}
 				
 				if(current.quicksave > old.quicksave){
@@ -1760,6 +1836,7 @@ split
 			}
 			if(vars.split == 0 && vars.cutscene == 2){
 				vars.split++;
+				vars.barrelsplit = 1;
 				return true;
 			//Tutorial
 			}
@@ -1770,6 +1847,7 @@ split
 			if(current.primeguy > old.primeguy && vars.split == 1 && vars.rendu == 0 && vars.capture == 1){
 				vars.rendu++;
 				vars.split++;
+				vars.chestsplit = 8;
 				return true;
 			//Filthy Hands Floyd
 			}
@@ -1780,22 +1858,30 @@ split
 			if(current.primeguy > old.primeguy && vars.split == 2 && vars.rendu == 1 && vars.capture == 2){
 				vars.rendu++;
 				vars.split++;
+				vars.barrelsplit = 3;
+				vars.chestsplit = 14;
 				return true;
 			//Looten Duke
 			}
 		
-			if(current.zone == 39 && current.cutscene > old.cutscene && vars.split == 3){
+			if(current.bounty > old.bounty && vars.split == 3 && vars.capture == 2){
+				vars.capture++;
+			}
+			if(current.primeguy > old.primeguy && vars.split == 3 && vars.rendu == 2 && vars.capture == 3){
 				vars.split++;
+				vars.chestsplit = 17;
 				return true;
 			//Boilz Booty
 			}
 		
-			if(current.bounty > old.bounty && vars.split == 4 && vars.capture == 2){
+			if(current.zone == 60 && current.bounty > old.bounty && vars.split == 4 && vars.capture == 3){
 				vars.capture++;
 			}
-			if(current.primeguy > old.primeguy && vars.split == 4 && vars.rendu == 2 && vars.capture == 3){
-				vars.rendu++;
+			if(current.cutscene > old.cutscene && vars.split == 4 && vars.capture == 4){
 				vars.split++;
+				vars.chestsplit = 26;
+				vars.potsplit = 8;
+				vars.idolsplit = 1;
 				return true;
 			//Jo Momma
 			}
@@ -1803,6 +1889,7 @@ split
 			if(current.primeguy > old.primeguy && vars.split == 5 && vars.rendu == 3 && vars.capture == 4){
 				vars.rendu++;
 				vars.split++;
+				vars.chestsplit = 32;
 				return true;
 			//Eugene Ius
 			}
@@ -1812,22 +1899,30 @@ split
 			}
 			if(current.cutscene > old.cutscene && vars.split == 6 && vars.capture == 5){
 				vars.split++;
+				vars.barrelsplit = 4;
+				vars.chestsplit = 39;
 				return true;
 			//Meagly McGraw
 			}
 		
 			if(current.zone == 77 && current.cutscene > old.cutscene && vars.split == 7){
 				vars.split++;
+				vars.chestsplit = 44;
+				vars.potsplit = 13;
 				return true;
 			//Packrat Palooka
 			}
 		
 			if(current.zone == 16 && current.cutscene > old.cutscene && vars.split == 8){
 				vars.split++;
+				vars.barrelsplit = 5;
+				vars.chestsplit = 47;
 				return true;
 			}
 			else if(current.zone == 4 && current.cutscene > old.cutscene && vars.split == 8){
 				vars.split++;
+				vars.barrelsplit = 5;
+				vars.chestsplit = 47;
 				return true;
 			//Welcome to the jungle
 			}
@@ -1838,6 +1933,9 @@ split
 			if(current.primeguy > old.primeguy && vars.split == 9 && vars.rendu == 4 && vars.capture == 6){
 				vars.rendu++;
 				vars.split++;
+				vars.barrelsplit = 6;
+				vars.chestsplit = 54;
+				vars.potsplit = 15;
 				return true;
 			//Xplosives McGee
 			}
@@ -1847,6 +1945,8 @@ split
 			}
 			if(current.zone == 28 && current.cutscene > old.cutscene && vars.split == 10 && vars.capture == 7){
 				vars.split++;
+				vars.chestsplit = 56;
+				vars.potsplit = 17;
 				return true;
 			//Fatty McBoomboom
 			}
@@ -1856,6 +1956,8 @@ split
 			}
 			if(current.zone == 56 && vars.split == 11 && vars.cutscene == 4 && vars.capture == 7){
 				vars.split++;
+				vars.chestsplit = 61;
+				vars.potsplit = 18;
 				return true;
 			//Giant Sleg
 			}
@@ -1868,6 +1970,7 @@ split
 			}
 			if(current.cutscene > old.cutscene && vars.split == 12 && vars.capture == 8){
 				vars.split++;
+				vars.chestsplit = 69;
 				return true;
 			//Elboze Freely
 			}
@@ -1896,6 +1999,7 @@ split
 		
 			if(current.zone == 2 &&  current.cutscene > old.cutscene && vars.split == 16){
 				vars.split++;
+				vars.barrelsplit = 8;
 				return true;
 			//Dusky Hollow
 			}
@@ -1936,6 +2040,7 @@ split
 		
 			if (current.godvalue == current.nerfshop && vars.split == 21){
 				vars.split++;
+				vars.barrelsplit = 9;
 				return true;
 			//Some More Boat
 			}
@@ -1948,6 +2053,7 @@ split
 		
 			if(current.zone == 8 && current.cutscene > old.cutscene && vars.split == 23){
 				vars.split++;
+				vars.barrelsplit = 10;
 				return true;
 			//Sekto's Lair
 			}
@@ -1986,6 +2092,7 @@ split
 			}
 			if(vars.split == 0 && vars.cutscene == 2){
 				vars.split++;
+				vars.barrelsplit = 1;
 				return true;
 			//Tutorial
 			}
@@ -1996,6 +2103,7 @@ split
 			if(current.primeguy > old.primeguy && vars.split == 1 && vars.rendu == 0 && vars.capture == 1){
 				vars.rendu++;
 				vars.split++;
+				vars.chestsplit = 8;
 				return true;
 			//Filthy Hands Floyd
 			}
@@ -2006,6 +2114,8 @@ split
 			if(current.primeguy > old.primeguy && vars.split == 2 && vars.rendu == 1 && vars.capture == 2){
 				vars.rendu++;
 				vars.split++;
+				vars.barrelsplit = 3;
+				vars.chestsplit = 14;
 				return true;
 			//Looten Duke
 			}
@@ -2016,6 +2126,7 @@ split
 			if(current.primeguy > old.primeguy && vars.split == 3 && vars.rendu == 2 && vars.capture == 3){
 				vars.rendu++;
 				vars.split++;
+				vars.chestsplit = 17;
 				return true;
 			//Boilz Booty
 			}
@@ -2025,6 +2136,9 @@ split
 			}
 			if(current.cutscene > old.cutscene && vars.split == 4 && vars.capture == 4){
 				vars.split++;
+				vars.chestsplit = 26;
+				vars.potsplit = 8;
+				vars.idolsplit = 1;
 				return true;
 			//Jo Momma
 			}
@@ -2032,6 +2146,7 @@ split
 			if(current.primeguy > old.primeguy && vars.split == 5 && vars.rendu == 3 && vars.capture == 4){
 				vars.rendu++;
 				vars.split++;
+				vars.chestsplit = 32;
 				return true;
 			//Eugene Ius
 			}
@@ -2042,6 +2157,8 @@ split
 			if(current.primeguy > old.primeguy && vars.split == 6 && vars.rendu == 4 && vars.capture == 5){
 				vars.rendu++;
 				vars.split++;
+				vars.barrelsplit = 4;
+				vars.chestsplit = 39;
 				return true;
 			//Meagly McGraw
 			}
@@ -2052,16 +2169,22 @@ split
 			if(current.primeguy > old.primeguy && vars.split == 7 && vars.rendu == 5 && vars.capture == 6){
 				vars.rendu++;
 				vars.split++;
+				vars.chestsplit = 44;
+				vars.potsplit = 13;
 				return true;
 			//Packrat Palooka
 			}
 		
 			if(current.zone == 16 && current.cutscene > old.cutscene && vars.split == 8){
 				vars.split++;
+				vars.barrelsplit = 5;
+				vars.chestsplit = 47;
 				return true;
 			}
 			else if(current.zone == 4 && current.cutscene > old.cutscene && vars.split == 8){
 				vars.split++;
+				vars.barrelsplit = 5;
+				vars.chestsplit = 47;
 				return true;
 			//Welcome to the jungle
 			}
@@ -2072,6 +2195,9 @@ split
 			if(current.primeguy > old.primeguy && vars.split == 9 && vars.rendu == 6 && vars.capture == 7){
 				vars.rendu++;
 				vars.split++;
+				vars.barrelsplit = 6;
+				vars.chestsplit = 54;
+				vars.potsplit = 15;
 				return true;
 			//Xplosives McGee
 			}
@@ -2081,6 +2207,8 @@ split
 			}
 			if(current.zone == 28 && current.cutscene > old.cutscene && vars.split == 10 && vars.capture == 8){
 				vars.split++;
+				vars.chestsplit = 56;
+				vars.potsplit = 17;
 				return true;
 			//Fatty McBoomboom
 			}
@@ -2090,6 +2218,8 @@ split
 			}
 			if(current.zone == 56 && vars.split == 11 && vars.cutscene == 4 && vars.capture == 8){
 				vars.split++;
+				vars.chestsplit = 61;
+				vars.potsplit = 18;
 				return true;
 			//Giant Sleg
 			}
@@ -2102,6 +2232,7 @@ split
 			}
 			if(current.cutscene > old.cutscene && vars.split == 12 && vars.capture == 9){
 				vars.split++;
+				vars.chestsplit = 69;
 				return true;
 			//Elboze Freely
 			}
@@ -2130,6 +2261,7 @@ split
 		
 			if(current.zone == 2 &&  current.cutscene > old.cutscene && vars.split == 16){
 				vars.split++;
+				vars.barrelsplit = 8;
 				return true;
 			//Dusky Hollow
 			}
@@ -2170,6 +2302,7 @@ split
 		
 			if (current.godvalue == current.nerfshop && vars.split == 21){
 				vars.split++;
+				vars.barrelsplit = 9;
 				return true;
 			//Some More Boat
 			}
@@ -2182,6 +2315,7 @@ split
 		
 			if(current.zone == 8 && current.cutscene > old.cutscene && vars.split == 23){
 				vars.split++;
+				vars.barrelsplit = 10;
 				return true;
 			//Sekto's Lair
 			}
@@ -2220,6 +2354,7 @@ split
 			}
 			if(vars.split == 0 && vars.cutscene == 2){
 				vars.split++;
+				vars.barrelsplit = 1;
 				return true;
 			//Tutorial
 			}
@@ -2230,6 +2365,7 @@ split
 			if(current.primeguy > old.primeguy && vars.split == 1 && vars.rendu == 0 && vars.capture == 1){
 				vars.rendu++;
 				vars.split++;
+				vars.chestsplit = 8;
 				return true;
 			//Filthy Hands Floyd
 			}
@@ -2240,6 +2376,8 @@ split
 			if(current.primeguy > old.primeguy && vars.split == 2 && vars.rendu == 1 && vars.capture == 2){
 				vars.rendu++;
 				vars.split++;
+				vars.barrelsplit = 3;
+				vars.chestsplit = 14;
 				return true;
 			//Looten Duke
 			}
@@ -2250,6 +2388,7 @@ split
 			if(current.primeguy > old.primeguy && vars.split == 3 && vars.rendu == 2 && vars.capture == 3){
 				vars.rendu++;
 				vars.split++;
+				vars.chestsplit = 17;
 				return true;
 			//Boilz Booty
 			}
@@ -2260,6 +2399,9 @@ split
 			if(current.primeguy > old.primeguy && vars.split == 4 && vars.rendu == 3 && vars.capture == 4){
 				vars.rendu++;
 				vars.split++;
+				vars.chestsplit = 26;
+				vars.potsplit = 8;
+				vars.idolsplit = 1;
 				return true;
 			//Jo Momma
 			}
@@ -2267,6 +2409,7 @@ split
 			if(current.primeguy > old.primeguy && vars.split == 5 && vars.rendu == 4 && vars.capture == 4){
 				vars.rendu++;
 				vars.split++;
+				vars.chestsplit = 32;
 				return true;
 			//Eugene Ius
 			}
@@ -2277,6 +2420,8 @@ split
 			if(current.primeguy > old.primeguy && vars.split == 6 && vars.rendu == 5 && vars.capture == 5){
 				vars.rendu++;
 				vars.split++;
+				vars.barrelsplit = 4;
+				vars.chestsplit = 39;
 				return true;
 			//Meagly McGraw
 			}
@@ -2287,16 +2432,22 @@ split
 			if(current.primeguy > old.primeguy && vars.split == 7 && vars.rendu == 6 && vars.capture == 6){
 				vars.rendu++;
 				vars.split++;
+				vars.chestsplit = 44;
+				vars.potsplit = 13;
 				return true;
 			//Packrat Palooka
 			}
 		
 			if(current.zone == 16 && current.cutscene > old.cutscene && vars.split == 8){
 				vars.split++;
+				vars.barrelsplit = 5;
+				vars.chestsplit = 47;
 				return true;
 			}
 			else if(current.zone == 4 && current.cutscene > old.cutscene && vars.split == 8){
 				vars.split++;
+				vars.barrelsplit = 5;
+				vars.chestsplit = 47;
 				return true;
 			//Welcome to the jungle
 			}
@@ -2311,6 +2462,9 @@ split
 			if(current.primeguy > old.primeguy && vars.split == 9 && vars.rendu == 7 && vars.zone == 2){
 				vars.rendu++;
 				vars.split++;
+				vars.barrelsplit = 6;
+				vars.chestsplit = 56;
+				vars.potsplit = 15;
 				return true;
 			//Xplosives McGee
 			}
@@ -2324,8 +2478,9 @@ split
 			if(current.primeguy > old.primeguy && vars.split == 10 && vars.rendu == 8 && vars.zone == 4){
 				vars.rendu++;
 				vars.split++;
+				vars.chestsplit = 62;
 				return true;
-			//Boss 1
+			//Boss 1 (Fatty)
 			}
 		
 			if(current.zone == 2 && old.zone == 4 && vars.zone == 4 && vars.split == 11){
@@ -2334,8 +2489,10 @@ split
 			if(current.primeguy > old.primeguy && vars.split == 11 && vars.rendu == 9 && vars.zone == 5){
 				vars.rendu++;
 				vars.split++;
+				vars.chestsplit = 69;
+				vars.potsplit = 18;
 				return true;
-			//Boss 2
+			//Boss 2 (Elboze)
 			}
 		
 			if(current.zone == 2 && old.zone == 4 && vars.zone == 5 && vars.split == 12){
@@ -2345,7 +2502,7 @@ split
 				vars.rendu++;
 				vars.split++;
 				return true;
-			//Boss 3
+			//Boss 3 (Lefty)
 			}
 		
 			if(current.zone == 9 && current.cutscene > old.cutscene && vars.split == 13){
@@ -2362,6 +2519,7 @@ split
 		
 			if(current.zone == 2 &&  current.cutscene > old.cutscene && vars.split == 15){
 				vars.split++;
+				vars.barrelsplit = 8;
 				return true;
 			//Dusky Hollow
 			}
@@ -2402,6 +2560,7 @@ split
 		
 			if(current.godvalue == current.nerfshop && vars.split == 20) {
 				vars.split++;
+				vars.barrelsplit = 9;
 				return true;
 			//Some More Boat
 			}
@@ -2414,6 +2573,7 @@ split
 		
 			if(current.zone == 8 && current.cutscene > old.cutscene && vars.split == 22){
 				vars.split++;
+				vars.barrelsplit = 10;
 				return true;
 			//Sekto's Lair
 			}
