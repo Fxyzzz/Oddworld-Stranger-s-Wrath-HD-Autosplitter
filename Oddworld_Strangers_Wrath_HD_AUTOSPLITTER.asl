@@ -1804,10 +1804,6 @@ split
 					vars.idol = 0;
 				}
 				
-				if(vars.split == 5 && vars.idol == 1){
-					string idol = "Done";
-				}
-				
 				if(current.quicksave > old.quicksave){
 					while(vars.mpotsqs < vars.mpots){
 						vars.mpotsqs++;
