@@ -2150,7 +2150,7 @@ split
 					vars.moolah++;
 				}
 				
-				if(vars.split >= 20000 && current.cutscene > old.cutscene && current.zone == 69){
+				if(vars.moolah >= 20000 && current.cutscene > old.cutscene && current.zone == 69){
 					return true;
 				}
 				
