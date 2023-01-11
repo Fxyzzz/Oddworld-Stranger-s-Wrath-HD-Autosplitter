@@ -24,7 +24,7 @@ state ("stranger", "Steam 1.5")
 	int health: 0x5D2F70, 0x170;
 	int statusobject: 0x1EE794, 0x18;
 	int mpots: 0x64CE68, 0x40, 0x8, 0x1C, 0x9C, 0x8;
-	float moolah: 0x614014, 0xFCC;
+	float moolah: 0x65178C, 0x0, 0x204, 0x0C;
 }
 
 state ("stranger", "GOG 1.5")
@@ -51,7 +51,7 @@ state ("stranger", "GOG 1.5")
 	int health: 0x5CE390, 0x170;
 	int statusobject: 0x1EE8C4, 0x18;
 	int mpots: 0x648288, 0x10, 0x34, 0x0, 0x9C, 0x8;
-	float moolah: 0x6478B8, 0x844, 0xC;
+	float moolah: 0x64CBAC, 0x0, 0x204, 0x0C;
 }
 
 /*state ("stranger", "GOGSD")
@@ -102,6 +102,7 @@ init
 	vars.idol = 0;
 	vars.idolqs = 0;
 	vars.idolsplit = 0;
+	vars.moolah = 0;
 	
 	/*if(settings["Platform"]){
 		
@@ -215,6 +216,16 @@ startup
 	settings.CurrentDefaultParent = "Misc";
 	settings.Add("20k", false, "20k");
 	
+	settings.CurrentDefaultParent = "20k";
+	settings.Add("Moolah Counter", false, "Moolah Counter");
+	settings.SetToolTip("Moolah Counter", "Adds a row in you layout to display a live counter of the Moolah you currently have");
+	settings.Add("Split every:", false, "(Optional) Split every:");
+	settings.SetToolTip("Split every:", "Will split on each X Moolah level you reach (Doesn't affect the final split of the run)");
+	settings.CurrentDefaultParent = "Split every:";
+	settings.Add("4k", false, "4k");
+	settings.Add("5k", false, "5k");
+	settings.Add("10k", false, "10k");
+	
 	settings.CurrentDefaultParent = "Individual Levels";
 	settings.Add("Splitting options", true, "Splitting options (SELECT ONLY ONE)");
 	settings.CurrentDefaultParent = "Splitting options";
@@ -301,10 +312,14 @@ startup
 update
 {
 	if(settings["100%"] && settings["Counters"]){
-		vars.SetTextComponent("Barrels", (vars.barrel).ToString() + "/" + (vars.barrelsplit).ToString());
-		vars.SetTextComponent("Chests", (vars.mchest).ToString() + "/" + (vars.chestsplit).ToString());
-		vars.SetTextComponent("Pots", (vars.mpots).ToString() + "/" + (vars.potsplit).ToString());
-		vars.SetTextComponent("Idol", (vars.idol).ToString() + "/" + (vars.idolsplit).ToString());
+		vars.SetTextComponent("Barrels", (vars.barrel).ToString() + " / " + (vars.barrelsplit).ToString());
+		vars.SetTextComponent("Chests", (vars.mchest).ToString() + " / " + (vars.chestsplit).ToString());
+		vars.SetTextComponent("Pots", (vars.mpots).ToString() + " / " + (vars.potsplit).ToString());
+		vars.SetTextComponent("Idol", (vars.idol).ToString() + " / " + (vars.idolsplit).ToString());
+		return true;
+	}
+	if(settings["20k"] && settings["Moolah Counter"]){
+		vars.SetTextComponent("Moolah", (vars.moolah).ToString() + " / " + "20000");
 		return true;
 	}
 }
@@ -334,6 +349,7 @@ start
 	vars.idol = 0;
 	vars.idolqs = 0;
 	vars.idolsplit = 0;
+	vars.moolah = 0;
 	
 	if(settings["Individual Levels"]){
 	
@@ -479,6 +495,7 @@ reset
 				vars.idol = 0;
 				vars.idolqs = 0;
 				vars.idolsplit = 0;
+				vars.moolah = 0;
 				return true;
 			}
 		}
@@ -518,6 +535,7 @@ reset
 			vars.idol = 0;
 			vars.idolqs = 0;
 			vars.idolsplit = 0;
+			vars.moolah = 0;
 			return true;
 		}
 	}
@@ -544,6 +562,7 @@ reset
 		vars.idol = 0;
 		vars.idolqs = 0;
 		vars.idolsplit = 0;
+		vars.moolah = 0;
 		return true;
 	}
 }
@@ -2123,22 +2142,75 @@ split
 			//20k
 		
 			if(settings["20k"]){
+			
+				while(vars.moolah > current.moolah && current.moolah > 0){
+					vars.moolah--;
+				}
+				while(vars.moolah < current.moolah && current.moolah > 0){
+					vars.moolah++;
+				}
 				
-				if(current.moolah >= 5000 && vars.split == 0){
-					vars.split++;
+				if(vars.split >= 20000 && current.cutscene > old.cutscene && current.zone == 69){
 					return true;
 				}
-				if(current.moolah >= 10000 && vars.split == 1){
-					vars.split++;
-					return true;
-				}
-				if(current.moolah >= 15000 && vars.split == 2){
-					vars.split++;
-					return true;
-				}
-				if(current.moolah >= 20000 && vars.split == 3){
-					vars.split++;
-					return true;
+				
+				if(settings["Split every:"]){
+				
+					if(settings["4k"]){
+					
+						if(current.moolah >= 4000 && vars.split == 0){
+							vars.split++;
+							return true;
+						}
+						if(current.moolah >= 8000 && vars.split == 1){
+							vars.split++;
+							return true;
+						}
+						if(current.moolah >= 12000 && vars.split == 2){
+							vars.split++;
+							return true;
+						}
+						if(current.moolah >= 16000 && vars.split == 3){
+							vars.split++;
+							return true;
+						}
+						if(current.moolah >= 20000 && vars.split == 4){
+							vars.split++;
+							return true;
+						}
+					}
+					
+					if(settings["5k"]){
+				
+						if(current.moolah >= 5000 && vars.split == 0){
+							vars.split++;
+							return true;
+						}
+						if(current.moolah >= 10000 && vars.split == 1){
+							vars.split++;
+							return true;
+						}
+						if(current.moolah >= 15000 && vars.split == 2){
+							vars.split++;
+							return true;
+						}
+						if(current.moolah >= 20000 && vars.split == 3){
+							vars.split++;
+							return true;
+						}
+					}
+					
+					if(settings["10k"]){
+				
+						if(current.moolah >= 10000 && vars.split == 0){
+							vars.split++;
+							return true;
+						}
+						if(current.moolah >= 20000 && vars.split == 1){
+							vars.split++;
+							return true;
+						}
+					}
 				}
 			}
 		}
