@@ -1002,7 +1002,7 @@ split
 			//Last Legs
 			}
 		
-			if(current.godvalue == current.nerfshop && vars.split == 13) {
+			if(current.zone == 8 && current.cutscene > old.cutscene && vars.split == 13) {
 				vars.split++;
 				return true;
 			//Some More Boat
@@ -1469,7 +1469,7 @@ split
 			//Last Legs
 			}
 		
-			if(current.godvalue == current.nerfshop && vars.split == 20) {
+			if(current.zone == 8 && current.cutscene > old.cutscene && vars.split == 20) {
 				vars.split++;
 				return true;
 			//Some More Boat
@@ -1832,7 +1832,7 @@ split
 			//Last Legs
 			}
 		
-			if (current.godvalue == current.nerfshop && vars.split == 21){
+			if (current.zone == 8 && current.cutscene > old.cutscene && vars.split == 21){
 				vars.split++;
 				vars.barrelsplit = 9;
 				return true;
@@ -2090,7 +2090,7 @@ split
 			//Last Legs
 			}
 		
-			if(current.godvalue == current.nerfshop && vars.split == 20) {
+			if(current.zone == 8 && current.cutscene > old.cutscene && vars.split == 20) {
 				vars.split++;
 				vars.barrelsplit = 9;
 				return true;
@@ -2142,6 +2142,7 @@ split
 			//20k
 		
 			if(settings["20k"]){
+			
 			
 				while(vars.moolah > current.moolah && current.moolah > 0){
 					vars.moolah--;
