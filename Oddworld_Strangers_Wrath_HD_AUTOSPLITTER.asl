@@ -676,7 +676,7 @@ split
 				vars.split++;
 				vars.split++;
 				return true;
-			//Boat Skip with NRG skip
+			//Boat Skip with RNG skip
 			}
 			
 			if(current.zone == 4 && current.cutscene > old.cutscene && vars.split == 9){
