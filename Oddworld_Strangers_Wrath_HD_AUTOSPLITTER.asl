@@ -21,10 +21,11 @@ state ("stranger", "Steam 1.5")
 	int zone : 0x1CFFC8, 0x18;			//The ID of every chunks in the game
 	int resettimer : 0x1E4AB4, 0x14;	//Set to 257 only in the main menu
 	int ilstart : 0x20C44C, 0x20;
-	int health: 0x5D2F70, 0x170;
+	float health: 0x65178C, 0x0, 0x78;
 	int statusobject: 0x1EE794, 0x18;
 	int mpots: 0x64CE68, 0x40, 0x8, 0x1C, 0x9C, 0x8;
 	float moolah: 0x65178C, 0x0, 0x204, 0x0C;
+	int healthigt: 0x5D2F70, 0x170;
 }
 
 state ("stranger", "GOG 1.5")
@@ -48,39 +49,15 @@ state ("stranger", "GOG 1.5")
 	int zone : 0x1D00B8, 0x18;
 	int resettimer : 0x1E4C04, 0x14;
 	int ilstart : 0x020B7EC, 0x20;
-	int health: 0x5CE390, 0x170;
+	int healthigt: 0x5CE390, 0x170;
 	int statusobject: 0x1EE8C4, 0x18;
 	int mpots: 0x648288, 0x10, 0x34, 0x0, 0x9C, 0x8;
 	float moolah: 0x64CBAC, 0x0, 0x204, 0x0C;
 }
 
-/*state ("stranger", "GOGSD")
 
-{
-	int diffmenu : 0x1EE15C, 0x10;
-	//int godvalue : 
-	//int nerfshop : 
-	//int river : 
-	//int bounty : 
-	//int primeguy : 
-	//int cutscene : 
-	int IGT : 0x33ABDC, 0x18;
-	long IGT3 : 0x20AD24, 0x48;
-	//int quicksave : 
-	short quickload : 0x0BC484, 0x78;
-	//int mchest : 
-	//int crystal : 
-	//int zone : 0x1EA958, 0x28;
-	int resettimer : 0x20060C, 0x18;
-	//int ilstart : 
-	int health: 0x411CFC, 0x240;
-	//int mpots: 
-	//float moolah: 
-}
-*/
 init
 {	
-
 	vars.split = 0;
 	vars.capture = 0;
 	vars.rendu = 0;
@@ -103,23 +80,10 @@ init
 	vars.idolqs = 0;
 	vars.idolsplit = 0;
 	vars.moolah = 0;
-	
-	/*if(settings["Platform"]){
-		
-		if(settings["Steam"]){
-			version = "Steam 1.5";
-		}
-		
-		if(settings["GOG"]){
-			if(settings["HD"]){
-				version = "GOG 1.5";
-			}
-			if(settings["SD"]){
-				version = "GOGSD";
-			}
-		}
-	}	
-	*/
+	vars.death = 0;
+	vars.hit = 0;
+	vars.dead = 1;
+	vars.healthblock = 1;
 	
 	if(current.diffmenu == 1){
 		version = "Steam 1.5";
@@ -173,23 +137,13 @@ startup
 {
 	//1st tabs
 	
-	//settings.Add("Platform", true, "Platform");
-	//settings.SetToolTip("Platform", "SET THIS UP BEFORE LAUNCHING THE GAME");
 	settings.Add("Full Game Category", false, "Full Game Category");
 	settings.Add("Individual Levels", false, "Individual Levels");
-	settings.Add("Refresh rate of the autosplitter", true, "Refresh rate of the autosplitter");
 	settings.Add("Extra", false, "Extra");
+	settings.Add("Refresh rate of the autosplitter", true, "Refresh rate of the autosplitter");
 	
 	//End of 1st tabs
 	
-	/*settings.CurrentDefaultParent = "Platform";
-	settings.Add("Steam", true, "Steam (Default)");
-	settings.Add("GOG", false, "GOG");
-	
-	settings.CurrentDefaultParent = "GOG";
-	settings.Add("HD", true, "HD (Default)");
-	settings.Add("SD", false, "SD (Only has Load time remover)");
-	*/
 	settings.CurrentDefaultParent = "Full Game Category";
 	settings.Add("Category", true, "Category");
 	settings.SetToolTip("Category", "Choose the category you're running, CHECK ONLY ONE");
@@ -259,6 +213,12 @@ startup
 	settings.Add("Buzzarton", false, "Buzzarton");
 	settings.Add("New Yolk City", false, "New Yolk City");
 	
+	settings.CurrentDefaultParent = "Extra";
+	settings.Add("Hit Counter", false, "Hit Counter");
+	settings.SetToolTip("Hit Counter", "Adds a row in you layout to display how many times you have been hit");
+	settings.Add("Death Counter", false, "Death Counter");
+	settings.SetToolTip("Death Counter", "Adds a row in you layout to display how many times you died");
+	
 	settings.CurrentDefaultParent = "Refresh rate of the autosplitter";
 	settings.SetToolTip("Refresh rate of the autosplitter", "Sets the autosplitter to refresh 100 times per second. Leaving all options unckeched will set refresh rate to 100 by default anyway.");
 	
@@ -288,9 +248,7 @@ startup
 	
 	settings.Add("500Rate", false, "500 refreshes per second");
 	settings.SetToolTip("500Rate", "Sets the autosplitter to refresh 500 times per second. If you are playing on NASA computer");
-	
-	settings.CurrentDefaultParent = "Extra";
-	settings.Add("Shopping", false, "Shopping");
+
 	
 	
 	vars.SetTextComponent = (Action<string, string>)((id, text) =>
@@ -318,10 +276,19 @@ update
 		vars.SetTextComponent("Idol", (vars.idol).ToString() + " / " + (vars.idolsplit).ToString());
 		return true;
 	}
-	if(settings["20k"] && settings["Moolah Counter"]){
-		vars.SetTextComponent("Moolah", (vars.moolah).ToString() + " / " + "20000");
-		return true;
+	if(settings["Extra"]){
+	
+		if(settings["Death Counter"]){
+			vars.SetTextComponent("Deaths", (vars.death).ToString());
+			return true;
+		}
+		if(settings["Hit Counter"]){
+			vars.SetTextComponent("Hits", (vars.hit).ToString());
+			return true;
+		}
+		
 	}
+	
 }
 
 start
@@ -338,8 +305,6 @@ start
 	vars.mchestqs = 0;
 	vars.mpots = 0;
 	vars.mpotsqs = 0;
-	vars.FrameRate = 100;
-	vars.splitAlt = true;
 	vars.mchestmem = current.mchest;
 	vars.mpotsmem = current.mpots;
 	vars.zone = 0;
@@ -350,7 +315,11 @@ start
 	vars.idolqs = 0;
 	vars.idolsplit = 0;
 	vars.moolah = 0;
-	
+	vars.death = 0;
+	vars.hit = 0;
+	vars.dead = 1;
+	vars.healthblock = 1;
+
 	if(settings["Individual Levels"]){
 	
 		
@@ -496,6 +465,10 @@ reset
 				vars.idolqs = 0;
 				vars.idolsplit = 0;
 				vars.moolah = 0;
+				vars.death = 0;
+				vars.hit = 0;
+				vars.dead = 1;
+				vars.healthblock = 1;
 				return true;
 			}
 		}
@@ -514,6 +487,37 @@ reset
 				return false;
 			}
 			else 
+				vars.split = 0;
+				vars.capture = 0;
+				vars.rendu = 0;
+				vars.cutscene = 0;
+				vars.end = 0;
+				vars.boat = 0;
+				vars.barrel = 0;
+				vars.barrelqs = 0;
+				vars.mchest = 0;
+				vars.mchestqs = 0;
+				vars.mpots = 0;
+				vars.mpotsqs = 0;
+				vars.mchestmem = current.mchest;
+				vars.mpotsmem = current.mpots;
+				vars.zone = 0;
+				vars.barrelsplit = 0;
+				vars.chestsplit = 0;
+				vars.potsplit = 0;
+				vars.idol = 0;
+				vars.idolqs = 0;
+				vars.idolsplit = 0;
+				vars.moolah = 0;
+				vars.death = 0;
+				vars.hit = 0;
+				vars.dead = 1;
+				vars.healthblock = 1;
+			return true;
+		}
+	}
+	
+	else if(current.resettimer == 257){
 			vars.split = 0;
 			vars.capture = 0;
 			vars.rendu = 0;
@@ -536,33 +540,10 @@ reset
 			vars.idolqs = 0;
 			vars.idolsplit = 0;
 			vars.moolah = 0;
-			return true;
-		}
-	}
-	
-	else if(current.resettimer == 257){
-		vars.split = 0;
-		vars.capture = 0;
-		vars.rendu = 0;
-		vars.cutscene = 0;
-		vars.end = 0;
-		vars.boat = 0;
-		vars.barrel = 0;
-		vars.barrelqs = 0;
-		vars.mchest = 0;
-		vars.mchestqs = 0;
-		vars.mpots = 0;
-		vars.mpotsqs = 0;
-		vars.mchestmem = current.mchest;
-		vars.mpotsmem = current.mpots;
-		vars.zone = 0;
-		vars.barrelsplit = 0;
-		vars.chestsplit = 0;
-		vars.potsplit = 0;
-		vars.idol = 0;
-		vars.idolqs = 0;
-		vars.idolsplit = 0;
-		vars.moolah = 0;
+			vars.death = 0;
+			vars.hit = 0;
+			vars.dead = 1;
+			vars.healthblock = 1;
 		return true;
 	}
 }
@@ -684,6 +665,13 @@ split
 			//Boat Skip
 			}
 			
+			else if(current.zone == 33 && current.cutscene > old.cutscene && vars.split == 7){
+				vars.split++;
+				vars.split++;
+				return true;
+			//Boat Skip with NRG ski[
+			}
+			
 			if(current.zone == 4 && current.cutscene > old.cutscene && vars.split == 9){
 				vars.boat++;
 			}
@@ -699,7 +687,7 @@ split
 		
 			if(current.zone == 1 && current.cutscene > old.cutscene && vars.split == 10){
 				vars.cutscene++;
-			}
+			} //will trigger 2 times
 			if(vars.split == 10 && vars.cutscene == 6){
 				vars.split++;
 				return true;
@@ -736,7 +724,7 @@ split
 			//Gloktigi Twins
 			}
 		
-			if(current.quicksave > old.quicksave && vars.split == 16 && vars.end == 0){
+			if(current.quicksave > old.quicksave && vars.split == 15 && vars.end == 0){
 				vars.end++;
 			}
 			
@@ -2708,11 +2696,33 @@ split
 	
 	if(settings["Extra"]){
 	
-		if(settings["Shopping"]){
+		if(settings["Death Counter"]){
 		
-			if(current.godvalue < old.godvalue){
-				return true;
+			if(current.IGT > 0 && current.IGT3 == 0 && current.healthigt > 0){
+				vars.dead = 1;
 			}
+			
+			if(current.health == 0 && vars.dead == 0){
+				vars.death++;
+				vars.dead++;
+			}
+			if(current.health > 0 && current.IGT > 0 && current.IGT3 == 0){
+				vars.dead = 0;
+			}
+		}
+		if(settings["Hit Counter"]){
+		
+			if(current.IGT > 0 && current.IGT3 == 0 && current.healthigt > 0){
+				vars.healthblock = 1;
+			}
+		
+			if(current.health < old.health && vars.healthblock == 0 | current.health == 0 && vars.healthblock == 0){
+				vars.hit++;
+			}
+			
+			if(current.health > 0 && current.IGT > 0 && current.IGT3 == 0){
+				vars.healthblock = 0;
+			}	
 		}
 	}
 }
@@ -2721,7 +2731,7 @@ split
 isLoading
 
 {
-	if(current.IGT > 0 && current.IGT3 == 0 && current.health > 0){
+	if(current.IGT > 0 && current.IGT3 == 0 && current.healthigt > 0){
 		return true;
 	} else if(current.IGT > 0 && current.IGT3 == 0 && current.quickload == 1){
 		return true;
