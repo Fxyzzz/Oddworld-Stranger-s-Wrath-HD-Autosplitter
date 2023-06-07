@@ -84,6 +84,7 @@ init
 	vars.hit = 0;
 	vars.dead = 1;
 	vars.healthblock = 1;
+	vars.moolahqs = 0;
 	
 	if(current.diffmenu == 1){
 		version = "Steam 1.5";
@@ -137,9 +138,9 @@ startup
 {
 	//1st tabs
 	
+	settings.Add("Extra", false, "Extra");
 	settings.Add("Full Game Category", false, "Full Game Category");
 	settings.Add("Individual Levels", false, "Individual Levels");
-	settings.Add("Extra", false, "Extra");
 	settings.Add("Refresh rate of the autosplitter", true, "Refresh rate of the autosplitter");
 	
 	//End of 1st tabs
@@ -171,8 +172,6 @@ startup
 	settings.Add("20k", false, "20k");
 	
 	settings.CurrentDefaultParent = "20k";
-	settings.Add("Moolah Counter", false, "Moolah Counter");
-	settings.SetToolTip("Moolah Counter", "Adds a row in you layout to display a live counter of the Moolah you currently have");
 	settings.Add("Split every:", false, "(Optional) Split every:");
 	settings.SetToolTip("Split every:", "Will split on each X Moolah level you reach (Doesn't affect the final split of the run)");
 	settings.CurrentDefaultParent = "Split every:";
@@ -218,6 +217,8 @@ startup
 	settings.SetToolTip("Hit Counter", "Adds a row in you layout to display how many times you have been hit");
 	settings.Add("Death Counter", false, "Death Counter");
 	settings.SetToolTip("Death Counter", "Adds a row in you layout to display how many times you died");
+	settings.Add("Moolah Counter", false, "Moolah Counter");
+	settings.SetToolTip("Moolah Counter", "Adds a row in you layout to display a live counter of the Moolah you currently have");
 	
 	settings.CurrentDefaultParent = "Refresh rate of the autosplitter";
 	settings.SetToolTip("Refresh rate of the autosplitter", "Sets the autosplitter to refresh 100 times per second. Leaving all options unckeched will set refresh rate to 100 by default anyway.");
@@ -274,21 +275,21 @@ update
 		vars.SetTextComponent("Chests", (vars.mchest).ToString() + " / " + (vars.chestsplit).ToString());
 		vars.SetTextComponent("Pots", (vars.mpots).ToString() + " / " + (vars.potsplit).ToString());
 		vars.SetTextComponent("Idol", (vars.idol).ToString() + " / " + (vars.idolsplit).ToString());
-		return true;
-	}
-	if(settings["Extra"]){
-	
-		if(settings["Death Counter"]){
-			vars.SetTextComponent("Deaths", (vars.death).ToString());
-			return true;
-		}
-		if(settings["Hit Counter"]){
-			vars.SetTextComponent("Hits", (vars.hit).ToString());
-			return true;
-		}
-		
 	}
 	
+	if(settings["Hit Counter"]){
+		vars.SetTextComponent("Hits", (vars.hit).ToString());
+	}
+	
+	if(settings["Death Counter"]){
+		vars.SetTextComponent("Deaths", (vars.death).ToString());
+	}
+	
+	if(settings["Moolah Counter"]){
+		vars.SetTextComponent("Moolah", (vars.moolah).ToString());
+	}
+	
+	return true;
 }
 
 start
@@ -319,6 +320,7 @@ start
 	vars.hit = 0;
 	vars.dead = 1;
 	vars.healthblock = 1;
+	vars.moolahqs = 0;
 
 	if(settings["Individual Levels"]){
 	
@@ -469,7 +471,8 @@ reset
 				vars.hit = 0;
 				vars.dead = 1;
 				vars.healthblock = 1;
-				return true;
+				vars.moolahqs = 0;
+			return true;
 			}
 		}
 		
@@ -513,6 +516,7 @@ reset
 				vars.hit = 0;
 				vars.dead = 1;
 				vars.healthblock = 1;
+				vars.moolahqs = 0;
 			return true;
 		}
 	}
@@ -544,6 +548,7 @@ reset
 			vars.hit = 0;
 			vars.dead = 1;
 			vars.healthblock = 1;
+			vars.moolahqs = 0;
 		return true;
 	}
 }
@@ -2130,14 +2135,6 @@ split
 			//20k
 		
 			if(settings["20k"]){
-			
-			
-				while(vars.moolah > current.moolah && current.moolah > 0){
-					vars.moolah--;
-				}
-				while(vars.moolah < current.moolah && current.moolah > 0){
-					vars.moolah++;
-				}
 				
 				if(vars.moolah >= 20000 && current.cutscene > old.cutscene && current.zone == 69){
 					return true;
@@ -2722,7 +2719,35 @@ split
 			
 			if(current.health > 0 && current.IGT > 0 && current.IGT3 == 0){
 				vars.healthblock = 0;
-			}	
+			}
+		}
+		if(settings["Moolah Counter"]){
+		
+			if(current.cutscene > old.cutscene){
+				while(vars.moolahqs < vars.moolah){
+					vars.moolahqs++;
+				}
+			}
+			while(vars.moolah > current.moolah && current.moolah > 0){
+				vars.moolah--;
+				vars.moolahqs--;
+			}
+			
+			while(vars.moolah < current.moolah && current.moolah > 0){
+				vars.moolah++;
+			}
+
+			if(current.quicksave > old.quicksave){
+				while(vars.moolahqs < vars.moolah){
+					vars.moolahqs++;
+				}
+			}
+			
+			if(current.quickload == 0){
+				while(vars.moolah > vars.moolahqs){
+					vars.moolah--;
+				}
+			}
 		}
 	}
 }
