@@ -139,9 +139,9 @@ startup
 {
 	//1st tabs
 	
-	settings.Add("Extra", false, "Extra");
 	settings.Add("Full Game Category", false, "Full Game Category");
 	settings.Add("Individual Levels", false, "Individual Levels");
+	settings.Add("Extra", false, "Extra");
 	settings.Add("Refresh rate of the autosplitter", true, "Refresh rate of the autosplitter");
 	
 	//End of 1st tabs
