@@ -49,10 +49,11 @@ state ("stranger", "GOG 1.5")
 	int zone : 0x1D00B8, 0x18;
 	int resettimer : 0x1E4C04, 0x14;
 	int ilstart : 0x020B7EC, 0x20;
-	int healthigt: 0x5CE390, 0x170;
+	int health: 0x64CBAC, 0x0, 0x78;
 	int statusobject: 0x1EE8C4, 0x18;
 	int mpots: 0x648288, 0x10, 0x34, 0x0, 0x9C, 0x8;
 	float moolah: 0x64CBAC, 0x0, 0x204, 0x0C;
+	int healthigt: 0x5CE390, 0x170;
 }
 
 
@@ -666,6 +667,7 @@ split
 		
 			if(current.zone == 33 && current.cutscene > old.cutscene && vars.split == 8){
 				vars.split++;
+				vars.split++;
 				return true;
 			//Boat Skip
 			}
@@ -674,7 +676,7 @@ split
 				vars.split++;
 				vars.split++;
 				return true;
-			//Boat Skip with NRG ski[
+			//Boat Skip with NRG skip
 			}
 			
 			if(current.zone == 4 && current.cutscene > old.cutscene && vars.split == 9){
