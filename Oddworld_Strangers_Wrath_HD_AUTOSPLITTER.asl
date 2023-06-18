@@ -667,7 +667,6 @@ split
 		
 			if(current.zone == 33 && current.cutscene > old.cutscene && vars.split == 8){
 				vars.split++;
-				vars.split++;
 				return true;
 			//Boat Skip
 			}
