@@ -674,6 +674,7 @@ split
 			else if(current.zone == 33 && current.cutscene > old.cutscene && vars.split == 7){
 				vars.split++;
 				vars.split++;
+				vars.cutscene++;
 				return true;
 			//Boat Skip with RNG skip
 			}
