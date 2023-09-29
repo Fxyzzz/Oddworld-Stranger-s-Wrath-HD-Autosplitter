@@ -1116,6 +1116,12 @@ split
 				return true;
 			//Packrat Palooka
 			}
+			if(current.zone == 77 && current.cutscene > old.cutscene && vars.split == 7){
+				vars.rendu++;
+				vars.split++;
+				return true;
+			//Packrat Palooka Bounty Store Skip
+			}
 		
 			if(current.zone == 16 && current.cutscene > old.cutscene && vars.split == 8){
 				vars.split++;
