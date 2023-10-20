@@ -283,9 +283,9 @@ startup
             textSetting.GetType().GetProperty("Text2").SetValue(textSetting, text);
 	});
 	
-	vars.UpdateSpeedometer = (Action<float, float, float, bool>)((x, y, z, round) =>
+	vars.UpdateSpeedometer = (Action<float, float, bool>)((x, z, round) =>
     {
-        double hvel = Math.Floor(Math.Sqrt(x*x + y*y + z*z)+0.5);
+        double hvel = Math.Floor(Math.Sqrt(x*x + z*z)+0.5);
         if(round)
             vars.SetTextComponent("Speed", Math.Floor(hvel/2).ToString("") + " m/s");
         else
@@ -303,16 +303,13 @@ update
 	}
 	if(settings["speedometer"]){
 		if(current.xVelBH != 0){
-			vars.UpdateSpeedometer(current.xVelBH, current.yVelBH, current.zVelBH, settings["speedround"]);
-		}
-		else if(current.yVelBH != 0){
-			vars.UpdateSpeedometer(current.xVelBH, current.yVelBH, current.zVelBH, settings["speedround"]);
+			vars.UpdateSpeedometer(current.xVelBH, current.zVelBH, settings["speedround"]);
 		}
 		else if(current.zVelBH != 0){
-			vars.UpdateSpeedometer(current.xVelBH, current.yVelBH, current.zVelBH, settings["speedround"]);
+			vars.UpdateSpeedometer(current.xVelBH, current.zVelBH, settings["speedround"]);
 		}
 		else{
-		vars.UpdateSpeedometer(current.xVelSteef, current.yVelSteef, current.zVelSteef, settings["speedround"]);
+		vars.UpdateSpeedometer(current.xVelSteef, current.zVelSteef, settings["speedround"]);
 		}
 	}
 	if(settings["Hit Counter"]){
