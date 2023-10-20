@@ -26,6 +26,12 @@ state ("stranger", "Steam 1.5")
 	int mpots: 0x64CE68, 0x40, 0x8, 0x1C, 0x9C, 0x8;
 	float moolah: 0x65178C, 0x0, 0x204, 0x0C;
 	int healthigt: 0x5D2F70, 0x170;
+	float xVelBH : 0x65178C, 0x0, 0x54, 0x1A4, 0x58;
+    float yVelBH : 0x65178C, 0x0, 0x54, 0x1A4, 0x5C;
+	float zVelBH : 0x65178C, 0x0, 0x54, 0x1A4, 0x54;
+	float xVelSteef : 0x65178C, 0x0, 0x54, 0x188, 0x58;
+    float yVelSteef : 0x65178C, 0x0, 0x54, 0x188, 0x5C;
+	float zVelSteef : 0x65178C, 0x0, 0x54, 0x188, 0x54;
 }
 
 state ("stranger", "GOG 1.5")
@@ -54,6 +60,12 @@ state ("stranger", "GOG 1.5")
 	int mpots: 0x648288, 0x10, 0x34, 0x0, 0x9C, 0x8;
 	float moolah: 0x64CBAC, 0x0, 0x204, 0x0C;
 	int healthigt: 0x5CE390, 0x170;
+	float xVelBH : 0x64CBAC, 0x0, 0x54, 0x1A4, 0x58;
+    float yVelBH : 0x64CBAC, 0x0, 0x54, 0x1A4, 0x5C;
+	float zVelBH : 0x64CBAC, 0x0, 0x54, 0x1A4, 0x54;
+	float xVelSteef : 0x64CBAC, 0x0, 0x54, 0x188, 0x58;
+    float yVelSteef : 0x64CBAC, 0x0, 0x54, 0x188, 0x5C;
+	float zVelSteef : 0x64CBAC, 0x0, 0x54, 0x188, 0x54;
 }
 
 
@@ -214,6 +226,9 @@ startup
 	settings.Add("New Yolk City", false, "New Yolk City");
 	
 	settings.CurrentDefaultParent = "Extra";
+	settings.Add("speedometer", false, "Speedometer");
+	settings.SetToolTip("speedometer", "Adds a row in you layout to display a speedometer");
+	settings.Add("speedround", false, "Round to whole number", "speedometer");
 	settings.Add("Hit Counter", false, "Hit Counter");
 	settings.SetToolTip("Hit Counter", "Adds a row in you layout to display how many times you have been hit");
 	settings.Add("Death Counter", false, "Death Counter");
@@ -251,7 +266,7 @@ startup
 	settings.Add("500Rate", false, "500 refreshes per second");
 	settings.SetToolTip("500Rate", "Sets the autosplitter to refresh 500 times per second. If you are playing on NASA computer");
 
-	
+//The following ~50 lines are heavily inspired on the Ghostrunner asl. I would never have been able to do this without it.
 	
 	vars.SetTextComponent = (Action<string, string>)((id, text) =>
 	{
@@ -267,6 +282,15 @@ startup
         if (textSetting != null);
             textSetting.GetType().GetProperty("Text2").SetValue(textSetting, text);
 	});
+	
+	vars.UpdateSpeedometer = (Action<float, float, float, bool>)((x, y, z, round) =>
+    {
+        double hvel = Math.Floor(Math.Sqrt(x*x + y*y + z*z)+0.5);
+        if(round)
+            vars.SetTextComponent("Speed", Math.Floor(hvel/2).ToString("") + " m/s");
+        else
+            vars.SetTextComponent("Speed", (hvel/2).ToString("0.00") + " m/s");
+    });
 }
 
 update
@@ -277,7 +301,20 @@ update
 		vars.SetTextComponent("Pots", (vars.mpots).ToString() + " / " + (vars.potsplit).ToString());
 		vars.SetTextComponent("Idol", (vars.idol).ToString() + " / " + (vars.idolsplit).ToString());
 	}
-	
+	if(settings["speedometer"]){
+		if(current.xVelBH != 0){
+			vars.UpdateSpeedometer(current.xVelBH, current.yVelBH, current.zVelBH, settings["speedround"]);
+		}
+		else if(current.yVelBH != 0){
+			vars.UpdateSpeedometer(current.xVelBH, current.yVelBH, current.zVelBH, settings["speedround"]);
+		}
+		else if(current.zVelBH != 0){
+			vars.UpdateSpeedometer(current.xVelBH, current.yVelBH, current.zVelBH, settings["speedround"]);
+		}
+		else{
+		vars.UpdateSpeedometer(current.xVelSteef, current.yVelSteef, current.zVelSteef, settings["speedround"]);
+		}
+	}
 	if(settings["Hit Counter"]){
 		vars.SetTextComponent("Hits", (vars.hit).ToString());
 	}
