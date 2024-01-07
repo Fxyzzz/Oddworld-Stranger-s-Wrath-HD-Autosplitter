@@ -109,22 +109,6 @@ init
 	
 	if(settings["Refresh rate of the autosplitter"]){
 	
-		if(settings["500Rate"]){
-			refreshRate = 500;
-		}
-	
-		if(settings["250Rate"]){
-			refreshRate = 250;
-		}
-	
-		if(settings["200Rate"]){
-			refreshRate = 200;
-		}	
-	
-		if(settings["150Rate"]){
-			refreshRate = 150;
-		}
-		
 		if(settings["50Rate"]){
 			refreshRate = 50;
 			
@@ -256,18 +240,7 @@ startup
 	
 	settings.Add("100Rate", true, "100 refreshes per second (DEFAULT)");
 	settings.SetToolTip("100Rate", "Sets the autosplitter to refresh 100 times per second. Leaving all options unckeched will set refresh rate to 100 by default anyway.");
-	
-	settings.Add("150Rate", false, "150 refreshes per second");
-	settings.SetToolTip("150Rate", "Sets the autosplitter to refresh 150 times per second.");
-	
-	settings.Add("200Rate", false, "200 refreshes per second");
-	settings.SetToolTip("200Rate", "Sets the autosplitter to refresh 200 times per second.");
-	
-	settings.Add("250Rate", false, "250 refreshes per second");
-	settings.SetToolTip("250Rate", "Sets the autosplitter to refresh 250 times per second.");
-	
-	settings.Add("500Rate", false, "500 refreshes per second");
-	settings.SetToolTip("500Rate", "Sets the autosplitter to refresh 500 times per second. If you are playing on NASA computer");
+
 
 //The following ~50 lines are heavily inspired on the Ghostrunner asl. I would never have been able to do this without it.
 	
@@ -614,22 +587,6 @@ reset
 split
 {
 	if(settings["Refresh rate of the autosplitter"]){
-	
-		if(settings["500Rate"]){
-			refreshRate = 500;
-		}
-	
-		if(settings["250Rate"]){
-			refreshRate = 250;
-		}
-	
-		if(settings["200Rate"]){
-			refreshRate = 200;
-		}	
-	
-		if(settings["150Rate"]){
-			refreshRate = 150;
-		}
 		
 		if(settings["50Rate"]){
 			refreshRate = 50;
