@@ -1,7 +1,7 @@
 Where to find the autosplitter?
 	- The autosplitter is found directly in LiveSplit in the "Edit Splits" tab.
 
-Now There are three settings you can set:
+There are three settings you can set:
 
 1. Splits: You can select each autosplits you want to have in your run. There is also the possiblity to specify if you are running individual levels (should be on only if running individual levels).
 
