@@ -3,80 +3,97 @@
 state ("stranger", "Steam 1.5")
 
 {
-	int diffmenu : 0x1DEAFC, 0x4;
+	int platform : 0x1DEAFC, 0x4;
 	int resetload : 0x2A6968, 0x8;		//Changes only when inside the load menu and the quit menu
-	int godvalue : 0x1C8B60, 0x14;
-	int nerfshop : 0x34092C, 0x98;
-	int river : 0x34BA44, 0x18;
 	int bounty : 0x1DE930, 0x10;		//Capture count (alive only)
+	byte bountynoboss : 0x64C458, 0x844, 0x24;
 	int primeguy : 0x1DFA94, 0x90;		//Talking to the guy in the bounty store
 	int cutscene : 0x3403C0, 0x18;		//When black stripes appear on screen
 	int IGT : 0x10F854, 0x18;
-	long IGT3 : 0x34A040, 0x114;		//Always 0 except during cinematics
+	long IGT2 : 0x34A040, 0x114;		//Always 0 except during cinematics
 	int quicksave : 0x341274, 0x138;	//When a quicksave / automatic save is done
 	int quickload : 0x24A6A8, 0x24;
 	int mchest : 0x1DE930, 0x4;
-	//int crystal : 0x1DE930, 0x8;
 	int barrel : 0x2FB8FC, 0x104;
 	int zone : 0x1CFFC8, 0x18;			//The ID of every chunks in the game
 	int resettimer : 0x1E4AB4, 0x14;	//Set to 257 only in the main menu
-	int ilstart : 0x20C44C, 0x20;
 	float health: 0x65178C, 0x0, 0x78;
 	int statusobject: 0x1EE794, 0x18;
 	int mpots: 0x64CE68, 0x40, 0x8, 0x1C, 0x9C, 0x8;
 	float moolah: 0x65178C, 0x0, 0x204, 0x0C;
 	int healthigt: 0x5D2F70, 0x170;
-	float xVelBH : 0x65178C, 0x0, 0x54, 0x1A4, 0x58;
+	float xCoordBH : 0x65178C, 0x0, 0x54, 0x1A4, 0x3C;
+	float zCoordBH : 0x65178C, 0x0, 0x54, 0x1A4, 0x40;
+	float yCoordBH : 0x65178C, 0x0, 0x54, 0x1A4, 0x44;
+	float xHeadBH : 0x65178C, 0x0, 0x54, 0x1A4, 0x48;
+	float zHeadBH : 0x65178C, 0x0, 0x54, 0x1A4, 0x4C;
+	float yHeadBH : 0x65178C, 0x0, 0x54, 0x1A4, 0x50;
+	float xVelBH : 0x65178C, 0x0, 0x54, 0x1A4, 0x54;
+	float zVelBH : 0x65178C, 0x0, 0x54, 0x1A4, 0x58;
 	float yVelBH : 0x65178C, 0x0, 0x54, 0x1A4, 0x5C;
-	float zVelBH : 0x65178C, 0x0, 0x54, 0x1A4, 0x54;
-	float xVelSteef : 0x65178C, 0x0, 0x54, 0x188, 0x58;
+	float xCoordSteef : 0x65178C, 0x0, 0x54, 0x188, 0x3C;
+	float zCoordSteef : 0x65178C, 0x0, 0x54, 0x188, 0x40;
+	float yCoordSteef : 0x65178C, 0x0, 0x54, 0x188, 0x44;
+	float xHeadSteef : 0x65178C, 0x0, 0x54, 0x188, 0x48;
+	float zHeadSteef : 0x65178C, 0x0, 0x54, 0x188, 0x4C;
+	float yHeadSteef : 0x65178C, 0x0, 0x54, 0x188, 0x50;
+	float xVelSteef : 0x65178C, 0x0, 0x54, 0x188, 0x54;
+	float zVelSteef : 0x65178C, 0x0, 0x54, 0x188, 0x58;
 	float yVelSteef : 0x65178C, 0x0, 0x54, 0x188, 0x5C;
-	float zVelSteef : 0x65178C, 0x0, 0x54, 0x188, 0x54;
+	byte regionID : 0x6525F4;
+	byte gameState : 0x63B7DA;
+	double regionTimer : 0x3F7B40;
+	double regionIGT : 0x5D5540;
 }
 
 state ("stranger", "GOG 1.5")
 
 {
-	int diffmenu : 0x1E120C, 0x64;
+	int platform : 0x1E120C, 0x64;
 	int resetload : 0x2A5DD8, 0x8;
-	int godvalue : 0x1C8AF0, 0x14;
-	int nerfshop : 0x33FBFC, 0x98;
-	int river : 0x34AD24, 0x18;
 	int bounty : 0x1DEA10, 0x10;
 	int primeguy : 0x1DFB74, 0x90;
 	int cutscene : 0x33F690, 0x18;		
 	int IGT : 0x10F1E4, 0x18;
-	long IGT3 : 0x0349330, 0x114;
+	long IGT2 : 0x0349330, 0x114;
 	int quicksave : 0x1DFB74, 0x88;
 	int quickload : 0x249AA8, 0x24;
 	int mchest : 0x1DEA10, 0x4;
-	//int crystal : 0x1DEA10, 0x8;
 	int barrel : 0x2FAA18, 0x104;
 	int zone : 0x1D00B8, 0x18;
 	int resettimer : 0x1E4C04, 0x14;
-	int ilstart : 0x020B7EC, 0x20;
 	int health: 0x64CBAC, 0x0, 0x78;
 	int statusobject: 0x1EE8C4, 0x18;
 	int mpots: 0x648288, 0x10, 0x34, 0x0, 0x9C, 0x8;
 	float moolah: 0x64CBAC, 0x0, 0x204, 0x0C;
 	int healthigt: 0x5CE390, 0x170;
+	float xCoordBH : 0x64CBAC, 0x0, 0x54, 0x1A4, 0x3C;
+	float zCoordBH : 0x64CBAC, 0x0, 0x54, 0x1A4, 0x40;
+	float yCoordBH : 0x64CBAC, 0x0, 0x54, 0x1A4, 0x44;
+	float xHeadBH : 0x64CBAC, 0x0, 0x54, 0x1A4, 0x48;
+	float zHeadBH : 0x64CBAC, 0x0, 0x54, 0x1A4, 0x4C;
+	float yHeadBH : 0x64CBAC, 0x0, 0x54, 0x1A4, 0x50;
+	float zVelBH : 0x64CBAC, 0x0, 0x54, 0x1A4, 0x54;
 	float xVelBH : 0x64CBAC, 0x0, 0x54, 0x1A4, 0x58;
 	float yVelBH : 0x64CBAC, 0x0, 0x54, 0x1A4, 0x5C;
-	float zVelBH : 0x64CBAC, 0x0, 0x54, 0x1A4, 0x54;
+	float xCoordSteef : 0x64CBAC, 0x0, 0x54, 0x188, 0x3C;
+	float zCoordSteef : 0x64CBAC, 0x0, 0x54, 0x188, 0x40;
+	float yCoordSteef : 0x64CBAC, 0x0, 0x54, 0x188, 0x44;
+	float xHeadSteef : 0x64CBAC, 0x0, 0x54, 0x188, 0x48;
+	float zHeadSteef : 0x64CBAC, 0x0, 0x54, 0x188, 0x4C;
+	float yHeadSteef : 0x64CBAC, 0x0, 0x54, 0x188, 0x50;
+	float zVelSteef : 0x64CBAC, 0x0, 0x54, 0x188, 0x54;
 	float xVelSteef : 0x64CBAC, 0x0, 0x54, 0x188, 0x58;
 	float yVelSteef : 0x64CBAC, 0x0, 0x54, 0x188, 0x5C;
-	float zVelSteef : 0x64CBAC, 0x0, 0x54, 0x188, 0x54;
+	byte regionID : 0x64DA14;
+	byte gameState : 0x636BFA;
+	double regionTimer : 0x3F6B40;
+	double regionIGT : 0x5D0958;
 }
 
 
 init
 {	
-	vars.split = 0;
-	vars.capture = 0;
-	vars.rendu = 0;
-	vars.cutscene = 0;
-	vars.end = 0;
-	vars.boat = 0;
 	vars.barrel = 0;
 	vars.barrelqs = 0;
 	vars.mchest = 0;
@@ -85,47 +102,103 @@ init
 	vars.mpotsqs = 0;
 	vars.mchestmem = current.mchest;
 	vars.mpotsmem = current.mpots;
-	vars.zone = 0;
-	vars.barrelsplit = 0;
-	vars.chestsplit = 0;
-	vars.potsplit = 0;
-	vars.idol = 0;
-	vars.idolqs = 0;
-	vars.idolsplit = 0;
+	vars.barrelregion = 0;
+	vars.mchestregion = 0;
+	vars.mpotregion = 0;
 	vars.moolah = 0;
 	vars.death = 0;
 	vars.hit = 0;
 	vars.dead = 1;
 	vars.healthblock = 1;
 	vars.moolahqs = 0;
-	
-	if(current.diffmenu == 1){
+	vars.counterstore = 0;
+	vars.ctutorial = 0;
+	vars.cfloyd = 0;
+	vars.cfloydbs = 0;
+	vars.clooten = 0;
+	vars.clootenbs = 0;
+	vars.cboilz = 0;
+	vars.cboilzbs = 0;
+	vars.cgizzardgulchend = 0;
+	vars.cjomomma = 0;
+	vars.cjomommabs = 0;
+	vars.ceugene = 0;
+	vars.ceugenebs = 0;
+	vars.cmeagly = 0;
+	vars.cmeaglybs = 0;
+	vars.cpackrat = 0;
+	vars.cpackratbs = 0;
+	vars.cbuzzartonend = 0;
+	vars.cnewyolkcityentrance = 0;
+	vars.cmcgeeminecart = 0;
+	vars.cmcgee = 0;
+	vars.cmcgeebs = 0;
+	vars.cfattycabin = 0;
+	vars.cfatty = 0;
+	vars.cfattybs = 0;
+	vars.celboze = 0;
+	vars.celbozebs = 0;
+	vars.clefty = 0;
+	vars.cleftybs = 0;
+	vars.csleg = 0;
+	vars.cnewyolkcityend = 0;
+	vars.ccabin = 0;
+	vars.cdusky = 0;
+	vars.crng = 0;
+	vars.cdocksstart = 0;
+	vars.cdockselevator = 0;
+	vars.cdocksend = 0;
+	vars.cboatstart = 0;
+	vars.cboatdam = 0;
+	vars.cboatend = 0;
+	vars.clastlegsenter = 0;
+	vars.clastlegsarmor = 0;
+	vars.clastlegsend = 0;
+	vars.cboattunelstart = 0;
+	vars.cboattunelend = 0;
+	vars.cdamstart = 0;
+	vars.cdammid = 0;
+	vars.cgloktigi = 0;
+	vars.cdoor = 0;
+	vars.celevator = 0;
+	vars.ctimerrushstart = 0;
+	vars.ctimerrushend = 0;
+	vars.cbossstart = 0;
+	vars.csektostart = 0;
+	vars.csektoend = 0;
+
+
+	if(current.platform == 1)
+	{
 		version = "Steam 1.5";
 	}
 	
-	if(current.diffmenu == 0){
+	if(current.platform == 0)
+	{
 		version = "GOG 1.5";
 	}
 	
-	if(settings["Refresh rate of the autosplitter"]){
-	
-		if(settings["50Rate"]){
+	if(settings["Refresh rate of the autosplitter"])
+	{
+		if(settings["50Rate"])
+		{
 			refreshRate = 50;
-			
 		}
-		if(settings["40Rate"]){
+		if(settings["40Rate"])
+		{
 			refreshRate = 40;
 		}
-		
-		if(settings["30Rate"]){
+		if(settings["30Rate"])
+		{
 			refreshRate = 30;
 		}
-		
-		if(settings["10Rate"]){
+		if(settings["10Rate"])
+		{
 			refreshRate = 10;			
 		}
-		
-	} else {
+	}
+	else
+	{
 		refreshRate = 100;
 	}
 }
@@ -135,93 +208,240 @@ startup
 {
 	//1st tabs
 	
-	settings.Add("Full Game Category", false, "Full Game Category");
-	settings.Add("Individual Levels", false, "Individual Levels");
+	settings.Add("Splits", true, "Splits");
 	settings.Add("Extra", false, "Extra");
 	settings.Add("Refresh rate of the autosplitter", true, "Refresh rate of the autosplitter");
 	
 	//End of 1st tabs
 	
-	settings.CurrentDefaultParent = "Full Game Category";
-	settings.Add("Category", true, "Category");
-	settings.SetToolTip("Category", "Choose the category you're running, CHECK ONLY ONE");
-	settings.CurrentDefaultParent = "Category";
-	settings.Add("Any%", false, "Any%");
-	settings.Add("All Bounties", false, "All Bounties");
-	settings.Add("100%", false, "100%");
-	settings.Add("Misc", false, "Misc");
+	settings.CurrentDefaultParent = "Splits";
+	settings.Add("il", false, "Individual Level Runs");
+	settings.SetToolTip("il", "Tick this only if you are running individual levels. If doing full game runs, leave this blank");
+	settings.Add("GizzardGulchHEADER", true, "Gizzard Gulch");
+	settings.Add("BuzzartonHEADER", true, "Buzzarton");
+	settings.Add("NewYolkCityHEADER", true, "New Yolk City");
+	settings.Add("AmbushGrubbWolvakHEADER", true, "Ambush / Grubb Village / Wolvark Docks");
+	settings.Add("BoatHEADER", true, "Boat / Last Legs");
+	settings.Add("DamHEADER", true, "Sekto's Dam");
 	
-	settings.CurrentDefaultParent = "100%";
-	settings.Add("Counters", true, "Counters");
-	settings.SetToolTip("Counters", "Displays counters in your layout for some of the objectives of the run");
+	//Gizzard Gulch Splits
 	
-	settings.CurrentDefaultParent = "Full Game Category";
-	settings.Add("Restriction", true, "Restriction");
+	settings.CurrentDefaultParent = "GizzardGulchHEADER";
 	
-	settings.CurrentDefaultParent = "Restriction";
-	settings.SetToolTip("Restriction", "Choose the restriction you're running, CHECK ONLY ONE");
-	settings.Add("Unrestricted", false, "Unrestricted (works only with Any%)");
-	settings.Add("No Ghost", false, "No Ghost");
-	settings.Add("NMG", false, "NMG");
-	settings.SetToolTip("NMG", "No Major Glitch");
+	settings.Add("CTutorial", false, "Tutorial");
+	settings.SetToolTip("CTutorial", "Split at the end of the tutorial upon talking to the clakker");
 	
-	settings.CurrentDefaultParent = "Misc";
-	settings.Add("20k", false, "20k");
+	settings.Add("CFloyd", false, "Filthy Hands Floyd capture");
+	settings.SetToolTip("CFloyd", "Split when capturing Filthy Hands Floyd");
 	
-	settings.CurrentDefaultParent = "20k";
-	settings.Add("Split every:", false, "(Optional) Split every:");
-	settings.SetToolTip("Split every:", "Will split on each X Moolah level you reach (Doesn't affect the final split of the run)");
-	settings.CurrentDefaultParent = "Split every:";
-	settings.Add("4k", false, "4k");
-	settings.Add("5k", false, "5k");
-	settings.Add("10k", false, "10k");
+	settings.Add("CFloydBS", false, "Filthy Hands Floyd bounty store");
+	settings.SetToolTip("CFloydBS", "Split when delivering Filthy Hands Floyd at the bounty store");
 	
-	settings.CurrentDefaultParent = "Individual Levels";
-	settings.Add("Splitting options", true, "Splitting options (SELECT ONLY ONE)");
-	settings.CurrentDefaultParent = "Splitting options";
-	settings.Add("Single split", true, "Single split (Default)");
-	settings.SetToolTip("Single split", "The timer will split only once at the end of the level");
-	settings.Add("Multiple splits", false, "Multiple splits");
-	settings.SetToolTip("Multiple splits", "Additional splits during the level (if there's any)");
+	settings.Add("CLooten", false, "Looten Duke capture");
+	settings.SetToolTip("CLooten", "Split when capturing Looten Duke");
 	
-	settings.CurrentDefaultParent = "Individual Levels";
-	settings.Add("Levels", true, "Levels");
+	settings.Add("CLootenBS", false, "Looten Duke bounty store");
+	settings.SetToolTip("CLootenBS", "Split when delivering Looten Duke at the bounty store");
 	
-	settings.CurrentDefaultParent = "Levels";
-	settings.Add("Tutorial", false, "Tutorial");
-	settings.Add("Bounties", false, "Bounties");
-	settings.Add("Dusky Hollow", false, "Dusky Hollow");
-	settings.Add("Grubb Village + Wolvark Docks", false, "Grubb Village + Wolvark Docks");
-	settings.Add("Rowing", false, "Rowing");
-	settings.Add("Last Legs", false, "Last Legs");
-	settings.Add("Dam Entrance", false, "Dam Entrance");
-	settings.Add("Inner Dam", false, "Inner Dam");
-	settings.Add("Timer Rush", false, "Timer Rush");
-	settings.Add("Sekto", false, "Sekto");
-	settings.Add("Individual Regions", false, "Individual Regions");
+	settings.Add("CBoilz", false, "Boilz Booty capture");
+	settings.SetToolTip("CBoilz", "Split when capturing Boilz Booty");
 	
-	settings.CurrentDefaultParent = "Bounties";
-	settings.Add("Eugene Ius", false, "Eugene Ius");
-	settings.Add("Other Bounties", false, "Other Bounties");
+	settings.Add("CGizzardGulchEnd", false, "Gizzard Gulch end");
+	settings.SetToolTip("CGizzardGulchEnd", "Split when reaching the cutscene with the broken bridge");
 	
-	settings.CurrentDefaultParent = "Individual Regions";
-	settings.Add("Gizzard Gulch", false, "Gizzard Gulch");
-	settings.Add("Buzzarton", false, "Buzzarton");
-	settings.Add("New Yolk City", false, "New Yolk City");
+	
+	//Buzzarton Splits
+		
+	settings.CurrentDefaultParent = "BuzzartonHEADER";
+		
+	settings.Add("CBoilzBS", false, "Boilz Booty bounty store");
+	settings.SetToolTip("CBoilzBS", "Split when delivering Boilz Booty at the bounty store");
+	
+	settings.Add("CJoMomma", false, "Jo Momma capture");
+	settings.SetToolTip("CJoMomma", "Split when capturing Jo Momma");
+	
+	settings.Add("CJoMommaBS", false, "Jo Momma bounty store");
+	settings.SetToolTip("CJoMommaBS", "Split when delivering Jo Momma at the bounty store");
+	
+	settings.Add("CEugene", false, "Eugene Ius rescue");
+	settings.SetToolTip("CEugene", "Split when rescuing Eugene Ius");
+	
+	settings.Add("CEugeneBS", false, "Eugene Ius bounty store");
+	settings.SetToolTip("CEugeneBS", "Split when getting paid for Eugene Ius's bounty at the bounty store");
+	
+	settings.Add("CMeagly", false, "Meagly McGraw capture");
+	settings.SetToolTip("CMeagly", "Split when capturing Meagly McGraw");
+	
+	settings.Add("CMeaglyBS", false, "Meagly McGraw bounty store");
+	settings.SetToolTip("CMeaglyBS", "Split when delivering Meagly McGraw at the bounty store");
+	
+	settings.Add("CPackrat", false, "Packrat Palooka capture");
+	settings.SetToolTip("CPackrat", "Split when capturing Packrat Palooka");
+	
+	settings.Add("CPackratBS", false, "Packrat Palooka bounty store");
+	settings.SetToolTip("CPackratBS", "Split when delivering Packrat Palooka at the bounty store");
+	
+	settings.Add("CBuzzartonEnd", false, "Buzzarton end");
+	settings.SetToolTip("CBuzzartonEnd", "Split when reaching the cutscene before the snipers jungle");
+	
+	
+	//New Yolk City Splits
+	
+	settings.CurrentDefaultParent = "NewYolkCityHEADER";
+	settings.Add("CNewYolkCityEntrance", false, "New Yolk City entrance");
+	settings.SetToolTip("CNewYolkCityEntrance", "Split when reaching the entrance of New Jolk City");
+		
+	settings.Add("CMcGeeMinecart", false, "Xplosives McGee 2nd minecart");
+	settings.SetToolTip("CMcGeeMinecart", "Split when opening the door leading to the 2nd minecart");
+	
+	settings.Add("CMcGee", false, "Xplosives McGee capture");
+	settings.SetToolTip("CMcGee", "Split when capturing Xplosives McGee");
+	
+	settings.Add("CMcGeeBS", false, "Xplosives McGee bounty store");
+	settings.SetToolTip("CMcGeeBS", "Split when delivering Xplosives McGee at the bounty store");
+	
+	settings.Add("CFattyCabin", false, "Fatty McBoomboom sky cart cabine");
+	settings.SetToolTip("CFattyCabin", "Split entering the cabin at the end of the sky cart line");
+	
+	settings.Add("CFatty", false, "Fatty McBoomboom capture");
+	settings.SetToolTip("CFatty", "Split when capturing Fatty McBoomboom");
+	
+	settings.Add("CFattyBS", false, "Fatty McBoomboom bounty store");
+	settings.SetToolTip("CFattyBS", "Split when delivering Fatty McBoomboom at the bounty store");
+	
+	settings.Add("CElboze", false, "Elboze Freely capture");
+	settings.SetToolTip("CElboze", "Split when capturing Elboze Freely");
+	
+	settings.Add("CElbozeBS", false, "Elboze Freely bounty store");
+	settings.SetToolTip("CElbozeBS", "Split when delivering Elboze Freely at the bounty store");
+	
+	settings.Add("CLefty", false, "Lefty Lugnutz capture");
+	settings.SetToolTip("CLefty", "Split when capturing Lefty Lugnutz");
+	
+	settings.Add("CLeftyBS", false, "Lefty Lugnutz bounty store");
+	settings.SetToolTip("CLeftyBS", "Split when delivering Lefty Lugnutz at the bounty store");
+	
+	settings.Add("CSleg", false, "Giant Sleg kill");
+	settings.SetToolTip("CSleg", "Split when killing the Giant Sleg for Lugnutz's Bounty");
+	
+	settings.Add("CNewYolkCityEnd", false, "New Yolk City end");
+	settings.SetToolTip("CNewYolkCityEnd", "Split when speaking to the captain of the boat");
+	
+	
+	//Ambush / Grubb Village / Wolvark Docks
+	
+	settings.CurrentDefaultParent = "AmbushGrubbWolvakHEADER";
+	
+	settings.Add("CCabin", false, "Cabin fight");
+	settings.SetToolTip("CCabin", "Split going through the window upon exiting the cabin");
+	
+	settings.Add("CDusky", false, "Dusky Hollow");
+	settings.SetToolTip("CDusky", "Split when reaching the cutscene after going through Dusky Hollow");
+	
+	settings.Add("CRNG", false, "Boombat RNG");
+	settings.SetToolTip("CRNG", "Split when reaching the cutscene at the exit of the Grubb village");
+	
+	settings.Add("CDocksStart", false, "Wolvark Dock's entrance");
+	settings.SetToolTip("CDocksStart", "Split when reaching the top of the slope leading to the start of the docks");
+	
+	settings.Add("CDocksElevator", false, "Wolvark Dock's elevator");
+	settings.SetToolTip("CDocksElevator", "Split when entering the elevator inside the docks");
+	
+	settings.Add("CDocksEnd", false, "Wolvark Dock's end");
+	settings.SetToolTip("CDocksEnd", "Split when reaching the cutscene with the boken boat");
+	
+	
+	//Boat / Last Legs
+	
+	settings.CurrentDefaultParent = "BoatHEADER";
+	
+	settings.Add("CBoatStart", false, "Boat start");
+	settings.SetToolTip("CBoatStart", "Split when reaching the cutscene after getting the boat");
+	
+	settings.Add("CBoatDam", false, "Boat 1st dam");
+	settings.SetToolTip("CBoatDam", "Split when reaching the cutscene after the 1st dam");
+	
+	settings.Add("CBoatEnd", false, "Boat end");
+	settings.SetToolTip("CBoatEnd", "Split when reaching the cutscene leading to Last Legs");
+	
+	settings.Add("CLastLegsEnter", false, "Last Legs entrance");
+	settings.SetToolTip("CLastLegsEnter", "Split when entering Last Legs");
+	
+	settings.Add("CLastLegsArmor", false, "Last Legs armor");
+	settings.SetToolTip("CLastLegsArmor", "Split when acquiring the upgraded Armor");
+	
+	settings.Add("CLastLegsEnd", false, "Last Legs end");
+	settings.SetToolTip("CLastLegsEnd", "Split when reaching the cutscene by the end of Last Legs");
+	
+	settings.Add("CBoatTunnelStart", false, "Boat tunnel entrance");
+	settings.SetToolTip("CBoatTunnelStart", "Split when entering the tunnel after leaving Last Legs");
+	
+	settings.Add("CBoatTunnelEnd", false, "Boat tunnel exit");
+	settings.SetToolTip("CBoatTunnelEnd", "Split when reaching the exit of the tunnel");
+	
+	
+	//Sekto's Dam
+	
+	settings.CurrentDefaultParent = "DamHEADER";
+	
+	settings.Add("CDamStart", false, "Dam entrance");
+	settings.SetToolTip("CDamStart", "Split when entering the dam");
+	
+	settings.Add("CDamMid", false, "2nd water elevator");
+	settings.SetToolTip("CDamMid", "Split when entering the 2nd water elevator");
+	
+	settings.Add("CGloktigi", false, "1st Gloktigi");
+	settings.SetToolTip("CGloktigi", "Split when entering the Gloktigi's elevator");
+	
+	settings.Add("CDoor", false, "Slow opening door");
+	settings.SetToolTip("CDoor", "Split when going through the slow opening door after the room with a lot of ammunition boxes");
+	
+	settings.Add("CElevator", false, "Final elevator entrance");
+	settings.SetToolTip("CElevator", "Split when entering the final elevator before the timed section");
+	
+	settings.Add("CTimerRushStart", false, "Timer Rush start");
+	settings.SetToolTip("CTimerRushStart", "Split when entering the timed section");
+	
+	settings.Add("CTimerRushEnd", false, "Timer Rush end");
+	settings.SetToolTip("CTimerRushEnd", "Split when exiting the timed section");
+	
+	settings.Add("CBossStart", false, "Gloktigi fight start");
+	settings.SetToolTip("CBossStart", "Split when starting the Gloktigi fight");
+	
+	settings.Add("CSektoStart", false, "Gloktigi death");
+	settings.SetToolTip("CSektoStart", "Split when killing the last Gloktigi");
+	
+	settings.Add("CSektoEnd", true, "Sekto");
+	settings.SetToolTip("CSektoEnd", "Split when killing Sekto");
+	
+	
+	//Extra
 	
 	settings.CurrentDefaultParent = "Extra";
+	
+	settings.Add("Counters", false, "100% Counters");
+	settings.SetToolTip("Counters", "Displays counters in your layout for some of the objectives of the run");
+	
 	settings.Add("speedometer", false, "Speedometer");
 	settings.SetToolTip("speedometer", "Adds a row in you layout to display a speedometer");
+	
 	settings.Add("speedround", false, "Round to whole number", "speedometer");
 	settings.Add("speedometerY", false, "Speedometer (vertical speed)");
+	
 	settings.SetToolTip("speedometerY", "Adds a row in you layout to display a speedometer for vertical speed");
 	settings.Add("speedroundY", false, "Round to whole number", "speedometerY");
+	
 	settings.Add("Hit Counter", false, "Hit Counter");
 	settings.SetToolTip("Hit Counter", "Adds a row in you layout to display how many times you have been hit");
+	
 	settings.Add("Death Counter", false, "Death Counter");
 	settings.SetToolTip("Death Counter", "Adds a row in you layout to display how many times you died");
+	
 	settings.Add("Moolah Counter", false, "Moolah Counter");
 	settings.SetToolTip("Moolah Counter", "Adds a row in you layout to display a live counter of the Moolah you currently have");
+	
+	
+	//Refreshrate of the autosplitter
 	
 	settings.CurrentDefaultParent = "Refresh rate of the autosplitter";
 	settings.SetToolTip("Refresh rate of the autosplitter", "Sets the autosplitter to refresh 100 times per second. Leaving all options unckeched will set refresh rate to 100 by default anyway.");
@@ -280,11 +500,10 @@ startup
 
 update
 {
-	if(settings["100%"] && settings["Counters"]){
-		vars.SetTextComponent("Barrels", (vars.barrel).ToString() + " / " + (vars.barrelsplit).ToString());
-		vars.SetTextComponent("Chests", (vars.mchest).ToString() + " / " + (vars.chestsplit).ToString());
-		vars.SetTextComponent("Pots", (vars.mpots).ToString() + " / " + (vars.potsplit).ToString());
-		vars.SetTextComponent("Idol", (vars.idol).ToString() + " / " + (vars.idolsplit).ToString());
+	if(settings["Counters"]){
+		vars.SetTextComponent("Barrels", (vars.barrel).ToString() + " / " + (vars.barrelregion).ToString());
+		vars.SetTextComponent("Chests", (vars.mchest).ToString() + " / " + (vars.mchestregion).ToString());
+		vars.SetTextComponent("Pots + Idol", (vars.mpots).ToString() + " / " + (vars.mpotregion).ToString());
 	}
 	if(settings["speedometer"]){
 		if(current.xVelBH != 0){
@@ -325,12 +544,6 @@ update
 
 start
 {
-	vars.split = 0;
-	vars.capture = 0;
-	vars.rendu = 0;
-	vars.cutscene = 0;
-	vars.end = 0;
-	vars.boat = 0;
 	vars.barrel = 0;
 	vars.barrelqs = 0;
 	vars.mchest = 0;
@@ -339,131 +552,82 @@ start
 	vars.mpotsqs = 0;
 	vars.mchestmem = current.mchest;
 	vars.mpotsmem = current.mpots;
-	vars.zone = 0;
-	vars.barrelsplit = 0;
-	vars.chestsplit = 0;
-	vars.potsplit = 0;
-	vars.idol = 0;
-	vars.idolqs = 0;
-	vars.idolsplit = 0;
+	vars.barrelregion = 0;
+	vars.mchestregion = 0;
+	vars.mpotregion = 0;
 	vars.moolah = 0;
 	vars.death = 0;
 	vars.hit = 0;
 	vars.dead = 1;
 	vars.healthblock = 1;
 	vars.moolahqs = 0;
-
-	if(settings["Individual Levels"]){
+	vars.counterstore = 0;
+	vars.ctutorial = 0;
+	vars.cfloyd = 0;
+	vars.cfloydbs = 0;
+	vars.clooten = 0;
+	vars.clootenbs = 0;
+	vars.cboilz = 0;
+	vars.cboilzbs = 0;
+	vars.cgizzardgulchend = 0;
+	vars.cjomomma = 0;
+	vars.cjomommabs = 0;
+	vars.ceugene = 0;
+	vars.ceugenebs = 0;
+	vars.cmeagly = 0;
+	vars.cmeaglybs = 0;
+	vars.cpackrat = 0;
+	vars.cpackratbs = 0;
+	vars.cbuzzartonend = 0;
+	vars.cnewyolkcityentrance = 0;
+	vars.cmcgeeminecart = 0;
+	vars.cmcgee = 0;
+	vars.cmcgeebs = 0;
+	vars.cfattycabin = 0;
+	vars.cfatty = 0;
+	vars.cfattybs = 0;
+	vars.celboze = 0;
+	vars.celbozebs = 0;
+	vars.clefty = 0;
+	vars.cleftybs = 0;
+	vars.csleg = 0;
+	vars.cnewyolkcityend = 0;
+	vars.ccabin = 0;
+	vars.cdusky = 0;
+	vars.crng = 0;
+	vars.cdocksstart = 0;
+	vars.cdockselevator = 0;
+	vars.cdocksend = 0;
+	vars.cboatstart = 0;
+	vars.cboatdam = 0;
+	vars.cboatend = 0;
+	vars.clastlegsenter = 0;
+	vars.clastlegsarmor = 0;
+	vars.clastlegsend = 0;
+	vars.cboattunelstart = 0;
+	vars.cboattunelend = 0;
+	vars.cdamstart = 0;
+	vars.cdammid = 0;
+	vars.cgloktigi = 0;
+	vars.cdoor = 0;
+	vars.celevator = 0;
+	vars.ctimerrushstart = 0;
+	vars.ctimerrushend = 0;
+	vars.cbossstart = 0;
+	vars.csektostart = 0;
+	vars.csektoend = 0;
 	
-		
-		if(settings["Tutorial"]){
-		
-			if(old.diffmenu == 0 && current.diffmenu != old.diffmenu){
-				return true;
-			}
-		}
-		
-		if(settings["Bounties"]){
-			
-			if(current.primeguy < old.primeguy){
-					return true;
-			}
-		}
-		
-		if(settings["Dusky Hollow"]){
-		
-			if(current.ilstart < old.ilstart){
-				return true;
-			}
-		}
-		
-		if(settings["Grubb Village + Wolvark Docks"]){
-		
-			if(current.ilstart < old.ilstart){
-				return true;
-			}
-		}
-		
-		if(settings["Rowing"]){
-		
-			if(current.zone == 35){
-				return true;
-			}
-		}
-		
-		if(settings["Last Legs"]){
-		
-			if(current.ilstart < old.ilstart){
-				return true;
-			}
-		}
-		
-		if(settings["Dam Entrance"]){
-		
-			if(current.cutscene < old.cutscene){
-				return true;
-			}
-		}
-		
-		if(settings["Inner Dam"]){
-		
-			if(current.ilstart < old.ilstart){
-				return true;
-			}
-		}
-		
-		if(settings["Timer Rush"]){
-		
-			if(current.river < old.river){
-				return true;
-			}
-		}
-		
-		if(settings["Sekto"]){
-		
-			if(current.river > old.river){
-				return true;
-			}
-		}
-		
-		if(settings["Individual Regions"]){
-		
-			if(settings["Gizzard Gulch"]){
-				
-				if(current.ilstart < old.ilstart){
-					return true;
-				}
-			}
-			
-			if(settings["Buzzarton"]){
-				
-				if(current.ilstart < old.ilstart){
-					return true;
-				}
-			}
-			
-			if(settings["New Yolk City"]){
-				
-				if(current.ilstart < old.ilstart){
-					return true;
-				}
-			}
+	if(settings["Splits"])
+	{
+		if(old.gameState == 30 && current.gameState == 0){
+			return true;
 		}
 	}
 	
-	if(settings["Extra"]){
-	
-		if(settings["Shopping"]){
-		
-			if(current.godvalue < old.godvalue){
-				return true;
-			}
-		}
-	}
-		
-	if(settings["Full Game Category"]){
-
-		if(old.diffmenu == 0 && current.diffmenu != old.diffmenu){
+	if(settings["il"])
+	{
+		if(current.regionTimer > old.regionTimer && current.gameState == 0 || current.regionIGT > old.regionIGT && current.gameState == 20)
+		{
 			return true;
 		}
 	}
@@ -471,2302 +635,1551 @@ start
 
 reset
 {
-	if(settings["Individual Levels"]){
-	
-		if(settings["Tutorial"]){
-		
-			if(current.resettimer == 257){
-				vars.split = 0;
-				vars.capture = 0;
-				vars.rendu = 0;
-				vars.cutscene = 0;
-				vars.end = 0;
-				vars.boat = 0;
-				vars.barrel = 0;
-				vars.barrelqs = 0;
-				vars.mchest = 0;
-				vars.mchestqs = 0;
-				vars.mpots = 0;
-				vars.mpotsqs = 0;
-				vars.mchestmem = current.mchest;
-				vars.mpotsmem = current.mpots;
-				vars.zone = 0;
-				vars.barrelsplit = 0;
-				vars.chestsplit = 0;
-				vars.potsplit = 0;
-				vars.idol = 0;
-				vars.idolqs = 0;
-				vars.idolsplit = 0;
-				vars.moolah = 0;
-				vars.death = 0;
-				vars.hit = 0;
-				vars.dead = 1;
-				vars.healthblock = 1;
-				vars.moolahqs = 0;
-			return true;
-			}
-		}
-		
-		else if(current.resetload > old.resetload && current.primeguy == 0){
-		
-			if(settings["Gizzard Gulch"] && current.zone == 4){
-				return false;
-			}
-			
-			else if(settings["Buzzarton"] && current.zone == 10){
-				return false;
-			}
-				
-			else if(settings["New Yolk City"] && current.zone == 3){
-				return false;
-			}
-			else 
-				vars.split = 0;
-				vars.capture = 0;
-				vars.rendu = 0;
-				vars.cutscene = 0;
-				vars.end = 0;
-				vars.boat = 0;
-				vars.barrel = 0;
-				vars.barrelqs = 0;
-				vars.mchest = 0;
-				vars.mchestqs = 0;
-				vars.mpots = 0;
-				vars.mpotsqs = 0;
-				vars.mchestmem = current.mchest;
-				vars.mpotsmem = current.mpots;
-				vars.zone = 0;
-				vars.barrelsplit = 0;
-				vars.chestsplit = 0;
-				vars.potsplit = 0;
-				vars.idol = 0;
-				vars.idolqs = 0;
-				vars.idolsplit = 0;
-				vars.moolah = 0;
-				vars.death = 0;
-				vars.hit = 0;
-				vars.dead = 1;
-				vars.healthblock = 1;
-				vars.moolahqs = 0;
-			return true;
-		}
+	if(current.resettimer == 257)
+	{
+		vars.barrel = 0;
+		vars.barrelqs = 0;
+		vars.mchest = 0;
+		vars.mchestqs = 0;
+		vars.mpots = 0;
+		vars.mpotsqs = 0;
+		vars.mchestmem = current.mchest;
+		vars.mpotsmem = current.mpots;
+		vars.zone = 0;
+		vars.barrelregion = 0;
+		vars.mchestregion = 0;
+		vars.mpotregion = 0;
+		vars.moolah = 0;
+		vars.death = 0;
+		vars.hit = 0;
+		vars.dead = 1;
+		vars.healthblock = 1;
+		vars.moolahqs = 0;
+		vars.counterstore = 0;
+		vars.ctutorial = 0;
+		vars.cfloyd = 0;
+		vars.cfloydbs = 0;
+		vars.clooten = 0;
+		vars.clootenbs = 0;
+		vars.cboilz = 0;
+		vars.cboilzbs = 0;
+		vars.cgizzardgulchend = 0;
+		vars.cjomomma = 0;
+		vars.cjomommabs = 0;
+		vars.ceugene = 0;
+		vars.ceugenebs = 0;
+		vars.cmeagly = 0;
+		vars.cmeaglybs = 0;
+		vars.cpackrat = 0;
+		vars.cpackratbs = 0;
+		vars.cbuzzartonend = 0;
+		vars.cnewyolkcityentrance = 0;
+		vars.cmcgeeminecart = 0;
+		vars.cmcgee = 0;
+		vars.cmcgeebs = 0;
+		vars.cfattycabin = 0;
+		vars.cfatty = 0;
+		vars.cfattybs = 0;
+		vars.celboze = 0;
+		vars.celbozebs = 0;
+		vars.clefty = 0;
+		vars.cleftybs = 0;
+		vars.csleg = 0;
+		vars.cnewyolkcityend = 0;
+		vars.ccabin = 0;
+		vars.cdusky = 0;
+		vars.crng = 0;
+		vars.cdocksstart = 0;
+		vars.cdockselevator = 0;
+		vars.cdocksend = 0;
+		vars.cboatstart = 0;
+		vars.cboatdam = 0;
+		vars.cboatend = 0;
+		vars.clastlegsenter = 0;
+		vars.clastlegsarmor = 0;
+		vars.clastlegsend = 0;
+		vars.cboattunelstart = 0;
+		vars.cboattunelend = 0;
+		vars.cdamstart = 0;
+		vars.cdammid = 0;
+		vars.cgloktigi = 0;
+		vars.cdoor = 0;
+		vars.celevator = 0;
+		vars.ctimerrushstart = 0;
+		vars.ctimerrushend = 0;
+		vars.cbossstart = 0;
+		vars.csektostart = 0;
+		vars.csektoend = 0;
+		return true;
 	}
-	
-	else if(current.resettimer == 257){
-			vars.split = 0;
-			vars.capture = 0;
-			vars.rendu = 0;
-			vars.cutscene = 0;
-			vars.end = 0;
-			vars.boat = 0;
-			vars.barrel = 0;
-			vars.barrelqs = 0;
-			vars.mchest = 0;
-			vars.mchestqs = 0;
-			vars.mpots = 0;
-			vars.mpotsqs = 0;
-			vars.mchestmem = current.mchest;
-			vars.mpotsmem = current.mpots;
-			vars.zone = 0;
-			vars.barrelsplit = 0;
-			vars.chestsplit = 0;
-			vars.potsplit = 0;
-			vars.idol = 0;
-			vars.idolqs = 0;
-			vars.idolsplit = 0;
-			vars.moolah = 0;
-			vars.death = 0;
-			vars.hit = 0;
-			vars.dead = 1;
-			vars.healthblock = 1;
-			vars.moolahqs = 0;
+	else if(settings["il"] && current.resetload > old.resetload && current.primeguy == 0)
+	{
+		vars.barrel = 0;
+		vars.barrelqs = 0;
+		vars.mchest = 0;
+		vars.mchestqs = 0;
+		vars.mpots = 0;
+		vars.mpotsqs = 0;
+		vars.mchestmem = current.mchest;
+		vars.mpotsmem = current.mpots;
+		vars.zone = 0;
+		vars.barrelregion = 0;
+		vars.mchestregion = 0;
+		vars.mpotregion = 0;
+		vars.moolah = 0;
+		vars.death = 0;
+		vars.hit = 0;
+		vars.dead = 1;
+		vars.healthblock = 1;
+		vars.moolahqs = 0;
+		vars.counterstore = 0;
+		vars.ctutorial = 0;
+		vars.cfloyd = 0;
+		vars.cfloydbs = 0;
+		vars.clooten = 0;
+		vars.clootenbs = 0;
+		vars.cboilz = 0;
+		vars.cboilzbs = 0;
+		vars.cgizzardgulchend = 0;
+		vars.cjomomma = 0;
+		vars.cjomommabs = 0;
+		vars.ceugene = 0;
+		vars.ceugenebs = 0;
+		vars.cmeagly = 0;
+		vars.cmeaglybs = 0;
+		vars.cpackrat = 0;
+		vars.cpackratbs = 0;
+		vars.cbuzzartonend = 0;
+		vars.cnewyolkcityentrance = 0;
+		vars.cmcgeeminecart = 0;
+		vars.cmcgee = 0;
+		vars.cmcgeebs = 0;
+		vars.cfattycabin = 0;
+		vars.cfatty = 0;
+		vars.cfattybs = 0;
+		vars.celboze = 0;
+		vars.celbozebs = 0;
+		vars.clefty = 0;
+		vars.cleftybs = 0;
+		vars.csleg = 0;
+		vars.cnewyolkcityend = 0;
+		vars.ccabin = 0;
+		vars.cdusky = 0;
+		vars.crng = 0;
+		vars.cdocksstart = 0;
+		vars.cdockselevator = 0;
+		vars.cdocksend = 0;
+		vars.cboatstart = 0;
+		vars.cboatdam = 0;
+		vars.cboatend = 0;
+		vars.clastlegsenter = 0;
+		vars.clastlegsarmor = 0;
+		vars.clastlegsend = 0;
+		vars.cboattunelstart = 0;
+		vars.cboattunelend = 0;
+		vars.cdamstart = 0;
+		vars.cdammid = 0;
+		vars.cgloktigi = 0;
+		vars.cdoor = 0;
+		vars.celevator = 0;
+		vars.ctimerrushstart = 0;
+		vars.ctimerrushend = 0;
+		vars.cbossstart = 0;
+		vars.csektostart = 0;
+		vars.csektoend = 0;
 		return true;
 	}
 }
+
 
 split
 {
 	if(settings["Refresh rate of the autosplitter"]){
 		
-		if(settings["50Rate"]){
+		if(settings["50Rate"])
+		{
 			refreshRate = 50;
-			
 		}
-		if(settings["40Rate"]){
+		if(settings["40Rate"])
+		{
 			refreshRate = 40;
 		}
 		
-		if(settings["30Rate"]){
+		if(settings["30Rate"])
+		{
 			refreshRate = 30;
 		}
 		
-		if(settings["10Rate"]){
+		if(settings["10Rate"]
+		){
 			refreshRate = 10;			
 		}
-		
-	} else {
+	} 
+	else
+	{
 		refreshRate = 100;
 	}
-
 	
 	vars.FrameRate = refreshRate;
 	
 	
-	//Full Game Category
+	//Custom autosplits
 	
-	if(settings["Full Game Category"]){
+	if(settings["Splits"])
+	{
+		//Tutorial
+		
+		if(settings["CTutorial"])
+		{
+			if(current.xHeadBH <= -702.56 && current.xHeadBH >= -705.76 && current.zHeadBH <= 157.63 && current.zHeadBH >= 143.81 && current.yHeadBH <= 90 && current.yHeadBH >= 50 && vars.ctutorial == 0)
+			{
+				if(settings["il"])
+				{
+					vars.ctutorial++;
+				}
+				else if(current.regionID == 0)
+				{
+					vars.ctutorial++;
+				}
+			}
+			if(vars.ctutorial == 1 && current.cutscene > old.cutscene)
+			{
+				vars.ctutorial++;
+				return true;
+			}
+		}
 
 
-		//Any% Unrestricted
+		//Filthy Hands Floyd bounty store
 		
-		if(settings["Any%"] && settings["Unrestricted"]){
-		
-			if(current.zone == 11 && current.cutscene > old.cutscene && vars.split == 0){
-				vars.cutscene++;
+		if(settings["CFloyd"] || settings["CFloydBS"])
+		{
+			if(current.zone == 12 && current.bounty > old.bounty && current.bountynoboss == old.bountynoboss && vars.cfloyd == 0)
+			{
+				if(settings["il"])
+				{
+					vars.cfloyd++;
+					vars.cfloydbs++;
+				}
+				else if(current.regionID == 1)
+				{
+					vars.cfloyd++;
+					vars.cfloydbs++;
+				}
 			}
-			if(vars.split == 0 && vars.cutscene == 2){
-				vars.split++;
-				return true;
-			//Tutorial
-			}
-		
-			if(current.zone == 39 && current.cutscene > old.cutscene && vars.split == 1){
-				vars.split++;
-				return true;
-			//Gizzard Gulch Skip	
-			}
-		
-			if(current.zone == 77 && current.cutscene > old.cutscene && vars.split == 2){
-				vars.split++;
-				return true;
-			//Buzzarton Skip
-			}
-		
-			if(current.zone == 16 && current.cutscene > old.cutscene && vars.split == 3){
-				vars.split++;
-				return true;
-			}
-			else if(current.zone == 4 && current.cutscene > old.cutscene && vars.split == 3){
-				vars.split++;
-				return true;
-			//Welcome to the Jungle
-			}
-		
-			if(current.zone == 69 && current.cutscene > old.cutscene && vars.split == 4){
-				vars.split++;
-				return true;
-			//River Skip
-			}
-		
-			if(current.river < old.river && current.godvalue == current.river && vars.split == 5){
-				vars.split++;
-				return true;
-			//Ambush
-			}
-		
-			if(current.zone == 2 && current.cutscene > old.cutscene && vars.split == 6){
-				vars.split++;
-				return true;
-			//Dusky Hollow
-			}
+		}
+		if(settings["CFloyd"] && vars.cfloyd == 1 && current.cutscene > old.cutscene)
+		{
+			vars.cfloyd++;
+			return true;
+		}
 			
-			if(current.zone == 6 && current.cutscene > old.cutscene && vars.split == 7){
-				vars.cutscene++;
-			}
-			if(vars.cutscene == 4 && vars.split == 7){
-				vars.split++;
-				return true;
-			//RNG
-			}
+		if(settings["CFloydBS"] && vars.cfloydbs == 1 && current.primeguy > old.primeguy)
+		{
+			vars.cfloydbs++;
+			return true;
+		}
 		
-			if(current.zone == 33 && current.cutscene > old.cutscene && vars.split == 8){
-				vars.split++;
-				return true;
-			//Boat Skip
+		
+		//Looten Duke
+		
+		if(settings["CLooten"] || settings["CLootenBS"])
+		{
+			if(current.zone == 13 && current.bounty > old.bounty && current.bountynoboss == old.bountynoboss && vars.clooten == 0)
+			{
+				if(settings["il"])
+				{
+					vars.clooten++;
+					vars.clootenbs++;
+				}
+				else if(current.regionID == 1)
+				{
+					vars.clooten++;
+					vars.clootenbs++;
+				}
 			}
+		}
+		if(settings["CLooten"] && vars.clooten == 1 && current.cutscene > old.cutscene)
+		{
+			vars.clooten++;
+			return true;
+		}
 			
-			else if(current.zone == 33 && current.cutscene > old.cutscene && vars.split == 7){
-				vars.split++;
-				vars.split++;
-				vars.cutscene++;
-				return true;
-			//Boat Skip with RNG skip
+		if(settings["CLootenBS"] && vars.clootenbs == 1 && current.primeguy > old.primeguy)
+		{
+			vars.clootenbs++;
+			return true;
+		}
+		
+		
+		//Boilz Booty
+		
+		if(settings["CBoilz"] || settings["CBoilzBS"])
+		{
+			if(current.zone == 2 && current.bounty > old.bounty && current.bountynoboss == old.bountynoboss && vars.cboilz == 0)
+			{
+				if(settings["il"])
+				{
+					vars.cboilz++;
+					vars.cboilzbs++;
+				}
+				else if(current.regionID == 1)
+				{
+					vars.cboilz++;
+					vars.cboilzbs++;
+				}
 			}
+		}
+		if(settings["CBoilz"] && vars.cboilz == 1)
+		{
+			vars.cboilz++;
+			return true;
+		}
 			
-			if(current.zone == 4 && current.cutscene > old.cutscene && vars.split == 9){
-				vars.boat++;
-			}
-			if(vars.boat == 2 && vars.split == 9){
-				vars.split++;
-				return true;
-			}	
-			else if(current.zone == 5 && current.cutscene > old.cutscene && vars.split == 9){
-				vars.split++;
-				return true;
-			//Row Your Boat
-			}
-		
-			if(current.zone == 1 && current.cutscene > old.cutscene && vars.split == 10){
-				vars.cutscene++;
-			} //will trigger 2 times
-			if(vars.split == 10 && vars.cutscene == 6){
-				vars.split++;
-				return true;
-			//Last Legs
-			}
-		
-			if(current.zone == 8 && current.cutscene > old.cutscene && vars.split == 11){
-				vars.split++;
-				return true;
-			//Some More Boat
-			}
-			
-			if(current.zone == 10 && current.godvalue > old.godvalue && vars.split == 12){
-				vars.split++;
-				return true;
-			//Gloktigi Clip
-			}
-		
-			if(current.zone == 8 && current.cutscene > old.cutscene && vars.split == 13){
-				vars.split++;
-				return true;
-			//Sekto's Lair
-			}
-		
-			if(current.zone == 12 && current.cutscene > old.cutscene && vars.split == 14){
-				vars.split++;
-				return true;
-			//Timer Rush
-			}
-		
-			if(current.cutscene > old.cutscene && vars.split == 15){
-				vars.split++;
-				return true;
-			//Gloktigi Twins
-			}
-		
-			if(current.quicksave > old.quicksave && vars.split == 15 && vars.end == 0){
-				vars.end++;
-			}
-			
-			if(vars.end == 1 && current.cutscene > old.cutscene && vars.split == 16){
-				vars.split++;
-				return true;
-			//Sekto
-			}
+		if(settings["CBoilzBS"] && vars.cboilzbs == 1 && current.primeguy > old.primeguy)
+		{
+			vars.cboilzbs++;
+			return true;
 		}
 		
 		
 		
+		//Gizzard Gulch end
 		
-		//Any% No Ghost
-		
-		if(settings["Any%"] && settings["No Ghost"]){
-		
-			if(current.zone == 11 && current.cutscene > old.cutscene && vars.split == 0){
-				vars.cutscene++;
+		if(settings["CGizzardGulchEnd"])
+		{
+			if(current.xHeadBH <= 342.02 && current.xHeadBH >= 341.43 && current.zHeadBH <= -5.60 && current.zHeadBH >= -39.92 && current.yHeadBH <= 90 && current.yHeadBH >= 41 && vars.cgizzardgulchend == 0)
+			{
+				if(settings["il"])
+				{
+					vars.cgizzardgulchend++;
+				}
+				else if(current.regionID == 1)
+				{
+					vars.cgizzardgulchend++;
+				}
 			}
-			if(vars.split == 0 && vars.cutscene == 2){
-				vars.split++;
+			if(vars.cgizzardgulchend == 1 && current.cutscene > old.cutscene)
+			{
+				while(vars.barrelqs < vars.barrel)
+				{
+					vars.barrelqs++;
+				}
+				while(vars.mchestqs < vars.mchest)
+				{
+					vars.mchestqs++;
+				}
+				while(vars.mpotsqs < vars.mpots)
+				{
+					vars.mpotsqs++;
+				}
+				vars.cgizzardgulchend++;
 				return true;
-			//Tutorial
-			}
-		
-			if(current.zone == 39 && current.cutscene > old.cutscene && vars.split == 1){
-				vars.split++;
-				return true;
-			//Gizzard Gulch Skip	
-			}
-		
-			if(current.zone == 77 && current.cutscene > old.cutscene && vars.split == 2){
-				vars.split++;
-				return true;
-			//Buzzarton Skip
-			}
-		
-			if(current.zone == 16 && current.cutscene > old.cutscene && vars.split == 3){
-				vars.split++;
-				return true;
-			}
-			else if(current.zone == 4 && current.cutscene > old.cutscene && vars.split == 3){
-				vars.split++;
-				return true;
-			//Welcome to the Jungle
-			}
-		
-			if(current.bounty > old.bounty && vars.split == 4 && vars.capture == 0){
-				vars.capture++;
-			}
-			if(current.primeguy > old.primeguy && vars.split == 4 && vars.rendu == 0 && vars.capture == 1){
-				vars.rendu++;
-				vars.split++;
-				return true;
-			//Xplosives McGee
-			}
-		
-			if(current.zone == 69 && current.cutscene > old.cutscene && vars.split == 5){
-				vars.split++;
-				return true;
-			//River Skip
-			}
-		
-			if(current.river < old.river && current.godvalue == current.river && vars.split == 6){
-				vars.split++;
-				return true;
-			//Ambush
-			}
-		
-			if(current.zone == 2 &&  current.cutscene > old.cutscene && vars.split == 7){
-				vars.split++;
-				return true;
-			//Dusky Hollow
-			}
-		
-			if(current.zone == 6 && current.cutscene > old.cutscene && vars.split == 8){
-				vars.cutscene++;
-			}
-			if(vars.cutscene == 4 && vars.split == 8){
-				vars.split++;
-				return true;
-			//RNG
-			}
-		
-			if(current.zone == 33 && current.cutscene > old.cutscene && vars.split == 9){
-				vars.split++;
-				return true;
-			//Boat Skip
-			}
-		
-			if(current.zone == 4 && current.cutscene > old.cutscene && vars.split == 10){
-				vars.boat++;
-			}
-			if(vars.boat == 2 && vars.split == 10){
-				vars.split++;
-				return true;
-			}	
-			else if(current.zone == 5 && current.cutscene > old.cutscene && vars.split == 10){
-				vars.split++;
-				return true;
-			//Row Your Boat
-			}
-		
-			if(current.zone == 1 && current.cutscene > old.cutscene && vars.split == 11){
-				vars.cutscene++;
-			}
-			if(vars.split == 11 && vars.cutscene == 6){
-				vars.split++;
-				return true;
-			//Last Legs
-			}
-		
-			if(current.godvalue == current.nerfshop && vars.split == 12) {
-				vars.split++;
-				return true;
-			//Some More Boat
-			}
-		
-			if(current.zone == 10 && current.godvalue > old.godvalue && vars.split == 13){
-				vars.split++;
-				return true;
-			//Gloktigi Skip
-			}
-		
-			if(current.zone == 8 && current.cutscene > old.cutscene && vars.split == 14){
-				vars.split++;
-				return true;
-			//Sekto's Lair
-			}
-		
-			if(current.zone == 12 && current.cutscene > old.cutscene && vars.split == 15){
-				vars.split++;
-				return true;
-			//Timer Rush
-			}
-		
-			if(current.cutscene > old.cutscene && vars.split == 16){
-				vars.split++;
-				return true;
-			//Gloktigi Twins
-			}
-		
-			if(current.quicksave > old.quicksave && vars.split == 17 && vars.end == 0){
-				vars.end++;
-			}
-			
-			if(vars.end == 1 && current.cutscene > old.cutscene && vars.split == 17){
-				vars.split++;
-				return true;
-			//Sekto
 			}
 		}
 		
 		
+		//Jo Momma
 		
-		//Any% NMG
-		
-		if(settings["Any%"] && settings["NMG"]){
-		
-			if(current.zone == 11 && current.cutscene > old.cutscene && vars.split == 0){
-				vars.cutscene++;
-			}
-			if(vars.split == 0 && vars.cutscene == 2){
-				vars.split++;
-				return true;
-			//Tutorial
-			}
-		
-			if(current.bounty > old.bounty && vars.split == 1 && vars.capture == 0){
-				vars.capture++;
-			}
-			if(current.primeguy > old.primeguy && vars.split == 1 && vars.rendu == 0 && vars.capture == 1){
-				vars.rendu++;
-				vars.split++;
-				return true;
-			//Filthy Hands Floyd
-			}
-		
-			if(current.zone == 39 && current.cutscene > old.cutscene && vars.split == 2){
-				vars.split++;
-				return true;
-			//Gizzard Gulch Skip	
-			}
-		
-			if(current.zone == 77 && current.cutscene > old.cutscene && vars.split == 3){
-				vars.split++;
-				return true;
-			//Buzzarton Skip
-			}
-		
-			if(current.zone == 16 && current.cutscene > old.cutscene && vars.split == 4){
-				vars.split++;
-				return true;
-			}
-			else if(current.zone == 4 && current.cutscene > old.cutscene && vars.split == 4){
-				vars.split++;
-				return true;
-			//Welcome to the Jungle
-			}
-		
-			if(current.zone == 2 && old.zone == 4 && vars.zone == 0 && vars.split == 5){
-				vars.zone++;
-			}
-			if(current.zone == 4 && old.zone == 2 && vars.zone == 1 && vars.split == 5){
-				vars.zone++;
-			}
-			if(current.primeguy > old.primeguy && vars.split == 5 && vars.rendu == 1 && vars.zone == 2){
-				vars.split++;
-				return true;
-			//Xplosives McGee
-			}
-		
-			if(current.zone == 69 && current.cutscene > old.cutscene && vars.split == 6){
-				vars.split++;
-				return true;
-			//River Skip
-			}
-		
-			if(current.river < old.river && current.godvalue == current.river && vars.split == 7){
-				vars.split++;
-				return true;
-			//Ambush
-			}
-		
-			if(current.zone == 2 &&  current.cutscene > old.cutscene && vars.split == 8){
-				vars.split++;
-				return true;
-			//Dusky Hollow
-			}
-		
-			if(current.zone == 30 && current.cutscene > old.cutscene && vars.split == 9){
-				vars.split++;
-				return true;
-			//Wolvark Docks
-			}
-		
-			if(current.zone == 33 && current.cutscene > old.cutscene && vars.split == 10){
-				vars.split++;
-				return true;
-			//Grubb Village fight
-			}
-		
-			if(current.zone == 4 && current.cutscene > old.cutscene && vars.split == 11){
-				vars.boat++;
-			}
-			if(vars.boat == 2 && vars.split == 11){
-				vars.split++;
-				return true;
-			}	
-			else if(current.zone == 5 && current.cutscene > old.cutscene && vars.split == 11){
-				vars.split++;
-				return true;
-			//Row Your Boat
-			}
-		
-			if(current.zone == 1 && current.cutscene > old.cutscene && vars.split == 12){
-				vars.cutscene++;
-			}
-			if(vars.split == 12 && vars.cutscene == 4){
-				vars.split++;
-				return true;
-			//Last Legs
-			}
-		
-			if(current.zone == 8 && current.cutscene > old.cutscene && vars.split == 13) {
-				vars.split++;
-				return true;
-			//Some More Boat
-			}
-		
-			if(current.zone == 10 && current.godvalue > old.godvalue && vars.split == 14){
-				vars.split++;
-				return true;
-			//Gloktigi Skip
-			}
-		
-			if(current.zone == 8 && current.cutscene > old.cutscene && vars.split == 15){
-				vars.split++;
-				return true;
-			//Sekto's Lair
-			}
-		
-			if(current.zone == 12 && current.cutscene > old.cutscene && vars.split == 16){
-				vars.split++;
-				return true;
-			//Timer Rush
-			}
-		
-			if(current.cutscene > old.cutscene && vars.split == 17){
-				vars.split++;
-				return true;
-			//Gloktigi Twins
-			}
-		
-			if(current.quicksave > old.quicksave && vars.split == 18 && vars.end == 0){
-				vars.end++;
-			}
-			
-			if(vars.end == 1 && current.cutscene > old.cutscene && vars.split == 18){
-				vars.split++;
-				return true;
-			//Sekto
+		if(settings["CJoMomma"] || settings["CJoMommaBS"])
+		{
+			if(current.zone == 60 && current.bounty > old.bounty && current.bountynoboss == old.bountynoboss && vars.cjomomma == 0)
+			{
+				if(settings["il"])
+				{
+					vars.cjomomma++;
+					vars.cjomommabs++;
+				}
+				else if(current.regionID == 2)
+				{
+					vars.cjomomma++;
+					vars.cjomommabs++;
+				}
 			}
 		}
-
-		
-		
-		//All Bounties No Ghost
-		
-		if(settings["All Bounties"] && settings["No Ghost"]){
-		
-			if(current.zone == 11 && current.cutscene > old.cutscene && vars.split == 0){
-				vars.cutscene++;
-			}
-			if(vars.split == 0 && vars.cutscene == 2){
-				vars.split++;
-				return true;
-			//Tutorial
-			}
-		
-			if(current.bounty > old.bounty && vars.split == 1 && vars.capture == 0){
-				vars.capture++;
-			}
-			if(current.primeguy > old.primeguy && vars.split == 1 && vars.rendu == 0 && vars.capture == 1){
-				vars.rendu++;
-				vars.split++;
-				return true;
-			//Filthy Hands Floyd
-			}
-		
-			if(current.bounty > old.bounty && vars.split == 2 && vars.capture == 1){
-				vars.capture++;
-			}
-			if(current.primeguy > old.primeguy && vars.split == 2 && vars.rendu == 1 && vars.capture == 2){
-				vars.rendu++;
-				vars.split++;
-				return true;
-			//Looten Duke
-			}
-		
-			if(current.bounty > old.bounty && vars.split == 3 && vars.capture == 2){
-				vars.capture++;
-			}
-			if(current.primeguy > old.primeguy && vars.split == 3 && vars.rendu == 2 && vars.capture == 3){
-				vars.rendu++;
-				vars.split++;
-				return true;
-			//Boilz Booty
-			}
-		
-			if(current.bounty > old.bounty && vars.split == 4 && vars.capture == 3){
-				vars.capture++;
-				vars.split++;
-				return true;
-			//Jo Momma
-			}
-		
-			if(current.primeguy > old.primeguy && vars.split == 5 && vars.rendu == 3 && vars.capture == 4){
-				vars.rendu++;
-				vars.split++;
-				return true;
-			//Eugene Ius
-			}
-		
-			if(current.bounty > old.bounty && vars.split == 6 && vars.capture == 4){
-				vars.capture++;
-			}
-			if(current.primeguy > old.primeguy && vars.split == 6 && vars.rendu == 4 && vars.capture == 5){
-				vars.rendu++;
-				vars.split++;
-				return true;
-			//Meagly McGraw
-			}
-		
-			if(current.bounty > old.bounty && vars.split == 7 && vars.capture == 5){
-				vars.capture++;
-			}
-			if(current.primeguy > old.primeguy && vars.split == 7 && vars.rendu == 5 && vars.capture == 6){
-				vars.rendu++;
-				vars.split++;
-				return true;
-			//Packrat Palooka
-			}
-			if(current.zone == 77 && current.cutscene > old.cutscene && vars.split == 7){
-				vars.rendu++;
-				vars.split++;
-				return true;
-			//Packrat Palooka Bounty Store Skip
-			}
-		
-			if(current.zone == 16 && current.cutscene > old.cutscene && vars.split == 8){
-				vars.split++;
-				return true;
-			}
-			else if(current.zone == 4 && current.cutscene > old.cutscene && vars.split == 8){
-				vars.split++;
-				return true;
-			//Welcome to the jungle
-			}
-		
-			if(current.bounty > old.bounty && vars.split == 9 && vars.capture == 6){
-				vars.capture++;
-			}
-			if(current.primeguy > old.primeguy && vars.split == 9 && vars.rendu == 6 && vars.capture == 7){
-				vars.rendu++;
-				vars.split++;
-				return true;
-			//Xplosives McGee
-			}
-		
-			if(current.bounty > old.bounty && vars.split == 10 && vars.capture == 7 && current.zone == 28){
-				vars.capture++;
-			}
-			if(current.zone == 28 && current.cutscene > old.cutscene && vars.split == 10 && vars.capture == 8){
-				vars.split++;
-				return true;
-			//Fatty McBoomboom
-			}
+		if(settings["CJoMomma"] && vars.cjomomma == 1 && current.cutscene > old.cutscene)
+		{
+			vars.cjomomma++;
+			return true;
+		}
 			
-			if(current.zone == 56 && current.cutscene > old.cutscene && vars.split == 11 && vars.capture == 8){
-				vars.cutscene++;
+		if(settings["CJoMommaBS"] && vars.cjomommabs == 1 && current.primeguy > old.primeguy)
+		{
+			vars.cjomommabs++;
+			return true;
+		}
+		
+		
+		//Eugene Ius
+		
+		if(settings["CEugene"] || settings["CEugeneBS"])
+		{
+			if(current.xCoordBH <= -4 && current.xCoordBH >= -5 && current.zCoordBH <= 376 && current.zCoordBH >= 375 && current.yCoordBH <= 23 && current.yCoordBH >= 22 && vars.ceugene == 0)
+			{
+				if(settings["il"])
+				{
+					vars.ceugene++;
+					vars.ceugenebs++;
+				}
+				else if(current.regionID == 2)
+				{
+					vars.ceugene++;
+					vars.ceugenebs++;
+				}
 			}
-			if(current.zone == 56 && vars.split == 11 && vars.cutscene == 4 && vars.capture == 8){
-				vars.split++;
-				return true;
-			//Giant Sleg
-			}
+		}
+		if(settings["CEugene"] && vars.ceugene == 1)
+		{
+			vars.ceugene++;
+			return true;
+		}
 			
-			if(current.bounty > old.bounty && vars.split == 12 && vars.capture == 8 && current.zone == 66){
-				vars.capture++;	
-			}
-			else if(current.bounty > old.bounty && vars.split == 12 && vars.capture == 8 && current.zone == 54){
-				vars.capture++;
-			}
-			if(current.cutscene > old.cutscene && vars.split == 12 && vars.capture == 9){
-				vars.split++;
-				return true;
-			//Elboze Freely
-			}
+		if(settings["CEugeneBS"] && vars.ceugenebs == 1 && current.primeguy > old.primeguy)
+		{
+			vars.ceugenebs++;
+			return true;
+		}
 		
-			if(current.bounty > old.bounty && vars.split == 13 && vars.capture == 9){
-				vars.capture++;
-			}
-			if(current.primeguy > old.primeguy && vars.split == 13 && vars.rendu == 7 && vars.capture == 10){
-				vars.rendu++;
-				vars.split++;
-				return true;
-			//Lefty Lugnutz
-			}
 		
-			if(current.zone == 9 && current.cutscene > old.cutscene && vars.split == 14){
-				vars.split++;
-				return true;
-			//Mongo River
-			}
+		//Meagly McGraw
 		
-			if(current.river < old.river && current.godvalue == current.river && vars.split == 15){
-				vars.split++;
-				return true;
-			//Ambush
+		if(settings["CMeagly"] || settings["CMeaglyBS"])
+		{
+			if(current.zone == 2 && current.bounty > old.bounty && current.bountynoboss == old.bountynoboss && vars.cmeagly == 0)
+			{
+				if(settings["il"])
+				{
+					vars.cmeagly++;
+					vars.cmeaglybs++;
+				}
+				else if(current.regionID == 2)
+				{
+					vars.cmeagly++;
+					vars.cmeaglybs++;
+				}
 			}
-		
-			if(current.zone == 2 &&  current.cutscene > old.cutscene && vars.split == 16){
-				vars.split++;
-				return true;
-			//Dusky Hollow
-			}
-		
-			if(current.zone == 6 && current.cutscene > old.cutscene && vars.split == 17){
-				vars.cutscene++;
-			}
-			if(vars.cutscene == 6 && vars.split == 17){
-				vars.split++;
-				return true;
-			//RNG
-			}
-		
-			if(current.zone == 33 && current.cutscene > old.cutscene && vars.split == 18){
-				vars.split++;
-				return true;
-			//Boat Skip
-			}
-		
-			if(current.zone == 4 && current.cutscene > old.cutscene && vars.split == 19){
-				vars.boat++;
-			}
-			if(vars.boat == 2 && vars.split == 19){
-				vars.split++;
-				return true;
-			}	
-			else if(current.zone == 5 && current.cutscene > old.cutscene && vars.split == 19){
-				vars.split++;
-				return true;
-			//Row Your Boat
-			}
-		
-			if(current.zone == 1 && current.cutscene > old.cutscene && vars.split == 20){
-				vars.cutscene++;
-			}
-			if(vars.split == 20 && vars.cutscene == 8){
-				vars.split++;
-				return true;
-			//Last Legs
-			}
-		
-			if (current.godvalue == current.nerfshop && vars.split == 21){
-				vars.split++;
-				return true;
-			//Some More Boat
-			}
-		
-			if(current.zone == 10 && current.godvalue > old.godvalue && vars.split == 22){
-				vars.split++;
-				return true;
-			//Gloktigi Skip
-			}
-		
-			if(current.zone == 8 && current.cutscene > old.cutscene && vars.split == 23){
-				vars.split++;
-				return true;
-			//Sekto's Lair
-			}
-		
-			if(current.zone == 12 && current.cutscene > old.cutscene && vars.split == 24){
-				vars.split++;
-				return true;
-			//Timer Rush
-			}
-		
-			if(current.cutscene > old.cutscene && vars.split == 25){
-				vars.split++;
-				return true;
-			//Gloktigi Twins
-			}
-		
-			if(current.quicksave > old.quicksave && vars.split == 26 && vars.end == 0){
-				vars.end++;
-			}
+		}
+		if(settings["CMeagly"] && vars.cmeagly == 1 && current.cutscene > old.cutscene)
+		{
+			vars.cmeagly++;
+			return true;
+		}
 			
-			if(vars.end == 1 && current.cutscene > old.cutscene && vars.split == 26){
-				vars.split++;
+		if(settings["CMeaglyBS"] && vars.cmeaglybs == 1 && current.primeguy > old.primeguy)
+		{
+			vars.cmeaglybs++;
+			return true;
+		}
+		
+		
+		//Packrat Palooka
+		
+		if(settings["CPackrat"] || settings["CPackratBS"])
+		{
+			if(current.zone == 51 && current.bounty > old.bounty && current.bountynoboss == old.bountynoboss && vars.cpackrat == 0)
+			{
+				if(settings["il"])
+				{
+					vars.cpackrat++;
+					vars.cpackratbs++;
+				}
+				else if(current.regionID == 2)
+				{
+					vars.cpackrat++;
+					vars.cpackratbs++;
+				}
+			}
+		}
+		if(settings["CPackrat"] && vars.cpackrat == 1 && current.cutscene > old.cutscene)
+		{
+			vars.cpackrat++;
+			return true;
+		}
+			
+		if(settings["CPackratBS"] && vars.cpackratbs == 1 && current.primeguy > old.primeguy)
+		{
+			vars.cpackratbs++;
+			return true;
+		}
+		
+		
+		//Buzzarton end
+		
+		if(settings["CBuzzartonEnd"])
+		{
+			if(current.xHeadBH <= 242.07 && current.xHeadBH >= 234.66 && current.zHeadBH <= 297.41 && current.zHeadBH >= 292.01 && current.yHeadBH <= 50 && current.yHeadBH >= 30 && vars.cbuzzartonend == 0)
+			{
+				if(settings["il"])
+				{
+					vars.cbuzzartonend++;
+				}
+				else if(current.regionID == 2)
+				{
+					vars.cbuzzartonend++;
+				}
+			}
+			if(vars.cbuzzartonend == 1 && current.cutscene > old.cutscene)
+			{
+				while(vars.barrelqs < vars.barrel)
+				{
+					vars.barrelqs++;
+				}
+				while(vars.mchestqs < vars.mchest)
+				{
+					vars.mchestqs++;
+				}
+				while(vars.mpotsqs < vars.mpots)
+				{
+					vars.mpotsqs++;
+				}
+				vars.cbuzzartonend++;
 				return true;
-			//Sekto
 			}
 		}
 		
 		
+		//New Yolk City entrance
 		
-		//All Bounties NMG
-		
-		if(settings["All Bounties"] && settings["NMG"]){
-		
-			if(current.zone == 11 && current.cutscene > old.cutscene && vars.split == 0){
-				vars.cutscene++;
+		if(settings["CNewYolkCityEntrance"])
+		{
+			if(current.xHeadBH <= -221.09 && current.xHeadBH >= -231.54 && current.zHeadBH <= 435.21 && current.zHeadBH >= 432.56 && current.yHeadBH <= 98 && current.yHeadBH >= 87 && vars.cnewyolkcityentrance == 0)
+			{
+				if(settings["il"])
+				{
+					vars.cnewyolkcityentrance++;
+				}
+				else if(current.regionID == 3)
+				{
+					vars.cnewyolkcityentrance++;
+				}
 			}
-			if(vars.split == 0 && vars.cutscene == 2){
-				vars.split++;
+			if(vars.cnewyolkcityentrance == 1 && current.cutscene > old.cutscene)
+			{
+				vars.cnewyolkcityentrance++;
 				return true;
-			//Tutorial
-			}
-		
-			if(current.bounty > old.bounty && vars.split == 1 && vars.capture == 0){
-				vars.capture++;
-			}
-			if(current.primeguy > old.primeguy && vars.split == 1 && vars.rendu == 0 && vars.capture == 1){
-				vars.rendu++;
-				vars.split++;
-				return true;
-			//Filthy Hands Floyd
-			}
-		
-			if(current.bounty > old.bounty && vars.split == 2 && vars.capture == 1){
-				vars.capture++;
-			}
-			if(current.primeguy > old.primeguy && vars.split == 2 && vars.rendu == 1 && vars.capture == 2){
-				vars.rendu++;
-				vars.split++;
-				return true;
-			//Looten Duke
-			}
-		
-			if(current.bounty > old.bounty && vars.split == 3 && vars.capture == 2){
-				vars.capture++;
-			}
-			if(current.primeguy > old.primeguy && vars.split == 3 && vars.rendu == 2 && vars.capture == 3){
-				vars.rendu++;
-				vars.split++;
-				return true;
-			//Boilz Booty
-			}
-		
-			if(current.bounty > old.bounty && vars.split == 4 && vars.capture == 3){
-				vars.capture++;
-			}
-			if(current.primeguy > old.primeguy && vars.split == 4 && vars.rendu == 3 && vars.capture == 4){
-				vars.rendu++;
-				vars.split++;
-				return true;
-			//Jo Momma
-			}
-		
-			if(current.primeguy > old.primeguy && vars.split == 5 && vars.rendu == 4 && vars.capture == 4){
-				vars.rendu++;
-				vars.split++;
-				return true;
-			//Eugene Ius
-			}
-		
-			if(current.bounty > old.bounty && vars.split == 6 && vars.capture == 4){
-				vars.capture++;
-			}
-			if(current.primeguy > old.primeguy && vars.split == 6 && vars.rendu == 5 && vars.capture == 5){
-				vars.rendu++;
-				vars.split++;
-				return true;
-			//Meagly McGraw
-			}
-		
-			if(current.bounty > old.bounty && vars.split == 7 && vars.capture == 5){
-				vars.capture++;
-			}
-			if(current.primeguy > old.primeguy && vars.split == 7 && vars.rendu == 6 && vars.capture == 6){
-				vars.rendu++;
-				vars.split++;
-				return true;
-			//Packrat Palooka
-			}
-		
-			if(current.zone == 16 && current.cutscene > old.cutscene && vars.split == 8){
-				vars.split++;
-				return true;
-			}
-			else if(current.zone == 4 && current.cutscene > old.cutscene && vars.split == 8){
-				vars.split++;
-				return true;
-			//Welcome to the jungle
-			}
-
-			if(current.zone == 2 && old.zone == 4 && vars.zone == 0 && vars.split == 9){
-				vars.zone++;
-			}
-			if(current.zone == 4 && old.zone == 2 && vars.zone == 1 && vars.split == 9){
-				vars.zone++;
-			}
-			
-			if(current.primeguy > old.primeguy && vars.split == 9 && vars.rendu == 7 && vars.zone == 2){
-				vars.rendu++;
-				vars.split++;
-				return true;
-			//Xplosives McGee
-			}
-		
-			if(current.zone == 2 && old.zone == 4 && vars.zone == 2 && vars.split == 10){
-				vars.zone++;
-			}
-			if(current.zone == 4 && old.zone == 2 && vars.zone == 3 && vars.split == 10){
-				vars.zone++;
-			}
-			if(current.primeguy > old.primeguy && vars.split == 10 && vars.rendu == 8 && vars.zone == 4){
-				vars.rendu++;
-				vars.split++;
-				return true;
-			//Boss 1
-			}
-		
-			if(current.zone == 2 && old.zone == 4 && vars.zone == 4 && vars.split == 11){
-				vars.zone++;
-			}
-			if(current.primeguy > old.primeguy && vars.split == 11 && vars.rendu == 9 && vars.zone == 5){
-				vars.rendu++;
-				vars.split++;
-				return true;
-			//Boss 2
-			}
-		
-			if(current.zone == 2 && old.zone == 4 && vars.zone == 5 && vars.split == 12){
-				vars.zone++;
-			}
-			if(current.primeguy > old.primeguy && vars.split == 12 && vars.rendu == 10 && vars.zone == 6){
-				vars.rendu++;
-				vars.split++;
-				return true;
-			//Boss 3
-			}
-		
-			if(current.zone == 9 && current.cutscene > old.cutscene && vars.split == 13){
-				vars.split++;
-				return true;
-			//Mongo River
-			}
-		
-			if(current.river < old.river && current.godvalue == current.river && vars.split == 14){
-				vars.split++;
-				return true;
-			//Ambush
-			}
-		
-			if(current.zone == 2 &&  current.cutscene > old.cutscene && vars.split == 15){
-				vars.split++;
-				return true;
-			//Dusky Hollow
-			}
-		
-			if(current.zone == 30 && current.cutscene > old.cutscene && vars.split == 16){
-				vars.split++;
-				return true;
-			//Wolvark Docks
-			}
-		
-			if(current.zone == 33 && current.cutscene > old.cutscene && vars.split == 17){
-				vars.split++;
-				return true;
-			//Grubb Village fight
-			}
-		
-			if(current.zone == 4 && current.cutscene > old.cutscene && vars.split == 18){
-				vars.boat++;
-			}
-			if(vars.boat == 2 && vars.split == 18){
-				vars.split++;
-				return true;
-			}	
-			else if(current.zone == 5 && current.cutscene > old.cutscene && vars.split == 18){
-				vars.split++;
-				return true;
-			//Row Your Boat
-			}
-		
-			if(current.zone == 1 && current.cutscene > old.cutscene && vars.split == 19){
-				vars.cutscene++;
-			}
-			if(vars.split == 19 && vars.cutscene == 4){
-				vars.split++;
-				return true;
-			//Last Legs
-			}
-		
-			if(current.zone == 8 && current.cutscene > old.cutscene && vars.split == 20) {
-				vars.split++;
-				return true;
-			//Some More Boat
-			}
-		
-			if(current.zone == 10 && current.godvalue > old.godvalue && vars.split == 21){
-				vars.split++;
-				return true;
-			//Gloktigi Skip
-			}
-		
-			if(current.zone == 8 && current.cutscene > old.cutscene && vars.split == 22){
-				vars.split++;
-				return true;
-			//Sekto's Lair
-			}
-		
-			if(current.zone == 12 && current.cutscene > old.cutscene && vars.split == 23){
-				vars.split++;
-				return true;
-			//Timer Rush
-			}
-		
-			if(current.cutscene > old.cutscene && vars.split == 24){
-				vars.split++;
-				return true;
-			//Gloktigi Twins
-			}
-		
-			if(current.quicksave > old.quicksave && vars.split == 25 && vars.end == 0){
-				vars.end++;
-			}
-			
-			if(vars.end == 1 && current.cutscene > old.cutscene && vars.split == 25){
-				vars.split++;
-				return true;
-			//Sekto
 			}
 		}
-
+		
+		
+		//McGee 2nd minecart
+		
+		if(settings["CMcGeeMinecart"])
+		{
+			if(current.xHeadBH <= -668.93 && current.xHeadBH >= -670.05 && current.zHeadBH <= 1321.15 && current.zHeadBH >= 1311.29 && current.yHeadBH <= 71 && current.yHeadBH >= 60 && vars.cmcgeeminecart == 0)
+			{
+				if(settings["il"])
+				{
+					vars.cmcgeeminecart++;
+				}
+				else if(current.regionID == 3)
+				{
+					vars.cmcgeeminecart++;
+				}
+			}
+			if(vars.cmcgeeminecart == 1 && current.cutscene > old.cutscene)
+			{
+				vars.cmcgeeminecart++;
+				return true;
+			}
+			
+		}
+		
+		
+		//Xplosives McGee
+		
+		if(settings["CMcGee"] || settings["CMcGeeBS"])
+		{
+			if(current.zone == 45 && current.bounty > old.bounty && current.bountynoboss == old.bountynoboss && vars.cmcgee == 0)
+			{
+				if(settings["il"])
+				{
+					vars.cmcgee++;
+					vars.cmcgeebs++;
+				}
+				else if(current.regionID == 3)
+				{
+					vars.cmcgee++;
+					vars.cmcgeebs++;
+				}
+			}
+		}
+		if(settings["CMcGee"] && vars.cmcgee == 1 && current.cutscene > old.cutscene)
+		{
+			vars.cmcgee++;
+			return true;
+		}
+			
+		if(settings["CMcGeeBS"] && vars.cmcgeebs == 1 && current.primeguy > old.primeguy)
+		{
+			vars.cmcgeebs++;
+			return true;
+		}
+		
+		
+		//Fatty sky cart
+		
+		if(settings["CFattyCabin"])
+		{
+			if(current.xHeadBH <= -352.05 && current.xHeadBH >= -364.47 && current.zHeadBH <= 131 && current.zHeadBH >= 130 && current.yHeadBH <= 103 && current.yHeadBH >= 89 && vars.cfattycabin == 0)
+			{
+				if(settings["il"])
+				{
+					vars.cfattycabin++;
+				}
+				else if(current.regionID == 3)
+				{
+					vars.cfattycabin++;
+				}
+			}
+			if(vars.cfattycabin == 1)
+			{
+				vars.cfattycabin++;
+				return true;
+			}
+		}
+		
+		
+		//Fatty McBoomboom
+		
+		if(settings["CFatty"] || settings["CFattyBS"])
+		{
+			if(current.zone == 28 && current.bounty > old.bounty && current.bountynoboss == old.bountynoboss && vars.cfatty == 0)
+			{
+				if(settings["il"])
+				{
+					vars.cfatty++;
+					vars.cfattybs++;
+				}
+				else if(current.regionID == 3)
+				{
+					vars.cfatty++;
+					vars.cfattybs++;
+				}
+			}
+		}
+		if(settings["CFatty"] && vars.cfatty == 1 && current.cutscene > old.cutscene)
+		{
+			vars.cfatty++;
+			return true;
+		}
+			
+		if(settings["CFattyBS"] && vars.cfattybs == 1 && current.primeguy > old.primeguy)
+		{
+			vars.cfattybs++;
+			return true;
+		}
+		
+		
+		//Elboze Freely
+		
+		if(settings["CElboze"] || settings["CElbozeBS"])
+		{
+			if(current.zone == 54 && current.bounty > old.bounty && vars.celboze == 0 || current.zone == 66 && current.bounty > old.bounty && vars.celboze == 0)
+			{
+				if(settings["il"])
+				{
+					vars.celboze++;
+					vars.celbozebs++;
+				}
+				else if(current.regionID == 3)
+				{
+					vars.celboze++;
+					vars.celbozebs++;
+				}
+			}
+		}
+		if(settings["CElboze"] && vars.celboze == 1 && current.cutscene > old.cutscene)
+		{
+			vars.celboze++;
+			return true;
+		}
+			
+		if(settings["CElbozeBS"] && vars.celbozebs == 1 && current.primeguy > old.primeguy)
+		{
+			vars.celbozebs++;
+			return true;
+		}
+		
+		
+		//Giant Sleg
+		
+		if(settings["CSleg"])
+		{
+			if(current.xCoordBH <= -18 && current.xCoordBH >= -19 && current.zCoordBH <= -19 && current.zCoordBH >= -20 && current.yCoordBH <= 50 && current.yCoordBH >= 49 && vars.csleg == 0)
+			{
+				if(settings["il"])
+				{
+					vars.csleg++;
+				}
+				else if(current.regionID == 3)
+				{
+					vars.csleg++;
+				}
+			}
+			
+			if(current.quicksave > old.quicksave && vars.csleg == 1)
+			{
+				vars.csleg++;
+			}
+			
+			if(current.regionTimer < old.regionTimer && vars.csleg == 1)
+			{
+				vars.csleg--;
+			}
+			
+			if(vars.csleg == 1 && current.cutscene > old.cutscene || vars.csleg == 2  && current.cutscene > old.cutscene)
+			{
+				vars.csleg = 3;
+				return true;
+			}
+		}
+		
+		
+		//Lefty Lugnutz
+		
+		if(settings["CLefty"] || settings["CLeftyBS"])
+		{
+			if(current.zone == 17 && current.bounty > old.bounty && current.bountynoboss == old.bountynoboss && vars.clefty == 0)
+			{
+				if(settings["il"])
+				{
+					vars.clefty++;
+					vars.cleftybs++;
+				}
+				else if(current.regionID == 3)
+				{
+					vars.clefty++;
+					vars.cleftybs++;
+				}
+			}
+		}
+		if(settings["CLefty"] && vars.clefty == 1 && current.cutscene > old.cutscene)
+		{
+			vars.clefty++;
+			return true;
+		}
+			
+		if(settings["CLeftyBS"] && vars.cleftybs == 1 && current.primeguy > old.primeguy)
+		{
+			vars.cleftybs++;
+			return true;
+		}
 		
 
+		//New Yolk City end
+		
+		if(settings["CNewYolkCityEnd"])
+		{
+			if(current.xHeadBH <= 549 && current.xHeadBH >= 548 && current.zHeadBH <= 10 && current.zHeadBH >= 9 && current.yHeadBH <= 50 && current.yHeadBH >= 49 && vars.cnewyolkcityend == 0)
+			{
+				if(settings["il"])
+				{
+					vars.cnewyolkcityend++;
+				}
+				else if(current.regionID == 3)
+				{
+					vars.cnewyolkcityend++;
+				}
+			}
+			if(vars.cnewyolkcityend == 1)
+			{
+				while(vars.barrelqs < vars.barrel)
+				{
+					vars.barrelqs++;
+				}
+				while(vars.mchestqs < vars.mchest)
+				{
+					vars.mchestqs++;
+				}
+				while(vars.mpotsqs < vars.mpots)
+				{
+					vars.mpotsqs++;
+				}
+				vars.cnewyolkcityend++;
+				return true;
+			}
+		}
+		
+		
+		//Cabin window
+		
+		if(settings["CCabin"])
+		{
+			if(current.xHeadSteef <= -90 && current.xHeadSteef >= -95 && current.zHeadSteef <= -309 && current.zHeadSteef >= -310 && current.yHeadSteef <= -100 && current.yHeadSteef >= -124 && vars.ccabin == 0)
+			{
+				if(settings["il"])
+				{
+					vars.ccabin++;
+				}
+				else if(current.regionID == 4)
+				{
+					vars.ccabin++;
+				}
+			}
+			if(vars.ccabin == 1)
+			{
+				vars.ccabin++;
+				return true;
+			}
+		}
+		
+		
+		//Dusky Hollow
+		
+		if(settings["CDusky"])
+		{
+			if(current.xHeadSteef <= -594 && current.xHeadSteef >= -620 && current.zHeadSteef <= 274 && current.zHeadSteef >= 258 && current.yHeadSteef <= -139 && current.yHeadSteef >= -259 && vars.cdusky == 0)
+			{
+				if(settings["il"])
+				{
+					vars.cdusky++;
+				}
+				else if(current.regionID == 4)
+				{
+					vars.cdusky++;
+				}
+			}
+			if(vars.cdusky == 1 && current.cutscene > old.cutscene)
+			{
+				vars.cdusky++;
+				return true;
+			}
+		}
+		
+		
+		//Boombat RNG
+		
+		if(settings["CRNG"])
+		{
+			if(current.xHeadSteef <= -89 && current.xHeadSteef >= -93 && current.zHeadSteef <= -673 && current.zHeadSteef >= -717 && current.yHeadSteef <= 80 && current.yHeadSteef >= 50 && vars.crng == 0)
+			{
+				if(settings["il"])
+				{
+					vars.crng++;
+				}
+				else if(current.regionID == 5)
+				{
+					vars.crng++;
+				}
+			}
+			if(vars.crng == 1 && current.cutscene > old.cutscene)
+			{
+				vars.crng++;
+				return true;
+			}
+		}
+		
+		
+		//Wolvark Dock's entrance
+		
+		if(settings["CDocksStart"])
+		{
+			if(current.xHeadSteef <= 229 && current.xHeadSteef >= 228 && current.zHeadSteef <= -235 && current.zHeadSteef >= -256 && current.yHeadSteef <= 88 && current.yHeadSteef >= 58 && vars.cdocksstart == 0)
+			{
+				if(settings["il"])
+				{
+					vars.cdocksstart++;
+				}
+				else if(current.regionID == 5)
+				{
+					vars.cdocksstart++;
+				}
+			}
+			if(vars.cdocksstart == 1)
+			{
+				vars.cdocksstart++;
+				return true;
+			}
+		}
+		
+		
+		//Wolvark Dock's elevator
+		
+		if(settings["CDocksElevator"])
+		{
+			if(current.xHeadSteef <= 566 && current.xHeadSteef >= 559 && current.zHeadSteef <= -364 && current.zHeadSteef >= -365 && current.yHeadSteef <= 110 && current.yHeadSteef >= 102 && vars.cdockselevator == 0)
+			{
+				if(settings["il"])
+				{
+					vars.cdockselevator++;
+				}
+				else if(current.regionID == 5)
+				{
+					vars.cdockselevator++;
+				}
+			}
+			if(vars.cdockselevator == 1)
+			{
+				vars.cdockselevator++;
+				return true;
+			}
+		}
+		
+		
+		//Wolvark Dock's end
+		
+		if(settings["CDocksEnd"])
+		{
+			if(current.xHeadSteef <= 400 && current.xHeadSteef >= 369 && current.zHeadSteef <= -678 && current.zHeadSteef >= -679 && current.yHeadSteef <= 100 && current.yHeadSteef >= 40 && vars.cdocksend == 0 || current.xHeadSteef <= 351 && current.xHeadSteef >= 344 && current.zHeadSteef <= -709 && current.zHeadSteef >= -757 && current.yHeadSteef <= 100 && current.yHeadSteef >= 50 && vars.cdocksend == 0)
+			{
+				if(settings["il"])
+				{
+					vars.cdocksend++;
+				}
+				else if(current.regionID == 5)
+				{
+					vars.cdocksend++;
+				}
+			}
+			if(vars.cdocksend == 1 && current.cutscene > old.cutscene)
+			{
+				vars.cdocksend++;
+				return true;
+			}
+		}
+		
+		
+		//Boat start
+		
+		if(settings["CBoatStart"])
+		{
+			if(current.xHeadSteef <= 396 && current.xHeadSteef >= 380 && current.zHeadSteef <= -821 && current.zHeadSteef >= -841 && current.yHeadSteef <= 100 && current.yHeadSteef >= 50 && vars.cboatstart == 0)
+			{
+				if(settings["il"])
+				{
+					vars.cboatstart++;
+				}
+				else if(current.regionID == 5)
+				{
+					vars.cboatstart++;
+				}
+			}
+			if(vars.cboatstart == 1 && current.cutscene > old.cutscene)
+			{
+				vars.cboatstart++;
+				return true;
+			}
+		}
+		
+		
+		//Boat 1 dam
+		
+		if(settings["CBoatDam"])
+		{
+			if(current.xCoordSteef <= 637 && current.xCoordSteef >= 636 && current.zCoordSteef <= -690 && current.zCoordSteef >= -691 && current.yCoordSteef <= -30 && current.yCoordSteef >= -31 && vars.cboatdam == 0)
+			{
+				if(settings["il"])
+				{
+					vars.cboatdam++;
+				}
+				else if(current.regionID == 5)
+				{
+					vars.cboatdam++;
+				}
+			}
+			if(vars.cboatdam == 1)
+			{
+				vars.cboatdam++;
+				return true;
+			}
+		}
+		
+		
+		//Boat end
+		
+		if(settings["CBoatEnd"])
+		{
+			if(current.xCoordSteef <= 1078 && current.xCoordSteef >= 1043 && current.zCoordSteef <= 29 && current.zCoordSteef >= -16 && current.yCoordSteef <= -10 && current.yCoordSteef >= -40 && vars.cboatend == 0)
+			{
+				if(settings["il"])
+				{
+					vars.cboatend++;
+				}
+				else if(current.regionID == 5)
+				{
+					vars.cboatend++;
+				}
+			}
+			if(vars.cboatend == 1 && current.cutscene > old.cutscene)
+			{
+				vars.cboatend++;
+				return true;
+			}
+		}
+		
+		
+		//Last Legs entrance
+		
+		if(settings["CLastLegsEnter"])
+		{
+			if(current.xCoordSteef <= -2204 && current.xCoordSteef >= -2216 && current.zCoordSteef <= -1199 && current.zCoordSteef >= -1200 && current.yCoordSteef <= 40 && current.yCoordSteef >= 25 && vars.clastlegsenter == 0)
+			{
+				if(settings["il"])
+				{
+					vars.clastlegsenter++;
+				}
+				else if(current.regionID == 6)
+				{
+					vars.clastlegsenter++;
+				}
+			}
+			if(vars.clastlegsenter == 1)
+			{
+				vars.clastlegsenter++;
+				return true;
+			}
+		}
+		
+		
+		//Last Legs armor
+		
+		if(settings["CLastLegsArmor"])
+		{
+			if(current.xCoordSteef <= -2112 && current.xCoordSteef >= -2113 && current.zCoordSteef <= -902 && current.zCoordSteef >= -903 && current.yCoordSteef <= 29 && current.yCoordSteef >= 28 && vars.clastlegsarmor == 0)
+			{
+				if(settings["il"])
+				{
+					vars.clastlegsarmor++;
+				}
+				else if(current.regionID == 6)
+				{
+					vars.clastlegsarmor++;
+				}
+			}
+			if(vars.clastlegsarmor == 1)
+			{
+				vars.clastlegsarmor++;
+				return true;
+			}
+		}
+				
+		
+		//Last Legs end
+		
+		if(settings["CLastLegsEnd"])
+		{
+			if(current.xHeadSteef <= -2091 && current.xHeadSteef >= -2145 && current.zHeadSteef <= -1374 && current.zHeadSteef >= -1386 && current.yHeadSteef <= 50 && current.yHeadSteef >= 20 && vars.clastlegsend == 0 || current.xHeadSteef <= -2104 && current.xHeadSteef >= -2149 && current.zHeadSteef <= -1360 && current.zHeadSteef >= -1372 && current.yHeadSteef <= 50 && current.yHeadSteef >= 20 && vars.clastlegsend == 0)
+			{
+				if(settings["il"])
+				{
+					vars.clastlegsend++;
+				}
+				else if(current.regionID == 6)
+				{
+					vars.clastlegsend++;
+				}
+			}
+			if(vars.clastlegsend == 1 && current.cutscene > old.cutscene)
+			{
+				vars.clastlegsend++;
+				return true;
+			}
+		}
+		
+		
+		//Boat tunnel entrance
+		
+		if(settings["CBoatTunnelStart"])
+		{
+			if(current.xHeadSteef <= -1232 && current.xHeadSteef >= -1238 && current.zHeadSteef <= -1577 && current.zHeadSteef >= -1597 && current.yHeadSteef <= 60 && current.yHeadSteef >= 10 && vars.cboattunelstart == 0)
+			{
+				if(settings["il"])
+				{
+					vars.cboattunelstart++;
+				}
+				else if(current.regionID == 6)
+				{
+					vars.cboattunelstart++;
+				}
+			}
+			if(vars.cboattunelstart == 1)
+			{
+				vars.cboattunelstart++;
+				return true;
+			}
+		}
+		
+		
+		//Boat tunnel exit
+		
+		if(settings["CBoatTunnelEnd"])
+		{
+			if(current.xHeadSteef <= -5 && current.xHeadSteef >= -13 && current.zHeadSteef <= -1601 && current.zHeadSteef >= -1613 && current.yHeadSteef <= 60 && current.yHeadSteef >= 10 && vars.cboattunelend == 0)
+			{
+				if(settings["il"])
+				{
+					vars.cboattunelend++;
+				}
+				else if(current.regionID == 6)
+				{
+					vars.cboattunelend++;
+				}
+			}
+			if(vars.cboattunelend == 1 && current.cutscene > old.cutscene)
+			{
+				vars.cboattunelend++;
+				return true;
+			}
+		}
+		
+		
+		//Dam entrance
+		
+		if(settings["CDamStart"])
+		{
+			if(current.xHeadSteef <= 70 && current.xHeadSteef >= 50 && current.zHeadSteef <= -1180 && current.zHeadSteef >= -1181 && current.yHeadSteef <= 60 && current.yHeadSteef >= 10 && vars.cdamstart == 0)
+			{
+				if(settings["il"])
+				{
+					vars.cdamstart++;
+				}
+				else if(current.regionID == 6)
+				{
+					vars.cdamstart++;
+				}
+			}
+			if(vars.cdamstart == 1)
+			{
+				vars.cdamstart++;
+				return true;
+			}
+		}
+		
+		
+		//Dam 2nd water elevator
+		
+		if(settings["CDamMid"])
+		{
+			if(current.xHeadSteef <= 70 && current.xHeadSteef >= 50 && current.zHeadSteef <= -708 && current.zHeadSteef >= -709 && current.yHeadSteef <= 60 && current.yHeadSteef >= 10 && vars.cdammid == 0)
+			{
+				if(settings["il"])
+				{
+					vars.cdammid++;
+				}
+				else if(current.regionID == 6)
+				{
+					vars.cdammid++;
+				}
+			}
+			if(vars.cdammid == 1)
+			{
+				vars.cdammid++;
+				return true;
+			}
+		}
+		
+		
+		//1st Gloktigi
+		
+		if(settings["CGloktigi"])
+		{
+			if(current.xHeadSteef <= 85 && current.xHeadSteef >= 36 && current.zHeadSteef <= -231 && current.zHeadSteef >= -232 && current.yHeadSteef <= 50 && current.yHeadSteef >= 25 && vars.cgloktigi == 0)
+			{
+				if(settings["il"])
+				{
+					vars.cgloktigi++;
+				}
+				else if(current.regionID == 6)
+				{
+					vars.cgloktigi++;
+				}
+			}
+			if(vars.cgloktigi == 1 && current.cutscene > old.cutscene)
+			{
+				vars.cgloktigi++;
+				return true;
+			}
+		}
+		
+		
+		//Slow opening door
+		
+		if(settings["CDoor"])
+		{
+			if(current.xHeadSteef <= 165 && current.xHeadSteef >= 138 && current.zHeadSteef <= 1250 && current.zHeadSteef >= 1243 && current.yHeadSteef <= 40 && current.yHeadSteef >= 20 && vars.cdoor == 0)
+			{
+				if(settings["il"])
+				{
+					vars.cdoor++;
+				}
+				else if(current.regionID == 7)
+				{
+					vars.cdoor++;
+				}
+			}
+			if(vars.cdoor == 1)
+			{
+				vars.cdoor++;
+				return true;
+			}
+		}
+		
+		
+		//Final elevator
+		
+		if(settings["CElevator"])
+		{
+			if(current.xHeadSteef <= -322 && current.xHeadSteef >= -327 && current.zHeadSteef <= 1523 && current.zHeadSteef >= 1517 && current.yHeadSteef <= 110 && current.yHeadSteef >= 70 && vars.celevator == 0)
+			{
+				if(settings["il"])
+				{
+					vars.celevator++;
+				}
+				else if(current.regionID == 7)
+				{
+					vars.celevator++;
+				}
+			}
+			if(vars.celevator == 1)
+			{
+				vars.celevator++;
+				return true;
+			}
+		}
+		
+		
+		//Timer Rush start
+		
+		if(settings["CTimerRushStart"])
+		{
+			if(current.xHeadSteef <= -277 && current.xHeadSteef >= -297 && current.zHeadSteef <= 1419 && current.zHeadSteef >= 1397 && current.yHeadSteef <= 320 && current.yHeadSteef >= 290 && vars.ctimerrushstart == 0)
+			{
+				if(settings["il"])
+				{
+					vars.ctimerrushstart++;
+				}
+				else if(current.regionID == 7)
+				{
+					vars.ctimerrushstart++;
+				}
+			}
+			if(vars.ctimerrushstart == 1 && current.cutscene > old.cutscene)
+			{
+				vars.ctimerrushstart++;
+				return true;
+			}
+		}
+		
+		
+		//Timer Rush end
+		
+		if(settings["CTimerRushEnd"])
+		{
+			if(current.xCoordSteef <= -150 && current.xCoordSteef >= -188 && current.zCoordSteef <= 1250 && current.zCoordSteef >= 1236 && current.yCoordSteef <= 400 && current.yCoordSteef >= 338 && vars.ctimerrushend == 0 || current.xCoordSteef <= -137 && current.xCoordSteef >= -150 && current.zCoordSteef <= 1250 && current.zCoordSteef >= 1213 && current.yCoordSteef <= 400 && current.yCoordSteef >= 338 && vars.ctimerrushend == 0)
+			{
+				if(settings["il"])
+				{
+					vars.ctimerrushend++;
+				}
+				else if(current.regionID == 7)
+				{
+					vars.ctimerrushend++;
+				}
+			}
+			if(vars.ctimerrushend == 1 && current.cutscene > old.cutscene)
+			{
+				vars.ctimerrushend++;
+				return true;
+			}
+		}
+		
+		
+		//Final boss fight
+		
+		if(settings["CBossStart"] || settings["CSektoStart"] || settings["CSektoEnd"])
+		{
+			if(current.xHeadSteef <= -435 && current.xHeadSteef >= -450 && current.zHeadSteef <= 961 && current.zHeadSteef >= 949 && current.yHeadSteef <= 400 && current.yHeadSteef >= 350 && vars.cbossstart == 0)
+			{
+				if(settings["il"])
+				{
+					vars.cbossstart++;
+				}
+				else if(current.regionID == 7)
+				{
+					vars.cbossstart++;
+				}
+			}
+		}
+		if(vars.cbossstart == 1 && current.cutscene > old.cutscene)
+		{
+			if(settings["CBossStart"])
+			{
+				vars.cbossstart++;
+				return true;
+			}
+			else
+			{
+				vars.cbossstart++;
+			}
+		}
+		if(current.cutscene < old.cutscene && vars.cbossstart == 2 && vars.csektostart == 0)
+		{
+			vars.csektostart++;
+		}
+		if(vars.csektostart == 1 && current.cutscene > old.cutscene)
+		{
+			if(settings["CSektoStart"])
+			{
+				vars.csektostart++;
+				return true;
+			}
+			else
+			{
+				vars.csektostart++;
+			}
+		}
+		if(current.cutscene < old.cutscene && vars.csektostart == 2 && vars.csektoend == 0)
+		{
+			vars.csektoend++;
+		}
+		if(vars.csektoend == 1 && current.cutscene > old.cutscene)
+		{
+			if(settings["CSektoEnd"])
+			{
+				vars.csektoend++;
+				return true;
+			}
+		}
+	}
+	
+	if(settings["Extra"])
+	{
+	
 		//100% COUNTERS
 		
-		if(settings["100%"]){
+		if(settings["Counters"])
+		{
 		
-			if(settings["Counters"]){
-		
-				//Barrels counter
-				
-				if(current.barrel > old.barrel && current.statusobject != old.statusobject){
-					vars.barrel++;
-				}
+			//Total region
+			
+			if(current.regionID == 0)
+			{
+				vars.barrelregion = 0;
+				vars.mchestregion = 0;
+				vars.mpotregion = 0;
+			}
+			if(current.regionID == 1)
+			{
+				vars.barrelregion = 2;
+				vars.mchestregion = 14;
+				vars.mpotregion = 0;
+			}
+			if(current.regionID == 2)
+			{
+				vars.barrelregion = 4;
+				vars.mchestregion = 39;
+				vars.mpotregion = 13;
+			}
+			if(current.regionID == 3)
+			{
+				vars.barrelregion = 6;
+				vars.mchestregion = 69;
+				vars.mpotregion = 19;
+			}
+			if(current.regionID == 5)
+			{
+				vars.barrelregion = 8;
+				vars.mchestregion = 69;
+				vars.mpotregion = 19;
+			}
+			if(current.regionID == 6)
+			{
+				vars.barrelregion = 9;
+				vars.mchestregion = 69;
+				vars.mpotregion = 19;
+			}
+			if(current.regionID == 7)
+			{
+				vars.barrelregion = 10;
+				vars.mchestregion = 69;
+				vars.mpotregion = 19;
+			}
+			
 
-				if(current.quicksave > old.quicksave){
-					while(vars.barrelqs < vars.barrel){
-						vars.barrelqs++;
-					}
+			//Region change counter save
+			
+			
+			//Gizzard Gulch end
+			
+			if(current.xHeadBH <= 342.02 && current.xHeadBH >= 341.43 && current.zHeadBH <= -5.60 && current.zHeadBH >= -39.92 && current.yHeadBH <= 90 && current.yHeadBH >= 41 && current.regionID == 1)
+			{
+				vars.counterstore = 1;
+			}
+
+			//Buzzarton end
+			
+			if(current.xHeadBH <= 242.07 && current.xHeadBH >= 234.66 && current.zHeadBH <= 297.41 && current.zHeadBH >= 292.01 && current.yHeadBH <= 50 && current.yHeadBH >= 30 && current.regionID == 2)
+			{
+				vars.counterstore = 1;
+			}
+			
+			//New Yolk City end
+			
+			if(current.xHeadBH <= 549 && current.xHeadBH >= 548 && current.zHeadBH <= 10 && current.zHeadBH >= 9 && current.yHeadBH <= 50 && current.yHeadBH >= 49 && current.regionID == 3)
+			{
+				vars.counterstore = 1;
+			}
+		
+		
+			if(current.regionID > old.regionID)
+			{
+				vars.counterstore = 0;
+			}
+			
+			
+			//Quick save counters qs update
+			
+			if(current.quicksave > old.quicksave || vars.counterstore == 1 && current.cutscene > old.cutscene)
+			{
+				while(vars.barrelqs < vars.barrel)
+				{
+					vars.barrelqs++;
 				}
-				if(vars.split == 3 && current.cutscene > old.cutscene){
-					while(vars.barrelqs < vars.barrel){
-						vars.barrelqs++;
-					}
+				while(vars.mchestqs < vars.mchest)
+				{
+					vars.mchestqs++;
 				}
-				if(current.quickload == 0){
-					while(vars.barrel > vars.barrelqs){
-						vars.barrel--;
-					}
+				while(vars.mpotsqs < vars.mpots)
+				{
+					vars.mpotsqs++;
 				}
-				
-				//Moolah Chests counter
-				
-				if(current.mchest > old.mchest){
-					vars.mchest++;
-					vars.mchestmem++;
+			}
+			
+			//Quick load counters descrease
+			
+			if(current.quickload == 0)
+			{
+				while(vars.barrel > vars.barrelqs)
+				{
+					vars.barrel--;
 				}
-				while(vars.mchestmem < current.mchest){
-					vars.mchest++;
-					vars.mchestmem++;
+				while(vars.mchest > vars.mchestqs)
+				{
+					vars.mchest--;
 				}
-				if(current.quicksave > old.quicksave){
-					while(vars.mchestqs < vars.mchest){
-						vars.mchestqs++;
-					}
-				}
-				if(vars.split == 3 && current.cutscene > old.cutscene){
-					while(vars.mchestqs < vars.mchest){
-						vars.mchestqs++;
-					}
-				}
-				if(current.quickload == 0){
-					while(vars.mchest > vars.mchestqs){
-						vars.mchest--;
-					}
-				}
-				
-				//Moolah Pots counter (+ Idol)
-				
-				if(current.mpots != old.mpots){
-					vars.mpots++;
-					vars.mpotsmem++;
-				}
-				if(vars.mpotsmem == 8){
-					vars.mpotsmem = 0;
-				}
-				while(vars.mpotsmem != current.mpots && vars.mpotsmem < 8){
-					vars.mpots++;
-					vars.mpotsmem++;
-				}
-				
-				if(vars.split == 5 && vars.mpots == 9){
+				while(vars.mpots > vars.mpotsqs)
+				{
 					vars.mpots--;
-					vars.idol++;
-				}
-				
-				if(vars.split == 5 && vars.idol == 1 && current.quicksave > old.quicksave && vars.idolqs == 0){
-					vars.idolqs++;
-				}
-				
-				if(vars.split == 5 && vars.idol == 1 && current.quickload == 0 && vars.idolqs == 0){
-					vars.idol = 0;
-				}
-				
-				if(current.quicksave > old.quicksave){
-					while(vars.mpotsqs < vars.mpots){
-						vars.mpotsqs++;
-					}
-				}
-				if(vars.split == 8 && current.cutscene > old.cutscene){
-					while(vars.mpotsqs < vars.mpots){
-						vars.mpotsqs++;
-					}
-				}
-				if(current.quickload == 0){
-					while(vars.mpots > vars.mpotsqs){
-						vars.mpots--;
-					}
 				}
 			}
-		}
+			
 		
-		//100% SPLITS
+			//Barrels
+			
+			if(current.barrel > old.barrel && current.statusobject != old.statusobject)
+			{
+				vars.barrel++;
+			}
+			
+			//Moolah Chests
+			
+			if(current.mchest > old.mchest)
+			{
+				vars.mchest++;
+				vars.mchestmem++;
+			}
+			while(vars.mchestmem < current.mchest)
+			{
+				vars.mchest++;
+				vars.mchestmem++;
+			}
 
-		
-		
-		//100% No Ghost
-		
-		if(settings["100%"] && settings["No Ghost"]){
-		
-			if(current.zone == 11 && current.cutscene > old.cutscene && vars.split == 0){
-				vars.cutscene++;
-			}
-			if(vars.split == 0 && vars.cutscene == 2){
-				vars.split++;
-				vars.barrelsplit = 1;
-				return true;
-			//Tutorial
-			}
-		
-			if(current.bounty > old.bounty && vars.split == 1 && vars.capture == 0){
-				vars.capture++;
-			}
-			if(current.primeguy > old.primeguy && vars.split == 1 && vars.rendu == 0 && vars.capture == 1){
-				vars.rendu++;
-				vars.split++;
-				vars.chestsplit = 8;
-				return true;
-			//Filthy Hands Floyd
-			}
-		
-			if(current.bounty > old.bounty && vars.split == 2 && vars.capture == 1){
-				vars.capture++;
-			}
-			if(current.primeguy > old.primeguy && vars.split == 2 && vars.rendu == 1 && vars.capture == 2){
-				vars.rendu++;
-				vars.split++;
-				vars.barrelsplit = 3;
-				vars.chestsplit = 14;
-				return true;
-			//Looten Duke
-			}
-		
-			if(current.bounty > old.bounty && vars.split == 3 && vars.capture == 2){
-				vars.capture++;
-			}
-			if(current.primeguy > old.primeguy && vars.split == 3 && vars.rendu == 2 && vars.capture == 3){
-				vars.rendu++;
-				vars.split++;
-				vars.chestsplit = 17;
-				return true;
-			//Boilz Booty
-			}
-		
-			if(current.zone == 60 && current.bounty > old.bounty && vars.split == 4 && vars.capture == 3){
-				vars.capture++;
-			}
-			if(current.cutscene > old.cutscene && vars.split == 4 && vars.capture == 4){
-				vars.split++;
-				vars.chestsplit = 26;
-				vars.potsplit = 8;
-				vars.idolsplit = 1;
-				return true;
-			//Jo Momma
-			}
-		
-			if(current.primeguy > old.primeguy && vars.split == 5 && vars.rendu == 3 && vars.capture == 4){
-				vars.rendu++;
-				vars.split++;
-				vars.chestsplit = 32;
-				return true;
-			//Eugene Ius
-			}
-		
-			if(current.bounty > old.bounty && vars.split == 6 && vars.capture == 4){
-				vars.capture++;
-			}
-			if(current.primeguy > old.primeguy && vars.split == 6 && vars.rendu == 4 && vars.capture == 5){
-				vars.rendu++;
-				vars.split++;
-				vars.barrelsplit = 4;
-				vars.chestsplit = 39;
-				return true;
-			//Meagly McGraw
-			}
-		
-			if(current.bounty > old.bounty && vars.split == 7 && vars.capture == 5){
-				vars.capture++;
-			}
-			if(current.primeguy > old.primeguy && vars.split == 7 && vars.rendu == 5 && vars.capture == 6){
-				vars.rendu++;
-				vars.split++;
-				vars.chestsplit = 44;
-				vars.potsplit = 13;
-				return true;
-			//Packrat Palooka
-			}
-		
-			if(current.zone == 16 && current.cutscene > old.cutscene && vars.split == 8){
-				vars.split++;
-				vars.barrelsplit = 5;
-				vars.chestsplit = 47;
-				return true;
-			}
-			else if(current.zone == 4 && current.cutscene > old.cutscene && vars.split == 8){
-				vars.split++;
-				vars.barrelsplit = 5;
-				vars.chestsplit = 47;
-				return true;
-			//Welcome to the jungle
-			}
-		
-			if(current.bounty > old.bounty && vars.split == 9 && vars.capture == 6){
-				vars.capture++;
-			}
-			if(current.primeguy > old.primeguy && vars.split == 9 && vars.rendu == 6 && vars.capture == 7){
-				vars.rendu++;
-				vars.split++;
-				vars.barrelsplit = 6;
-				vars.chestsplit = 54;
-				vars.potsplit = 15;
-				return true;
-			//Xplosives McGee
-			}
-		
-			if(current.bounty > old.bounty && vars.split == 10 && vars.capture == 7 && current.zone == 28){
-				vars.capture++;
-			}
-			if(current.zone == 28 && current.cutscene > old.cutscene && vars.split == 10 && vars.capture == 8){
-				vars.split++;
-				vars.chestsplit = 56;
-				vars.potsplit = 17;
-				return true;
-			//Fatty McBoomboom
-			}
+			//Moolah Pots + Idol
 			
-			if(current.zone == 56 && current.cutscene > old.cutscene && vars.split == 11 && vars.capture == 8){
-				vars.cutscene++;
+			if(current.mpots != old.mpots)
+			{
+				vars.mpots++;
+				vars.mpotsmem++;
 			}
-			if(current.zone == 56 && vars.split == 11 && vars.cutscene == 4 && vars.capture == 8){
-				vars.split++;
-				vars.chestsplit = 61;
-				vars.potsplit = 18;
-				return true;
-			//Giant Sleg
+			if(vars.mpotsmem == 8)
+			{
+				vars.mpotsmem = 0;
 			}
-		
-			if(current.bounty > old.bounty && vars.split == 12 && vars.capture == 8 && current.zone == 66){
-				vars.capture++;	
-			}
-			else if(current.bounty > old.bounty && vars.split == 12 && vars.capture == 8 && current.zone == 54){
-				vars.capture++;
-			}
-			if(current.cutscene > old.cutscene && vars.split == 12 && vars.capture == 9){
-				vars.split++;
-				vars.chestsplit = 69;
-				return true;
-			//Elboze Freely
-			}
-		
-			if(current.bounty > old.bounty && vars.split == 13 && vars.capture == 9){
-				vars.capture++;
-			}
-			if(current.primeguy > old.primeguy && vars.split == 13 && vars.rendu == 7 && vars.capture == 10){
-				vars.rendu++;
-				vars.split++;
-				return true;
-			//Lefty Lugnutz
-			}
-		
-			if(current.zone == 9 && current.cutscene > old.cutscene && vars.split == 14){
-				vars.split++;
-				return true;
-			//Mongo River
-			}
-		
-			if(current.river < old.river && current.godvalue == current.river && vars.split == 15){
-				vars.split++;
-				return true;
-			//Ambush
-			}
-		
-			if(current.zone == 2 &&  current.cutscene > old.cutscene && vars.split == 16){
-				vars.split++;
-				vars.barrelsplit = 8;
-				return true;
-			//Dusky Hollow
-			}
-		
-			if(current.zone == 30 && current.cutscene > old.cutscene && vars.split == 17){
-				vars.split++;
-				return true;
-			//Wolvark Docks
-			}
-		
-			if(current.zone == 33 && current.cutscene > old.cutscene && vars.split == 18){
-				vars.split++;
-				return true;
-			//Grubb Village fight
-			}
-		
-			if(current.zone == 4 && current.cutscene > old.cutscene && vars.split == 19){
-				vars.boat++;
-			}
-			if(vars.boat == 2 && vars.split == 19){
-				vars.split++;
-				return true;
-			}	
-			else if(current.zone == 5 && current.cutscene > old.cutscene && vars.split == 19){
-				vars.split++;
-				return true;
-			//Row Your Boat
-			}
-		
-			if(current.zone == 1 && current.cutscene > old.cutscene && vars.split == 20){
-				vars.cutscene++;
-			}
-			if(vars.split == 20 && vars.cutscene == 6){
-				vars.split++;
-				return true;
-			//Last Legs
-			}
-		
-			if (current.zone == 8 && current.cutscene > old.cutscene && vars.split == 21){
-				vars.split++;
-				vars.barrelsplit = 9;
-				return true;
-			//Some More Boat
-			}
-		
-			if(current.zone == 10 && current.godvalue > old.godvalue && vars.split == 22){
-				vars.split++;
-				return true;
-			//Gloktigi Skip
-			}
-		
-			if(current.zone == 8 && current.cutscene > old.cutscene && vars.split == 23){
-				vars.split++;
-				vars.barrelsplit = 10;
-				return true;
-			//Sekto's Lair
-			}
-		
-			if(current.zone == 12 && current.cutscene > old.cutscene && vars.split == 24){
-				vars.split++;
-				return true;
-			//Timer Rush
-			}
-		
-			if(current.cutscene > old.cutscene && vars.split == 25){
-				vars.split++;
-				return true;
-			//Gloktigi Twins
-			}
-		
-			if(current.quicksave > old.quicksave && vars.split == 26 && vars.end == 0){
-				vars.end++;
-			}
-			
-			if(vars.end == 1 && current.cutscene > old.cutscene && vars.split == 26){
-				vars.split++;
-				return true;
-			//Sekto
+			while(vars.mpotsmem != current.mpots && vars.mpotsmem < 8)
+			{
+				vars.mpots++;
+				vars.mpotsmem++;
 			}
 		}
 		
 		
+		//Death counter
 		
-		//100% NMG
-		
-		if(settings["100%"] && settings["NMG"]){
-		
-			if(current.zone == 11 && current.cutscene > old.cutscene && vars.split == 0){
-				vars.cutscene++;
-			}
-			if(vars.split == 0 && vars.cutscene == 2){
-				vars.split++;
-				vars.barrelsplit = 1;
-				return true;
-			//Tutorial
-			}
-		
-			if(current.bounty > old.bounty && vars.split == 1 && vars.capture == 0){
-				vars.capture++;
-			}
-			if(current.primeguy > old.primeguy && vars.split == 1 && vars.rendu == 0 && vars.capture == 1){
-				vars.rendu++;
-				vars.split++;
-				vars.chestsplit = 8;
-				return true;
-			//Filthy Hands Floyd
-			}
-		
-			if(current.bounty > old.bounty && vars.split == 2 && vars.capture == 1){
-				vars.capture++;
-			}
-			if(current.primeguy > old.primeguy && vars.split == 2 && vars.rendu == 1 && vars.capture == 2){
-				vars.rendu++;
-				vars.split++;
-				vars.barrelsplit = 3;
-				vars.chestsplit = 14;
-				return true;
-			//Looten Duke
-			}
-		
-			if(current.bounty > old.bounty && vars.split == 3 && vars.capture == 2){
-				vars.capture++;
-			}
-			if(current.primeguy > old.primeguy && vars.split == 3 && vars.rendu == 2 && vars.capture == 3){
-				vars.rendu++;
-				vars.split++;
-				vars.chestsplit = 17;
-				return true;
-			//Boilz Booty
-			}
-		
-			if(current.bounty > old.bounty && vars.split == 4 && vars.capture == 3){
-				vars.capture++;
-			}
-			if(current.primeguy > old.primeguy && vars.split == 4 && vars.rendu == 3 && vars.capture == 4){
-				vars.rendu++;
-				vars.split++;
-				vars.chestsplit = 26;
-				vars.potsplit = 8;
-				vars.idolsplit = 1;
-				return true;
-			//Jo Momma
-			}
-		
-			if(current.primeguy > old.primeguy && vars.split == 5 && vars.rendu == 4 && vars.capture == 4){
-				vars.rendu++;
-				vars.split++;
-				vars.chestsplit = 32;
-				return true;
-			//Eugene Ius
-			}
-		
-			if(current.bounty > old.bounty && vars.split == 6 && vars.capture == 4){
-				vars.capture++;
-			}
-			if(current.primeguy > old.primeguy && vars.split == 6 && vars.rendu == 5 && vars.capture == 5){
-				vars.rendu++;
-				vars.split++;
-				vars.barrelsplit = 4;
-				vars.chestsplit = 39;
-				return true;
-			//Meagly McGraw
-			}
-		
-			if(current.bounty > old.bounty && vars.split == 7 && vars.capture == 5){
-				vars.capture++;
-			}
-			if(current.primeguy > old.primeguy && vars.split == 7 && vars.rendu == 6 && vars.capture == 6){
-				vars.rendu++;
-				vars.split++;
-				vars.chestsplit = 44;
-				vars.potsplit = 13;
-				return true;
-			//Packrat Palooka
-			}
-		
-			if(current.zone == 16 && current.cutscene > old.cutscene && vars.split == 8){
-				vars.split++;
-				vars.barrelsplit = 5;
-				vars.chestsplit = 47;
-				return true;
-			}
-			else if(current.zone == 4 && current.cutscene > old.cutscene && vars.split == 8){
-				vars.split++;
-				vars.barrelsplit = 5;
-				vars.chestsplit = 47;
-				return true;
-			//Welcome to the jungle
-			}
-		
-			if(current.zone == 2 && old.zone == 4 && vars.zone == 0 && vars.split == 9){
-				vars.zone++;
-			}
-			if(current.zone == 4 && old.zone == 2 && vars.zone == 1 && vars.split == 9){
-				vars.zone++;
-			}
-			
-			if(current.primeguy > old.primeguy && vars.split == 9 && vars.rendu == 7 && vars.zone == 2){
-				vars.rendu++;
-				vars.split++;
-				vars.barrelsplit = 6;
-				vars.chestsplit = 56;
-				vars.potsplit = 15;
-				return true;
-			//Xplosives McGee
-			}
-		
-			if(current.zone == 2 && old.zone == 4 && vars.zone == 2 && vars.split == 10){
-				vars.zone++;
-			}
-			if(current.zone == 4 && old.zone == 2 && vars.zone == 3 && vars.split == 10){
-				vars.zone++;
-			}
-			if(current.primeguy > old.primeguy && vars.split == 10 && vars.rendu == 8 && vars.zone == 4){
-				vars.rendu++;
-				vars.split++;
-				vars.chestsplit = 62;
-				return true;
-			//Boss 1 (Fatty)
-			}
-		
-			if(current.zone == 2 && old.zone == 4 && vars.zone == 4 && vars.split == 11){
-				vars.zone++;
-			}
-			if(current.primeguy > old.primeguy && vars.split == 11 && vars.rendu == 9 && vars.zone == 5){
-				vars.rendu++;
-				vars.split++;
-				vars.chestsplit = 69;
-				vars.potsplit = 18;
-				return true;
-			//Boss 2 (Elboze)
-			}
-		
-			if(current.zone == 2 && old.zone == 4 && vars.zone == 5 && vars.split == 12){
-				vars.zone++;
-			}
-			if(current.primeguy > old.primeguy && vars.split == 12 && vars.rendu == 10 && vars.zone == 6){
-				vars.rendu++;
-				vars.split++;
-				return true;
-			//Boss 3 (Lefty)
-			}
-		
-			if(current.zone == 9 && current.cutscene > old.cutscene && vars.split == 13){
-				vars.split++;
-				return true;
-			//Mongo River
-			}
-		
-			if(current.river < old.river && current.godvalue == current.river && vars.split == 14){
-				vars.split++;
-				return true;
-			//Ambush
-			}
-		
-			if(current.zone == 2 &&  current.cutscene > old.cutscene && vars.split == 15){
-				vars.split++;
-				vars.barrelsplit = 8;
-				return true;
-			//Dusky Hollow
-			}
-		
-			if(current.zone == 30 && current.cutscene > old.cutscene && vars.split == 16){
-				vars.split++;
-				return true;
-			//Wolvark Docks
-			}
-		
-			if(current.zone == 33 && current.cutscene > old.cutscene && vars.split == 17){
-				vars.split++;
-				return true;
-			//Grubb Village fight
-			}
-		
-			if(current.zone == 4 && current.cutscene > old.cutscene && vars.split == 18){
-				vars.boat++;
-			}
-			if(vars.boat == 2 && vars.split == 18){
-				vars.split++;
-				return true;
-			}	
-			else if(current.zone == 5 && current.cutscene > old.cutscene && vars.split == 18){
-				vars.split++;
-				return true;
-			//Row Your Boat
-			}
-		
-			if(current.zone == 1 && current.cutscene > old.cutscene && vars.split == 19){
-				vars.cutscene++;
-			}
-			if(vars.split == 19 && vars.cutscene == 4){
-				vars.split++;
-				return true;
-			//Last Legs
-			}
-		
-			if(current.zone == 8 && current.cutscene > old.cutscene && vars.split == 20) {
-				vars.split++;
-				vars.barrelsplit = 9;
-				return true;
-			//Some More Boat
-			}
-		
-			if(current.zone == 10 && current.godvalue > old.godvalue && vars.split == 21){
-				vars.split++;
-				return true;
-			//Gloktigi Skip
-			}
-		
-			if(current.zone == 8 && current.cutscene > old.cutscene && vars.split == 22){
-				vars.split++;
-				vars.barrelsplit = 10;
-				return true;
-			//Sekto's Lair
-			}
-		
-			if(current.zone == 12 && current.cutscene > old.cutscene && vars.split == 23){
-				vars.split++;
-				return true;
-			//Timer Rush
-			}
-		
-			if(current.cutscene > old.cutscene && vars.split == 24){
-				vars.split++;
-				return true;
-			//Gloktigi Twins
-			}
-		
-			if(current.quicksave > old.quicksave && vars.split == 25 && vars.end == 0){
-				vars.end++;
-			}
-			
-			if(vars.end == 1 && current.cutscene > old.cutscene && vars.split == 25){
-				vars.split++;
-				return true;
-			//Sekto
-			}
-		}
-
-			
-		
-		//Misc
-		
-		if(settings["Misc"]){
-		
-			//20k
-		
-			if(settings["20k"]){
-				
-				if(vars.moolah >= 20000 && current.cutscene > old.cutscene && current.zone == 69){
-					return true;
-				}
-				
-				if(settings["Split every:"]){
-				
-					if(settings["4k"]){
-					
-						if(current.moolah >= 4000 && vars.split == 0){
-							vars.split++;
-							return true;
-						}
-						if(current.moolah >= 8000 && vars.split == 1){
-							vars.split++;
-							return true;
-						}
-						if(current.moolah >= 12000 && vars.split == 2){
-							vars.split++;
-							return true;
-						}
-						if(current.moolah >= 16000 && vars.split == 3){
-							vars.split++;
-							return true;
-						}
-						if(current.moolah >= 20000 && vars.split == 4){
-							vars.split++;
-							return true;
-						}
-					}
-					
-					if(settings["5k"]){
-				
-						if(current.moolah >= 5000 && vars.split == 0){
-							vars.split++;
-							return true;
-						}
-						if(current.moolah >= 10000 && vars.split == 1){
-							vars.split++;
-							return true;
-						}
-						if(current.moolah >= 15000 && vars.split == 2){
-							vars.split++;
-							return true;
-						}
-						if(current.moolah >= 20000 && vars.split == 3){
-							vars.split++;
-							return true;
-						}
-					}
-					
-					if(settings["10k"]){
-				
-						if(current.moolah >= 10000 && vars.split == 0){
-							vars.split++;
-							return true;
-						}
-						if(current.moolah >= 20000 && vars.split == 1){
-							vars.split++;
-							return true;
-						}
-					}
-				}
-			}
-		}
-	}
-	
-	
-	
-	//Individual Levels
-	
-	if(settings["Individual Levels"]){
-			
-			
-			
-		//SINGLE SPLIT
-			
-		if(settings["Single split"]){
-	
-			if(settings["Tutorial"]){
-		
-				if(current.zone == 11 && current.cutscene > old.cutscene && vars.split == 0){
-					vars.cutscene++;
-				}
-				if(vars.split == 0 && vars.cutscene == 2){
-					vars.split++;
-					return true;
-				//Tutorial
-				}
-			}
-		
-			if(settings["Bounties"]){
-		
-				if(settings["Other Bounties"]){
-			
-					if(current.bounty > old.bounty && vars.capture == 0){
-						vars.capture++;
-					}
-					if(current.primeguy > old.primeguy && vars.rendu == 0 && vars.capture == 1){
-						vars.rendu++;
-						vars.split++;
-						return true;
-					//Other Bounties
-					}
-				}
-		
-				if(settings["Eugene Ius"]){
-			
-					if(current.primeguy > old.primeguy && vars.rendu == 0){
-						vars.rendu++;
-						vars.split++;
-						return true;
-					//Eugene Ius
-					}
-				}
-			}
-		
-			if(settings["Dusky Hollow"]){
-				
-				if(current.river < old.river && current.godvalue == current.river && vars.split == 0){
-					vars.split++;
-				//Cabin Fight
-				}
-		
-				if(current.zone == 2 &&  current.cutscene > old.cutscene && vars.split == 1){
-					vars.split++;
-					return true;
-				//Dusky Hollow
-				}
-			}
-		
-			if(settings["Grubb Village + Wolvark Docks"]){
-		
-				if(current.zone == 33 &&  current.cutscene > old.cutscene && vars.split == 0){
-					vars.split++;
-					return true;
-				//Grubb Village + Wolvark Docks
-				}
-			}
-		
-			if(settings["Rowing"]){
-		
-				if(current.zone == 4 && current.cutscene > old.cutscene && vars.split == 0){
-					vars.boat++;
-				}
-				if(vars.boat == 2 && vars.split == 0){
-					vars.split++;
-					return true;
-				}	
-				else if(current.zone == 5 && current.cutscene > old.cutscene && vars.split == 0){
-					vars.split++;
-					return true;
-				//Rowing
-				}
-			}
-		
-			if(settings["Last Legs"]){
-		
-				if(current.zone == 1 && current.cutscene > old.cutscene && vars.split == 0){
-					vars.cutscene++;
-				}
-				if(vars.split == 0 && vars.cutscene == 2){
-					vars.split++;
-					return true;
-				//Last Legs
-				}
-			}
-			
-			if(settings["Dam Entrance"]){
-		
-				if(current.zone == 10 && current.godvalue > old.godvalue && vars.split == 0){
-					vars.split++;
-					return true;
-				//Dam Entrance
-				}
-			}
-		
-			if(settings["Inner Dam"]){
-		
-				if(current.zone == 8 && current.cutscene > old.cutscene && vars.split == 0){
-					vars.split++;
-					return true;
-				//Inner Dam
-				}
-			}
-		
-			if(settings["Timer Rush"]){
-		
-				if(current.river > old.river && vars.split == 0){
-					vars.split++;
-					return true;
-				//Timer Rush
-				}
-			}
-		
-			if(settings["Sekto"]){
-			
-				if(current.cutscene > old.cutscene && vars.split == 0){
-					vars.split++;
-				}
-				
-				if(current.quicksave > old.quicksave && vars.split == 1 && vars.end == 0){
-					vars.end++;
-				}
-				
-				if(vars.end == 1 && current.cutscene > old.cutscene && vars.split == 1){
-					vars.split++;
-					return true;
-				//Sekto
-				}
-			}
-			
-			if(settings["Individual Regions"]){
-			
-				if(settings["Gizzard Gulch"]){
-				
-					if(current.zone == 39 && current.cutscene > old.cutscene){
-						vars.split++;
-						return true;
-					//Boilz Booty
-					}
-				}
-				
-				if(settings["Buzzarton"]){
-					
-					if(current.zone == 77 && current.cutscene > old.cutscene){
-						vars.split++;
-						return true;
-					//End
-					}
-				}
-				
-				if(settings["New Yolk City"]){
-				
-					if(current.zone == 9 && current.cutscene > old.cutscene){
-						vars.cutscene++;
-					}
-					if(vars.cutscene == 2){
-						vars.split++;
-						return true;
-					//Mongo River
-					}		
-				}		
-			}
-		}
-		
-	
-
-		//MULTIPLE SPLITS
-	
-		if(settings["Multiple splits"]){
-			
-			if(settings["Tutorial"]){
-		
-				if(current.zone == 11 && current.cutscene > old.cutscene && vars.split == 0){
-					vars.cutscene++;
-				}
-				if(vars.split == 0 && vars.cutscene == 2){
-					vars.split++;
-					return true;
-				//Tutorial
-				}
-			}
-		
-			if(settings["Bounties"]){
-		
-				if(settings["Other Bounties"]){
-			
-					if(current.bounty > old.bounty && vars.capture == 0){
-						vars.capture++;
-					}
-					if(current.primeguy > old.primeguy && vars.rendu == 0 && vars.capture == 1){
-						vars.rendu++;
-						vars.split++;
-						return true;
-					//Other Bounties
-					}
-				}
-		
-				if(settings["Eugene Ius"]){
-			
-					if(current.primeguy > old.primeguy && vars.rendu == 0){
-						vars.rendu++;
-						vars.split++;
-						return true;
-					//Eugene Ius
-					}
-				}
-			}
-		
-			if(settings["Dusky Hollow"]){
-				
-				if(current.river < old.river && current.godvalue == current.river && vars.split == 0){
-					vars.split++;
-					return true;
-				//Cabin Fight
-				}
-		
-				if(current.zone == 2 &&  current.cutscene > old.cutscene && vars.split == 1){
-					vars.split++;
-					return true;
-				//Dusky Hollow
-				}
-			}
-		
-			if(settings["Grubb Village + Wolvark Docks"]){
-			
-				if(current.zone == 6 && current.cutscene > old.cutscene && vars.split == 0){
-					vars.cutscene++;
-				}
-				if(vars.cutscene == 2 && vars.split == 0){
-					vars.split++;
-					return true;
-				//RNG
-				}
-		
-				if(current.zone == 33 && current.cutscene > old.cutscene && vars.split == 1){
-					vars.split++;
-					return true;
-				//Grubb Village + Wolvark Docks
-				}
-			}
-		
-			if(settings["Rowing"]){
-		
-				if(current.zone == 4 && current.cutscene > old.cutscene && vars.split == 0){
-					vars.boat++;
-				}
-				if(vars.boat == 2 && vars.split == 0){
-					vars.split++;
-					return true;
-				}	
-				else if(current.zone == 5 && current.cutscene > old.cutscene && vars.split == 0){
-					vars.split++;
-					return true;
-				//Rowing
-				}
-			}
-		
-			if(settings["Last Legs"]){
-		
-				if(current.zone == 1 && current.cutscene > old.cutscene && vars.split == 0){
-					vars.cutscene++;
-				}
-				if(vars.split == 0 && vars.cutscene == 2){
-					vars.split++;
-					return true;
-				//Last Legs
-				}
-			}
-			
-			if(settings["Dam Entrance"]){
-			
-				if(current.godvalue == current.nerfshop && vars.split == 0){
-					vars.split++;
-					return true;
-				//Boats Boats Boats
-				}
-		
-				if(current.zone == 10 && current.godvalue > old.godvalue && vars.split == 1){
-					vars.split++;
-					return true;
-				//Dam Entrance
-				}
-			}
-		
-			if(settings["Inner Dam"]){
-		
-				if(current.zone == 8 && current.cutscene > old.cutscene && vars.split == 0){
-					vars.split++;
-					return true;
-				//Inner Dam
-				}
-			}
-		
-			if(settings["Timer Rush"]){
-		
-				if(current.river > old.river && vars.split == 0){
-					vars.split++;
-					return true;
-				//Timer Rush
-				}
-			}
-		
-			if(settings["Sekto"]){
-			
-				if(current.cutscene > old.cutscene && vars.split == 0){
-					vars.split++;
-					return true;
-				//Gloktigi Twins
-				}
-				
-				if(current.quicksave > old.quicksave && vars.split == 1 && vars.end == 0){
-					vars.end++;
-				}
-				
-				if(vars.end == 1 && current.cutscene > old.cutscene && vars.split == 1){
-					vars.split++;
-					return true;
-				//Sekto
-				}
-			}
-			
-			if(settings["Individual Regions"]){
-			
-				if(settings["Gizzard Gulch"]){
-				
-					if(current.bounty > old.bounty && vars.split == 0 && vars.capture == 0){
-						vars.capture++;
-					}
-					if(current.primeguy > old.primeguy && vars.split == 0 && vars.rendu == 0 && vars.capture == 1){
-						vars.rendu++;
-						vars.split++;
-						return true;
-					//Filthy Hands Floyd
-					}
-	
-					if(current.bounty > old.bounty && vars.split == 1 && vars.capture == 1){
-						vars.capture++;
-					}
-					if(current.primeguy > old.primeguy && vars.split == 1 && vars.rendu == 1 && vars.capture == 2){
-						vars.rendu++;
-						vars.split++;
-						return true;
-					//Looten Duke
-					}
-	
-					if(current.zone == 39 && current.cutscene > old.cutscene && vars.split == 2){
-						vars.split++;
-						return true;
-					//Boilz Booty
-					}
-				}
-				
-				if(settings["Buzzarton"]){
-				
-					if(current.zone == 60 && current.bounty > old.bounty && vars.split == 0 && vars.capture == 0){
-						vars.capture++;
-					}
-					if(current.cutscene > old.cutscene && vars.split == 0 && vars.capture == 1){
-						vars.split++;
-						return true;
-					//Jo Momma
-					}
-	
-					if(current.primeguy > old.primeguy && vars.split == 1 && vars.rendu == 0 && vars.capture == 1){
-						vars.rendu++;
-						vars.split++;
-						return true;
-					//Eugene Ius
-					}
-	
-					if(current.bounty > old.bounty && vars.split == 2 && vars.capture == 1){
-						vars.capture++;
-					}
-					if(current.primeguy > old.primeguy && vars.split == 2 && vars.rendu == 1 && vars.capture == 2){
-						vars.rendu++;
-						vars.split++;
-						return true;
-					//Meagly McGraw
-					}
-	
-					if(current.bounty > old.bounty && vars.split == 3 && vars.capture == 2){
-						vars.capture++;
-					}
-					
-					if(current.primeguy > old.primeguy && vars.split == 3 && vars.rendu == 2 && vars.capture == 3){
-						vars.rendu++;
-						vars.split++;
-						return true;
-					//Packrat Palooka
-					}
-					
-					if(current.zone == 77 && current.cutscene > old.cutscene && vars.split == 4){
-						vars.split++;
-						return true;
-					//End
-					}
-					
-				}
-				
-				if(settings["New Yolk City"]){
-				
-					if(current.zone == 16 && current.cutscene > old.cutscene && vars.split == 0){
-						vars.split++;
-						return true;
-					}
-					else if(current.zone == 4 && current.cutscene > old.cutscene && vars.split == 0){
-						vars.split++;
-						return true;
-					//Welcome to the jungle
-					}
-	
-					if(current.bounty > old.bounty && vars.split == 1 && vars.capture == 0){
-						vars.capture++;
-					}
-					if(current.primeguy > old.primeguy && vars.split == 1 && vars.rendu == 0 && vars.capture == 1){
-						vars.rendu++;
-						vars.split++;
-						return true;
-					//Xplosives McGee
-					}
-	
-	
-					if(current.bounty > old.bounty && vars.split == 2 && vars.capture == 1 && current.zone == 28){
-						vars.capture++;
-					}
-					if(current.cutscene > old.cutscene && vars.split == 2 && vars.capture == 2){
-						vars.split++;
-						return true;
-					//Fatty McBoomboom
-					}
-					
-					
-					if(current.zone == 56 && current.cutscene > old.cutscene && vars.split == 3){
-						vars.cutscene++;
-					}
-					if(vars.split == 3 && vars.cutscene == 2){
-						vars.split++;
-						return true;
-					//Giant Sleg
-					}
-				
-				
-					if(current.bounty > old.bounty && vars.split == 4 && vars.capture == 2 && current.zone == 66){
-						vars.capture++;	
-					}
-					else if(current.bounty > old.bounty && vars.split == 4 && vars.capture == 2 && current.zone == 54){
-						vars.capture++;
-					}
-					if(current.cutscene > old.cutscene && vars.split == 4 && vars.capture == 3){
-						vars.split++;
-						return true;
-					//Elboze Freely
-					}
-	
-					if(current.bounty > old.bounty && vars.split == 5 && vars.capture == 3){
-						vars.capture++;
-					}
-					if(current.primeguy > old.primeguy && vars.split == 5 && vars.rendu == 1 && vars.capture == 4){
-						vars.rendu++;
-						vars.split++;
-						return true;
-					//Lefty Lugnutz
-					}
-				
-					if(current.zone == 9 && current.cutscene > old.cutscene && vars.split == 6){
-						vars.split++;
-						return true;
-					//Mongo River
-					}		
-				}
-			}
-		}
-	}
-	
-	if(settings["Extra"]){
-	
 		if(settings["Death Counter"]){
 		
-			if(current.IGT > 0 && current.IGT3 == 0 && current.healthigt > 0){
+			if(current.IGT > 0 && current.IGT2 == 0 && current.healthigt > 0)
+			{
 				vars.dead = 1;
 			}
 			
-			if(current.health == 0 && vars.dead == 0){
+			if(current.health == 0 && vars.dead == 0)
+			{
 				vars.death++;
 				vars.dead++;
 			}
-			if(current.health > 0 && current.IGT > 0 && current.IGT3 == 0){
+			if(current.health > 0 && current.IGT > 0 && current.IGT2 == 0)
+			{
 				vars.dead = 0;
 			}
 		}
-		if(settings["Hit Counter"]){
 		
-			if(current.IGT > 0 && current.IGT3 == 0 && current.healthigt > 0){
+		
+		//Hit counter
+		
+		if(settings["Hit Counter"])
+		{
+		
+			if(current.IGT > 0 && current.IGT2 == 0 && current.healthigt > 0)
+			{
 				vars.healthblock = 1;
 			}
 		
-			if(current.health < old.health && vars.healthblock == 0 | current.health == 0 && vars.healthblock == 0){
+			if(current.health < old.health && vars.healthblock == 0 | current.health == 0 && vars.healthblock == 0)
+			{
 				vars.hit++;
 			}
 			
-			if(current.health > 0 && current.IGT > 0 && current.IGT3 == 0){
+			if(current.health > 0 && current.IGT > 0 && current.IGT2 == 0)
+			{
 				vars.healthblock = 0;
 			}
 		}
-		if(settings["Moolah Counter"]){
 		
-			if(current.cutscene > old.cutscene){
-				while(vars.moolahqs < vars.moolah){
+		
+		//Moolah counter
+		
+		if(settings["Moolah Counter"])
+		{
+			if(current.cutscene > old.cutscene)
+			{
+				while(vars.moolahqs < vars.moolah)
+				{
 					vars.moolahqs++;
 				}
 			}
-			while(vars.moolah > current.moolah && current.moolah > 0){
+			while(vars.moolah > current.moolah && current.moolah > 0)
+			{
 				vars.moolah--;
 				vars.moolahqs--;
 			}
 			
-			while(vars.moolah < current.moolah && current.moolah > 0){
+			while(vars.moolah < current.moolah && current.moolah > 0)
+			{
 				vars.moolah++;
 			}
 
-			if(current.quicksave > old.quicksave){
-				while(vars.moolahqs < vars.moolah){
+			if(current.quicksave > old.quicksave)
+			{
+				while(vars.moolahqs < vars.moolah)
+				{
 					vars.moolahqs++;
 				}
 			}
 			
-			if(current.quickload == 0){
-				while(vars.moolah > vars.moolahqs){
+			if(current.quickload == 0)
+			{
+				while(vars.moolah > vars.moolahqs)
+				{
 					vars.moolah--;
 				}
 			}
@@ -2778,11 +2191,16 @@ split
 isLoading
 
 {
-	if(current.IGT > 0 && current.IGT3 == 0 && current.healthigt > 0){
+	if(current.IGT > 0 && current.IGT2 == 0 && current.healthigt > 0)
+	{
 		return true;
-	} else if(current.IGT > 0 && current.IGT3 == 0 && current.quickload == 1){
+	}
+	else if(current.IGT > 0 && current.IGT2 == 0 && current.quickload == 1)
+	{
 		return true;
-	} else {
+	} 
+	else 
+	{
 		return false;
 	}
 }
