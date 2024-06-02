@@ -805,8 +805,8 @@ reset
 
 split
 {
-	if(settings["Refresh rate of the autosplitter"]){
-		
+	if(settings["Refresh rate of the autosplitter"])
+	{
 		if(settings["50Rate"])
 		{
 			refreshRate = 50;
@@ -821,8 +821,8 @@ split
 			refreshRate = 30;
 		}
 		
-		if(settings["10Rate"]
-		){
+		if(settings["10Rate"])
+		{
 			refreshRate = 10;			
 		}
 	} 
