@@ -630,7 +630,8 @@ start
 	
 	if(settings["Splits"])
 	{
-		if(old.gameState == 30 && current.gameState == 0){
+		if(old.gameState == 30 && current.gameState == 0)
+		{
 			return true;
 		}
 	}
