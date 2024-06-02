@@ -480,62 +480,73 @@ startup
 	});
 	
 	vars.UpdateSpeedometer = (Action<float, float, bool>)((x, z, round) =>
-    {
+	{
         double hvel = Math.Floor(Math.Sqrt(x*x + z*z)+0.5);
         if(round)
             vars.SetTextComponent("Speed", Math.Floor(hvel/2).ToString("") + " m/s");
         else
             vars.SetTextComponent("Speed", (hvel/2).ToString("0.00") + " m/s");
-    });
+	});
 	
 	vars.UpdateSpeedometerY = (Action<float, bool>)((y, round) =>
-    {
+	{
         double hvelY = Math.Floor(Math.Sqrt(y*y)+0.5);
         if(round)
             vars.SetTextComponent("Vertical Speed", Math.Floor(hvelY/2).ToString("") + " m/s");
         else
             vars.SetTextComponent("Vertical Speed", (hvelY/2).ToString("0.00") + " m/s");
-    });
+	});
 }
 
 update
 {
-	if(settings["Counters"]){
+	if(settings["Counters"])
+	{
 		vars.SetTextComponent("Barrels", (vars.barrel).ToString() + " / " + (vars.barrelregion).ToString());
 		vars.SetTextComponent("Chests", (vars.mchest).ToString() + " / " + (vars.mchestregion).ToString());
 		vars.SetTextComponent("Pots + Idol", (vars.mpots).ToString() + " / " + (vars.mpotregion).ToString());
 	}
-	if(settings["speedometer"]){
-		if(current.xVelBH != 0){
+	if(settings["speedometer"])
+	{
+		if(current.xVelBH != 0)
+		{
 			vars.UpdateSpeedometer(current.xVelBH, current.zVelBH, settings["speedround"]);
 		}
-		else if(current.zVelBH != 0){
+		else if(current.zVelBH != 0)
+		{
 			vars.UpdateSpeedometer(current.xVelBH, current.zVelBH, settings["speedround"]);
 		}
-		else{
+		else
+		{
 		vars.UpdateSpeedometer(current.xVelSteef, current.zVelSteef, settings["speedround"]);
 		}
 	}
 	
-	if(settings["speedometerY"]){
-		if(current.yVelBH != 0){
+	if(settings["speedometerY"])
+	{
+		if(current.yVelBH != 0)
+		{
 			vars.UpdateSpeedometerY(current.yVelBH, settings["speedroundY"]);
 		}
-		else{
+		else
+		{
 		vars.UpdateSpeedometerY(current.yVelSteef, settings["speedroundY"]);
 		}
 	}
 	
 	
-	if(settings["Hit Counter"]){
+	if(settings["Hit Counter"])
+	{
 		vars.SetTextComponent("Hits", (vars.hit).ToString());
 	}
 	
-	if(settings["Death Counter"]){
+	if(settings["Death Counter"])
+	{
 		vars.SetTextComponent("Deaths", (vars.death).ToString());
 	}
 	
-	if(settings["Moolah Counter"]){
+	if(settings["Moolah Counter"])
+	{
 		vars.SetTextComponent("Moolah", (vars.moolah).ToString());
 	}
 	
