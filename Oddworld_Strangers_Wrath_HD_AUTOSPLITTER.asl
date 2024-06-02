@@ -2117,8 +2117,8 @@ split
 		
 		//Death counter
 		
-		if(settings["Death Counter"]){
-		
+		if(settings["Death Counter"])
+		{
 			if(current.IGT > 0 && current.IGT2 == 0 && current.healthigt > 0)
 			{
 				vars.dead = 1;
@@ -2140,7 +2140,6 @@ split
 		
 		if(settings["Hit Counter"])
 		{
-		
 			if(current.IGT > 0 && current.IGT2 == 0 && current.healthigt > 0)
 			{
 				vars.healthblock = 1;
