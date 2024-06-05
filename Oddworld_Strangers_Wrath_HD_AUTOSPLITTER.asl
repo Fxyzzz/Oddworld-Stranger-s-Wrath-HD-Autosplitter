@@ -122,6 +122,7 @@ init
 	vars.cgizzardgulchend = 0;
 	vars.cjomomma = 0;
 	vars.cjomommabs = 0;
+	vars.ceugenetunnel = 0;
 	vars.ceugene = 0;
 	vars.ceugenebs = 0;
 	vars.cmeagly = 0;
@@ -220,7 +221,7 @@ startup
 	settings.Add("GizzardGulchHEADER", true, "Gizzard Gulch");
 	settings.Add("BuzzartonHEADER", true, "Buzzarton");
 	settings.Add("NewYolkCityHEADER", true, "New Yolk City");
-	settings.Add("AmbushGrubbWolvakHEADER", true, "Ambush / Grubb Village / Wolvark Docks");
+	settings.Add("AmbushGrubbWolvarkHEADER", true, "Ambush / Grubb Village / Wolvark Docks");
 	settings.Add("BoatHEADER", true, "Boat / Last Legs");
 	settings.Add("DamHEADER", true, "Sekto's Dam");
 	
@@ -262,6 +263,9 @@ startup
 	
 	settings.Add("CJoMommaBS", false, "Jo Momma bounty store");
 	settings.SetToolTip("CJoMommaBS", "Split when delivering Jo Momma at the bounty store");
+	
+	settings.Add("CEugeneTunnel", false, "Eugene Ius tunnel");
+	settings.SetToolTip("CEugeneTunnel", "Split when exting the tunnel after the rope launch");
 	
 	settings.Add("CEugene", false, "Eugene Ius rescue");
 	settings.SetToolTip("CEugene", "Split when rescuing Eugene Ius");
@@ -330,7 +334,7 @@ startup
 	
 	//Ambush / Grubb Village / Wolvark Docks
 	
-	settings.CurrentDefaultParent = "AmbushGrubbWolvakHEADER";
+	settings.CurrentDefaultParent = "AmbushGrubbWolvarkHEADER";
 	
 	settings.Add("CCabin", false, "Cabin fight");
 	settings.SetToolTip("CCabin", "Split going through the window upon exiting the cabin");
@@ -583,6 +587,7 @@ start
 	vars.cgizzardgulchend = 0;
 	vars.cjomomma = 0;
 	vars.cjomommabs = 0;
+	vars.ceugenetunnel = 0;
 	vars.ceugene = 0;
 	vars.ceugenebs = 0;
 	vars.cmeagly = 0;
@@ -678,6 +683,7 @@ reset
 		vars.cgizzardgulchend = 0;
 		vars.cjomomma = 0;
 		vars.cjomommabs = 0;
+		vars.ceugenetunnel = 0;
 		vars.ceugene = 0;
 		vars.ceugenebs = 0;
 		vars.cmeagly = 0;
@@ -755,6 +761,7 @@ reset
 		vars.cgizzardgulchend = 0;
 		vars.cjomomma = 0;
 		vars.cjomommabs = 0;
+		vars.ceugenetunnel = 0;
 		vars.ceugene = 0;
 		vars.ceugenebs = 0;
 		vars.cmeagly = 0;
@@ -1019,6 +1026,30 @@ split
 		{
 			vars.cjomommabs++;
 			return true;
+		}
+		
+
+		//Eugene Ius tunnel
+
+		if(settings["CEugeneTunnel"])
+		{
+			if(current.xHeadBH <= 26 && current.xHeadBH >= 16 && current.zHeadBH <= 369 && current.zHeadBH >= 363 && current.yHeadBH <= 0 && current.yHeadBH >= -15 && vars.ceugenetunnel == 0)
+			{
+				if(settings["il"])
+				{
+					vars.ceugenetunnel++;
+				}
+				else if(current.regionID == 2)
+				{
+					vars.ceugenetunnel++;
+				}
+			}
+			if(vars.ceugenetunnel == 1)
+			{
+				vars.ceugenetunnel++;
+				return true;
+			}
+			
 		}
 		
 		
