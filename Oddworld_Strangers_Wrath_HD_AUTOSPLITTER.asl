@@ -167,6 +167,7 @@ init
 	vars.cbossstart = 0;
 	vars.csektostart = 0;
 	vars.csektoend = 0;
+	vars.scriptedHit = 0;
 
 
 	if(current.platform == 1)
@@ -436,7 +437,7 @@ startup
 	settings.Add("speedroundY", false, "Round to whole number", "speedometerY");
 	
 	settings.Add("Hit Counter", false, "Hit Counter");
-	settings.SetToolTip("Hit Counter", "Adds a row in you layout to display how many times you have been hit");
+	settings.SetToolTip("Hit Counter", "Adds a row in you layout to display how many times you have been hit (the counter won't count scripted hits in the tutorial)");
 	
 	settings.Add("Death Counter", false, "Death Counter");
 	settings.SetToolTip("Death Counter", "Adds a row in you layout to display how many times you died");
@@ -632,6 +633,7 @@ start
 	vars.cbossstart = 0;
 	vars.csektostart = 0;
 	vars.csektoend = 0;
+	vars.scriptedHit = 0;
 	
 	if(settings["Splits"])
 	{
@@ -726,8 +728,10 @@ reset
 		vars.ctimerrushstart = 0;
 		vars.ctimerrushend = 0;
 		vars.cbossstart = 0;
+		vars.cbossstart = 0;
 		vars.csektostart = 0;
 		vars.csektoend = 0;
+		vars.scriptedHit = 0;
 		return true;
 	}
 	else if(settings["il"] && current.resetload > old.resetload && current.primeguy == 0)
@@ -806,6 +810,7 @@ reset
 		vars.cbossstart = 0;
 		vars.csektostart = 0;
 		vars.csektoend = 0;
+		vars.scriptedHit = 0;
 		return true;
 	}
 }
@@ -2171,12 +2176,22 @@ split
 		
 		if(settings["Hit Counter"])
 		{
+			if(current.xHeadBH <= 0 && current.xHeadBH >= -3 && current.zHeadBH <= 182 && current.zHeadBH >= 166 && current.yHeadBH <= 65 && current.yHeadBH >= 45 && current.regionID == 0 && vars.scriptedHit == 0)
+			{
+				vars.scriptedHit = 1;
+			}
+			
+			if(current.xHeadBH <= 30 && current.xHeadBH >= 19 && current.zHeadBH <= 195 && current.zHeadBH >= 189 && current.yHeadBH <= 61 && current.yHeadBH >= 41 && current.regionID == 0 && vars.scriptedHit == 1)
+			{
+				vars.scriptedHit = 0;
+			}
+			
 			if(current.IGT > 0 && current.IGT2 == 0 && current.healthigt > 0)
 			{
 				vars.healthblock = 1;
 			}
 		
-			if(current.health < old.health && vars.healthblock == 0 | current.health == 0 && vars.healthblock == 0)
+			if(current.health < old.health && vars.healthblock == 0 | current.health == 0 && vars.healthblock == 0  && vars.scriptedHit == 0)
 			{
 				vars.hit++;
 			}
