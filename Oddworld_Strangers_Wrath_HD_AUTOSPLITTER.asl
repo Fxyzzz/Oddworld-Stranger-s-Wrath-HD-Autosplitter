@@ -828,12 +828,10 @@ split
 		{
 			refreshRate = 40;
 		}
-		
 		if(settings["30Rate"])
 		{
 			refreshRate = 30;
 		}
-		
 		if(settings["10Rate"])
 		{
 			refreshRate = 10;			
@@ -1237,7 +1235,7 @@ split
 		
 		if(settings["CMcGee"] || settings["CMcGeeBS"])
 		{
-			if(current.zone == 45 && current.bounty > old.bounty && current.bountynoboss == old.bountynoboss && vars.cmcgee == 0)
+			if(current.zone == 45 && current.bounty > old.bounty && vars.cmcgee == 0)
 			{
 				if(settings["il"])
 				{
