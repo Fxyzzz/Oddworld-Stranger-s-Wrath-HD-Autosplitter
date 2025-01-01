@@ -1451,7 +1451,7 @@ split
 		
 		if(settings["CCabin"])
 		{
-			if(current.xHeadSteef <= -90 && current.xHeadSteef >= -95 && current.zHeadSteef <= -309 && current.zHeadSteef >= -310 && current.yHeadSteef <= -100 && current.yHeadSteef >= -124 && vars.ccabin == 0)
+			if(current.xHeadSteef <= -90 && current.xHeadSteef >= -96 && current.zHeadSteef <= -309 && current.zHeadSteef >= -311 && current.yHeadSteef <= -100 && current.yHeadSteef >= -124 && vars.ccabin == 0)
 			{
 				if(settings["il"])
 				{
