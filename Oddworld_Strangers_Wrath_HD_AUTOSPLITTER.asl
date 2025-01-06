@@ -1819,7 +1819,7 @@ split
 		
 		if(settings["CGloktigi"])
 		{
-			if(current.xHeadSteef <= 85 && current.xHeadSteef >= 36 && current.zHeadSteef <= -231 && current.zHeadSteef >= -232 && current.yHeadSteef <= 50 && current.yHeadSteef >= 25 && vars.cgloktigi == 0)
+			if(current.xHeadSteef <= 85 && current.xHeadSteef >= 36 && current.zHeadSteef <= -231 && current.zHeadSteef >= -232 && current.yHeadSteef <= 50 && current.yHeadSteef >= 25 && vars.cgloktigi == 0 || current.xHeadSteef <= 86 && current.xHeadSteef >= 70 && current.zHeadSteef <= -236 && current.zHeadSteef >= -237 && current.yHeadSteef <= 50 && current.yHeadSteef >= 25 && vars.cgloktigi == 0)
 			{
 				if(settings["il"])
 				{
