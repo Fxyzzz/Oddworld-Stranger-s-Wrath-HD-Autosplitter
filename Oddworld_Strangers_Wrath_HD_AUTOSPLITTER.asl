@@ -168,6 +168,7 @@ init
 	vars.csektostart = 0;
 	vars.csektoend = 0;
 	vars.scriptedHit = 0;
+	vars.ILstart = 0;
 
 
 	if(current.platform == 1)
@@ -634,6 +635,7 @@ start
 	vars.csektostart = 0;
 	vars.csektoend = 0;
 	vars.scriptedHit = 0;
+	vars.ILstart = 0;
 	
 	if(settings["Splits"])
 	{
@@ -643,11 +645,52 @@ start
 		}
 	}
 	
-	if(settings["il"])
+	if(settings["il"] && vars.ILstart == 0)
 	{
-		if(current.regionTimer > old.regionTimer && current.gameState == 0 || current.regionIGT > old.regionIGT && current.gameState == 20)
+		if(current.primeguy < old.primeguy)
 		{
 			return true;
+			vars.ILstart++;
+		}
+		else if(current.cutscene < old.cutscene)
+		{
+			return true;
+			vars.ILstart++;
+		}
+		else if(current.regionTimer == 0 && settings["CGizzardGulchEnd"])
+		{
+			return true;
+			vars.ILstart++;
+		}
+		else if(current.regionTimer == 0 && settings["CBuzzartonEnd"])
+		{
+			return true;
+			vars.ILstart++;
+		}
+		else if(current.regionTimer == 0 && settings["CNewYolkCityEnd"])
+		{
+			return true;
+			vars.ILstart++;
+		}
+		else if(current.regionTimer == 0 && settings["CDusky"])
+		{
+			return true;
+			vars.ILstart++;
+		}
+		else if(current.regionTimer == 0 && settings["CBoatStart"])
+		{
+			return true;
+			vars.ILstart++;
+		}
+		else if(current.regionTimer == 0 && settings["CGloktigi"])
+		{
+			return true;
+			vars.ILstart++;
+		}
+		else if(current.regionTimer == 0 && settings["CSektoEnd"])
+		{
+			return true;
+			vars.ILstart++;
 		}
 	}
 }
@@ -732,6 +775,7 @@ reset
 		vars.csektostart = 0;
 		vars.csektoend = 0;
 		vars.scriptedHit = 0;
+		vars.ILstart = 0;
 		return true;
 	}
 	else if(settings["il"] && current.resetload > old.resetload && current.primeguy == 0)
@@ -811,6 +855,7 @@ reset
 		vars.csektostart = 0;
 		vars.csektoend = 0;
 		vars.scriptedHit = 0;
+		vars.ILstart = 0;
 		return true;
 	}
 }
