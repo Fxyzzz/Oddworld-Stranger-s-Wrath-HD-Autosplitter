@@ -778,7 +778,7 @@ reset
 		vars.ILstart = 0;
 		return true;
 	}
-	else if(settings["il"] && current.resetload > old.resetload && current.primeguy == 0)
+	else if(settings["il"] && current.resetload > old.resetload && current.primeguy == 0 && current.gameState != 122)
 	{
 		vars.barrel = 0;
 		vars.barrelqs = 0;
