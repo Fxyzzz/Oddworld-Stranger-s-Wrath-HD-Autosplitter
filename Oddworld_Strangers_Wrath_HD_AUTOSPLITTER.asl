@@ -1749,7 +1749,7 @@ split
 		
 		if(settings["CLastLegsEnd"])
 		{
-			if(current.xHeadSteef <= -2091 && current.xHeadSteef >= -2145 && current.zHeadSteef <= -1374 && current.zHeadSteef >= -1386 && current.yHeadSteef <= 50 && current.yHeadSteef >= 20 && vars.clastlegsend == 0 || current.xHeadSteef <= -2104 && current.xHeadSteef >= -2149 && current.zHeadSteef <= -1360 && current.zHeadSteef >= -1372 && current.yHeadSteef <= 50 && current.yHeadSteef >= 20 && vars.clastlegsend == 0)
+			if(current.xHeadSteef <= -2091 && current.xHeadSteef >= -2140 && current.zHeadSteef <= -1382 && current.zHeadSteef >= -1399 && current.yHeadSteef <= 50 && current.yHeadSteef >= 20 && vars.clastlegsend == 0 || current.xHeadSteef <= -2104 && current.xHeadSteef >= -2149 && current.zHeadSteef <= -1360 && current.zHeadSteef >= -1372 && current.yHeadSteef <= 50 && current.yHeadSteef >= 20 && vars.clastlegsend == 0)
 			{
 				if(settings["il"])
 				{
