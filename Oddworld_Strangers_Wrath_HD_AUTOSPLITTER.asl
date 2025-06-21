@@ -1015,7 +1015,7 @@ split
 		
 		if(settings["CGizzardGulchEnd"])
 		{
-			if(current.xHeadBH <= 342.02 && current.xHeadBH >= 341.43 && current.zHeadBH <= -5.60 && current.zHeadBH >= -39.92 && current.yHeadBH <= 90 && current.yHeadBH >= 41 && vars.cgizzardgulchend == 0)
+			if(current.xHeadBH <= 341 && current.xHeadBH >= 340 && current.zHeadBH <= -5 && current.zHeadBH >= -40 && current.yHeadBH <= 90 && current.yHeadBH >= 20 && vars.cgizzardgulchend == 0)
 			{
 				if(settings["il"])
 				{
