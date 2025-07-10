@@ -1,4 +1,4 @@
-// 19-02-2021 by Fxyz#1329
+//intial release 19-02-2021 by Fxyz#1329, Last update: 10-07-2025
 
 state ("stranger", "Steam 1.5")
 
@@ -44,6 +44,7 @@ state ("stranger", "Steam 1.5")
 	byte gameState : 0x63B7DA;
 	double regionTimer : 0x3F7B40;
 	double regionIGT : 0x5D5540;
+	int HPbar : 0x64C458, 0xACC;
 }
 
 state ("stranger", "GOG 1.5")
@@ -917,11 +918,25 @@ split
 		}
 
 
-		//Filthy Hands Floyd bounty store
+		//Filthy Hands Floyd
 		
 		if(settings["CFloyd"] || settings["CFloydBS"])
 		{
-			if(current.zone == 12 && current.bounty > old.bounty && current.bountynoboss == old.bountynoboss && vars.cfloyd == 0)
+			if(current.zone == 12 && current.xHeadBH <= -197 && current.xHeadBH >= -311 && current.zHeadBH <= 773 && current.zHeadBH >= -147 && current.yHeadBH <= 10000 && current.yHeadBH >= 50 && vars.cfloyd == 0)
+			{
+				if(settings["il"])
+				{
+					vars.cfloyd++;
+					vars.cfloydbs++;
+				}
+				else if(current.regionID == 1)
+				{
+					vars.cfloyd++;
+					vars.cfloydbs++;
+				}
+			}
+			
+			if(current.zone == 12 && current.cutscene > old.cutscene && (vars.cfloyd == 1 || vars.cfloyd == 2))
 			{
 				if(settings["il"])
 				{
@@ -935,13 +950,13 @@ split
 				}
 			}
 		}
-		if(settings["CFloyd"] && vars.cfloyd == 1 && current.cutscene > old.cutscene)
+		if(settings["CFloyd"] && vars.cfloyd == 3)
 		{
 			vars.cfloyd++;
 			return true;
 		}
 			
-		if(settings["CFloydBS"] && vars.cfloydbs == 1 && current.primeguy > old.primeguy)
+		if(settings["CFloydBS"] && vars.cfloydbs == 3 && current.primeguy > old.primeguy)
 		{
 			vars.cfloydbs++;
 			return true;
@@ -952,7 +967,7 @@ split
 		
 		if(settings["CLooten"] || settings["CLootenBS"])
 		{
-			if(current.zone == 13 && current.bounty > old.bounty && current.bountynoboss == old.bountynoboss && vars.clooten == 0)
+			if(current.zone == 13 && current.cutscene > old.cutscene && (vars.clooten == 0 || vars.clooten == 1 || vars.clooten == 2))
 			{
 				if(settings["il"])
 				{
@@ -966,13 +981,13 @@ split
 				}
 			}
 		}
-		if(settings["CLooten"] && vars.clooten == 1 && current.cutscene > old.cutscene)
+		if(settings["CLooten"] && vars.clooten == 3)
 		{
 			vars.clooten++;
 			return true;
 		}
 			
-		if(settings["CLootenBS"] && vars.clootenbs == 1 && current.primeguy > old.primeguy)
+		if(settings["CLootenBS"] && vars.clootenbs == 3 && current.primeguy > old.primeguy)
 		{
 			vars.clootenbs++;
 			return true;
@@ -983,7 +998,7 @@ split
 		
 		if(settings["CBoilz"] || settings["CBoilzBS"])
 		{
-			if(current.zone == 2 && current.bounty > old.bounty && current.bountynoboss == old.bountynoboss && vars.cboilz == 0)
+			if(current.zone == 2 && current.HPbar == 0 && old.HPbar == 1 && current.regionTimer > old.regionTimer && vars.cboilz == 0)
 			{
 				if(settings["il"])
 				{
@@ -1049,8 +1064,10 @@ split
 		//Jo Momma
 		
 		if(settings["CJoMomma"] || settings["CJoMommaBS"])
+		
 		{
-			if(current.zone == 60 && current.bounty > old.bounty && current.bountynoboss == old.bountynoboss && vars.cjomomma == 0)
+
+			if(current.zone == 60 && current.cutscene > old.cutscene && vars.cjomomma == 0)
 			{
 				if(settings["il"])
 				{
@@ -1064,13 +1081,14 @@ split
 				}
 			}
 		}
-		if(settings["CJoMomma"] && vars.cjomomma == 1 && current.cutscene > old.cutscene)
+		if(settings["CJoMomma"] && vars.cjomomma == 1)
 		{
 			vars.cjomomma++;
 			return true;
 		}
+		
 			
-		if(settings["CJoMommaBS"] && vars.cjomommabs == 1 && current.primeguy > old.primeguy)
+		if(settings["CJoMommaBS"] && current.primeguy > old.primeguy && vars.cjomommabs == 1)
 		{
 			vars.cjomommabs++;
 			return true;
@@ -1136,7 +1154,7 @@ split
 		
 		if(settings["CMeagly"] || settings["CMeaglyBS"])
 		{
-			if(current.zone == 2 && current.bounty > old.bounty && current.bountynoboss == old.bountynoboss && vars.cmeagly == 0)
+			if(current.zone == 2 && current.cutscene > old.cutscene && (vars.cmeagly == 0 || vars.cmeagly == 1))
 			{
 				if(settings["il"])
 				{
@@ -1150,13 +1168,13 @@ split
 				}
 			}
 		}
-		if(settings["CMeagly"] && vars.cmeagly == 1 && current.cutscene > old.cutscene)
+		if(settings["CMeagly"] && vars.cmeagly == 2)
 		{
 			vars.cmeagly++;
 			return true;
 		}
 			
-		if(settings["CMeaglyBS"] && vars.cmeaglybs == 1 && current.primeguy > old.primeguy)
+		if(settings["CMeaglyBS"] && vars.cmeaglybs == 2 && current.primeguy > old.primeguy)
 		{
 			vars.cmeaglybs++;
 			return true;
@@ -1167,7 +1185,7 @@ split
 		
 		if(settings["CPackrat"] || settings["CPackratBS"])
 		{
-			if(current.zone == 51 && current.bounty > old.bounty && current.bountynoboss == old.bountynoboss && vars.cpackrat == 0)
+			if(current.zone == 51 && current.cutscene > old.cutscene && (vars.cpackrat == 0 || vars.cpackrat == 1))
 			{
 				if(settings["il"])
 				{
@@ -1181,13 +1199,13 @@ split
 				}
 			}
 		}
-		if(settings["CPackrat"] && vars.cpackrat == 1 && current.cutscene > old.cutscene)
+		if(settings["CPackrat"] && vars.cpackrat == 2)
 		{
 			vars.cpackrat++;
 			return true;
 		}
 			
-		if(settings["CPackratBS"] && vars.cpackratbs == 1 && current.primeguy > old.primeguy)
+		if(settings["CPackratBS"] && vars.cpackratbs == 2 && current.primeguy > old.primeguy)
 		{
 			vars.cpackratbs++;
 			return true;
@@ -1280,7 +1298,7 @@ split
 		
 		if(settings["CMcGee"] || settings["CMcGeeBS"])
 		{
-			if(current.zone == 45 && current.bounty > old.bounty && vars.cmcgee == 0)
+			if(current.zone == 45 && current.cutscene > old.cutscene && (vars.cmcgee == 0 || vars.cmcgee == 1 || vars.cmcgee == 2))
 			{
 				if(settings["il"])
 				{
@@ -1293,14 +1311,15 @@ split
 					vars.cmcgeebs++;
 				}
 			}
+			
 		}
-		if(settings["CMcGee"] && vars.cmcgee == 1 && current.cutscene > old.cutscene)
+		if(settings["CMcGee"] && vars.cmcgee == 3)
 		{
 			vars.cmcgee++;
 			return true;
 		}
 			
-		if(settings["CMcGeeBS"] && vars.cmcgeebs == 1 && current.primeguy > old.primeguy)
+		if(settings["CMcGeeBS"] && vars.cmcgeebs == 3 && current.primeguy > old.primeguy)
 		{
 			vars.cmcgeebs++;
 			return true;
@@ -1334,7 +1353,7 @@ split
 		
 		if(settings["CFatty"] || settings["CFattyBS"])
 		{
-			if(current.zone == 28 && current.bounty > old.bounty && current.bountynoboss == old.bountynoboss && vars.cfatty == 0)
+			if(current.zone == 28 && current.cutscene > old.cutscene && (vars.cfatty == 0 || vars.cfatty == 1))
 			{
 				if(settings["il"])
 				{
@@ -1348,13 +1367,13 @@ split
 				}
 			}
 		}
-		if(settings["CFatty"] && vars.cfatty == 1 && current.cutscene > old.cutscene)
+		if(settings["CFatty"] && vars.cfatty == 2)
 		{
 			vars.cfatty++;
 			return true;
 		}
 			
-		if(settings["CFattyBS"] && vars.cfattybs == 1 && current.primeguy > old.primeguy)
+		if(settings["CFattyBS"] && vars.cfattybs == 2 && current.primeguy > old.primeguy)
 		{
 			vars.cfattybs++;
 			return true;
@@ -1365,7 +1384,7 @@ split
 		
 		if(settings["CElboze"] || settings["CElbozeBS"])
 		{
-			if(current.zone == 54 && current.bounty > old.bounty && vars.celboze == 0 || current.zone == 66 && current.bounty > old.bounty && vars.celboze == 0)
+			if((current.zone == 54 || current.zone == 66) && current.cutscene > old.cutscene && (vars.celboze == 0 || vars.celboze == 1))
 			{
 				if(settings["il"])
 				{
@@ -1379,13 +1398,13 @@ split
 				}
 			}
 		}
-		if(settings["CElboze"] && vars.celboze == 1 && current.cutscene > old.cutscene)
+		if(settings["CElboze"] && vars.celboze == 2)
 		{
 			vars.celboze++;
 			return true;
 		}
 			
-		if(settings["CElbozeBS"] && vars.celbozebs == 1 && current.primeguy > old.primeguy)
+		if(settings["CElbozeBS"] && vars.celbozebs == 2 && current.primeguy > old.primeguy)
 		{
 			vars.celbozebs++;
 			return true;
@@ -1430,7 +1449,7 @@ split
 		
 		if(settings["CLefty"] || settings["CLeftyBS"])
 		{
-			if(current.zone == 17 && current.bounty > old.bounty && current.bountynoboss == old.bountynoboss && vars.clefty == 0)
+			if(current.zone == 17 && current.cutscene > old.cutscene && (vars.clefty == 0 ||vars.clefty == 1))
 			{
 				if(settings["il"])
 				{
@@ -1444,13 +1463,13 @@ split
 				}
 			}
 		}
-		if(settings["CLefty"] && vars.clefty == 1 && current.cutscene > old.cutscene)
+		if(settings["CLefty"] && vars.clefty == 2)
 		{
 			vars.clefty++;
 			return true;
 		}
 			
-		if(settings["CLeftyBS"] && vars.cleftybs == 1 && current.primeguy > old.primeguy)
+		if(settings["CLeftyBS"] && vars.cleftybs == 2 && current.primeguy > old.primeguy)
 		{
 			vars.cleftybs++;
 			return true;
