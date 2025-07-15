@@ -247,10 +247,10 @@ startup
 	settings.Add("CLootenBS", false, "Looten Duke bounty store");
 	settings.SetToolTip("CLootenBS", "Split when delivering Looten Duke at the bounty store");
 	
-	settings.Add("CBoilz", false, "Boilz Booty capture");
-	settings.SetToolTip("CBoilz", "Split when capturing Boilz Booty");
+	settings.Add("CBoilz", false, "Gizzard Gulch exit");
+	settings.SetToolTip("CBoilz", "Split after exiting Gizzard Gulch");
 	
-	settings.Add("CGizzardGulchEnd", false, "Gizzard Gulch end");
+	settings.Add("CGizzardGulchEnd", false, "Gizzard Gulch region end");
 	settings.SetToolTip("CGizzardGulchEnd", "Split when reaching the cutscene with the broken bridge");
 	
 	
@@ -288,7 +288,7 @@ startup
 	settings.Add("CPackratBS", false, "Packrat Palooka bounty store");
 	settings.SetToolTip("CPackratBS", "Split when delivering Packrat Palooka at the bounty store");
 	
-	settings.Add("CBuzzartonEnd", false, "Buzzarton end");
+	settings.Add("CBuzzartonEnd", false, "Buzzarton region end");
 	settings.SetToolTip("CBuzzartonEnd", "Split when reaching the cutscene before the snipers jungle");
 	
 	
@@ -331,7 +331,7 @@ startup
 	settings.Add("CSleg", false, "Giant Sleg kill");
 	settings.SetToolTip("CSleg", "Split when killing the Giant Sleg for Lugnutz's Bounty");
 	
-	settings.Add("CNewYolkCityEnd", false, "New Yolk City end");
+	settings.Add("CNewYolkCityEnd", false, "New Yolk City region end");
 	settings.SetToolTip("CNewYolkCityEnd", "Split when speaking to the captain of the boat");
 	
 	
@@ -938,12 +938,6 @@ split
 			
 			if(current.zone == 12 && current.cutscene > old.cutscene && (vars.cfloyd == 1 || vars.cfloyd == 2))
 			{
-				if(settings["il"])
-				{
-					vars.cfloyd++;
-					vars.cfloydbs++;
-				}
-				else if(current.regionID == 1)
 				{
 					vars.cfloyd++;
 					vars.cfloydbs++;
@@ -994,11 +988,11 @@ split
 		}
 		
 		
-		//Boilz Booty
+		//Boilz Booty + Gizzard Gulch exit
 		
 		if(settings["CBoilz"] || settings["CBoilzBS"])
 		{
-			if(current.zone == 2 && current.HPbar == 0 && old.HPbar == 1 && current.regionTimer > old.regionTimer && vars.cboilz == 0)
+			if(current.zone == 41 && vars.cboilz == 0)
 			{
 				if(settings["il"])
 				{
@@ -1066,8 +1060,7 @@ split
 		if(settings["CJoMomma"] || settings["CJoMommaBS"])
 		
 		{
-
-			if(current.zone == 60 && current.cutscene > old.cutscene && vars.cjomomma == 0)
+			if(current.zone == 60 && (current.xHeadBH <= 104 && current.xHeadBH >= 90 && current.zHeadBH <= -178 && current.zHeadBH >= -245 && current.yHeadBH <= 1000 && current.yHeadBH >= -50 || current.xHeadBH <= 61 && current.xHeadBH >= 60 && current.zHeadBH <= -105 && current.zHeadBH >= -115 && current.yHeadBH <= -20 && current.yHeadBH >= -40) && vars.cjomomma == 0)
 			{
 				if(settings["il"])
 				{
@@ -1080,15 +1073,23 @@ split
 					vars.cjomommabs++;
 				}
 			}
+			
+			if(current.zone == 60 && current.cutscene > old.cutscene && vars.cjomomma == 1)
+			{
+				{
+					vars.cjomomma++;
+					vars.cjomommabs++;
+				}
+			}
 		}
-		if(settings["CJoMomma"] && vars.cjomomma == 1)
+		if(settings["CJoMomma"] && vars.cjomomma == 2)
 		{
 			vars.cjomomma++;
 			return true;
 		}
 		
 			
-		if(settings["CJoMommaBS"] && current.primeguy > old.primeguy && vars.cjomommabs == 1)
+		if(settings["CJoMommaBS"] && current.primeguy > old.primeguy && vars.cjomommabs == 2)
 		{
 			vars.cjomommabs++;
 			return true;
