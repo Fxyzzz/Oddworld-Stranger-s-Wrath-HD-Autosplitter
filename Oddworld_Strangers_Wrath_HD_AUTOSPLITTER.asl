@@ -43,7 +43,6 @@ state ("stranger", "Steam 1.5")
 	byte gameState : 0x63B7DA;
 	double regionTimer : 0x3F7B40;
 	double regionIGT : 0x5D5540;
-	int HPbar : 0x64C458, 0xACC;		//Counts how many ennemy health bars are currently displayed on screen
 }
 
 state ("stranger", "GOG 1.5")
@@ -89,7 +88,6 @@ state ("stranger", "GOG 1.5")
 	byte gameState : 0x636BFA;
 	double regionTimer : 0x3F6B40;
 	double regionIGT : 0x5D0958;
-	int HPbar : 0x647878, 0xACC;
 }
 
 
