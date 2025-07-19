@@ -1995,20 +1995,20 @@ split
 		
 		//Final boss fight
 		
-		if(settings["CBossStart"] || settings["CSektoStart"] || settings["CSektoEnd"])
+		if(settings["CBossStart"] || settings["CSektoStart"] || settings["CSektoEnd"] && settings["il"] == false)
 		{
 			if(current.xHeadSteef <= -435 && current.xHeadSteef >= -450 && current.zHeadSteef <= 961 && current.zHeadSteef >= 949 && current.yHeadSteef <= 400 && current.yHeadSteef >= 350 && vars.cbossstart == 0)
 			{
-				if(settings["il"])
-				{
-					vars.cbossstart++;
-				}
-				else if(current.regionID == 7)
+				if(current.regionID == 7)
 				{
 					vars.cbossstart++;
 				}
 			}
 		}
+		if(settings["il"] && (settings["CSektoStart"] || settings["CSektoEnd"]) && vars.csektostart == 0)
+		{
+			vars.csektostart++;		}
+		
 		if(vars.cbossstart == 1 && current.cutscene > old.cutscene)
 		{
 			if(settings["CBossStart"])
