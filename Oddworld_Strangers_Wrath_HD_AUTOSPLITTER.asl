@@ -286,7 +286,7 @@ startup
 	
 	settings.Add("CPackratBS", false, "Packrat Palooka bounty store");
 	settings.SetToolTip("CPackratBS", "Split when delivering Packrat Palooka at the bounty store");
-	§
+	
 	settings.Add("CBuzzartonEnd", false, "Buzzarton region end");
 	settings.SetToolTip("CBuzzartonEnd", "Split when reaching the cutscene before the snipers jungle");
 	
