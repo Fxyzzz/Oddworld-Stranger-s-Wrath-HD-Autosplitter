@@ -133,6 +133,7 @@ init
 	vars.cmcgeeminecart = 0;
 	vars.cmcgee = 0;
 	vars.cmcgeebs = 0;
+	vars.cport = 0;
 	vars.cfattycabin = 0;
 	vars.cfatty = 0;
 	vars.cfattybs = 0;
@@ -285,7 +286,7 @@ startup
 	
 	settings.Add("CPackratBS", false, "Packrat Palooka bounty store");
 	settings.SetToolTip("CPackratBS", "Split when delivering Packrat Palooka at the bounty store");
-	
+	§
 	settings.Add("CBuzzartonEnd", false, "Buzzarton region end");
 	settings.SetToolTip("CBuzzartonEnd", "Split when reaching the cutscene before the snipers jungle");
 	
@@ -304,6 +305,9 @@ startup
 	
 	settings.Add("CMcGeeBS", false, "Xplosives McGee bounty store");
 	settings.SetToolTip("CMcGeeBS", "Split when delivering Xplosives McGee at the bounty store");
+	
+	settings.Add("CPort", false, "Port Authority exit");
+	settings.SetToolTip("CPort", "Split when entering the Mongo River");
 	
 	settings.Add("CFattyCabin", false, "Fatty McBoomboom sky cart cabine");
 	settings.SetToolTip("CFattyCabin", "Split entering the cabin at the end of the sky cart line");
@@ -600,6 +604,7 @@ start
 	vars.cmcgeeminecart = 0;
 	vars.cmcgee = 0;
 	vars.cmcgeebs = 0;
+	vars.cport = 0;
 	vars.cfattycabin = 0;
 	vars.cfatty = 0;
 	vars.cfattybs = 0;
@@ -739,6 +744,7 @@ reset
 		vars.cmcgeeminecart = 0;
 		vars.cmcgee = 0;
 		vars.cmcgeebs = 0;
+		vars.cport = 0;
 		vars.cfattycabin = 0;
 		vars.cfatty = 0;
 		vars.cfattybs = 0;
@@ -820,6 +826,7 @@ reset
 		vars.cmcgeeminecart = 0;
 		vars.cmcgee = 0;
 		vars.cmcgeebs = 0;
+		vars.cport = 0;
 		vars.cfattycabin = 0;
 		vars.cfatty = 0;
 		vars.cfattybs = 0;
@@ -1114,7 +1121,6 @@ split
 				vars.ceugenetunnel++;
 				return true;
 			}
-			
 		}
 		
 		
@@ -1310,7 +1316,6 @@ split
 					vars.cmcgeebs++;
 				}
 			}
-			
 		}
 		if(settings["CMcGee"] && vars.cmcgee == 3)
 		{
@@ -1324,6 +1329,27 @@ split
 			return true;
 		}
 		
+		//Port Authority Exit
+
+		if(settings["CPort"])
+		{
+			if(current.xHeadBH <= -334 && current.xHeadBH >= -342 && current.zHeadBH <= 429 && current.zHeadBH >= 413 && current.yHeadBH <= 93 && current.yHeadBH >= 85 && vars.cport == 0)
+			{
+				if(settings["il"])
+				{
+					vars.cport++;
+				}
+				else if(current.regionID == 3)
+				{
+					vars.cport++;
+				}
+			}
+			if(vars.cport == 1)
+			{
+				vars.cport++;
+				return true;
+			}
+		}
 		
 		//Fatty sky cart
 		
