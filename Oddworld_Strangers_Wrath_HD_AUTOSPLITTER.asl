@@ -1,9 +1,8 @@
-//intial release 19-02-2021 by Fxyz#1329, Last update: 11-07-2025
+//intial release 19-02-2021 by Fxyz#1329, Last update: 20-06-2026
 
 state ("stranger", "Steam 1.5")
 
 {
-	int platform : 0x1DEAFC, 0x4;
 	int resetload : 0x2A6968, 0x8;		//Changes only when inside the load menu and the quit menu
 	int bounty : 0x1DE930, 0x10;		//Capture count (alive only)
 	int primeguy : 0x1DFA94, 0x90;		//Talking to the guy in the bounty store
@@ -48,7 +47,6 @@ state ("stranger", "Steam 1.5")
 state ("stranger", "GOG 1.5")
 
 {
-	int platform : 0x1E120C, 0x64;
 	int resetload : 0x2A5DD8, 0x8;
 	int bounty : 0x1DEA10, 0x10;
 	int primeguy : 0x1DFB74, 0x90;
@@ -93,6 +91,30 @@ state ("stranger", "GOG 1.5")
 
 init
 {	
+	string MD5Hash;
+	using (var md5 = System.Security.Cryptography.MD5.Create())
+	{
+		using (var stream = File.Open(modules.First().FileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+		{
+			var hash = md5.ComputeHash(stream);
+			MD5Hash = BitConverter.ToString(hash).Replace("-", "").ToUpperInvariant();
+		}
+	}
+
+	switch (MD5Hash)
+	{
+		case "6A21867ACB46C6085AAD3F77611B6754":
+			version = "Steam 1.5"; break;
+
+		case "066646305A91D00E0A775F2906BF9C83":
+			version = "GOG 1.5"; break;
+			
+		default:
+			version = "Unknown version"; break;
+	}
+	
+	
+	
 	vars.barrel = 0;
 	vars.barrelqs = 0;
 	vars.mchest = 0;
@@ -169,17 +191,6 @@ init
 	vars.csektoend = 0;
 	vars.scriptedHit = 0;
 	vars.ILstart = 0;
-
-
-	if(current.platform == 1)
-	{
-		version = "Steam 1.5";
-	}
-	
-	if(current.platform == 0)
-	{
-		version = "GOG 1.5";
-	}
 	
 	if(settings["Refresh rate of the autosplitter"])
 	{
